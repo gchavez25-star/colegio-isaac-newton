@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-azul-oscuro shadow-lg">
       {/* Top Bar */}
-      <div className="bg-azul-oscuro border-b border-white/10 py-2">
+      <div className="bg-[#013055] border-b border-white/10 py-2">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center text-sm text-white">
             <div className="hidden md:flex gap-6">
@@ -72,7 +72,7 @@ const Header = () => {
       </div>
 
       {/* Main Navigation */}
-      <nav className="bg-azul-oscuro py-3">
+      <nav className="bg-[#013055] py-3">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
@@ -107,7 +107,7 @@ const Header = () => {
               <Link
                 to="/admision"
                 className="group flex items-center gap-2 px-2 py-2 rounded-lg font-bold 
-                          text-azul-oscuro bg-[#fccc00] hover:bg-[#ffd633] transition-all"
+                          text-azul-oscuro bg-[#ffcd00] hover:bg-[#ffd633] transition-all"
               >
                 <GraduationCap
                   size={18}

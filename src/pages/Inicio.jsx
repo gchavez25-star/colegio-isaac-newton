@@ -1,6 +1,12 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Users, Play, Microscope, Music, Palette, Trophy, ChevronRight } from 'lucide-react';
+import HeroSlider from '../components/ui/HeroSlider';
+import AccesosRapidos from '../components/ui/AccesosRapidos';
 
 const Inicio = () => {
   const talleres = [
@@ -40,116 +46,10 @@ const Inicio = () => {
   return (
     <div className="min-h-screen pt-24">
       {/* Hero Section - Diseño de referencia */}
-      <section className="relative min-h-[90vh] flex items-center bg-gradient-to-r from-verde-azulado via-teal-500 to-lime-400 overflow-hidden">
-        <div className="container mx-auto px-4 py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Contenido izquierdo */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-white"
-            >
-              {/* Badges superiores */}
-              <div className="flex flex-wrap gap-3 mb-8">
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.3, type: 'spring' }}
-                  className="inline-block bg-amarillo-dorado text-azul-oscuro px-5 py-2 rounded-full font-bold text-sm"
-                >
-                  ¡Nuevo ciclo 2025!
-                </motion.div>
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.5, type: 'spring' }}
-                  className="inline-block bg-verde-azulado text-white px-5 py-2 rounded-full font-semibold text-sm"
-                >
-                  Becas disponibles
-                </motion.div>
-              </div>
-
-              {/* Título principal */}
-              <h1 className="font-anton text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight">
-                Formando<br />
-                <span className="text-amarillo-dorado">Científicos</span> del<br />
-                Futuro
-              </h1>
-
-              {/* Descripción */}
-              <p className="text-lg md:text-xl mb-8 text-white/90 max-w-xl">
-                Educación de excelencia con metodología científica innovadora. 
-                Desarrollamos el pensamiento crítico y la pasión por el 
-                conocimiento en cada uno de nuestros estudiantes.
-              </p>
-
-              {/* Botones de acción */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Link
-                    to="/nosotros"
-                    className="inline-flex items-center gap-2 bg-amarillo-dorado text-azul-oscuro px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 transition-colors"
-                  >
-                    <Users size={20} />
-                    Conócenos más
-                  </Link>
-                </motion.div>
-                
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <input
-                    type="text"
-                    placeholder="Buscar..."
-                    className="px-6 py-4 rounded-lg bg-white/20 backdrop-blur-sm text-white placeholder-white/70 border border-white/30 focus:outline-none focus:ring-2 focus:ring-amarillo-dorado w-full sm:w-64"
-                  />
-                </motion.div>
-              </div>
-            </motion.div>
-
-            {/* Video promocional - lado derecho */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative"
-            >
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-2xl">
-                {/* Placeholder del video */}
-                <div className="relative aspect-video bg-gradient-to-br from-teal-700 to-teal-900 rounded-xl overflow-hidden group cursor-pointer">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      className="w-20 h-20 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-white/50"
-                    >
-                      <Play size={32} className="text-white ml-1" fill="white" />
-                    </motion.div>
-                  </div>
-                  <img
-                    src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&h=600&fit=crop"
-                    alt="Campus"
-                    className="w-full h-full object-cover opacity-60"
-                  />
-                </div>
-                
-                {/* Texto del video */}
-                <div className="mt-4 text-white">
-                  <h3 className="font-anton text-xl mb-2">Video Promocional</h3>
-                  <p className="text-sm text-white/80">
-                    Conoce nuestras instalaciones y metodología educativa
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
+      {/* Nuevo Hero Slider */}
+      <HeroSlider />
+      {/* Accesos Rápidos */}
+      <AccesosRapidos />
       {/* Propuesta Pedagógica */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">

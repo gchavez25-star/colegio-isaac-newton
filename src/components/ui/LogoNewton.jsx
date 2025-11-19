@@ -2,26 +2,32 @@ import React from "react";
 
 export default function LogoNewton() {
   return (
-    <div className="flex items-center scale-70 sm:scale-80 md:scale-85 origin-left gap-3 select-none">
-      {/* Escudo */}
-      <img
-        src="/Escudo líneas.png"
-        alt="Escudo del colegio"
-        className="h-10 w-8 sm:h-12 sm:w-10 md:h-14 md:w-12"
-      />
+    <div className="flex items-center gap-3 scale-70 sm:scale-80 md:scale-85 origin-left select-none">
+      {/* Escudo + Línea amarilla siempre visibles */}
+     <div className="flex items-center gap-3 shrink-0">
+        <img
+          src="/Escudo líneas.png"
+          alt="Escudo del colegio"
+          className="h-12 w-auto sm:h-14 md:h-16"
+        />
+        <div className="h-12 sm:h-14 md:h-16 w-1 bg-[#fccc00]"></div>
+      </div>
 
-      {/* Línea amarilla */}
-      <div className="h-8 sm:h-10 md:h-14 w-1 bg-[#fccc00]"></div>
+      {/* Textos visibles en TODAS LAS PANTALLAS */}
+      <div className="flex flex-col leading-tight text-white w-full">
 
-      {/* Texto oculto en móvil, visible desde sm */}
-      <div className="hidden sm:flex flex-col leading-tight text-white w-max">
-        <span className="text-sm sm:text-base md:text-lg font-montserrat px-1">
+        {/* Superior: alineado a la izquierda */}
+        <span className="font-montserrat text-sm sm:text-base md:text-lg">
           Colegio Privado de Ciencias
         </span>
-        <span className="font-anton tracking-[0.14em] text-2xl sm:text-3xl md:text-4xl px-1" >
-          ISAAC NEWTON 
+
+        {/* Inferior: alineado a la derecha */}
+        <span className="font-montserrat font-semibold tracking-wide text-lg sm:text-xl md:text-3xl whitespace-nowrap text-center leading-tight">
+          ISAAC NEWTON
         </span>
+
       </div>
+
     </div>
   );
 }
