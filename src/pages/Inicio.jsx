@@ -37,10 +37,13 @@ const Inicio = () => {
   ];
 
   const partners = [
-    { nombre: 'PUCP', logo: 'https://via.placeholder.com/150x80?text=PUCP' },
-    { nombre: 'UNMSM', logo: 'https://via.placeholder.com/150x80?text=UNMSM' },
-    { nombre: 'UPC', logo: 'https://via.placeholder.com/150x80?text=UPC' },
-    { nombre: 'UTEC', logo: 'https://via.placeholder.com/150x80?text=UTEC' }
+    { nombre: 'PMI', logo: 'https://via.placeholder.com/150x80?text=PUCP' },
+    { nombre: 'GOOGLE SITE', logo: 'https://via.placeholder.com/150x80?text=PUCP' },
+    { nombre: 'CAMARA DE COMERCIO', logo: 'https://via.placeholder.com/150x80?text=PUCP' },
+    { nombre: 'SIEWEB', logo: 'https://via.placeholder.com/150x80?text=PUCP' },
+    { nombre: 'PIZA Ediciones', logo: 'https://via.placeholder.com/150x80?text=UNMSM' },
+    { nombre: 'SANTILLANA', logo: 'https://via.placeholder.com/150x80?text=UPC' },
+    { nombre: 'RICHMOND', logo: 'https://via.placeholder.com/150x80?text=UTEC' }
   ];
 
   return (
@@ -63,46 +66,71 @@ const Inicio = () => {
               Nuestra Propuesta Pedagógica
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Implementamos una metodología científica innovadora que combina el aprendizaje activo, 
-              el pensamiento crítico y la experimentación práctica para formar estudiantes preparados 
-              para los desafíos del siglo XXI.
+              Desarrollar un modelo educativo basado en competencias, integrando tecnología, 
+              metodologías activas y neurociencia para fortalecer un aprendizaje real y aplicable. Promueve el pensamiento crítico, 
+              la autonomía y el trabajo colaborativo. Su objetivo es formar estudiantes capaces de responder a las demandas actuales con responsabilidad y solvencia.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div
+            className="
+              grid 
+              grid-cols-2            /* Móvil: 3 columnas */
+              sm:grid-cols-2
+              md:grid-cols-3         /* Tablet: 3 columnas */
+              lg:grid-cols-5         /* Desktop: 5 columnas */
+              gap-6 
+              mt-10
+            "
+          >
             {[
-              {
-                titulo: 'Educación Integral',
-                descripcion: 'Desarrollo académico, emocional y social equilibrado',
-                icono: '📚'
-              },
-              {
-                titulo: 'Método Científico',
-                descripcion: 'Aprendizaje basado en la investigación y experimentación',
-                icono: '🔬'
-              },
-              {
-                titulo: 'Trabajo Colaborativo',
-                descripcion: 'Fomentamos el trabajo en equipo y la comunicación efectiva',
-                icono: '👥'
-              }
+              { titulo: "Aula Virtual", icono: "/Virtual.png" },
+              { titulo: "Aulas Equipadas", icono: "/Aula.png" },
+              { titulo: "Cafetín", icono:"/Cafetin.png" },
+              { titulo: "Laboratorio Ciencias y Cómputo", icono: "/Laboratorio.png" },
+              { titulo: "Áreas de recreación", icono: "/Juegos.png" },
             ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                whileHover={{ y: -10 }}
-                className="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all"
+                whileHover={{ scale: 1.06 }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+                className="
+                  rounded-2xl 
+                  overflow-hidden 
+                  shadow-lg 
+                  bg-[#013055]
+                "
               >
-                <div className="text-5xl mb-4">{item.icono}</div>
-                <h3 className="font-anton text-2xl text-azul-oscuro mb-3">
-                  {item.titulo}
-                </h3>
-                <p className="text-gray-600">
-                  {item.descripcion}
-                </p>
+                {/* Encabezado */}
+                <div className="bg-[#ffcd00] py-3 text-center">
+                  <h3 className="
+                    font-anton 
+                    text-[#013055] 
+                    text-base 
+                    sm:text-lg 
+                    tracking-wide
+                  ">
+                    {item.titulo}
+                  </h3>
+                </div>
+
+                {/* Icono */}
+                <div className="flex items-center justify-center h-32 sm:h-40 p-4">
+                  <img
+                    src={item.icono}
+                    alt={item.titulo}
+                    className="
+                      w-16 h-16 
+                      sm:w-20 sm:h-20
+                      invert brightness-0
+                      transition-transform duration-300
+                      hover:scale-110
+                    "
+                  />
+                </div>
               </motion.div>
             ))}
           </div>
@@ -123,7 +151,7 @@ const Inicio = () => {
               </h2>
               <p className="text-lg text-gray-600 mb-6">
                 Contamos con dos modernos campus ubicados estratégicamente en Cajamarca y Baños del Inca, 
-                equipados con laboratorios de última generación, bibliotecas especializadas, áreas deportivas 
+                equipados con laboratorios de última generación, áreas deportivas 
                 y espacios diseñados para potenciar el aprendizaje.
               </p>
               <motion.div

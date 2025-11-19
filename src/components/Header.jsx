@@ -19,10 +19,10 @@ const Header = () => {
   ];
 
   const topLinks = [
+    { name: 'Noticias', path: '#' },
     { name: 'Servicios', path: '#' },
     { name: 'Contáctanos', path: '/contacto' },
     { name: 'Trabaja con nosotros', path: '#' },
-    { name: 'Reglamento', path: '#' }
   ];
 
   return (
