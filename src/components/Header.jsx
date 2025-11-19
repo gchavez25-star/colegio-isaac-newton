@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ExternalLink, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import LogoNewton from "../components/ui/LogoNewton";
+import { GraduationCap } from "lucide-react";
+
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,9 +42,30 @@ const Header = () => {
                 </Link>
               ))}
             </div>
-            <div className="flex items-center gap-2 ml-auto">
-              <Phone size={16} />
-              <span>+51 976 123 456</span>
+            <div className="hidden sm:flex items-center gap-5 ml-auto text-white text-sm">
+
+              {/* Sede Cajamarca */}
+              <div className="flex items-center gap-2">
+                <div className="p-1 rounded-full bg-white/20 flex items-center justify-center">
+                  <Phone size={14} />
+                </div>
+                <div className="flex flex-col leading-tight">
+                  <span className="font-semibold">Cajamarca</span>
+                  <span className="text-xs">+51 932 274 369</span>
+                </div>
+              </div>
+
+              {/* Sede Baños del Inca */}
+              <div className="flex items-center gap-2">
+                <div className="p-1 rounded-full bg-white/20 flex items-center justify-center">
+                  <Phone size={14} />
+                </div>
+                <div className="flex flex-col leading-tight">
+                  <span className="font-semibold">Baños del Inca</span>
+                  <span className="text-xs">+51 920 438 721</span>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -52,16 +76,8 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3">
-              <img
-                src="/logo-simple.png"
-                alt="Isaac Newton"
-                className="h-12 w-12 rounded-full"
-              />
-              <div className="text-white">
-                <div className="font-anton text-xl leading-tight">Isaac Newton</div>
-                <div className="text-xs text-gray-300">Colegio de Ciencias</div>
-              </div>
+            <Link to="/">
+              <LogoNewton />
             </Link>
 
             {/* Desktop Menu */}
@@ -76,16 +92,27 @@ const Header = () => {
                 </Link>
               ))}
               <a
-                href="#"
-                className="flex items-center gap-2 text-white hover:text-amarillo-dorado font-medium transition-colors border border-white/30 px-4 py-2 rounded-lg"
+                href="https://in.sieweb.com.pe/sistema/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 px-5 py-2 rounded-lg font-semibold 
+                          text-white bg-[#007a75] hover:bg-[#009185] transition-all"
               >
-                <ExternalLink size={16} />
+                <ExternalLink
+                  size={16}
+                  className="transition-transform group-hover:rotate-45"
+                />
                 SIEWEB
               </a>
               <Link
                 to="/admision"
-                className="bg-amarillo-dorado text-azul-oscuro px-6 py-2 rounded-lg font-bold hover:bg-yellow-400 transition-colors"
+                className="group flex items-center gap-2 px-2 py-2 rounded-lg font-bold 
+                          text-azul-oscuro bg-[#fccc00] hover:bg-[#ffd633] transition-all"
               >
+                <GraduationCap
+                  size={18}
+                  className="transition-transform group-hover:-translate-y-0.5"
+                />
                 Admisión
               </Link>
             </div>

@@ -10,7 +10,7 @@ const Footer = () => {
           <div>
             <div className="mb-4">
               <img 
-                src="/logo-vertical-azul.png" 
+                src="/Escudo líneas.png" 
                 alt="Colegio Isaac Newton" 
                 className="h-20 w-auto brightness-0 invert"
               />
