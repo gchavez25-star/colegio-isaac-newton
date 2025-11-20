@@ -151,8 +151,7 @@ const Inicio = () => {
               </h2>
               <p className="text-lg text-gray-600 mb-6">
                 Contamos con dos modernos campus ubicados estratégicamente en Cajamarca y Baños del Inca, 
-                equipados con laboratorios de última generación, áreas deportivas 
-                y espacios diseñados para potenciar el aprendizaje.
+                equipados con laboratorios de última generación, áreas deportivas y espacios diseñados para potenciar el aprendizaje.
               </p>
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -246,17 +245,17 @@ const Inicio = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-10"
           >
-            <h2 className="font-anton text-4xl md:text-5xl mb-4">
-              Nuestros Partners Universitarios
+            <h2 className="font-anton text-5xl md:text-5xl mb-4">
+              Nuestros Partners
             </h2>
-            <p className="text-lg max-w-3xl mx-auto">
+            <p className="text-lg max-w-5xl mx-auto">
               Más del 85% de nuestros egresados ingresan a las mejores universidades del país
             </p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center items-center gap-12">
+          <div className="flex flex-wrap justify-center items-center gap-10">
             {partners.map((partner, index) => (
               <motion.div
                 key={index}

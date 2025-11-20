@@ -7,9 +7,9 @@ const Nosotros = () => {
 
   const historia = [
     {
-      año: 1990,
+      año: 1997,
       titulo: 'Fundación',
-      descripcion: 'El Dr. Roberto Mendoza funda el Colegio Isaac Newton con la visión de crear una institución educativa centrada en las ciencias.'
+      descripcion: 'El Dr. Jorge Vidal Asencio funda el Colegio Isaac Newton con la visión de crear una institución educativa centrada en las ciencias.'
     },
     {
       año: 2000,
@@ -71,7 +71,7 @@ const Nosotros = () => {
   ];
 
   const logros = [
-    { numero: '35+', texto: 'Años de experiencia' },
+    { numero: '28+', texto: 'Años de experiencia' },
     { numero: '2000+', texto: 'Egresados exitosos' },
     { numero: '85%', texto: 'Ingreso a universidades top' },
     { numero: '50+', texto: 'Docentes especializados' }
@@ -109,7 +109,7 @@ const Nosotros = () => {
             >
               <img
                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=600&fit=crop"
-                alt="Dr. Roberto Mendoza"
+                alt="Dr. Jorge Vidal Asencio"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -123,7 +123,7 @@ const Nosotros = () => {
                 Nuestro Fundador
               </h2>
               <h3 className="text-2xl text-verde-azulado font-bold mb-4">
-                Dr. Roberto Mendoza Castillo
+               Dr. Jorge Vidal Asencio
               </h3>
               <p className="text-gray-600 mb-4">
                 Físico de profesión y educador por vocación, el Dr. Mendoza fundó el Colegio 

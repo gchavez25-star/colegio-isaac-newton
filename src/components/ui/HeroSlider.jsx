@@ -18,7 +18,7 @@ const HeroSlider = () => {
       type: 'image',
       title: 'Admisión y Traslados 2025 – 2026',
       imageMobile: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=430&h=700&fit=crop',
-      imageDesktop: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1920&h=713&fit=crop',
+      imageDesktop: '/public/Hero/Admision.jpg',
       buttons: [
         { text: 'Agenda una Visita Guiada', link: '/contacto', style: 'primary' }
       ]
@@ -40,7 +40,7 @@ const HeroSlider = () => {
       type: 'image',
       title: 'Formamos Científicos Líderes para el Mundo',
       imageMobile: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=430&h=700&fit=crop',
-      imageDesktop: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=713&fit=crop',
+      imageDesktop: '/public/Hero/Futuro.jpg',
       buttons: [
         { text: 'Conócenos', link: '/nosotros', style: 'primary' }
       ]
@@ -50,7 +50,7 @@ const HeroSlider = () => {
       type: 'image',
       title: 'Un entorno Seguro y Familiar para tus hijos',
       imageMobile: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=430&h=700&fit=crop',
-      imageDesktop: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1920&h=713&fit=crop',
+      imageDesktop: '/public/Hero/28.jpg',
       buttons: [
         { text: 'Inicia el Proceso de Admisión', link: '/admision', style: 'primary' }
       ]
