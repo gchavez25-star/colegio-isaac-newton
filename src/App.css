@@ -47,7 +47,7 @@
   /* Colores institucionales Isaac Newton */
   --azul-oscuro: #013055;
   --verde-azulado: #007a75;
-  --amarillo-dorado: #fccc00;
+  --amarillo-dorado: #ffcd00;
   
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -172,4 +172,19 @@
 
 .border-amarillo-dorado {
   border-color: var(--amarillo-dorado);
+}
+/* Estilos Aliados */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+  display: flex;
+  width: max-content;
 }

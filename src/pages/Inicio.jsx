@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { Users, Play, Microscope, Music, Palette, Trophy, ChevronRight } from 'lucide-react';
 import HeroSlider from '../components/ui/HeroSlider';
 import AccesosRapidos from '../components/ui/AccesosRapidos';
+import AliadosSlider from "../components/ui/AliadosSlider";
 
 const Inicio = () => {
   const talleres = [
@@ -36,16 +37,6 @@ const Inicio = () => {
     }
   ];
 
-  const partners = [
-    { nombre: 'PMI', logo: 'https://via.placeholder.com/150x80?text=PUCP' },
-    { nombre: 'GOOGLE SITE', logo: 'https://via.placeholder.com/150x80?text=PUCP' },
-    { nombre: 'CAMARA DE COMERCIO', logo: 'https://via.placeholder.com/150x80?text=PUCP' },
-    { nombre: 'SIEWEB', logo: 'https://via.placeholder.com/150x80?text=PUCP' },
-    { nombre: 'PIZA Ediciones', logo: 'https://via.placeholder.com/150x80?text=UNMSM' },
-    { nombre: 'SANTILLANA', logo: 'https://via.placeholder.com/150x80?text=UPC' },
-    { nombre: 'RICHMOND', logo: 'https://via.placeholder.com/150x80?text=UTEC' }
-  ];
-
   return (
     <div className="min-h-screen pt-24">
       {/* Hero Section - Diseño de referencia */}
@@ -71,71 +62,130 @@ const Inicio = () => {
               la autonomía y el trabajo colaborativo. Su objetivo es formar estudiantes capaces de responder a las demandas actuales con responsabilidad y solvencia.
             </p>
           </motion.div>
-
-        <div
-            className="
-              grid 
-              grid-cols-2            /* Móvil: 3 columnas */
-              sm:grid-cols-2
-              md:grid-cols-3         /* Tablet: 3 columnas */
-              lg:grid-cols-5         /* Desktop: 5 columnas */
-              gap-6 
-              mt-10
-            "
-          >
-            {[
-              { titulo: "Aula Virtual", icono: "/Virtual.png" },
-              { titulo: "Aulas Equipadas", icono: "/Aula.png" },
-              { titulo: "Cafetín", icono:"/Cafetin.png" },
-              { titulo: "Laboratorio Ciencias y Cómputo", icono: "/Laboratorio.png" },
-              { titulo: "Áreas de recreación", icono: "/Juegos.png" },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.06 }}
-                transition={{ duration: 0.35, ease: "easeOut" }}
-                className="
-                  rounded-2xl 
-                  overflow-hidden 
-                  shadow-lg 
-                  bg-[#013055]
-                "
-              >
-                {/* Encabezado */}
-                <div className="bg-[#ffcd00] py-3 text-center">
-                  <h3 className="
-                    font-anton 
-                    text-[#013055] 
-                    text-base 
-                    sm:text-lg 
-                    tracking-wide
-                  ">
-                    {item.titulo}
-                  </h3>
-                </div>
-
-                {/* Icono */}
-                <div className="flex items-center justify-center h-32 sm:h-40 p-4">
-                  <img
-                    src={item.icono}
-                    alt={item.titulo}
-                    className="
-                      w-16 h-16 
-                      sm:w-20 sm:h-20
-                      invert brightness-0
-                      transition-transform duration-300
-                      hover:scale-110
-                    "
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
-      </section>
+        </section>
+
+        {/* Espacios de Aprendizaje - Versión Premium con Fondo Animado */}
+        <section className="relative py-24 overflow-hidden">
+
+          {/* Fondo animado */}
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,#013055_0%,#007a75_50%,#00a69c_100%)] animate-bgMove opacity-90"></div>
+
+          {/* Brillo izquierdo */}
+          <div className="absolute -left-20 top-1/2 w-60 h-60 bg-cyan-300/20 blur-3xl rounded-full animate-pulseSlow"></div>
+
+          {/* Brillo derecho */}
+          <div className="absolute -right-20 top-1/3 w-72 h-72 bg-yellow-300/20 blur-3xl rounded-full animate-pulseSlow delay-300"></div>
+
+
+          <div className="container relative mx-auto px-4">
+
+            {/* Título */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="font-anton text-4xl md:text-5xl text-white drop-shadow-lg mb-4">
+                Espacios de Aprendizaje
+              </h2>
+
+              <p className="text-lg text-white/80 max-w-3xl mx-auto">
+                Ambientes diseñados para potenciar la creatividad, el aprendizaje activo,
+                la tecnología y el uso de metodologías innovadoras en todos los niveles.
+              </p>
+            </motion.div>
+
+            {/* GRID MODERNO */}
+            <div
+              className="
+                grid
+                grid-cols-2
+                sm:grid-cols-2
+                md:grid-cols-3
+                lg:grid-cols-5
+                gap-8
+              "
+            >
+              {[
+                { titulo: "Aula Virtual", icono: "/Virtual.png" },
+                { titulo: "Aulas Equipadas", icono: "/Aula.png" },
+                { titulo: "Cafetín", icono:"/Cafetin.png" },
+                { titulo: "Laboratorio Ciencias y Cómputo", icono: "/Laboratorio.png" },
+                { titulo: "Áreas de recreación", icono: "/Juegos.png" },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 35 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  whileHover={{
+                    scale: 1.08,
+                    rotateX: 10,
+                    rotateY: 10,
+                    boxShadow: "0 25px 50px rgba(0,0,0,0.45)",
+                  }}
+                  transition={{ duration: 0.45, ease: "easeOut" }}
+                  className="
+                    relative 
+                    rounded-2xl 
+                    overflow-hidden 
+                    bg-white/10 
+                    backdrop-blur-xl 
+                    border border-white/20 
+                    shadow-xl 
+                    p-4
+                  "
+                >
+
+                  {/* Línea de acento animada */}
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#ffcd00] to-transparent animate-slideLine"></div>
+
+                  {/* Título */}
+                  <div className="text-center mb-4">
+                    <h3 className="font-anton text-white text-base sm:text-lg tracking-wide">
+                      {item.titulo}
+                    </h3>
+                  </div>
+
+                  {/* Icono */}
+                  <div className="flex items-center justify-center h-32 sm:h-40 relative">
+                    <motion.img
+                      src={item.icono}
+                      alt={item.titulo}
+                      initial={{ scale: 0.9 }}
+                      whileHover={{ scale: 1.15, rotate: 5 }}
+                      transition={{ duration: 0.35 }}
+                      className="
+                        w-20 h-20 sm:w-24 sm:h-24 
+                        invert brightness-0 
+                        drop-shadow-xl
+                      "
+                    />
+
+                    {/* Halo animado del ícono */}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 0.6, scale: 1.4 }}
+                      className="
+                        absolute 
+                        w-20 h-20 sm:w-24 sm:h-24 
+                        rounded-full 
+                        bg-[#00f2ff]/30 
+                        blur-xl 
+                        animate-pulseHalo
+                      "
+                    />
+                  </div>
+
+                </motion.div>
+              ))}
+            </div>
+
+          </div>
+
+        </section>
 
       {/* Nuestros Campus */}
       <section className="py-20 bg-gray-50">
@@ -248,32 +298,174 @@ const Inicio = () => {
             className="text-center mb-10"
           >
             <h2 className="font-anton text-5xl md:text-5xl mb-4">
-              Nuestros Partners
+              Partners Estratégicos 
             </h2>
             <p className="text-lg max-w-5xl mx-auto">
               Más del 85% de nuestros egresados ingresan a las mejores universidades del país
             </p>
           </motion.div>
+            <div>
+            {/* Otros bloques */}
+               <AliadosSlider />
+            {/* Otros bloques */}
+            {/* Galería Instagram con fondo animado */}
+{/* === GALERÍA SOCIAL – ESTILO MOSAICO === */}
+<section className="relative py-20 overflow-hidden">
 
-          <div className="flex flex-wrap justify-center items-center gap-10">
-            {partners.map((partner, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.1 }}
-                className="bg-white p-6 rounded-lg"
-              >
-                <img
-                  src={partner.logo}
-                  alt={partner.nombre}
-                  className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity"
-                />
-              </motion.div>
-            ))}
+  {/* Top: Título + Instagram */}
+  <div className="container mx-auto px-6 mb-12">
+    <div className="flex flex-col items-center space-y-3">
+
+      <h2 className="font-anton text-4xl md:text-5xl text-white drop-shadow-lg">
+        Galería Social
+      </h2>
+
+      {/* Subtítulo */}
+      <p className="text-white/80 text-lg text-center">
+        Momentos destacados del colegio compartidos en nuestras redes.
+      </p>
+
+      {/* Línea Instagram */}
+      <a
+        href="https://www.instagram.com/colegio_isaac_newton/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center space-x-2 mt-3 text-white hover:text-[#fccc00] transition text-lg"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="white"
+          viewBox="0 0 24 24"
+          className="w-6 h-6"
+        >
+          <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 1.5h8.5A3.75 3.75 0 0120 7.25v9.5A3.75 3.75 0 0116.25 20h-8.5A3.75 3.75 0 014 16.75v-9.5A3.75 3.75 0 017.75 3.5zm10 1a1 1 0 100 2 1 1 0 000-2zM12 7.25A4.75 4.75 0 1012 16.75a4.75 4.75 0 000-9.5zm0 1.5a3.25 3.25 0 110 6.5 3.25 3.25 0 010-6.5z"/>
+        </svg>
+        <span>@colegio_isaac_newton</span>
+      </a>
+
+    </div>
+  </div>
+
+  {/* === GRID TIPO MOSAICO === */}
+  <div className="container mx-auto px-6">
+    <div className="
+      grid 
+      grid-cols-2 
+      sm:grid-cols-3 
+      lg:grid-cols-4 
+      gap-6
+    ">
+
+      {[
+        // === ORDEN EXACTO COMO LA IMAGEN DE REFERENCIA ===
+
+        // FILA 1 – GRANDE
+        {
+          url: "https://www.instagram.com/p/C_OD8ERpXqU/",
+          type: "video",
+          src: "https://raimondi.edu.pe/wp-content/uploads/2024/09/VID_ENG_WEEK_10S.mp4",
+        },
+
+        // FILA 1 – PEQUEÑO
+        {
+          url: "https://www.instagram.com/p/C8xmv16yELo/",
+          type: "video",
+          src: "https://raimondi.edu.pe/wp-content/uploads/2024/08/VID_WEB_RAIMUN10_GIF.mp4",
+        },
+
+        // FILA 1 – PEQUEÑO
+        {
+          url: "https://www.instagram.com/p/C_Bkkxay0kW/",
+          type: "video",
+          src: "https://raimondi.edu.pe/wp-content/uploads/2024/08/VIDWEB_PALIO576x920_SMALL.mp4",
+        },
+
+        // FILA 1 – GRANDE
+        {
+          url: "https://www.instagram.com/p/C5Zi7z8PXU7/?img_index=1",
+          type: "image",
+          src: "https://raimondi.edu.pe/wp-content/uploads/2024/08/ig6.jpg",
+        },
+
+        // FILA 2 – PEQUEÑO
+        {
+          url: "https://www.instagram.com/p/DAD370Gp-rP/?img_index=1",
+          type: "video",
+          src: "https://raimondi.edu.pe/wp-content/uploads/2024/09/VID_ADCA_DANZA_WEB_ok-1.mp4",
+        },
+
+        // FILA 2 – GRANDE
+        {
+          url: "https://www.instagram.com/reel/C98p7pHNyPt/",
+          type: "video",
+          src: "https://raimondi.edu.pe/wp-content/uploads/2024/08/VID_WEB_PEDROSV.mp4",
+        },
+
+        // FILA 2 – GRANDE
+        {
+          url: "https://www.instagram.com/p/C-YplKoSxfa/?img_index=4",
+          type: "video",
+          src: "https://raimondi.edu.pe/wp-content/uploads/2024/08/VID_WEB_FABLAB10.mp4",
+        },
+
+        // FILA 2 – PEQUEÑO
+        {
+          url: "https://www.instagram.com/p/C_BLOu0JPhh/?img_index=1",
+          type: "image",
+          src: "https://raimondi.edu.pe/wp-content/uploads/2024/08/POST_PALIO.jpg",
+        },
+
+      ].map((item, i) => (
+        <a
+          key={i}
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative rounded-2xl overflow-hidden shadow-xl group"
+        >
+
+          {/* Hover con ícono */}
+          <div className="
+            absolute inset-0 
+            bg-black/40 opacity-0 
+            group-hover:opacity-100 
+            transition duration-300 
+            flex items-center justify-center
+          ">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" className="w-10 h-10 opacity-90">
+              <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 1.5h8.5A3.75 3.75 0 0120 7.25v9.5A3.75 3.75 0 0116.25 20h-8.5A3.75 3.75 0 014 16.75v-9.5A3.75 3.75 0 017.75 3.5zm10 1a1 1 0 100 2 1 1 0 000-2zM12 7.25A4.75 4.75 0 1012 16.75a4.75 4.75 0 000-9.5zm0 1.5a3.25 3.25 0 110 6.5 3.25 3.25 0 010-6.5z"/>
+            </svg>
           </div>
+
+          {/* Render imagen o video */}
+          {item.type === "video" ? (
+            <video
+              className="w-full h-full object-cover"
+              preload="none"
+              muted
+              autoPlay
+              loop
+              playsInline
+            >
+              <source src={item.src} type="video/mp4" />
+            </video>
+          ) : (
+            <img
+              src={item.src}
+              alt="Galería"
+              className="w-full h-full object-cover"
+            />
+          )}
+
+        </a>
+      ))}
+
+    </div>
+  </div>
+</section>
+
+
+        </div>
         </div>
       </section>
 
@@ -306,6 +498,7 @@ const Inicio = () => {
             </motion.div>
           </motion.div>
         </div>
+        
       </section>
     </div>
   );
