@@ -1,134 +1,143 @@
-import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
+
 
 const Footer = () => {
   return (
-    <footer className="bg-azul-oscuro text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Columna 1: Logo y descripción */}
-          <div>
-            <div className="mb-4">
-              <img 
-                src="/Escudo líneas.png" 
-                alt="Colegio Isaac Newton" 
-                className="h-20 w-auto brightness-0 invert"
-              />
+    <footer className="bg-[#013055] text-white pt-16">
+
+      {/* ================= PARTE SUPERIOR ================= */}
+        <div className="container mx-auto px-4 grid grid-cols-[auto_1fr_auto_auto] gap-12 items-center">
+
+          {/* 1️⃣ LOGO — se adapta automáticamente */}
+          <div className="flex justify-start">
+            <img
+              src="/Escudo líneas.png"
+              className="h-28 brightness-0 invert object-contain"
+              alt="Logo"
+            />
+          </div>
+
+          {/* 2️⃣ CAMPUS — ancho ampliado */}
+          <div className="flex justify-start gap-8">
+
+            {/* Tarjeta Cajamarca */}
+            <div className="backdrop-blur-md rounded-2xl p-6 w-56 ">
+              <h3 className="text-lg font text-[#fccc00] mb-3">
+                Campus Cajamarca
+              </h3>
+              <p className="text-sm text-white whitespace-nowrap">
+                <span className="block">Jr. Cruz de Piedra N° 582</span>
+                <span className="block">920 438 721</span>
+              </p>
             </div>
-            <p className="text-sm text-gray-300">
-              Formando líderes con excelencia académica y valores científicos desde 1990.
-            </p>
+
+            {/* Tarjeta Baños del Inca */}
+            <div className="backdrop-blur-md rounded-2xl p-6 w-56 ">
+              <h3 className="text-lg font text-[#fccc00] mb-3">
+                Campus Baños del Inca
+              </h3>
+              <p className="text-sm text-white whitespace-nowrap">
+                 <a
+                  href="https://www.google.com/maps?q=Jr.+Yahuar+Huaca+779+Baños+del+Inca"
+                  target="_blank"
+                  className="block whitespace-nowrap hover:text-[#007a75]">
+                  Jr. Yahuar Huaca N° 779
+                </a>
+                 <a
+                  href="https://wa.me/51932374369"
+                  target="_blank"
+                  className="block whitespace-nowrap hover:text-[#fccc00]">
+                  932 374 369
+                </a>
+                 <a
+                  href="mailto:admision@inewton.edu.pe"
+                  className="block whitespace-nowrap hover:text-[#fccc00]">
+                  ✉ admision@inewton.edu.pe
+                </a>
+              </p>
+            </div>
+
           </div>
 
-          {/* Columna 2: Enlaces rápidos */}
-          <div>
-            <h3 className="font-anton text-lg mb-4">Enlaces Rápidos</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link to="/nosotros" className="hover:text-amarillo-dorado transition-colors">
-                  Nosotros
-                </Link>
-              </li>
-              <li>
-                <Link to="/niveles" className="hover:text-amarillo-dorado transition-colors">
-                  Niveles Educativos
-                </Link>
-              </li>
-              <li>
-                <Link to="/comunidad" className="hover:text-amarillo-dorado transition-colors">
-                  Nuestra Comunidad
-                </Link>
-              </li>
-              <li>
-                <Link to="/admision" className="hover:text-amarillo-dorado transition-colors">
-                  Admisión
-                </Link>
-              </li>
-              <li>
-                <Link to="/contacto" className="hover:text-amarillo-dorado transition-colors">
-                  Contacto
-                </Link>
-              </li>
-            </ul>
+          {/* 3️⃣ REDES SOCIALES — ahora centradas */}
+          <div className="flex justify-center items-center gap-5">
+           <div className="flex justify-center items-center gap-5">
+
+  {/* FACEBOOK */}
+  <a
+    href="https://facebook.com/inewton"   // 👉 cambia por tu URL
+    target="_blank"
+    className="font-bold h-12 w-12 rounded-full bg-white/10 flex items-center justify-center
+               hover:bg-[#fccc00] hover:text-[#013055] transition shadow-md"
+  >
+    <Facebook size={22} />
+  </a>
+
+  {/* INSTAGRAM */}
+  <a
+    href="https://instagram.com/inewton"  // 👉 cambia por tu URL
+    target="_blank"
+    className="font-bold h-12 w-12 rounded-full bg-white/10 flex items-center justify-center
+               hover:bg-[#fccc00] hover:text-[#013055] transition shadow-md"
+  >
+    <Instagram size={22} />
+  </a>
+
+  {/* YOUTUBE */}
+  <a
+    href="https://youtube.com/@inewton"  // 👉 cambia por tu URL
+    target="_blank"
+    className="font-bold h-12 w-12 rounded-full bg-white/10 flex items-center justify-center
+               hover:bg-[#fccc00] hover:text-[#013055] transition shadow-md"
+  >
+    <Youtube size={22} />
+  </a>
+
+  {/* TIKTOK (reemplaza al LinkedIn) */}
+  <a
+    href="https://tiktok.com/@inewton"   // 👉 cambia por tu URL
+    target="_blank"
+    className="font-bold h-12 w-12 rounded-full bg-white/10 flex items-center justify-center
+               hover:bg-[#fccc00] hover:text-[#013055] transition shadow-md"
+  >
+    <Tiktok size={22} />
+  </a>
+
+</div>
+
           </div>
 
-          {/* Columna 3: Campus Cajamarca */}
-          <div>
-            <h3 className="font-anton text-lg mb-4">Campus Cajamarca</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <MapPin size={16} className="mt-1 flex-shrink-0" />
-                <span>Av. Héroes del Cenepa 123, Cajamarca</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone size={16} />
-                <span>(076) 123-456</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail size={16} />
-                <span>cajamarca@isaacnewton.edu.pe</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Columna 4: Campus Baños del Inca */}
-          <div>
-            <h3 className="font-anton text-lg mb-4">Campus Baños del Inca</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <MapPin size={16} className="mt-1 flex-shrink-0" />
-                <span>Jr. Los Baños 456, Baños del Inca</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone size={16} />
-                <span>(076) 789-012</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail size={16} />
-                <span>banos@isaacnewton.edu.pe</span>
-              </li>
-            </ul>
+          {/* 4️⃣ BOTÓN ADMISION */}
+          <div className="flex justify-end">
+            <a
+              href="/Contacto"
+              className="font-bold px-8 py-3 border border-white rounded-full text-sm hover:bg-[#fccc00] 
+                        hover:text-[#013055] transition shadow-md whitespace-nowrap"
+            >
+              Admisión y Traslados →
+            </a>
           </div>
         </div>
 
-        {/* Redes sociales */}
-        <div className="mt-8 pt-8 border-t border-gray-700">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-gray-300">
-              © 2025 Colegio Privado de Ciencias Isaac Newton. Todos los derechos reservados.
-            </p>
-            <div className="flex gap-4">
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-amarillo-dorado transition-colors"
-              >
-                <Facebook size={24} />
-              </a>
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-amarillo-dorado transition-colors"
-              >
-                <Instagram size={24} />
-              </a>
-              <a 
-                href="https://youtube.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-amarillo-dorado transition-colors"
-              >
-                <Youtube size={24} />
-              </a>
-            </div>
-          </div>
+
+      {/* ================= ENLACES MEDIOS ================= */}
+      <div className="mt-14 border-t border-white/20 py-10">
+        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 text-center text-sm gap-6">
+
+          <a className="hover:text-[#fccc00] transition">✦ Libro de reclamaciones</a>
+          <a className="hover:text-[#fccc00] transition">✦ Solicite información</a>
+          <a className="hover:text-[#fccc00] transition">✦ Trabaja con nosotros</a>
+          <a className="hover:text-[#fccc00] transition">✦ Términos legales</a>
+
         </div>
+      </div>
+
+      {/* ================= COPYRIGHT ================= */}
+      <div className="text-center py-6 text-sm text-white/80 border-t border-white/10">
+        © 2025 Colegio Privado de Ciencias Isaac Newton. Todos los derechos reservados.
       </div>
     </footer>
   );
 };
 
 export default Footer;
-

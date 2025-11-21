@@ -188,3 +188,51 @@
   display: flex;
   width: max-content;
 }
+/* ==== CAMPUS CAROUSEL AISLADO ==== */
+
+.campus-carousel-container .mySwiper {
+  width: 100%;
+  height: 420px;
+}
+
+.campus-carousel-container .swiper-slide {
+  position: relative;
+  width: 300px;
+  height: 380px;
+  border-radius: 20px;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: all .3s ease-in-out;
+}
+
+.campus-carousel-container .swiper-slide span {
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  padding: 6px 14px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.campus-carousel-container .swiper-slide--one {
+  background-image: url("/campus-central.jpg");
+}
+
+.campus-carousel-container .swiper-slide--two {
+  background-image: url("/campus-anexo.jpg");
+}
+
+.campus-carousel-container .swiper-slide--three {
+  background-image: url("/lab.jpg");
+}
+
+.campus-carousel-container .swiper-slide--four {
+  background-image: url("/deportes.jpg");
+}
+
+.campus-carousel-container .swiper-slide--five {
+  background-image: url("/auditorio.jpg");
+}
