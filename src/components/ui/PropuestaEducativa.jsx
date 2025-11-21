@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import Metrics from "./Metrics";
+
 
 export default function PropuestaEducativa() {
   return (
@@ -13,15 +15,37 @@ export default function PropuestaEducativa() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            {/* Título estilo afiche */}
-            <div>
-              <h3 className="text-[#ffcd00] font-anton text-4xl mb-0 leading-none">
-                Propuesta
-              </h3>
-              <h2 className="text-[#013055] font-anton text-6xl leading-none -mt-3">
-                EDUCATIVA
-              </h2>
-            </div>
+         {/* Título estilo afiche */}
+          <div className="relative inline-block">
+            <h3
+              className="
+                text-[#ffcd00]
+                font-Coldcoast
+                text-8xl md:text-7xl
+                leading-none
+                relative
+                z-20
+                translate-y-2    /* baja un poco para que se superponga */
+              "
+            >
+              Propuesta
+            </h3>
+
+            <h2
+              className="
+                text-[#013055]
+                font-FF World Std Two Regular
+                text-10xl md:text-9xl
+                leading-none
+                -mt-4
+                relative
+                z-10
+              "
+            >
+              EDUCATIVA
+            </h2>
+          </div>
+
 
             <p className="text-gray-700 text-lg leading-relaxed">
               El enfoque educativo por competencias de la Educación Básica integra
@@ -63,6 +87,9 @@ export default function PropuestaEducativa() {
 
         </div>
       </div>
+      {/* === MÉTRICAS INSTITUCIONALES === */}
+      <Metrics/>
+
     </section>
   );
 }

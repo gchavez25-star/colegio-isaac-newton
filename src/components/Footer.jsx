@@ -1,4 +1,6 @@
-import { Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Youtube } from "lucide-react";
+import { FaTiktok as Tiktok } from "react-icons/fa6";
+
 
 
 const Footer = () => {
@@ -26,8 +28,25 @@ const Footer = () => {
                 Campus Cajamarca
               </h3>
               <p className="text-sm text-white whitespace-nowrap">
-                <span className="block">Jr. Cruz de Piedra N° 582</span>
-                <span className="block">920 438 721</span>
+                   <a
+                  href="https://www.google.com/maps/place/Jirón+Cruz+de+Piedra+582,+Cajamarca+06002/@-7.1581757,-78
+                        .521763,824m/data=!3m1!1e3!4m6!3m5!1s0x91b25af8ca0453bd:0xd21c7cc12fafaf02!8m2!3d-
+                        7.1581757!4d-78.5191881!16s%2Fg%2F11c2d9pqtn?authuser=1&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  className="block whitespace-nowrap hover:text-[#ffcd00]">
+                  Jr. Cruz de Piedra N° 582
+                </a>
+                 <a
+                  href="https://wa.me/51932274369"
+                  target="_blank"
+                  className="block whitespace-nowrap hover:text-[#ffcd00]">
+                  932 374 369
+                </a>
+                 <a
+                  href="mailto:admision@inewton.edu.pe"
+                  className="block whitespace-nowrap hover:text-[#ffcd00]">
+                  ✉ admision@inewton.edu.pe
+                </a>
               </p>
             </div>
 
@@ -38,16 +57,20 @@ const Footer = () => {
               </h3>
               <p className="text-sm text-white whitespace-nowrap">
                  <a
-                  href="https://www.google.com/maps?q=Jr.+Yahuar+Huaca+779+Baños+del+Inca"
+                  href="https://www.google.com/maps/place/Colegio+Isaac+Newton/@-7.1677787,-78.4590773,19z/data=
+                  !4m15!1m8!3m7!1s0x91b244dbfc60b8e3:0xb39a7c0873e74a5c!2sYahuar+Huaca+728-902,+Baños+del+Inca+06004!
+                  3b1!8m2!3d-7.1675386!4d-78.4589437!16s%2Fg%2F11h76cc8vc!3m5!1s0x91b2456d977947b9:0x399e095184287eda!8
+                  m2!3d-7.1677904!4d-78.4584945!16s%2Fg%2F11vl1p_5lb?authuser=1&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAF
+                  QAw%3D%3D"
                   target="_blank"
                   className="block whitespace-nowrap hover:text-[#007a75]">
                   Jr. Yahuar Huaca N° 779
                 </a>
                  <a
-                  href="https://wa.me/51932374369"
+                  href="https://wa.me/51920438721"
                   target="_blank"
                   className="block whitespace-nowrap hover:text-[#fccc00]">
-                  932 374 369
+                  920438721
                 </a>
                  <a
                   href="mailto:admision@inewton.edu.pe"
