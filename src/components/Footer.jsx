@@ -88,7 +88,7 @@ const Footer = () => {
 
   {/* FACEBOOK */}
   <a
-    href="https://facebook.com/inewton"   // 👉 cambia por tu URL
+    href="https://www.facebook.com/IsaacNewtonCajamarca"   // 👉 cambia por tu URL
     target="_blank"
     className="font-bold h-12 w-12 rounded-full bg-white/10 flex items-center justify-center
                hover:bg-[#fccc00] hover:text-[#013055] transition shadow-md"
@@ -98,7 +98,7 @@ const Footer = () => {
 
   {/* INSTAGRAM */}
   <a
-    href="https://instagram.com/inewton"  // 👉 cambia por tu URL
+    href="https://www.instagram.com/colegio_isaac_newton/?hl=es-la"  // 👉 cambia por tu URL
     target="_blank"
     className="font-bold h-12 w-12 rounded-full bg-white/10 flex items-center justify-center
                hover:bg-[#fccc00] hover:text-[#013055] transition shadow-md"
@@ -108,7 +108,7 @@ const Footer = () => {
 
   {/* YOUTUBE */}
   <a
-    href="https://youtube.com/@inewton"  // 👉 cambia por tu URL
+    href="https://www.youtube.com/@ColegioPrivadoIsaacNewton"  // 👉 cambia por tu URL
     target="_blank"
     className="font-bold h-12 w-12 rounded-full bg-white/10 flex items-center justify-center
                hover:bg-[#fccc00] hover:text-[#013055] transition shadow-md"
@@ -118,7 +118,7 @@ const Footer = () => {
 
   {/* TIKTOK (reemplaza al LinkedIn) */}
   <a
-    href="https://tiktok.com/@inewton"   // 👉 cambia por tu URL
+    href="https://www.tiktok.com/@colegio_isaacnewton"   // 👉 cambia por tu URL
     target="_blank"
     className="font-bold h-12 w-12 rounded-full bg-white/10 flex items-center justify-center
                hover:bg-[#fccc00] hover:text-[#013055] transition shadow-md"
