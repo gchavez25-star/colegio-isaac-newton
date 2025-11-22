@@ -57,44 +57,44 @@ export default function PartnersGaleria() {
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
               {[
                 {
-                  url: "https://www.instagram.com/p/C_OD8ERpXqU/",
+                  url: "https://www.instagram.com/p/DRP4I0CESmw/?hl=es-la",
                   type: "video",
-                  src: "https://raimondi.edu.pe/wp-content/uploads/2024/09/VID_ENG_WEEK_10S.mp4",
+                  src: "/public/Instagram/1.mp4",
                 },
                 {
-                  url: "https://www.instagram.com/p/C8xmv16yELo/",
+                  url: "https://www.instagram.com/p/DQt51V-EQY6/?hl=es-la",
                   type: "video",
-                  src: "https://raimondi.edu.pe/wp-content/uploads/2024/08/VID_WEB_RAIMUN10_GIF.mp4",
+                  src: "/public/Instagram/2.mp4",
                 },
                 {
-                  url: "https://www.instagram.com/p/C_Bkkxay0kW/",
+                  url: "https://www.instagram.com/p/DQZRIAnDgA0/?hl=es-la",
                   type: "video",
-                  src: "https://raimondi.edu.pe/wp-content/uploads/2024/08/VIDWEB_PALIO576x920_SMALL.mp4",
+                  src: "/public/Instagram/3.mp4",
                 },
                 {
-                  url: "https://www.instagram.com/p/C5Zi7z8PXU7/?img_index=1",
+                  url: "https://www.instagram.com/p/DQfa3OdkaIq/?hl=es-la",
+                  type: "video",
+                  src: "/public/Instagram/4.mp4",
+                },
+                {
+                  url: "https://www.instagram.com/p/DQNwQ09ERtE/?hl=es-la",
+                  type: "video",
+                  src: "/public/Instagram/5.mp4",
+                },
+                {
+                  url: "https://www.instagram.com/p/DPcyh8bEacA/?hl=es-la",
+                  type: "video",
+                  src: "/public/Instagram/6.mp4",
+                },
+                {
+                  url: "https://www.instagram.com/p/DOOpqiRkT_R/?hl=es-la",
+                  type: "video",
+                  src: "/public/Instagram/7.mp4",
+                },
+                {
+                  url: "https://www.instagram.com/p/DRKV-drEV9f/?hl=es-la",
                   type: "image",
-                  src: "https://raimondi.edu.pe/wp-content/uploads/2024/08/ig6.jpg",
-                },
-                {
-                  url: "https://www.instagram.com/p/DAD370Gp-rP/?img_index=1",
-                  type: "video",
-                  src: "https://raimondi.edu.pe/wp-content/uploads/2024/09/VID_ADCA_DANZA_WEB_ok-1.mp4",
-                },
-                {
-                  url: "https://www.instagram.com/reel/C98p7pHNyPt/",
-                  type: "video",
-                  src: "https://raimondi.edu.pe/wp-content/uploads/2024/08/VID_WEB_PEDROSV.mp4",
-                },
-                {
-                  url: "https://www.instagram.com/p/C-YplKoSxfa/?img_index=4",
-                  type: "video",
-                  src: "https://raimondi.edu.pe/wp-content/uploads/2024/08/VID_WEB_FABLAB10.mp4",
-                },
-                {
-                  url: "https://www.instagram.com/p/C_BLOu0JPhh/?img_index=1",
-                  type: "image",
-                  src: "https://raimondi.edu.pe/wp-content/uploads/2024/08/POST_PALIO.jpg",
+                  src: "/public/Instagram/8.jpg",
                 },
               ].map((item, i) => (
                 <a
