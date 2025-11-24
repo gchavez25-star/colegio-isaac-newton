@@ -11,7 +11,7 @@ import CtaAdmision from "@/components/ui/CtaAdmision";
 
 const Inicio = () => {
     return (
-    <div className="min-h-screen pt-24">
+    <div className="min-h-screen ">
 
       {/* Nuevo Hero Slider */}
       <HeroSlider />
