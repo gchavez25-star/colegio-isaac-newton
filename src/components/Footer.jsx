@@ -23,7 +23,7 @@ const Footer = () => {
 
             {/* Cajamarca */}
             <div className="backdrop-blur-md rounded-2xl p-6 w-full sm:w-64">
-              <h3 className="text-lg font-semibold text-[#fccc00] mb-3">
+              <h3 className="text-lg font text-[#fccc00] mb-3">
                 Campus Cajamarca
               </h3>
               <a
@@ -50,7 +50,7 @@ const Footer = () => {
 
             {/* Baños del Inca */}
             <div className="backdrop-blur-md rounded-2xl p-6 w-full sm:w-64">
-              <h3 className="text-lg font-semibold text-[#fccc00] mb-3">
+              <h3 className="text-lg font text-[#fccc00] mb-3">
                 Campus Baños del Inca
               </h3>
               <a
@@ -120,7 +120,7 @@ const Footer = () => {
 
       {/* ================= LINKS INFERIORES ================= */}
       <div className="mt-14 border-t border-white/20 py-10">
-        <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 text-center justify-center items-center md:grid-cols-4 text-center text-sm gap-6">
+        <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2  justify-center items-center md:grid-cols-4 text-center text-sm gap-6">
           <a className="hover:text-[#fccc00] transition">✦ Libro de reclamaciones</a>
           <a className="hover:text-[#fccc00] transition">✦ Solicite información</a>
           <a className="hover:text-[#fccc00] transition">✦ Trabaja con nosotros</a>
