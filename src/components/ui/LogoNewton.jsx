@@ -1,25 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 export default function LogoNewton() {
-  const containerRef = useRef(null);
-  const [width, setWidth] = useState("auto");
-
-  // Observa cambios en el tamaño del contenedor sin lag
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    const topSpan = containerRef.current.querySelector(".top-text");
-    if (!topSpan) return;
-
-    const resizeObserver = new ResizeObserver(() => {
-      setWidth(`${topSpan.offsetWidth}px`);
-    });
-
-    resizeObserver.observe(topSpan);
-    return () => resizeObserver.disconnect();
-  }, []);
-
   return (
     <Link
       to="/"
@@ -31,40 +13,50 @@ export default function LogoNewton() {
         <img
           src="/Escudo líneas.png"
           alt="Escudo Isaac Newton"
-          className="h-8 xs:h-9 sm:h-10 md:h-11 lg:h-12 w-auto object-contain flex-shrink-0"
+          className="
+            h-7 xs:h-8 sm:h-9 md:h-10 lg:h-12 
+            w-auto object-contain flex-shrink-0
+          "
         />
 
         {/* Línea amarilla */}
-        <div className="bg-[#fccc00] w-0.5 sm:w-[3px] h-8 xs:h-9 sm:h-10 md:h-11 lg:h-12" />
-
-        {/* Textos */}
         <div
-          ref={containerRef}
-          className="flex flex-col justify-center leading-tight text-white font-montserrat"
+          className="
+            bg-[#fccc00] 
+            w-[2px] xs:w-[2.5px] sm:w-[3px] lg:w-[4px] 
+            h-7 xs:h-8 sm:h-9 md:h-10 lg:h-12
+          "
+        />
+
+        {/* Texto */}
+        <div
+          className="
+            flex flex-col justify-center 
+            leading-tight text-white font-montserrat
+          "
         >
-          {/* Texto superior */}
+
+          {/* Superior */}
           <span
-            className="top-text block font-medium 
-                       text-[7px] xs:text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs"
-            style={{ whiteSpace: "nowrap" }}
+            className="
+              block font-medium whitespace-nowrap
+              text-[7.5px] xs:text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs
+            "
           >
             Colegio Privado de Ciencias
           </span>
 
-          {/* Texto principal (Newton) */}
+          {/* Principal */}
           <span
-            className="block font-bold tracking-wide
-                       text-[10px] xs:text-[11px] sm:text-[13px] md:text-[15px] lg:text-lg"
-            style={{
-              width,
-              whiteSpace: "nowrap",
-              textAlign: "justify",
-              textAlignLast: "justify",
-              textJustify: "inter-character"
-            }}
+            className="
+              block font-bold whitespace-nowrap
+              text-[11px] xs:text-[12px] sm:text-[13px] md:text-[15px] lg:text-lg
+              tracking-[0.6px] sm:tracking-[0.8px] md:tracking-[1px] lg:tracking-[1.3px]
+            "
           >
             ISAAC NEWTON
           </span>
+
         </div>
 
       </div>
