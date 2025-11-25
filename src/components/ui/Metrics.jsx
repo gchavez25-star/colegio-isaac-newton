@@ -41,17 +41,17 @@ const Metrics = () => {
             {
               value: count1,
               suffix: "+",
-              text: "Alumnos conforman la Familia Newtoniana"
+              text: "Alumnos conforman la Familia Newtoniana."
             },
             {
               value: count2,
               suffix: "+",
-              text: "Años de experiencia impartiendo educación de calidad"
+              text: "Años de experiencia impartiendo educación de calidad."
             },
             {
               value: count3,
               suffix: "%",
-              text: "Egresados estudian en universidades Top"
+              text: "de los alumnos van a la universidad luego de graduarse."
             }
           ].map((item, index) => (
             <motion.div
