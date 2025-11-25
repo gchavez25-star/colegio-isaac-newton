@@ -8,6 +8,8 @@ import EspaciosAprendizaje from "@/components/ui/EspaciosAprendizaje";
 import Campus from "../components/ui/Campus";
 import PartnersGaleria from "@/components/ui/PartnersGaleria";
 import CtaAdmision from "@/components/ui/CtaAdmision";
+import WelcomeNewton from "@/components/ui/WelcomeNewton";
+import Metrics from "@/components/ui/Metrics";
 
 const Inicio = () => {
     return (
@@ -18,6 +20,12 @@ const Inicio = () => {
 
       {/* Accesos Rápidos */}
       <AccesosRapidos />
+
+      {/* Welcome */}
+      <WelcomeNewton/>
+
+       {/* Métricas Institucionales */}
+      <Metrics/>
 
       {/* Propuesta Pedagógica */}
       <PropuestaEducativa/>

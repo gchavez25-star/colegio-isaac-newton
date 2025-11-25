@@ -248,41 +248,6 @@ const Nosotros = () => {
         </div>
       </section>
 
-      {/* Logros */}
-      <section className="py-20 bg-azul-oscuro text-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="font-anton text-4xl md:text-5xl mb-4">
-              Logros Institucionales
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {logros.map((logro, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="font-anton text-5xl md:text-6xl text-amarillo-dorado mb-2">
-                  {logro.numero}
-                </div>
-                <div className="text-lg">
-                  {logro.texto}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Valores */}
       <section className="py-20 bg-white">

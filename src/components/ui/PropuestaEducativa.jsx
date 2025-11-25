@@ -87,9 +87,6 @@ export default function PropuestaEducativa() {
 
         </div>
       </div>
-      {/* === MÉTRICAS INSTITUCIONALES === */}
-      <Metrics/>
-
     </section>
   );
 }
