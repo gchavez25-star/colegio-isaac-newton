@@ -1,92 +1,106 @@
+import React from "react";
 import { motion } from "framer-motion";
-import Metrics from "./Metrics";
-
 
 export default function PropuestaEducativa() {
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <section className="w-full px-4 py-12 flex justify-center bg-white">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.4 }}
+        className="
+          flex flex-col md:flex-row
+          bg-white rounded-2xl shadow-xl overflow-hidden
+          max-w-6xl w-full
+        "
+      >
 
-          {/* ==== TEXTOS ==== */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-         {/* Título estilo afiche */}
-          <div className="relative inline-block">
-            <h3
-              className="
-                text-[#ffcd00]
-                font-Coldcoast
-                text-8xl md:text-7xl
-                leading-none
-                relative
-                z-20
-                translate-y-2    /* baja un poco para que se superponga */
-              "
-            >
+        {/* TEXTO IZQUIERDA */}
+        <motion.div
+          initial={{ x: -50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.4 }}
+          className="md:w-1/2 w-full p-8 md:p-10 flex flex-col justify-center order-1"
+        >
+
+          <div className="relative inline-block mb-6">
+            <h3 className="text-[#fccc00] text-4xl md:text-5xl font-bold leading-none">
               Propuesta
             </h3>
-
-            <h2
-              className="
-                text-[#013055]
-                font-FF World Std Two Regular
-                text-10xl md:text-9xl
-                leading-none
-                -mt-4
-                relative
-                z-10
-              "
-            >
+            <h2 className="text-[#013055] text-5xl md:text-6xl font-bold leading-none -mt-2">
               EDUCATIVA
             </h2>
           </div>
 
+          <p className="text-gray-700 text-base md:text-lg text-justify leading-relaxed">
+            El enfoque educativo por competencias integra conocimientos, habilidades y actitudes
+            para afrontar situaciones reales, promoviendo pensamiento crítico, autonomía y
+            formación ética.
+          </p>
 
-            <p className="text-gray-700 text-lg leading-relaxed">
-              El enfoque educativo por competencias de la Educación Básica integra
-              conocimientos, habilidades y actitudes para enfrentar situaciones significativas,
-              adaptadas al estudiante, promoviendo pensamiento crítico y sentido ético.
-            </p>
+          <p className="text-gray-700 text-base md:text-lg text-justify leading-relaxed mt-4">
+            Nuestro modelo combina tecnología, neurociencia, metodologías activas y dominio
+            de idiomas, impulsando competencias globales y una educación con enfoque sostenible.
+          </p>
 
-            <p className="text-gray-700 text-lg leading-relaxed">
-              Nuestro modelo educativo innovador integra la tecnología, la neurociencia
-              aplicada al aprendizaje, las metodologías activas y el dominio de idiomas,
-              promoviendo el desarrollo de competencias globales. Asimismo, fomentamos una
-              educación con enfoque en el desarrollo sostenible.
-            </p>
-
-            <p className="text-gray-700 text-lg leading-relaxed">
-              Nuestra propuesta pedagógica organiza experiencias, proyectos y unidades
-              didácticas orientadas al desarrollo de competencias, promoviendo autonomía,
-              trabajo en equipo y la participación dinámica de docentes y estudiantes.
-            </p>
-          </motion.div>
-
-          {/* ==== IMAGEN AL ESTILO DEL AFICHE ==== */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="relative"
+          {/* BOTÓN */}
+          <motion.a
+            href="#niveles"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            className="
+              inline-flex items-center gap-3
+              mt-8 px-8 py-3
+              rounded-xl
+              font-semibold
+              border-2 border-[#013055]
+              text-white
+              bg-[#013055]
+              hover:bg-[#fccc00]
+              hover:border-[#fccc00]
+              hover:text-[#013055]
+              transition-all duration-300
+              shadow-md hover:shadow-xl
+              w-fit
+            "
           >
-            {/* Fondo amarillo desplazado */}
-            <div className="absolute inset-0 bg-[#fccc00] rounded-lg translate-x-4 translate-y-4"></div>
+            Ver niveles educativos
 
-            {/* Imagen del estudiante (la que subiste) */}
-            <img
-              src="/Inicio/PROPUESTA.png"
-              alt="Estudiante"
-              className="relative z-10 rounded-lg shadow-xl w-full object-cover"
-            />
-          </motion.div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="w-5 h-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M13.47 4.47a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1 0 1.06l-6 6a.75.75 0 1 1-1.06-1.06l4.72-4.72H3.75a.75.75 0 0 1 0-1.5h14.44l-4.72-4.72a.75.75 0 0 1 0-1.06Z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </motion.a>
 
-        </div>
-      </div>
+        </motion.div>
+
+        {/* IMAGEN DERECHA */}
+        <motion.div
+          initial={{ x: 50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.4 }}
+          className="md:w-1/2 w-full relative order-2"
+        >
+          {/* Fondo amarillo desplazado */} <div className="absolute inset-0 bg-[#fccc00] rounded-lg translate-x-4 translate-y-4"></div>
+
+          <img
+            src="/Inicio/PROPUESTA.png"
+            alt="Propuesta Educativa"
+            className="relative z-10 w-full h-full object-cover rounded-2xl"
+          />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

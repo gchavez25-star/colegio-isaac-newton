@@ -5,6 +5,7 @@ const espacios = [
     titulo: "Formación Integral",
     imagen: "/public/Aprendizaje/Formacion.jpg",
     color: "from-[#fccc00] to-[#fccc00]/80",
+    
   },
   {
     titulo: "Tecnología",
