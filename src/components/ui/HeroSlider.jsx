@@ -19,8 +19,8 @@ const HeroSlider = () => {
       id: 1,
       type: 'image',
       title: 'Admisión y Traslados 2025 – 2026',
-      imageMobile: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=430&h=700&fit=crop',
-      imageDesktop: '/Hero/Admision.jpg',
+      imageMobile: '/Hero/Prueba.jpg',
+      imageDesktop: '/Hero/Prueba.jpg',
       buttons: [
         { text: 'Agenda una Visita Guiada', link: '/contacto', style: 'primary' },
       ],
@@ -29,13 +29,13 @@ const HeroSlider = () => {
       id: 2,
       type: 'video',
       title: 'Nuestros Espacios Educativos',
-      videoUrl: '/Hero/Admision2026.mp4',
+      videoUrl: '/Hero/Visita.jpg',
 
       // 📱 Imagen estática para móvil
-      imageMobile: '/Hero/Admision2026.jpg',
+      imageMobile: '/Hero/Visita.jpg',
 
       // 🖥️ Video para desktop
-      imageDesktop: '/Hero/Admision2026.mp4',
+      imageDesktop: '/Hero/Visita.jpg',
 
       buttons: [
         { text: 'Ver noticia', link: '/comunidad', style: 'primary' },
@@ -46,16 +46,16 @@ const HeroSlider = () => {
       id: 3,
       type: 'image',
       title: 'Formamos Científicos Líderes para el Mundo',
-      imageMobile: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=430&h=700&fit=crop',
-      imageDesktop: '/Hero/Futuro.jpg',
+      imageMobile: '/Hero/Alumno.jpg',
+      imageDesktop: '/Hero/Alumno.jpg',
       buttons: [{ text: 'Conócenos', link: '/nosotros', style: 'primary' }],
     },
     {
       id: 4,
       type: 'image',
       title: 'Un entorno Seguro y Familiar para tus hijos',
-      imageMobile: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=430&h=700&fit=crop',
-      imageDesktop: '/Hero/28.jpg',
+      imageMobile: '/Hero/Familia.jpg',
+      imageDesktop: '/Hero/Familia.jpg',
       buttons: [
         { text: 'Inicia el Proceso de Admisión', link: '/admision', style: 'primary' },
       ],
@@ -104,7 +104,7 @@ const HeroSlider = () => {
                   loop
                   playsInline
                   preload="metadata"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover "
                   >
                     <source src={slide.videoUrl} type="video/mp4" />
                   </video>
