@@ -15,7 +15,7 @@ const HeroNewton = () => {
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-4xl md:text-6xl font-bold font-montserrat leading-tight"
+        className="text-4xl md:text-2xl font-bold font-montserrat leading-tight"
       >
         ¡Bienvenidos al Colegio<br />Privado de Ciencias Isaac Newton!
       </motion.h1>
