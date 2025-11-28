@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Target, Eye, Heart, Lightbulb, Users2, Award } from 'lucide-react';
 import { useState } from 'react';
+import HeroNewton from '@/components/ui/HeroNewton';
 
 const Nosotros = () => {
   const [selectedYear, setSelectedYear] = useState(0);
@@ -78,24 +79,9 @@ const Nosotros = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-32">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-azul-oscuro to-verde-azulado text-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <h1 className="font-anton text-5xl md:text-6xl mb-6">
-              Sobre Nosotros
-            </h1>
-            <p className="text-xl md:text-2xl font-light">
-              Más de 35 años formando líderes con excelencia académica y valores científicos
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <HeroNewton/>
 
       {/* Fundador */}
       <section className="py-20 bg-white">
