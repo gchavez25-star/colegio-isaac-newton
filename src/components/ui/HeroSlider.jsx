@@ -27,16 +27,11 @@ const HeroSlider = () => {
     },
     {
       id: 2,
-      type: 'video',
+      type: 'image',
       title: 'Nuestros Espacios Educativos',
-      videoUrl: '/Hero/Visita.jpg',
-
-      // 📱 Imagen estática para móvil
       imageMobile: '/Hero/Visita.jpg',
-
-      // 🖥️ Video para desktop
       imageDesktop: '/Hero/Visita.jpg',
-
+      videoUrl: 'https://drive.google.com/uc?export=download&id=6vKq5Ac-hQ96UdR20luryTy42bkTFFv8',
       buttons: [
         { text: 'Ver noticia', link: '/comunidad', style: 'primary' },
         { text: 'Ver video', style: 'secondary', isVideo: true },
@@ -64,8 +59,12 @@ const HeroSlider = () => {
 
   const handleButtonClick = (button, slide) => {
     if (button.isVideo) {
-      setVideoSrc(slide.videoUrl);
-      setShowVideo(true);
+      if (slide.videoUrl) {
+        setVideoSrc(slide.videoUrl);
+        setShowVideo(true);
+      } else {
+        console.warn('No se encontró videoUrl en este slide');
+      }
     } else {
       window.location.href = button.link;
     }
@@ -73,15 +72,16 @@ const HeroSlider = () => {
 
   return (
     <section className="heroSlider relative w-full h-screen overflow-hidden">
+
       <Swiper
         modules={[Autoplay, Pagination, EffectFade]}
         effect="fade"
-        speed={1400}
+        fadeEffect={{ crossFade: true }}
+        speed={1600}
         autoplay={{
-          delay: 3800,
+          delay: 4200,
           disableOnInteraction: false,
         }}
-        fadeEffect={{ crossFade: true }}
         pagination={{
           clickable: true,
           bulletClass: 'swiper-pagination-bullet custom-bullet',
@@ -94,17 +94,17 @@ const HeroSlider = () => {
           <SwiperSlide key={slide.id}>
             <div className="relative w-full h-full">
 
-              {/* --- VIDEO SOLO EN DESKTOP --- */}
+              {/* VIDEO DESKTOP */}
               {slide.type === 'video' ? (
                 <>
                   <video
-                   ref={videoRef}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  className="absolute inset-0 w-full h-full object-cover "
+                    ref={videoRef}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    className="absolute inset-0 w-full h-full object-cover"
                   >
                     <source src={slide.videoUrl} type="video/mp4" />
                   </video>
@@ -127,17 +127,19 @@ const HeroSlider = () => {
                 </picture>
               )}
 
+              {/* OVERLAY PROFESIONAL */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
+
               {/* CONTENIDO */}
               <div className="absolute inset-0 flex items-center">
                 <div className="container mx-auto px-4">
                   <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
+                    initial={{ opacity: 0, y: 60 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.9, ease: 'easeOut' }}
                     className="max-w-2xl"
                   >
-                    <h1 className="font-anton text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight drop-shadow-lg">
+                    <h1 className="font-anton text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight drop-shadow-xl">
                       {slide.title}
                     </h1>
 
@@ -147,11 +149,11 @@ const HeroSlider = () => {
                         <motion.button
                           key={index}
                           onClick={() => handleButtonClick(button, slide)}
-                          whileHover={{ scale: 1.05 }}
+                          whileHover={{ scale: 1.07 }}
                           whileTap={{ scale: 0.95 }}
                           className="inline-flex items-center gap-3 bg-[#ffcd00] text-[#013055]
                             font-montserrat font-semibold px-8 py-3 rounded-xl text-lg
-                            hover:bg-[#fccc00] transition-all duration-300 shadow-md hover:shadow-xl"
+                            hover:bg-[#ffe066] transition-all duration-300 shadow-lg hover:shadow-2xl"
                         >
                           {button.isVideo && <Play size={20} />}
                           {button.text}
@@ -166,7 +168,6 @@ const HeroSlider = () => {
         ))}
       </Swiper>
 
-      {/* Estilos de paginación */}
       <style jsx>{`
         .heroSlider :global(.swiper-pagination) {
           bottom: 30px !important;
@@ -181,7 +182,7 @@ const HeroSlider = () => {
         }
         .heroSlider :global(.custom-bullet-active) {
           background: #fccc00;
-          width: 38px;
+          width: 40px;
           border-radius: 6px;
         }
       `}</style>
