@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { Target, Eye, Heart, Lightbulb, Users2, Award } from 'lucide-react';
 import { useState } from 'react';
 import HeroNewton from '@/components/ui/HeroNewton';
+import MensajeDirector from '@/components/ui/MensajeDirector';
+import IdentityNewtoniana from '@/components/ui/IdentityNewtoniana';
 
 const Nosotros = () => {
   const [selectedYear, setSelectedYear] = useState(0);
@@ -80,9 +82,20 @@ const Nosotros = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <HeroNewton/>
+        
+    {/* Hero Section */}
+    <HeroNewton />
+  
 
+    {/* Fundador */}
+    <section id="quienes">
+      <MensajeDirector />
+      <IdentityNewtoniana/>
+
+    </section>
+
+
+    
       {/* Fundador */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">

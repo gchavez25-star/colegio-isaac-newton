@@ -6,25 +6,25 @@ export default function Talleres() {
     {
       titulo: "Vóley",
       descripcion: "Aprende técnica, coordinación y trabajo en equipo.",
-      imagen: "/images/voley.jpg",
+      imagen: "/Inicio/Voley.png",
       icono: "🏐",
     },
     {
       titulo: "Música",
       descripcion: "Desarrolla tu talento musical con instrumentos.",
-      imagen: "/images/musica.jpg",
+      imagen: "/Inicio/Musica.png",
       icono: "🎸",
     },
     {
       titulo: "Danza típica",
       descripcion: "Expresa tu cultura y movimiento.",
-      imagen: "/images/danza.jpg",
+      imagen: "/Inicio/Danza.png",
       icono: "💃",
     },
     {
       titulo: "Fútbol",
       descripcion: "Refuerza tu resistencia y disciplina deportiva.",
-      imagen: "/images/futbol.jpg",
+      imagen: "/Inicio/Futbol.png",
       icono: "⚽",
     },
   ];
@@ -64,7 +64,7 @@ export default function Talleres() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl italic text-verde-azulado mt-2"
+              className="text-4xl font-anton text-verde-azulado mt-4"
             >
               Extracurriculares
             </motion.p>

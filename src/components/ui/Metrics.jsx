@@ -44,7 +44,7 @@ const Metrics = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="entry-title text-center text-3xl md:text-4xl font-bold text-[#013055] mb-14"
+          className="entry-title text-center text-4xl md:text-5xl font-bold text-[#013055] mb-14"
         >
           Logros Institucionales
         </motion.h2>

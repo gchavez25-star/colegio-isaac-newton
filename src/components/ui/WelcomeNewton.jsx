@@ -42,7 +42,7 @@ export default function WelcomeNewton() {
           className="md:w-1/2 w-full p-8 md:p-10 flex flex-col justify-center"
         >
           {/* TÍTULO */}
-          <h2 className="entry-title text-3xl md:text-4xl font-bold leading-tight text-[#013055] mb-5">
+          <h2 className="entry-title text-4xl md:text-5xl font-bold leading-tight text-[#007a75] mb-4">
             Bienvenidos
              </h2>
 
