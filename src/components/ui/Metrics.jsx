@@ -80,7 +80,7 @@ const Metrics = () => {
 
               {/* Frente */}
               <div className="backface-hidden">
-                <h3 className="text-7xl md:text-8xl font-anton text-[#fccc00] flex justify-center items-baseline gap-1 leading-none">
+                <h3 className="text-7xl md:text-8xl font-anton text-[#ffcd00] flex justify-center items-baseline gap-1 leading-none">
 
                   {/* + al inicio */}
                   {item.prefix && (

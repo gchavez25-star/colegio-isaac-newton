@@ -104,7 +104,115 @@ const MensajeDirector = () => {
         </div>
       </div>
     </section>
+    
   );
 };
+const IdentityNewtoniana = () => {
+  return (
+    <section className="py-16 md:py-10 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
 
+        {/* ===== TÍTULO SUPERIOR ===== */}
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="font-script text-4xl md:text-5xl text-amarillo-dorado">
+            Identity
+          </h2>
+          <h1 className="font-anton text-5xl md:text-6xl text-azul-oscuro mt-2 leading-none">
+            NEWTONIANA
+          </h1>
+        </div>
+
+        {/* ===== CONTENIDO PRINCIPAL ===== */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
+
+          {/* =============================== */}
+          {/*         IMAGEN + DECORACIÓN     */}
+          {/* =============================== */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative flex justify-center"
+          >
+            {/* Semicírculo de fondo */}
+            <div className="absolute w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 
+            rounded-full bg-gradient-to-br from-[#D1D5DB] to-[#9CA3AF]
+            left-8 top-6 z-0">
+            </div>
+
+            {/* Figura amarilla */}
+            <div className="absolute top-6 left-0">
+              <svg 
+                width="55" 
+                height="55" 
+                viewBox="0 0 100 100" 
+                className="text-amarillo-dorado fill-current"
+              >
+                <path d="M 30 20 L 70 40 L 50 70 Z" />
+              </svg>
+            </div>
+
+            {/* Foto estudiante */}
+            <img
+              src="/Nosotros/Identity.png"
+              alt="Estudiante Newtoniana"
+              className="relative z-10 max-w-[260px] sm:max-w-sm md:max-w-md rounded-xl object-cover"
+            />
+          </motion.div>
+
+          {/* =============================== */}
+          {/*        PANEL MISIÓN / VISIÓN     */}
+          {/* =============================== */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="
+              bg-gradient-to-b from-[#0E5C89] to-[#0A3D65] 
+              text-white p-8 sm:p-10 md:p-12 rounded-[40px] sm:rounded-[60px] md:rounded-[80px]
+              shadow-xl
+            ">
+
+              {/* ------- MISIÓN ------- */}
+              <div className="mb-10 md:mb-12">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-amarillo-dorado rounded-md flex items-center justify-center shadow-md">
+                    <Target className="text-azul-oscuro" size={30} strokeWidth={2.5} />
+                  </div>
+                  <h3 className="font-anton text-3xl sm:text-4xl">MISIÓN</h3>
+                </div>
+
+                <p className="text-sm sm:text-base font-montserrat leading-relaxed opacity-90">
+                  Somos una Institución Educativa competitiva e inclusiva que promueve 
+                  una formación integral con valores en nuestros estudiantes para afrontar 
+                  con éxito los retos del mundo actual.
+                </p>
+              </div>
+
+              {/* ------- VISIÓN ------- */}
+              <div>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-amarillo-dorado rounded-md flex items-center justify-center shadow-md">
+                    <Eye className="text-azul-oscuro" size={30} strokeWidth={2.5} />
+                  </div>
+                  <h3 className="font-anton text-3xl sm:text-4xl">VISIÓN</h3>
+                </div>
+
+                <p className="text-sm sm:text-base font-montserrat leading-relaxed opacity-90">
+                  Ser una Institución Educativa licenciada que brinda una educación integral 
+                  con el propósito de formar personas preparadas para los retos de un mundo cambiante.
+                </p>
+              </div>
+
+            </div>
+          </motion.div>
+
+        </div>
+      </div>
+    </section>
+  );
+};
 export default MensajeDirector;
