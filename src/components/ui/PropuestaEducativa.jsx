@@ -47,7 +47,7 @@ export default function PropuestaEducativa() {
 
           {/* BOTÓN */}
           <motion.a
-            href="#niveles"
+            href="/Niveles"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
             className="

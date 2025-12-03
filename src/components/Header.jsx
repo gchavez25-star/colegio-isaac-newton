@@ -29,17 +29,19 @@ const Header = () => {
     "Baños del Inca": Home,
   };
 
-  const menuItems = [
-    { name: "Inicio", path: "/" },
-    {
-      name: "Nosotros",
-      sub: [
-        { name: "Quiénes Somos", path: "/nosotros#quienes", desc: "Conoce nuestra identidad" },
-        { name: "Nuestra Historia", path: "/nosotros#historia", desc: "Nuestro recorrido" },
-        { name: "Principios", path: "/nosotros#principios", desc: "Valores institucionales" },
-        { name: "Ente Promotor", path: "/nosotros#ente", desc: "Quiénes nos respaldan" },
-      ],
-    },
+const menuItems = [
+  { name: "Inicio", path: "/" },
+  {
+    name: "Nosotros",
+    sub: [
+      { name: "Quiénes Somos", path: "/nosotros?section=quienes", desc: "Conoce nuestra identidad" },
+      { name: "Nuestra Historia", path: "/nosotros?section=historia", desc: "Nuestro recorrido" },
+      { name: "Principios", path: "/nosotros?section=valores", desc: "Valores institucionales" },
+      { name: "Ente Promotor", path: "/nosotros?section=ente", desc: "Quiénes nos respaldan" },
+    ],
+  },
+
+
     {
       name: "Niveles",
       sub: [

@@ -58,7 +58,7 @@ export default function WelcomeNewton() {
 
           {/* BOTÓN */}
           <motion.a
-            href="#"
+            href="/Nosotros"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
             className="

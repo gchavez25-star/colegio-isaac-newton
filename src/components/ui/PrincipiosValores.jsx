@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { useRef } from "react";
 
 const PrincipiosValores = () => {
+  const sectionRef = useRef(null);
+
+  // Parallax global (funciona siempre)
+  const { scrollY } = useScroll();
+  const yEscudo = useTransform(scrollY, [0, 900], [0, 120]); // Ajusta 120 si quieres más movimiento
+
   const valoresIzquierda = [
     {
       id: 1,
@@ -46,9 +53,9 @@ const PrincipiosValores = () => {
   ];
 
   return (
-    <section className="py-32 bg-[#013055] relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 bg-[#013055] relative overflow-hidden">
       <div className="container mx-auto px-4">
-        
+
         {/* Título */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -63,10 +70,10 @@ const PrincipiosValores = () => {
 
         <div className="max-w-7xl mx-auto">
 
-          {/* DESKTOP: 3 columnas */}
+          {/* DESKTOP */}
           <div className="hidden lg:grid lg:grid-cols-12 lg:gap-8 items-start">
-            
-            {/* COLUMNA IZQUIERDA - 5 columnas */}
+
+            {/* COLUMNA IZQUIERDA */}
             <div className="col-span-5 space-y-8">
               {valoresIzquierda.map((valor, index) => (
                 <motion.div
@@ -81,31 +88,28 @@ const PrincipiosValores = () => {
               ))}
             </div>
 
-            {/* COLUMNA CENTRAL - 2 columnas (escudo) */}
+            {/* COLUMNA CENTRAL: ESCUDO PARALLAX + STICKY */}
             <div className="col-span-2 pt-32">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1 }}
-                className="sticky top-32"
-              >
-                <div className="text-center">
-                                    
-                  {/* Escudo */}
-                  <div className="w-40 h-40 mx-auto opacity-25">
-                    <img
-                      src="/Escudo líneas.png"
-                      alt="Escudo"
-                      className="w-full h-full object-contain"
-                    />
+              <div className="sticky top-32">
+
+                {/* Movimiento parallax */}
+                <motion.div style={{ y: yEscudo }}>
+                  <div className="text-center">
+                    <div className="w-40 h-40 mx-auto opacity-25">
+                      <img
+                        src="/Escudo líneas.png"
+                        alt="Escudo"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+
+              </div>
             </div>
 
-            {/* COLUMNA DERECHA - 5 columnas */}
-            <div className="col-span-5 space-y-8">
+            {/* COLUMNA DERECHA */}
+            <div className="col-span-5 space-y-8 mt-24">
               {valoresDerecha.map((valor, index) => (
                 <motion.div
                   key={valor.id}
@@ -121,31 +125,21 @@ const PrincipiosValores = () => {
 
           </div>
 
-          {/* MÓVIL/TABLET: Grid normal */}
+          {/* MÓVIL / TABLET */}
           <div className="lg:hidden">
-            {/* Escudo arriba */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="flex justify-center mb-12"
-            >
-              <div className="text-center">
-                <div className="font-serif text-4xl text-[#D4C5A9] font-bold mb-3">
-                  2009
-                </div>
-                <div className="w-32 h-32 mx-auto opacity-25">
-                  <img
-                    src="/Escudo líneas.png"
-                    alt="Escudo"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
+
+            {/* Escudo con parallax */}
+            <motion.div style={{ y: yEscudo }} className="flex justify-center mb-12">
+              <div className="w-32 h-32 opacity-25">
+                <img
+                  src="/Escudo líneas.png"
+                  alt="Escudo"
+                  className="w-full h-full object-contain"
+                />
               </div>
             </motion.div>
 
-            {/* Tarjetas */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[...valoresIzquierda, ...valoresDerecha].map((valor, index) => (
                 <motion.div
                   key={valor.id}
@@ -158,6 +152,7 @@ const PrincipiosValores = () => {
                 </motion.div>
               ))}
             </div>
+
           </div>
 
         </div>
@@ -166,23 +161,19 @@ const PrincipiosValores = () => {
   );
 };
 
-// Componente Tarjeta
 const TarjetaValor = ({ valor }) => {
   return (
     <Link to={valor.link} className="group block">
       <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-        
+
         {/* Imagen */}
-        <div className="relative h-80 bg-gray-200 overflow-hidden">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-4xl bg-gray-200">
           <img
             src={valor.imagen}
             alt={valor.titulo}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-            onError={(e) => {
-              e.target.style.display = 'none';
-            }}
           />
-          
+
           {/* Botón */}
           <div className="absolute bottom-6 right-6">
             <div className="w-14 h-14 bg-[#F5E6D3] rounded-full flex items-center justify-center shadow-lg group-hover:bg-[#fccc00] transition-all group-hover:scale-110">
@@ -193,7 +184,7 @@ const TarjetaValor = ({ valor }) => {
 
         {/* Texto */}
         <div className="p-8">
-          <h3 className="font-serif text-xl text-[#2C5F2D] leading-tight group-hover:text-[#007a75] transition-colors duration-300">
+          <h3 className="monserrat text-3xl text-[#007a75] leading-tight transition-colors">
             {valor.titulo}
           </h3>
         </div>
