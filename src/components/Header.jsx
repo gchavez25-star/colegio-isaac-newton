@@ -45,8 +45,8 @@ const menuItems = [
     {
       name: "Niveles",
       sub: [
-        { name: "Primaria", path: "/niveles/primaria", desc: "1° a 6° grado" },
-        { name: "Secundaria", path: "/niveles/secundaria", desc: "1° a 5° año" },
+        { name: "Primaria", path: "/nivel/primaria", desc: "1° a 6° grado" },
+        { name: "Secundaria", path: "/nivel/secundaria", desc: "1° a 5° año" },
       ],
     },
     {

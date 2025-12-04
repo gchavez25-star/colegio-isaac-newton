@@ -244,3 +244,14 @@
 .animate-slideDown {
   animation: slideDown 0.25s ease-out forwards;
 }
+.line-animated path {
+  stroke-dasharray: 20000;
+  stroke-dashoffset: 20000;
+  animation: drawLine 6s ease forwards;
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
