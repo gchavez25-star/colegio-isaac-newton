@@ -55,13 +55,8 @@ const NivelPrimaria = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-10 relative overflow-hidden">
-       {/* FONDO DECORATIVO */}
-      <div className="absolute inset-0 -z-10 bg-white">
-        <div className="absolute top-0 left-0 w-full h-[1400px] bg-gradient-to-br from-[#e6f3ff] to-transparent skew-y-3" />
-        <div className="absolute bottom-0 right-0 w-full h-[1400px] bg-gradient-to-tl from-[#fff4c2] to-transparent -skew-y-3" />
-      </div>
-
+    <div className="min-h-screen bg-white">
+      
       {/* HERO SECTION */}
       <section className="relative h-[60vh] md:h-[70vh] overflow-hidden">
         <div className="absolute inset-0">
