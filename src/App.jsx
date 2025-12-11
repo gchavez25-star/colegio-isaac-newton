@@ -11,8 +11,9 @@ import Admision from './pages/Admision';
 import Contacto from './pages/Contacto';
 import NivelPrimaria from './components/ui/NivelPrimaria';
 import NivelSecundaria from './components/ui/NivelSecundaria';
-import NoticiasNewton from './components/ui/Noticias';
 import Directivos from './components/ui/Directivos';
+import NoticiasPage from './components/ui/NoticiasPage';
+import NoticiaDetalle from './components/ui/NoticiaDetalle';
 import './App.css';
 
 function App() {
@@ -31,7 +32,8 @@ function App() {
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/nivel/primaria" element={<NivelPrimaria />} />
             <Route path="/nivel/secundaria" element={<NivelSecundaria />} />
-            <Route path='/comunidad/publicaciones' element={<NoticiasNewton />} />
+            <Route path='/comunidad/publicaciones' element={<NoticiasPage />} />
+            <Route path="/comunidad/:slug" element={<NoticiaDetalle />} />
             <Route path='/comunidad/directivos' element={<Directivos />} />
           </Routes>
         </main>

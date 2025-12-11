@@ -6,10 +6,10 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { FileText } from "lucide-react";
-import { getAllNoticias, getNoticiasByCategoria } from "../components/data/noticiasData";
+import { getAllNoticias, getNoticiasByCategoria } from "../../data/noticiasData";
 
 const NoticiasPage = () => {
-  const categorias = ["Todas", "Alumni", "Artículos", "Eventos", "Prensa"];
+  const categorias = ["Todas", "Alumnos", "Artículos", "Eventos", "Prensa"];
   const [categoriaActiva, setCategoriaActiva] = useState("Todas");
 
   // Obtener todas las noticias
@@ -192,7 +192,7 @@ const TarjetaNoticia = ({ noticia }) => {
 // Componente de Tarjeta para el Grid
 const TarjetaNoticiaGrid = ({ noticia }) => {
   return (
-    <Link to={`/noticias/${noticia.slug}`}>
+    <Link to={`/comunidad/${noticia.slug}`}>
       <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group cursor-pointer hover:-translate-y-2">
         
         {/* Imagen */}

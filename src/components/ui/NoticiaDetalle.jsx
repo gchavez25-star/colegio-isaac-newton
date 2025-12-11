@@ -7,7 +7,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { ArrowLeft, Facebook, Twitter, Linkedin, Link as LinkIcon, Clock } from "lucide-react";
 import { useState } from "react";
-import { getNoticiaBySlug } from "../data/noticiasData";
+import { getNoticiaBySlug } from "../../data/noticiasData";
 
 const NoticiaDetalle = () => {
   const { slug } = useParams();
@@ -18,7 +18,7 @@ const NoticiaDetalle = () => {
 
   // Si no existe la noticia, redirigir a noticias
   if (!noticia) {
-    return <Navigate to="/noticias" replace />;
+    return <Navigate to="/comunidad/publicaciones" replace />;
   }
 
   const copiarLink = () => {
@@ -41,11 +41,11 @@ const NoticiaDetalle = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      
+
       {/* HERO SECTION */}
       <section className="relative bg-azul-oscuro text-white py-24 pb-0">
         <div className="container mx-auto px-6">
-          
+
           {/* Botón Volver */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -53,11 +53,11 @@ const NoticiaDetalle = () => {
             className="mb-12"
           >
             <Link
-              to="/noticias"
+              to="/comunidad/publicaciones"
               className="inline-flex items-center gap-2 text-white hover:text-amarillo-dorado transition-colors duration-300 text-lg"
             >
               <ArrowLeft className="w-5 h-5" />
-              Volver al Blog
+              Volver a Noticias
             </Link>
           </motion.div>
 
@@ -73,7 +73,7 @@ const NoticiaDetalle = () => {
             </h1>
 
             <div className="flex flex-wrap items-center justify-between gap-6">
-              
+
               {/* Fecha y tiempo */}
               <div className="flex items-center gap-6 text-lg">
                 <span>{noticia.fecha}</span>
@@ -86,7 +86,7 @@ const NoticiaDetalle = () => {
               {/* Botones compartir */}
               <div className="flex items-center gap-3">
                 <span className="text-sm mr-2">Compartir</span>
-                
+
                 <button
                   onClick={compartirFacebook}
                   className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all"
@@ -128,22 +128,32 @@ const NoticiaDetalle = () => {
             </div>
           </motion.div>
 
-          {/* Imagen Principal */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="rounded-t-[40px] overflow-hidden shadow-2xl"
-          >
+          {/* =====================================================
+              IMAGEN PRINCIPAL (MODIFICADA SEGÚN TU EJEMPLO)
+          ====================================================== */}
+         <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="relative w-full rounded-3xl overflow-hidden"
+          style={{ paddingTop: "52%" }} 
+        >
+          <picture className="absolute inset-0 w-full h-full block">
+            <source
+              srcSet={noticia.imagenPrincipal}
+              media="(max-width: 767px)"
+            />
             <img
               src={noticia.imagenPrincipal}
               alt={noticia.titulo}
-              className="w-full h-[60vh] object-cover"
+              className="w-full h-full object-contain object-center rounded-3xl"
               onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/1200x800/013055/ffffff?text=Isaac+Newton';
+                e.target.src =
+                  "https://via.placeholder.com/1200x800/013055/ffffff?text=Isaac+Newton";
               }}
             />
-          </motion.div>
+          </picture>
+        </motion.div>
 
         </div>
       </section>
@@ -159,7 +169,7 @@ const NoticiaDetalle = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-[#f5e6d3] rounded-3xl p-8 md:p-12 mb-12"
+                className="bg-[#ffcd00]/20 rounded-3xl p-8 md:p-12 mb-12"
               >
                 <p className="text-azul-oscuro text-xl md:text-2xl leading-relaxed font-medium">
                   {noticia.destacado}
@@ -190,7 +200,8 @@ const NoticiaDetalle = () => {
                       alt={bloque.alt}
                       className="w-full h-auto"
                       onError={(e) => {
-                        e.target.src = 'https://via.placeholder.com/1200x800/013055/ffffff?text=Imagen';
+                        e.target.src =
+                          'https://via.placeholder.com/1200x800/013055/ffffff?text=Imagen';
                       }}
                     />
                   </div>
@@ -204,7 +215,8 @@ const NoticiaDetalle = () => {
                         alt="Video thumbnail"
                         className="w-full h-auto"
                         onError={(e) => {
-                          e.target.src = 'https://via.placeholder.com/1200x800/013055/ffffff?text=Video';
+                          e.target.src =
+                            'https://via.placeholder.com/1200x800/013055/ffffff?text=Video';
                         }}
                       />
                       <div className="absolute inset-0 bg-azul-oscuro/40 group-hover:bg-azul-oscuro/60 transition-all flex items-center justify-center">
@@ -236,7 +248,7 @@ const NoticiaDetalle = () => {
       {noticia.galeria && noticia.galeria.length > 0 && (
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-6">
-            
+
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -267,7 +279,8 @@ const NoticiaDetalle = () => {
                       alt={`Galería ${index + 1}`}
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                       onError={(e) => {
-                        e.target.src = `https://via.placeholder.com/800x600/013055/ffffff?text=Foto+${index + 1}`;
+                        e.target.src =
+                          `https://via.placeholder.com/800x600/013055/ffffff?text=Foto+${index + 1}`;
                       }}
                     />
                   </div>
@@ -283,7 +296,7 @@ const NoticiaDetalle = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 text-center">
           <Link
-            to="/noticias"
+            to="/comunidad/publicaciones"
             className="inline-flex items-center gap-3 bg-verde-azulado text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-verde-azulado/90 transition-all shadow-lg hover:shadow-xl"
           >
             <ArrowLeft className="w-5 h-5" />
