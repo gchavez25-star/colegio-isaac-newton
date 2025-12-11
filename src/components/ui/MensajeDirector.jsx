@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Quote, Target, Eye } from "lucide-react";
+import ReconocimientosPUCP from "./ReconocimientosPUCP";
 
 const MensajeDirector = () => {
   return (
@@ -197,6 +198,9 @@ const MensajeDirector = () => {
 
           </div>
         </div>
+      </section>
+      <section>
+        <ReconocimientosPUCP/>
       </section>
     </>
   );
