@@ -14,6 +14,8 @@ import NivelSecundaria from './components/ui/NivelSecundaria';
 import Directivos from './components/ui/Directivos';
 import NoticiasPage from './components/ui/NoticiasPage';
 import NoticiaDetalle from './components/ui/NoticiaDetalle';
+import Docentes from './components/ui/Docentes';
+import Alumnos from './components/ui/Alumnos';
 import './App.css';
 
 function App() {
@@ -35,6 +37,8 @@ function App() {
             <Route path='/comunidad/publicaciones' element={<NoticiasPage />} />
             <Route path="/comunidad/:slug" element={<NoticiaDetalle />} />
             <Route path='/comunidad/directivos' element={<Directivos />} />
+            <Route path='/comunidad/docentes' element={<Docentes/>} />
+            <Route path='/comunidad/alumnos' element={<Alumnos/>} />
           </Routes>
         </main>
         <Footer />
