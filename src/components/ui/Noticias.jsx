@@ -1,69 +1,25 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { FileText } from "lucide-react";
+import { getAllNoticias, getNoticiasByCategoria } from "../components/data/noticiasData";
 
 const NoticiasPage = () => {
-  const categorias = ["Todas", "Alumnos", "Artículos", "Eventos", "Prensa"];
+  const categorias = ["Todas", "Alumni", "Artículos", "Eventos", "Prensa"];
   const [categoriaActiva, setCategoriaActiva] = useState("Todas");
 
-  const noticias = [
-    {
-      id: 1,
-      titulo: "Inauguración del Nuevo Centro de Gestión del Aprendizaje",
-      fecha: "27 marzo",
-      imagen: "/noticias/noticia-1.jpg",
-      categorias: ["Alumnos", "Artículos", "Eventos", "Prensa"],
-      link: "/noticias/inauguracion-centro"
-    },
-    {
-      id: 2,
-      titulo: "RaiMUN 2024",
-      fecha: "23 junio",
-      imagen: "/noticias/noticia-2.jpg",
-      categorias: ["Alumnos", "Artículos", "Eventos", "Prensa"],
-      link: "/noticias/raimun-2024"
-    },
-    {
-      id: 3,
-      titulo: "Poetas de la Canción Peruana Contemporánea – Nivel Inicial",
-      fecha: "09 julio",
-      imagen: "/noticias/noticia-3.jpg",
-      categorias: ["Alumnos", "Artículos", "Eventos", "Prensa"],
-      link: "/noticias/poetas-inicial"
-    },
-    {
-      id: 4,
-      titulo: "Poetas de la Canción Peruana Contemporánea – Primaria",
-      fecha: "10 julio",
-      imagen: "/noticias/noticia-4.jpg",
-      categorias: ["Alumnos", "Artículos", "Eventos", "Prensa"],
-      link: "/noticias/poetas-primaria"
-    },
-    {
-      id: 5,
-      titulo: "Ceremonia de Graduación 2024",
-      fecha: "15 diciembre",
-      imagen: "/noticias/noticia-5.jpg",
-      categorias: ["Eventos", "Alumni"],
-      link: "/noticias/graduacion-2024"
-    },
-    {
-      id: 6,
-      titulo: "Feria de Ciencias Isaac Newton",
-      fecha: "20 noviembre",
-      imagen: "/noticias/noticia-6.jpg",
-      categorias: ["Eventos", "Artículos"],
-      link: "/noticias/feria-ciencias"
-    }
-  ];
+  // Obtener todas las noticias
+  const todasLasNoticias = getAllNoticias();
+  
+  // Filtrar noticias según categoría activa
+  const noticiasFiltradas = getNoticiasByCategoria(categoriaActiva);
 
-  const noticiasFiltradas = categoriaActiva === "Todas" 
-    ? noticias 
-    : noticias.filter(noticia => noticia.categorias.includes(categoriaActiva));
+  // Noticias destacadas para el slider (primeras 4)
+  const noticiasDestacadas = todasLasNoticias.slice(0, 4);
 
   return (
     <div className="min-h-screen bg-white">
@@ -110,7 +66,7 @@ const NoticiasPage = () => {
               }}
               className="!pb-16"
             >
-              {noticias.slice(0, 4).map((noticia) => (
+              {noticiasDestacadas.map((noticia) => (
                 <SwiperSlide key={noticia.id}>
                   <TarjetaNoticia noticia={noticia} />
                 </SwiperSlide>
@@ -183,107 +139,111 @@ const NoticiasPage = () => {
 // Componente de Tarjeta para el Slider
 const TarjetaNoticia = ({ noticia }) => {
   return (
-    <div className="bg-white rounded-[40px] overflow-hidden shadow-2xl p-8 group cursor-pointer hover:shadow-3xl transition-all duration-500">
-      
-      {/* Imagen */}
-      <div className="relative h-80 rounded-3xl overflow-hidden mb-6">
-        <img
-          src={noticia.imagen}
-          alt={noticia.titulo}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-          onError={(e) => {
-            e.target.src = 'https://via.placeholder.com/800x600/013055/ffffff?text=Isaac+Newton';
-          }}
-        />
-      </div>
-
-      {/* Categorías */}
-      <div className="flex flex-wrap items-center gap-2 mb-4">
-        {noticia.categorias.map((cat, index) => (
-          <div key={index} className="flex items-center gap-2">
-            <span className="text-verde-azulado font-semibold text-sm">
-              {cat}
-            </span>
-            {index < noticia.categorias.length - 1 && (
-              <span className="text-amarillo-dorado text-lg">◆</span>
-            )}
-          </div>
-        ))}
-      </div>
-
-      {/* Título */}
-      <h3 className="font-anton text-2xl text-azul-oscuro mb-4 leading-tight">
-        {noticia.titulo}
-      </h3>
-
-      {/* Footer con fecha y botón */}
-      <div className="flex items-center justify-between">
-        <span className="text-gray-600 text-lg">
-          {noticia.fecha}
-        </span>
+    <Link to={`/noticias/${noticia.slug}`}>
+      <div className="bg-white rounded-[40px] overflow-hidden shadow-2xl p-8 group cursor-pointer hover:shadow-3xl transition-all duration-500">
         
-        <div className="w-14 h-14 bg-[#f5e6d3] rounded-full flex items-center justify-center group-hover:bg-amarillo-dorado transition-colors duration-300">
-          <FileText className="w-6 h-6 text-azul-oscuro" />
+        {/* Imagen */}
+        <div className="relative h-80 rounded-3xl overflow-hidden mb-6">
+          <img
+            src={noticia.imagenMiniatura || noticia.imagenPrincipal}
+            alt={noticia.titulo}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            onError={(e) => {
+              e.target.src = 'https://via.placeholder.com/800x600/013055/ffffff?text=Isaac+Newton';
+            }}
+          />
         </div>
-      </div>
 
-    </div>
-  );
-};
-
-// Componente de Tarjeta para el Grid
-const TarjetaNoticiaGrid = ({ noticia }) => {
-  return (
-    <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group cursor-pointer hover:-translate-y-2">
-      
-      {/* Imagen */}
-      <div className="relative h-64 overflow-hidden">
-        <img
-          src={noticia.imagen}
-          alt={noticia.titulo}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-          onError={(e) => {
-            e.target.src = 'https://via.placeholder.com/600x400/013055/ffffff?text=Isaac+Newton';
-          }}
-        />
-      </div>
-
-      {/* Contenido */}
-      <div className="p-6">
-        
         {/* Categorías */}
-        <div className="flex flex-wrap items-center gap-2 mb-3">
-          {noticia.categorias.slice(0, 2).map((cat, index) => (
+        <div className="flex flex-wrap items-center gap-2 mb-4">
+          {noticia.categorias.map((cat, index) => (
             <div key={index} className="flex items-center gap-2">
-              <span className="text-verde-azulado font-semibold text-xs">
+              <span className="text-verde-azulado font-semibold text-sm">
                 {cat}
               </span>
-              {index < Math.min(noticia.categorias.length, 2) - 1 && (
-                <span className="text-amarillo-dorado text-sm">◆</span>
+              {index < noticia.categorias.length - 1 && (
+                <span className="text-amarillo-dorado text-lg">◆</span>
               )}
             </div>
           ))}
         </div>
 
         {/* Título */}
-        <h3 className="font-anton text-xl text-azul-oscuro mb-3 leading-tight line-clamp-2">
+        <h3 className="font-anton text-2xl text-azul-oscuro mb-4 leading-tight">
           {noticia.titulo}
         </h3>
 
-        {/* Footer */}
+        {/* Footer con fecha y botón */}
         <div className="flex items-center justify-between">
-          <span className="text-gray-600">
+          <span className="text-gray-600 text-lg">
             {noticia.fecha}
           </span>
           
-          <button className="text-verde-azulado font-semibold hover:text-azul-oscuro transition-colors">
-            Leer →
-          </button>
+          <div className="w-14 h-14 bg-[#f5e6d3] rounded-full flex items-center justify-center group-hover:bg-amarillo-dorado transition-colors duration-300">
+            <FileText className="w-6 h-6 text-azul-oscuro" />
+          </div>
         </div>
 
       </div>
+    </Link>
+  );
+};
 
-    </div>
+// Componente de Tarjeta para el Grid
+const TarjetaNoticiaGrid = ({ noticia }) => {
+  return (
+    <Link to={`/noticias/${noticia.slug}`}>
+      <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group cursor-pointer hover:-translate-y-2">
+        
+        {/* Imagen */}
+        <div className="relative h-64 overflow-hidden">
+          <img
+            src={noticia.imagenMiniatura || noticia.imagenPrincipal}
+            alt={noticia.titulo}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            onError={(e) => {
+              e.target.src = 'https://via.placeholder.com/600x400/013055/ffffff?text=Isaac+Newton';
+            }}
+          />
+        </div>
+
+        {/* Contenido */}
+        <div className="p-6">
+          
+          {/* Categorías */}
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            {noticia.categorias.slice(0, 2).map((cat, index) => (
+              <div key={index} className="flex items-center gap-2">
+                <span className="text-verde-azulado font-semibold text-xs">
+                  {cat}
+                </span>
+                {index < Math.min(noticia.categorias.length, 2) - 1 && (
+                  <span className="text-amarillo-dorado text-sm">◆</span>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Título */}
+          <h3 className="font-anton text-xl text-azul-oscuro mb-3 leading-tight line-clamp-2">
+            {noticia.titulo}
+          </h3>
+
+          {/* Footer */}
+          <div className="flex items-center justify-between">
+            <span className="text-gray-600">
+              {noticia.fecha}
+            </span>
+            
+            <span className="text-verde-azulado font-semibold hover:text-azul-oscuro transition-colors">
+              Leer →
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+    </Link>
   );
 };
 
