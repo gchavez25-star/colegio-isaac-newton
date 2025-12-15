@@ -1,81 +1,137 @@
-import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, ChevronRight } from 'lucide-react';
-import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MapPin, Phone, Mail, Clock, ChevronRight, Video, Image, BookOpen, School } from 'lucide-react';
+import { useState, useMemo } from 'react';
 
-const Campus = () => {
+// =====================================================
+// 1. ESTRUCTURA DE DATOS PARA MÚLTIPLES SEDES Y NIVELES
+// =====================================================
+
+// Datos base del campus Cajamarca (tomados del código original)
+const campusCajamarcaBase = {
+  direccion: 'Av. Héroes del Cenepa 123, Cajamarca',
+  telefono: '(076) 123-456',
+  email: 'cajamarca@isaacnewton.edu.pe',
+  horario: 'Lunes a Viernes: 7:00 AM - 5:00 PM',
+  mapa: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.1!2d-78.5!3d-7.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!5e0!3m2!1ses!2spe',
+  video: 'https://www.youtube.com/embed/VIDEO_ID_CAJAMARCA',
+};
+
+// Datos base del campus Baños del Inca (datos ficticios)
+const campusBanosIncaBase = {
+  direccion: 'Av. Los Incas 456, Baños del Inca',
+  telefono: '(076) 789-012',
+  email: 'banosdelinca@isaacnewton.edu.pe',
+  horario: 'Lunes a Viernes: 7:30 AM - 4:30 PM',
+  mapa: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.1!2d-78.5!3d-7.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!5e0!3m2!1ses!2spe',
+  video: 'https://www.youtube.com/embed/VIDEO_ID_BANOS_INCA',
+};
+
+const infraestructuraData = {
+  'Cajamarca': {
+    ...campusCajamarcaBase,
+    'General': {
+      titulo: 'Infraestructura General',
+      descripcion: 'Nuestro campus principal concentra la gestión académica y administrativa del colegio. Cuenta con infraestructura moderna, laboratorios especializados y servicios de apoyo integral al estudiante.',
+      imagen: 'https://images.unsplash.com/photo-1562774053-701939374585?w=1200&h=800&fit=crop',
+      caracteristicas: [
+        'Laboratorios de Física, Química y Biología',
+        'Biblioteca física y digital',
+        'Área de Psicología Educativa',
+        'Tópico y enfermería escolar',
+        'Auditorio institucional',
+        'Canchas deportivas techadas'
+      ],
+      galeria: [
+        { titulo: 'Laboratorios de Ciencias', imagen: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=600&fit=crop' },
+        { titulo: 'Biblioteca Central', imagen: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&h=600&fit=crop' },
+        { titulo: 'Auditorio Principal', imagen: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=600&fit=crop' },
+        { titulo: 'Área de Psicología', imagen: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&h=600&fit=crop' }
+      ]
+    },
+    'Inicial': {
+      titulo: 'Nivel Inicial',
+      descripcion: 'Espacios diseñados para el desarrollo integral de los más pequeños, fomentando la creatividad y el juego como herramientas de aprendizaje.',
+      imagen: 'https://images.unsplash.com/photo-1576092768241-dec231879549?w=1200&h=800&fit=crop',
+      caracteristicas: ['Aulas temáticas', 'Patios de juego seguros', 'Huerto escolar', 'Sala de psicomotricidad'],
+      galeria: []
+    },
+    'Primaria': {
+      titulo: 'Nivel Primaria',
+      descripcion: 'Aulas amplias y equipadas para una educación activa y participativa. Contamos con tecnología de punta para el desarrollo de proyectos.',
+      imagen: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1200&h=800&fit=crop',
+      caracteristicas: ['Aulas interactivas', 'Laboratorio de cómputo', 'Cancha de usos múltiples', 'Comedor escolar'],
+      galeria: []
+    },
+    'Secundaria': {
+      titulo: 'Nivel Secundaria',
+      descripcion: 'Infraestructura especializada para la formación preuniversitaria. Laboratorios avanzados y espacios de estudio colaborativo.',
+      imagen: 'https://images.unsplash.com/photo-1541339907198-e0875663f974?w=1200&h=800&fit=crop',
+      caracteristicas: ['Laboratorios avanzados de ciencias', 'Salas de estudio grupal', 'Gimnasio', 'Área de robótica'],
+      galeria: []
+    }
+  },
+  'Baños del Inca': {
+    ...campusBanosIncaBase,
+    'General': {
+      titulo: 'Infraestructura General',
+      descripcion: 'Nuestro campus en Baños del Inca ofrece un ambiente tranquilo y natural, ideal para el aprendizaje. Mantenemos los mismos estándares de calidad y equipamiento.',
+      imagen: 'https://images.unsplash.com/photo-1552581234-26160f608093?w=1200&h=800&fit=crop',
+      caracteristicas: [
+        'Aulas con vista a la naturaleza',
+        'Talleres de arte y música',
+        'Campo deportivo de grass natural',
+        'Biblioteca con áreas de lectura al aire libre'
+      ],
+      galeria: []
+    },
+    'Inicial': {
+      titulo: 'Nivel Inicial',
+      descripcion: 'Jardines y áreas de juego al aire libre, aprovechando el entorno natural para la estimulación temprana.',
+      imagen: 'https://images.unsplash.com/photo-1576092768241-dec231879549?w=1200&h=800&fit=crop',
+      caracteristicas: ['Patios de juego con elementos naturales', 'Aulas con luz natural', 'Sala de siesta'],
+      galeria: []
+    },
+    'Primaria': {
+      titulo: 'Nivel Primaria',
+      descripcion: 'Fomentamos el aprendizaje experiencial con espacios que permiten la conexión con el medio ambiente.',
+      imagen: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1200&h=800&fit=crop',
+      caracteristicas: ['Invernadero educativo', 'Laboratorio de idiomas', 'Cancha de fútbol'],
+      galeria: []
+    },
+    'Secundaria': {
+      titulo: 'Nivel Secundaria',
+      descripcion: 'Espacios de concentración y debate, preparando a los estudiantes para los desafíos académicos futuros.',
+      imagen: 'https://images.unsplash.com/photo-1541339907198-e0875663f974?w=1200&h=800&fit=crop',
+      caracteristicas: ['Salas de conferencias', 'Laboratorio de robótica', 'Biblioteca especializada'],
+      galeria: []
+    }
+  }
+};
+
+const niveles = ['General', 'Inicial', 'Primaria', 'Secundaria'];
+const sedes = ['Cajamarca', 'Baños del Inca'];
+
+// =====================================================
+// 2. COMPONENTE PRINCIPAL INFRAESTRUCTURA
+// =====================================================
+
+export default function Infraestructura() {
+  const [selectedSede, setSelectedSede] = useState('Cajamarca');
+  const [selectedNivel, setSelectedNivel] = useState('General');
   const [modalOpen, setModalOpen] = useState(false);
   const [imagenSeleccionada, setImagenSeleccionada] = useState(null);
 
-  const campusData = [
-    {
-      id: 'cajamarca',
-      nombre: 'Campus Cajamarca',
-      direccion: 'Av. Héroes del Cenepa 123, Cajamarca',
-      telefono: '(076) 123-456',
-      email: 'cajamarca@isaacnewton.edu.pe',
-      horario: 'Lunes a Viernes: 7:00 AM - 5:00 PM',
-      descripcion: 'Nuestro campus principal cuenta con modernas instalaciones, laboratorios equipados con tecnología de última generación, biblioteca especializada, auditorio, canchas deportivas y áreas verdes diseñadas para el aprendizaje integral.',
-      imagen: 'https://images.unsplash.com/photo-1562774053-701939374585?w=800&h=600&fit=crop',
-      caracteristicas: [
-        'Laboratorios de Física, Química y Biología',
-        'Biblioteca con más de 10,000 volúmenes',
-        'Auditorio para 300 personas',
-        'Canchas deportivas techadas',
-        'Cafetería y comedor',
-        'Enfermería equipada'
-      ],
-      mapa: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.1!2d-78.5!3d-7.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMDknMDAuMCJTIDc4wrAzMCcwMC4wIlc!5e0!3m2!1ses!2spe!4v1234567890'
-    },
-    {
-      id: 'banos',
-      nombre: 'Campus Baños del Inca',
-      direccion: 'Jr. Los Baños 456, Baños del Inca',
-      telefono: '(076) 789-012',
-      email: 'banos@isaacnewton.edu.pe',
-      horario: 'Lunes a Viernes: 7:00 AM - 5:00 PM',
-      descripcion: 'Ubicado en el pintoresco distrito de Baños del Inca, este campus ofrece un ambiente tranquilo y propicio para el aprendizaje, con instalaciones modernas y espacios amplios rodeados de naturaleza.',
-      imagen: 'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=800&h=600&fit=crop',
-      caracteristicas: [
-        'Laboratorio de Ciencias integrado',
-        'Sala de cómputo con 40 equipos',
-        'Biblioteca digital',
-        'Áreas deportivas al aire libre',
-        'Huerto escolar',
-        'Zona de recreación'
-      ],
-      mapa: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.1!2d-78.45!3d-7.16!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMDknMzYuMCJTIDc4wrAyNycwMC4wIlc!5e0!3m2!1ses!2spe!4v1234567890'
-    }
-  ];
+  const sedeData = infraestructuraData[selectedSede];
+  const nivelData = sedeData[selectedNivel];
+  
+  // Datos combinados para el contenido
+  const contenido = useMemo(() => ({
+    ...sedeData, // Direccion, telefono, email, horario, mapa, video
+    ...nivelData // Titulo, descripcion, imagen, caracteristicas, galeria
+  }), [sedeData, nivelData]);
 
-  const galeria = [
-    {
-      titulo: 'Laboratorio de Ciencias',
-      imagen: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&h=400&fit=crop'
-    },
-    {
-      titulo: 'Biblioteca',
-      imagen: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=600&h=400&fit=crop'
-    },
-    {
-      titulo: 'Auditorio',
-      imagen: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&h=400&fit=crop'
-    },
-    {
-      titulo: 'Canchas Deportivas',
-      imagen: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop'
-    },
-    {
-      titulo: 'Aulas Modernas',
-      imagen: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&h=400&fit=crop'
-    },
-    {
-      titulo: 'Áreas Verdes',
-      imagen: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=400&fit=crop'
-    }
-  ];
-
-  const abrirModal = (imagen) => {
-    setImagenSeleccionada(imagen);
+  const abrirModal = (item) => {
+    setImagenSeleccionada(item);
     setModalOpen(true);
   };
 
@@ -85,275 +141,232 @@ const Campus = () => {
   };
 
   return (
-    <div className="min-h-screen pt-32">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-azul-oscuro to-verde-azulado text-white">
-        <div className="container mx-auto px-4">
-          <motion.div
+    <div className="min-h-screen pt-24 bg-white">
+      
+      {/* HERO SECTION */}
+      <section className="py-16 bg-gradient-to-br from-azul-oscuro to-verde-azulado text-white">
+        <div className="container mx-auto px-6 text-center max-w-4xl">
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center max-w-4xl mx-auto"
+            className="font-anton text-5xl md:text-6xl mb-4"
           >
-            <h1 className="font-anton text-5xl md:text-6xl mb-6">
-              Nuestros Campus
-            </h1>
-            <p className="text-xl md:text-2xl font-light">
-              Dos sedes diseñadas para ofrecer los mejores espacios de aprendizaje
-            </p>
-          </motion.div>
+            Nuestra Infraestructura
+          </motion.h1>
+          <p className="text-xl font-light">Espacios diseñados para la excelencia educativa</p>
         </div>
       </section>
 
-      {/* Campus Cards */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {campusData.map((campus, index) => (
-              <motion.div
-                key={campus.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
+      {/* 3. CONTENIDO PRINCIPAL CON TABS */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-6">
+          
+          {/* TABS SUPERIORES PARA SEDES (Cajamarca / Baños del Inca) */}
+          <div className="flex justify-center mb-10 border-b border-gray-200">
+            {sedes.map((sede) => (
+              <button
+                key={sede}
+                onClick={() => {
+                  setSelectedSede(sede);
+                  setSelectedNivel('General'); // Reset al cambiar de sede
+                }}
+                className={`
+                  px-8 py-3 text-lg font-semibold transition-all relative
+                  ${selectedSede === sede
+                    ? 'text-azul-oscuro border-b-4 border-amarillo-dorado'
+                    : 'text-gray-500 hover:text-azul-oscuro'
+                  }
+                `}
               >
-                {/* Tarjeta Flip */}
-                <motion.div
-                  whileHover={{ rotateY: 180 }}
-                  transition={{ duration: 0.6 }}
-                  className="relative h-96 rounded-xl shadow-2xl cursor-pointer"
-                  style={{ transformStyle: 'preserve-3d' }}
-                >
-                  {/* Frente */}
-                  <div
-                    className="absolute inset-0 rounded-xl overflow-hidden"
-                    style={{ backfaceVisibility: 'hidden' }}
-                  >
-                    <img
-                      src={campus.imagen}
-                      alt={campus.nombre}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-8">
-                      <h2 className="font-anton text-4xl text-white mb-2">
-                        {campus.nombre}
-                      </h2>
-                      <p className="text-white flex items-center gap-2">
-                        <MapPin size={20} />
-                        {campus.direccion}
-                      </p>
-                    </div>
-                  </div>
+                <MapPin className="w-5 h-5 inline-block mr-2" />
+                {sede}
+              </button>
+            ))}
+          </div>
 
-                  {/* Reverso */}
-                  <div
-                    className="absolute inset-0 bg-gradient-to-br from-azul-oscuro to-verde-azulado text-white rounded-xl p-8 flex flex-col justify-center"
-                    style={{
-                      backfaceVisibility: 'hidden',
-                      transform: 'rotateY(180deg)'
-                    }}
+          {/* CONTENIDO CON MENÚ LATERAL PARA NIVELES */}
+          <div className="grid lg:grid-cols-4 gap-8">
+            
+            {/* MENÚ LATERAL (Niveles) - Estilo SIR */}
+            <div className="lg:col-span-1 bg-white rounded-xl shadow-lg p-4 h-fit">
+              <h3 className="text-xl font-bold text-azul-oscuro mb-4 border-b pb-2">
+                Secciones
+              </h3>
+              <nav className="space-y-2">
+                {niveles.map((nivel) => (
+                  <button
+                    key={nivel}
+                    onClick={() => setSelectedNivel(nivel)}
+                    className={`
+                      w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3
+                      ${selectedNivel === nivel
+                        ? 'bg-verde-azulado text-white shadow-md'
+                        : 'text-gray-700 hover:bg-gray-100'
+                      }
+                    `}
                   >
-                    <h3 className="font-anton text-2xl mb-4">
-                      {campus.nombre}
-                    </h3>
-                    <p className="text-sm mb-4 leading-relaxed">
-                      {campus.descripcion}
-                    </p>
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="bg-amarillo-dorado text-azul-oscuro px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity flex items-center gap-2 justify-center"
-                    >
-                      Ver más
-                      <ChevronRight />
-                    </motion.button>
-                  </div>
-                </motion.div>
+                    <School className="w-5 h-5" />
+                    {nivel}
+                  </button>
+                ))}
+              </nav>
+            </div>
 
-                {/* Información detallada */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 + 0.3 }}
-                  className="mt-8 bg-gray-50 p-6 rounded-xl"
-                >
-                  <h3 className="font-anton text-2xl text-azul-oscuro mb-4">
-                    Características
+            {/* CONTENIDO PRINCIPAL */}
+            <motion.div
+              key={selectedSede + selectedNivel}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="lg:col-span-3 space-y-12"
+            >
+              
+              {/* TÍTULO Y DESCRIPCIÓN */}
+              <div className="bg-white rounded-xl shadow-lg p-8">
+                <h2 className="font-anton text-4xl text-azul-oscuro mb-4">
+                  {contenido.titulo} - {selectedSede}
+                </h2>
+                <p className="text-gray-700 text-lg leading-relaxed">
+                  {contenido.descripcion}
+                </p>
+              </div>
+
+              {/* IMAGEN PRINCIPAL */}
+              <div className="rounded-xl overflow-hidden shadow-2xl">
+                <img src={contenido.imagen} alt={contenido.titulo} className="w-full h-auto object-cover" />
+              </div>
+
+              {/* CARACTERÍSTICAS Y CONTACTO */}
+              <div className="grid md:grid-cols-2 gap-8">
+                
+                {/* CARACTERÍSTICAS */}
+                <div className="bg-white rounded-xl shadow-lg p-8">
+                  <h3 className="font-bold text-2xl text-verde-azulado mb-4 flex items-center gap-2">
+                    <BookOpen className="w-6 h-6" />
+                    Características Destacadas
                   </h3>
-                  <ul className="space-y-2 mb-6">
-                    {campus.caracteristicas.map((caracteristica, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-gray-700">
-                        <ChevronRight className="text-verde-azulado flex-shrink-0 mt-1" size={20} />
-                        {caracteristica}
+                  <ul className="space-y-3">
+                    {contenido.caracteristicas.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-gray-700">
+                        <ChevronRight className="w-5 h-5 text-amarillo-dorado mt-1 flex-shrink-0" />
+                        {item}
                       </li>
                     ))}
                   </ul>
+                </div>
 
-                  <div className="space-y-3 text-gray-700">
+                {/* CONTACTO */}
+                <div className="bg-white rounded-xl shadow-lg p-8">
+                  <h3 className="font-bold text-2xl text-verde-azulado mb-4 flex items-center gap-2">
+                    <Phone className="w-6 h-6" />
+                    Información de Contacto
+                  </h3>
+                  <div className="space-y-4 text-gray-700">
                     <div className="flex items-center gap-3">
-                      <Phone size={20} className="text-verde-azulado" />
-                      <span>{campus.telefono}</span>
+                      <MapPin className="text-azul-oscuro" /> {contenido.direccion}
                     </div>
                     <div className="flex items-center gap-3">
-                      <Mail size={20} className="text-verde-azulado" />
-                      <span>{campus.email}</span>
+                      <Phone className="text-azul-oscuro" /> {contenido.telefono}
                     </div>
                     <div className="flex items-center gap-3">
-                      <Clock size={20} className="text-verde-azulado" />
-                      <span>{campus.horario}</span>
+                      <Mail className="text-azul-oscuro" /> {contenido.email}
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Clock className="text-azul-oscuro" /> {contenido.horario}
                     </div>
                   </div>
-
-                  <motion.a
-                    href={`https://wa.me/51976123456?text=${encodeURIComponent(`Hola, me gustaría obtener más información sobre el ${campus.nombre}`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="mt-6 inline-flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-600 transition-colors"
-                  >
-                    Contactar por WhatsApp
-                  </motion.a>
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Mapas Interactivos */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="font-anton text-4xl md:text-5xl text-azul-oscuro mb-4">
-              Ubicación
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Encuéntranos fácilmente en cualquiera de nuestros dos campus
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {campusData.map((campus, index) => (
-              <motion.div
-                key={campus.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                className="bg-white rounded-xl overflow-hidden shadow-lg"
-              >
-                <div className="p-6 bg-azul-oscuro text-white">
-                  <h3 className="font-anton text-2xl mb-2">
-                    {campus.nombre}
-                  </h3>
-                  <p className="flex items-center gap-2">
-                    <MapPin size={20} />
-                    {campus.direccion}
-                  </p>
                 </div>
-                <div className="h-96">
+              </div>
+
+              {/* VIDEO */}
+              <div className="bg-white rounded-xl shadow-lg p-8">
+                <h3 className="font-bold text-2xl text-azul-oscuro mb-4 flex items-center gap-2">
+                  <Video className="w-6 h-6 text-verde-azulado" />
+                  Recorrido Virtual
+                </h3>
+                <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
                   <iframe
-                    src={campus.mapa}
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
+                    src={contenido.video}
+                    className="w-full h-full"
+                    allowFullScreen
+                    title={`Recorrido ${contenido.titulo} - ${selectedSede}`}
+                  />
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+              </div>
 
-      {/* Galería */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="font-anton text-4xl md:text-5xl text-azul-oscuro mb-4">
-              Galería de Instalaciones
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Conoce nuestros espacios diseñados para el aprendizaje
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {galeria.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                onClick={() => abrirModal(item)}
-                className="relative h-64 rounded-xl overflow-hidden shadow-lg cursor-pointer"
-              >
-                <img
-                  src={item.imagen}
-                  alt={item.titulo}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-end p-4 hover:bg-opacity-60 transition-all">
-                  <h3 className="font-anton text-xl text-white">
-                    {item.titulo}
+              {/* GALERÍA */}
+              {contenido.galeria && contenido.galeria.length > 0 && (
+                <div className="bg-white rounded-xl shadow-lg p-8">
+                  <h3 className="font-bold text-2xl text-azul-oscuro mb-6 flex items-center gap-2">
+                    <Image className="w-6 h-6 text-verde-azulado" />
+                    Galería de Instalaciones
                   </h3>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {contenido.galeria.map((item, i) => (
+                      <motion.div
+                        key={i}
+                        whileHover={{ scale: 1.05 }}
+                        onClick={() => abrirModal(item)}
+                        className="cursor-pointer rounded-lg overflow-hidden shadow-md"
+                      >
+                        <img src={item.imagen} alt={item.titulo} className="w-full h-36 object-cover" />
+                        <div className="p-2 bg-azul-oscuro text-white text-center text-sm font-semibold">
+                          {item.titulo}
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-              </motion.div>
-            ))}
+              )}
+
+              {/* MAPA */}
+              <div className="bg-white rounded-xl shadow-lg p-8">
+                <h3 className="font-bold text-2xl text-azul-oscuro mb-4 flex items-center gap-2">
+                  <MapPin className="w-6 h-6 text-verde-azulado" />
+                  Ubicación
+                </h3>
+                <div className="h-96 rounded-xl overflow-hidden shadow-lg">
+                  <iframe src={contenido.mapa} className="w-full h-full" loading="lazy" title={`Mapa ${selectedSede}`} />
+                </div>
+              </div>
+
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Modal de imagen */}
-      {modalOpen && imagenSeleccionada && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={cerrarModal}
-          className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
-        >
+      {/* MODAL */}
+      <AnimatePresence>
+        {modalOpen && imagenSeleccionada && (
           <motion.div
-            initial={{ scale: 0.8 }}
-            animate={{ scale: 1 }}
-            className="relative max-w-4xl w-full"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+            onClick={cerrarModal}
           >
-            <button
-              onClick={cerrarModal}
-              className="absolute -top-12 right-0 text-white text-4xl hover:text-amarillo-dorado"
+            <motion.div
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
+              transition={{ type: "spring", duration: 0.3 }}
+              className="max-w-4xl w-full"
+              onClick={(e) => e.stopPropagation()}
             >
-              ×
-            </button>
-            <img
-              src={imagenSeleccionada.imagen}
-              alt={imagenSeleccionada.titulo}
-              className="w-full h-auto rounded-xl"
-            />
-            <h3 className="font-anton text-2xl text-white mt-4 text-center">
-              {imagenSeleccionada.titulo}
-            </h3>
+              <img src={imagenSeleccionada.imagen} alt={imagenSeleccionada.titulo} className="rounded-xl shadow-2xl" />
+              <h3 className="font-anton text-white text-3xl mt-4 text-center">
+                {imagenSeleccionada.titulo}
+              </h3>
+              <button
+                onClick={cerrarModal}
+                className="absolute top-4 right-4 text-white/80 hover:text-white bg-black/50 rounded-full p-2"
+              >
+                <X size={28} />
+              </button>
+            </motion.div>
           </motion.div>
-        </motion.div>
-      )}
+        )}
+      </AnimatePresence>
     </div>
   );
-};
-
-export default Campus;
-
+}
