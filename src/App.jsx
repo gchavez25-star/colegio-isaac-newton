@@ -18,6 +18,7 @@ import Docentes from './components/ui/Docentes';
 import Alumnos from './components/ui/Alumnos';
 import CampusBanos from './components/ui/CampusBaños';
 import CampusCajamarca from './components/ui/CampusCajamarca';
+import VisitaGuiada from './components/ui/VisitaGuiada';
 import './App.css';
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
             <Route path='/comunidad/alumnos' element={<Alumnos/>} />
             <Route path='/campus/banos' element={<CampusBanos/>} />
             <Route path='/campus/cajamarca' element={<CampusCajamarca/>} />
+            <Route path='/agenda-visita' element={<VisitaGuiada/>} />
           </Routes>
         </main>
         <Footer />

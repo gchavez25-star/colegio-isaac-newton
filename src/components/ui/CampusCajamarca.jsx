@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import VisitaGuiada from "./VisitaGuiada";
 import {
   MapPin,
   Phone,
@@ -115,7 +116,7 @@ const CTAButtons = () => (
     </a>
 
     <a
-      href="/agenda-visita"
+      href="../../components/ui/VisitaGuiada.jsx"
       className="px-8 py-4 rounded-xl bg-verde-azulado text-white
                  font-bold text-lg flex items-center justify-center gap-2
                  hover:bg-azul-oscuro hover:scale-105 transition shadow-lg"
