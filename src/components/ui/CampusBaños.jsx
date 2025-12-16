@@ -1,213 +1,242 @@
-import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, ChevronRight } from 'lucide-react';
-import { useState } from 'react';
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  ChevronRight,
+  Video,
+  Image,
+  BookOpen,
+  School,
+  X
+} from "lucide-react";
+import { useState, useMemo } from "react";
 
-const CampusBanos = () => {
+/* =====================================================
+   DATA CAMPUS BAÑOS DEL INCA
+===================================================== */
+
+const campusData = {
+  nombre: "Campus Baños del Inca",
+  direccion: "Av. Atahualpa s/n, Baños del Inca – Cajamarca",
+  telefono: "932 274 370",
+  email: "newtonbanos@inewton.edu.pe",
+  horario: "Lunes a Viernes: 7:30 AM - 6:30 PM",
+
+  mapa:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.018823!2d-78.4598!3d-7.1657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1",
+
+  video:
+    "https://www.youtube.com/embed/VIDEO_ID_BANOS",
+
+  niveles: {
+    Primaria: {
+      titulo: "Nivel Primaria – Baños del Inca",
+      descripcion:
+        "Ambientes diseñados para el aprendizaje activo, con énfasis en el desarrollo emocional, cognitivo y social del estudiante.",
+      imagen:
+        "https://images.unsplash.com/photo-1588072432836-e10032774350?w=1200",
+      caracteristicas: [
+        "Aulas amplias e iluminadas",
+        "Laboratorio de cómputo",
+        "Áreas verdes y recreativas",
+        "Biblioteca escolar",
+        "Seguridad permanente"
+      ],
+      galeria: [
+        {
+          titulo: "Aulas de Primaria",
+          imagen:
+            "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800"
+        },
+        {
+          titulo: "Patios Recreativos",
+          imagen:
+            "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800"
+        }
+      ]
+    },
+
+    Secundaria: {
+      titulo: "Nivel Secundaria – Baños del Inca",
+      descripcion:
+        "Infraestructura moderna orientada a la preparación académica, científica y tecnológica del estudiante.",
+      imagen:
+        "https://images.unsplash.com/photo-1541339907198-e0875663f974?w=1200",
+      caracteristicas: [
+        "Laboratorios de ciencias",
+        "Salas multimedia",
+        "Área de innovación y robótica",
+        "Canchas deportivas",
+        "Auditorio académico"
+      ],
+      galeria: [
+        {
+          titulo: "Laboratorio de Ciencias",
+          imagen:
+            "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800"
+        },
+        {
+          titulo: "Sala de Innovación",
+          imagen:
+            "https://images.unsplash.com/photo-1581091012184-7c54cdded28d?w=800"
+        }
+      ]
+    }
+  }
+};
+
+const niveles = ["Primaria", "Secundaria"];
+
+/* =====================================================
+   BOTONES CTA
+===================================================== */
+
+const CTAButtons = () => (
+  <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+    <a
+      href="https://wa.me/51932274370"
+      target="_blank"
+      className="px-8 py-4 rounded-xl bg-amarillo-dorado text-azul-oscuro
+                 font-bold text-lg flex items-center justify-center gap-2
+                 hover:scale-105 transition shadow-lg"
+    >
+      <Phone /> Contáctanos
+    </a>
+
+    <a
+      href="/agenda-visita"
+      className="px-8 py-4 rounded-xl bg-verde-azulado text-white
+                 font-bold text-lg flex items-center justify-center gap-2
+                 hover:bg-azul-oscuro hover:scale-105 transition shadow-lg"
+    >
+      <School /> Agenda una Visita
+    </a>
+  </div>
+);
+
+/* =====================================================
+   COMPONENTE PRINCIPAL
+===================================================== */
+
+export default function InfraestructuraBanosDelInca() {
+  const [nivelActivo, setNivelActivo] = useState("Primaria");
   const [modalOpen, setModalOpen] = useState(false);
   const [imagenSeleccionada, setImagenSeleccionada] = useState(null);
 
-  const campus = {
-    nombre: 'Campus Baños del Inca',
-    direccion: 'Jr. Los Baños 456, Baños del Inca',
-    telefono: '(076) 789-012',
-    email: 'banos@isaacnewton.edu.pe',
-    horario: 'Lunes a Viernes: 7:00 AM - 5:00 PM',
-    descripcion:
-      'Nuestra sede Baños del Inca ofrece un entorno natural y tranquilo, ideal para el aprendizaje integral, combinando infraestructura moderna con amplios espacios abiertos.',
-    imagen:
-      'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=1200&h=800&fit=crop',
-    caracteristicas: [
-      'Aulas modernas e iluminadas',
-      'Sala de cómputo equipada',
-      'Área de Psicología Educativa',
-      'Tópico y enfermería escolar',
-      'Áreas deportivas al aire libre',
-      'Amplias áreas verdes'
-    ],
-    video: 'https://www.youtube.com/embed/VIDEO_ID',
-    mapa:
-      'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.1!2d-78.45!3d-7.16!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!5e0!3m2!1ses!2spe'
-  };
-
-  const galeria = [
-    {
-      titulo: 'Aulas modernas',
-      imagen: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800&h=600&fit=crop'
-    },
-    {
-      titulo: 'Área de Psicología',
-      imagen: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&h=600&fit=crop'
-    },
-    {
-      titulo: 'Tópico escolar',
-      imagen: 'https://images.unsplash.com/photo-1580281658629-9c5a77f9c1d6?w=800&h=600&fit=crop'
-    },
-    {
-      titulo: 'Áreas verdes',
-      imagen: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop'
-    }
-  ];
-
-  const abrirModal = (item) => {
-    setImagenSeleccionada(item);
-    setModalOpen(true);
-  };
-
-  const cerrarModal = () => {
-    setModalOpen(false);
-    setImagenSeleccionada(null);
-  };
+  const contenido = useMemo(
+    () => ({
+      ...campusData,
+      ...campusData.niveles[nivelActivo]
+    }),
+    [nivelActivo]
+  );
 
   return (
-    <div className="min-h-screen pt-32">
+    <div className="min-h-screen pt-24 bg-gray-50">
+
       {/* HERO */}
-      <section className="py-20 bg-gradient-to-br from-azul-oscuro to-verde-azulado text-white">
-        <div className="container mx-auto px-4 text-center max-w-4xl">
+      <section className="py-20 bg-gradient-to-br from-azul-oscuro to-verde-azulado text-white text-center">
+        <div className="container mx-auto px-6 max-w-5xl">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             className="font-anton text-5xl md:text-6xl mb-6"
           >
-            {campus.nombre}
+            Infraestructura Académica
+            <br /> Campus Baños del Inca
           </motion.h1>
-          <p className="text-xl font-light">Educación en armonía con la naturaleza</p>
+
+          <p className="text-xl md:text-2xl font-light mb-8">
+            Educación de calidad en un entorno seguro y moderno
+          </p>
+
+          <CTAButtons />
         </div>
       </section>
 
-      {/* TARJETA + INFO */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+      {/* CONTENIDO */}
+      <section className="py-16">
+        <div className="container mx-auto px-6 grid lg:grid-cols-4 gap-8">
+
+          {/* SIDEBAR */}
+          <aside className="bg-white rounded-xl shadow-lg p-6 h-fit space-y-6">
+            <h3 className="font-semibold text-xl text-azul-oscuro mb-4">
+              Niveles Académicos
+            </h3>
+
+            {niveles.map((nivel) => (
+              <button
+                key={nivel}
+                onClick={() => setNivelActivo(nivel)}
+                className={`w-full mb-2 px-4 py-3 rounded-lg flex gap-2 items-center transition
+                  ${
+                    nivelActivo === nivel
+                      ? "bg-verde-azulado text-white"
+                      : "hover:bg-gray-100"
+                  }`}
+              >
+                <School className="w-5 h-5" />
+                {nivel}
+              </button>
+            ))}
+          </aside>
+
+          {/* INFO */}
           <motion.div
-            whileHover={{ rotateY: 180 }}
-            transition={{ duration: 0.6 }}
-            className="relative h-96 rounded-xl shadow-2xl"
-            style={{ transformStyle: 'preserve-3d' }}
+            key={nivelActivo}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="lg:col-span-3 space-y-10"
           >
-            <div
-              className="absolute inset-0 rounded-xl overflow-hidden"
-              style={{ backfaceVisibility: 'hidden' }}
-            >
-              <img src={campus.imagen} alt={campus.nombre} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent" />
-              <div className="absolute bottom-0 p-6 text-white">
-                <h2 className="font-anton text-4xl">{campus.nombre}</h2>
-                <p className="flex items-center gap-2">
-                  <MapPin size={20} /> {campus.direccion}
-                </p>
-              </div>
+            <div className="bg-white rounded-xl shadow-lg p-8">
+              <h2 className="font-anton text-4xl text-azul-oscuro mb-4">
+                {contenido.titulo}
+              </h2>
+              <p className="text-gray-700 text-lg">
+                {contenido.descripcion}
+              </p>
             </div>
 
-            <div
-              className="absolute inset-0 bg-azul-oscuro text-white rounded-xl p-6 flex flex-col justify-center"
-              style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
-            >
-              <p className="text-sm leading-relaxed mb-6">{campus.descripcion}</p>
-              <div className="grid grid-cols-2 gap-2 text-sm">
-                {campus.caracteristicas.map((item, i) => (
-                  <div key={i} className="flex items-center gap-1">
-                    <ChevronRight size={16} className="text-amarillo-dorado" />
+            <img
+              src={contenido.imagen}
+              alt={contenido.titulo}
+              className="rounded-xl shadow-xl"
+            />
+
+            <div className="bg-white rounded-xl shadow-lg p-8">
+              <h3 className="font-bold text-2xl text-verde-azulado mb-4 flex gap-2">
+                <BookOpen /> Características
+              </h3>
+              <ul className="space-y-3">
+                {contenido.caracteristicas.map((item, i) => (
+                  <li key={i} className="flex gap-2">
+                    <ChevronRight className="text-amarillo-dorado" />
                     {item}
-                  </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-lg p-8">
+              <h3 className="font-bold text-2xl mb-6 flex gap-2">
+                <Image /> Galería
+              </h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {contenido.galeria.map((img, i) => (
+                  <img
+                    key={i}
+                    src={img.imagen}
+                    alt={img.titulo}
+                    className="rounded-lg shadow-md"
+                  />
                 ))}
               </div>
             </div>
           </motion.div>
-
-          <div className="space-y-4 text-gray-700">
-            <div className="flex items-center gap-3">
-              <Phone className="text-verde-azulado" /> {campus.telefono}
-            </div>
-            <div className="flex items-center gap-3">
-              <Mail className="text-verde-azulado" /> {campus.email}
-            </div>
-            <div className="flex items-center gap-3">
-              <Clock className="text-verde-azulado" /> {campus.horario}
-            </div>
-
-            <a
-              href={`https://wa.me/51976123456?text=${encodeURIComponent(
-                'Hola, deseo información del Campus Baños del Inca'
-              )}`}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-block mt-6 bg-green-500 text-white px-6 py-3 rounded-lg font-bold"
-            >
-              Contactar por WhatsApp
-            </a>
-          </div>
         </div>
       </section>
-
-      {/* VIDEO */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <h2 className="font-anton text-4xl text-azul-oscuro mb-6 text-center">
-            Conoce nuestro campus
-          </h2>
-          <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-            <iframe
-              src={campus.video}
-              className="w-full h-full"
-              allowFullScreen
-              title="Campus Baños del Inca"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* GALERÍA */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="font-anton text-4xl text-azul-oscuro mb-10 text-center">
-            Instalaciones
-          </h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {galeria.map((item, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.05 }}
-                onClick={() => abrirModal(item)}
-                className="cursor-pointer rounded-xl overflow-hidden shadow-lg"
-              >
-                <img src={item.imagen} alt={item.titulo} className="w-full h-56 object-cover" />
-                <div className="p-3 bg-black text-white text-center font-anton">
-                  {item.titulo}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* MAPA */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="font-anton text-4xl text-azul-oscuro mb-6 text-center">
-            Ubicación
-          </h2>
-          <div className="h-96 rounded-xl overflow-hidden shadow-lg">
-            <iframe src={campus.mapa} className="w-full h-full" loading="lazy" />
-          </div>
-        </div>
-      </section>
-
-      {/* MODAL */}
-      {modalOpen && imagenSeleccionada && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center"
-          onClick={cerrarModal}
-        >
-          <div className="max-w-4xl p-4">
-            <img src={imagenSeleccionada.imagen} alt={imagenSeleccionada.titulo} className="rounded-xl" />
-            <h3 className="font-anton text-white text-2xl mt-4 text-center">
-              {imagenSeleccionada.titulo}
-            </h3>
-          </div>
-        </div>
-      )}
     </div>
   );
-};
-
-export default CampusBanos;
+}

@@ -39,7 +39,6 @@ const campusData = {
       caracteristicas: [
         "Aulas interactivas con pantallas digitales",
         "Laboratorio de cómputo educativo",
-        "Biblioteca infantil",
         "Patios recreativos seguros",
         "Comedor escolar supervisado"
       ],
@@ -50,7 +49,12 @@ const campusData = {
             "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800"
         },
         {
-          titulo: "Biblioteca Primaria",
+          titulo: "Laboratorio de Computo",
+          imagen:
+            "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=800"
+        },
+        {
+          titulo: "Patios recreativos seguros",
           imagen:
             "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=800"
         }
@@ -66,8 +70,8 @@ const campusData = {
       caracteristicas: [
         "Laboratorios de Física, Química y Biología",
         "Salas de estudio colaborativo",
-        "Área de robótica y tecnología",
-        "Gimnasio y canchas deportivas",
+        "Área tecnología",
+        "Plataforma deportiva",
         "Auditorio institucional"
       ],
       galeria: [
@@ -77,7 +81,12 @@ const campusData = {
             "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800"
         },
         {
-          titulo: "Área de Robótica",
+          titulo: "Área de Tecnologia",
+          imagen:
+            "https://images.unsplash.com/photo-1581091012184-7c54cdded28d?w=800"
+        },
+        {
+          titulo: "Auditorio institucional",
           imagen:
             "https://images.unsplash.com/photo-1581091012184-7c54cdded28d?w=800"
         }
@@ -95,7 +104,7 @@ const niveles = ["Primaria", "Secundaria"];
 const CTAButtons = () => (
   <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
     <a
-      href="https://wa.me/51999999999?text=Hola,%20deseo%20información%20del%20colegio"
+      href="https://wa.me/51932274369"
       target="_blank"
       rel="noopener noreferrer"
       className="px-8 py-4 rounded-xl bg-amarillo-dorado text-azul-oscuro
@@ -175,7 +184,7 @@ export default function InfraestructuraCajamarca() {
 
             {/* WHATSAPP */}
             <a
-                href="https://wa.me/51999999999?text=Hola,%20deseo%20información%20del%20colegio"
+                href="https://wa.me/51932274369"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full
@@ -256,26 +265,29 @@ export default function InfraestructuraCajamarca() {
 
             {/* TELÉFONO */}
             <a
-                href="tel:+5176123456"
+                href="https://wa.me/51932274369"
+                target="_blank"
                 className="flex items-center gap-3 hover:text-verde-azulado transition"
             >
                 <Phone className="w-4 h-4 text-verde-azulado" />
                 <span>
-                <strong>Teléfono:</strong> (076) 123-456
+                <strong>Teléfono:</strong> 932 274 369
                 </span>
             </a>
 
             {/* CORREO */}
             <a
-            href="mailto:cajamarca@isaacnewton.edu.pe"
+            href="mailto:newtoncajamarca@inewton.edu.pe"
+            target="_blank"
             className="flex items-center gap-3 hover:text-verde-azulado transition"
             >
-            <Mail className="w-4 h-4 text-verde-azulado" />
+            <Mail  className="w-4 h-4 text-verde-azulado shrink-0 min-w-[16px]" />
 
-            <span>
-                <strong>Correo:</strong><br />
-                cajamarca@isaacnewton.edu.pe
+            <span className="break-all">
+              <strong>Correo:</strong><br />
+              newtoncajamarca@inewton.edu.pe
             </span>
+
             </a>
 
 
