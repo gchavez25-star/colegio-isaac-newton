@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import VisitaGuiada from "./VisitaGuiada";
+import { Link } from "react-router-dom";
 import {
   MapPin,
   Phone,
@@ -15,7 +15,7 @@ import {
 import { useState, useMemo } from "react";
 
 /* =====================================================
-   DATA CAMPUS
+   DATA CAMPUS CAJAMARCA
 ===================================================== */
 
 const campusData = {
@@ -98,6 +98,21 @@ const campusData = {
 
 const niveles = ["Primaria", "Secundaria"];
 
+const ubicacion = {
+  nombre: "C.P.C. Isaac Newton",
+  direccion: "Jr. Cruz de Piedra 582, Cajamarca",
+  lat: -7.1583289,
+  lng: -78.5191143
+};
+const esMovil = typeof window !== "undefined" && window.innerWidth < 768;
+const zoom = esMovil ? 16 : 17;
+
+const mapaEmbed = `https://www.google.com/maps?q=${ubicacion.lat},${ubicacion.lng}(${encodeURIComponent(
+  ubicacion.nombre
+)})&z=${zoom}&hl=es&output=embed`;
+
+const mapaExterno = `https://www.google.com/maps/search/?api=1&query=${ubicacion.lat},${ubicacion.lng}`;
+
 /* =====================================================
    BOTONES CTA
 ===================================================== */
@@ -115,14 +130,15 @@ const CTAButtons = () => (
       <Phone /> Contáctanos
     </a>
 
-    <a
-      href="../../components/ui/VisitaGuiada.jsx"
+   <Link
+      to="/agenda-visita"
       className="px-8 py-4 rounded-xl bg-verde-azulado text-white
-                 font-bold text-lg flex items-center justify-center gap-2
-                 hover:bg-azul-oscuro hover:scale-105 transition shadow-lg"
+                font-bold text-lg flex items-center justify-center gap-2
+                hover:bg-azul-oscuro hover:scale-105 transition shadow-lg"
     >
-      <School /> Agenda una Visita
-    </a>
+      <School />
+      Agenda una Visita
+    </Link>
   </div>
 );
 
@@ -173,7 +189,7 @@ export default function InfraestructuraCajamarca() {
 
             {/* MAPA */}
             <a
-                href="https://www.google.com/maps?q=Av.+Héroes+del+Cenepa+123,+Cajamarca"
+                href="https://www.google.com/maps/search/?api=1&query=Colegio+Isaac+Newton+Cajamarca"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full
@@ -197,7 +213,7 @@ export default function InfraestructuraCajamarca() {
 
             {/* CORREO */}
             <a
-                href="mailto:cajamarca@isaacnewton.edu.pe"
+                href="mailto:newtoncajamarca@inewton.edu.pe"
                 className="flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full
                         hover:bg-white/20 transition backdrop-blur"
             >
@@ -251,7 +267,7 @@ export default function InfraestructuraCajamarca() {
 
             {/* DIRECCIÓN */}
             <a
-                href="https://www.google.com/maps?q=Av.+Héroes+del+Cenepa+123,+Cajamarca"
+                href="https://www.google.com/maps/search/?api=1&query=Colegio+Isaac+Newton+Cajamarca"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 hover:text-verde-azulado transition"
@@ -387,21 +403,39 @@ export default function InfraestructuraCajamarca() {
               </div>
             </div>
                 
-            {/* MAPA */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <h3 className="font-bold text-2xl text-azul-oscuro mb-4 flex gap-2">
-                <MapPin className="text-verde-azulado" />
-                Cómo Llegar
-              </h3>
-              <div className="h-96 rounded-xl overflow-hidden shadow-lg">
-                <iframe
-                  src={contenido.mapa}
-                  className="w-full h-full"
-                  loading="lazy"
-                  title="Mapa Campus Cajamarca"
-                />
-              </div>
+              {/* MAPA */}
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <h3 className="font-bold text-2xl text-azul-oscuro mb-4 flex gap-2 items-center">
+              <MapPin className="text-verde-azulado" />
+              Cómo Llegar
+            </h3>
+
+            <p className="mb-4 text-gray-600">
+              <strong>{ubicacion.nombre}</strong><br />
+              {ubicacion.direccion}
+            </p>
+
+            <div className="h-96 rounded-xl overflow-hidden shadow-lg relative">
+              <iframe
+                src={mapaEmbed}
+                className="w-full h-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title={`Mapa ${ubicacion.nombre}`}
+              />
+
+              {/* Botón Abrir en Google Maps */}
+              <a
+                href={mapaExterno}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-verde-azulado text-white px-4 py-2 rounded-lg shadow-lg hover:bg-opacity-90 transition text-sm font-semibold"
+              >
+                Abrir en Google Maps
+              </a>
             </div>
+          </div>
+
 
             {/* CTA FINAL */}
             <div className="bg-azul-oscuro text-white rounded-xl p-10 text-center">
