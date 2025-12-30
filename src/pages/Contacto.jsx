@@ -1,79 +1,199 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
-import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Youtube, Send } from 'lucide-react';
-import { useState } from 'react';
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Facebook,
+  Instagram,
+  Youtube,
+  Send
+} from 'lucide-react';
+import { FaTiktok } from 'react-icons/fa';
+
+
+/* ==================================================
+   CONFIGURACIÓN GENERAL
+================================================== */
+
+const niveles = ['Primaria', 'Secundaria'];
+const sedes = ['Cajamarca', 'Los Baños del Inca'];
+
+const contactosPorSede = {
+  Cajamarca: {
+    telefono: '932274369',
+    telefonoTexto: '932 274 369',
+    whatsapp: '51932274369',
+    email: 'newtoncajamarca@inewton.edu.pe',
+    direccion: 'Jr. Cruz de Piedra 582, Cajamarca',
+    horario: 'Lunes a Viernes: 7:00 AM - 5:00 PM',
+    imagen:
+      'https://images.unsplash.com/photo-1562774053-701939374585?w=600&h=400&fit=crop'
+  },
+  'Los Baños del Inca': {
+    telefono: '920438721',
+    telefonoTexto: '920 438 721',
+    whatsapp: '51920438721',
+    email: 'secretariabi@inewton.edu.pe',
+    direccion: 'Jr. Yahuar Huaca 799, Los Baños del Inca',
+    horario: 'Lunes a Viernes: 7:00 AM - 5:00 PM',
+    imagen:
+      'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=600&h=400&fit=crop'
+  }
+};
+
+const campusInfo = Object.keys(contactosPorSede).map(nombre => ({
+  nombre,
+  ...contactosPorSede[nombre]
+}));
+
+const redesSociales = [
+  {
+    nombre: 'Facebook',
+    icono: <Facebook size={24} />,
+    url: 'https://facebook.com/isaacnewton',
+    color: 'hover:text-blue-600'
+  },
+  {
+    nombre: 'Instagram',
+    icono: <Instagram size={24} />,
+    url: 'https://instagram.com/isaacnewton',
+    color: 'hover:text-pink-600'
+  },
+  {
+    nombre: 'YouTube',
+    icono: <Youtube size={24} />,
+    url: 'https://youtube.com/isaacnewton',
+    color: 'hover:text-red-600'
+  },
+  {
+    nombre: 'TikTok',
+    icono: <FaTiktok size={22} />,
+    url: 'https://www.tiktok.com/@isaacnewton',
+    color: 'hover:text-black'
+  }
+];
+
+/* ==================================================
+   COMPONENTE
+================================================== */
 
 const Contacto = () => {
-  const [enviado, setEnviado] = useState(false);
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const [formData, setFormData] = useState({
+    nombre: '',
+    correo: '',
+    telefono: '',
+    nivel: '',
+    sede: '',
+    asunto: '',
+    mensaje: ''
+  });
 
-  const onSubmit = (data) => {
-    console.log('Formulario enviado:', data);
-    // Aquí se implementaría el envío real del formulario
-    setEnviado(true);
-    reset();
-    setTimeout(() => setEnviado(false), 5000);
+  const [errores, setErrores] = useState({});
+  const [cargando, setCargando] = useState(false);
+  const [enviado, setEnviado] = useState(false);
+  const [contactoActual, setContactoActual] = useState(null);
+
+  useEffect(() => {
+    setContactoActual(contactosPorSede[formData.sede] || null);
+  }, [formData.sede]);
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    setErrores(prev => ({ ...prev, [name]: '' }));
   };
 
-  const campusInfo = [
-    {
-      nombre: 'Campus Cajamarca',
-      direccion: 'Av. Héroes del Cenepa 123, Cajamarca',
-      telefono: '(076) 123-456',
-      celular: '+51 976 123 456',
-      email: 'cajamarca@isaacnewton.edu.pe',
-      horario: 'Lunes a Viernes: 7:00 AM - 5:00 PM',
-      imagen: 'https://images.unsplash.com/photo-1562774053-701939374585?w=600&h=400&fit=crop'
-    },
-    {
-      nombre: 'Campus Baños del Inca',
-      direccion: 'Jr. Los Baños 456, Baños del Inca',
-      telefono: '(076) 789-012',
-      celular: '+51 976 789 012',
-      email: 'banos@isaacnewton.edu.pe',
-      horario: 'Lunes a Viernes: 7:00 AM - 5:00 PM',
-      imagen: 'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=600&h=400&fit=crop'
-    }
-  ];
+  const validarFormulario = () => {
+    const nuevosErrores = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  const redesSociales = [
-    {
-      nombre: 'Facebook',
-      icono: <Facebook size={24} />,
-      url: 'https://facebook.com/isaacnewton',
-      color: 'hover:text-blue-600'
-    },
-    {
-      nombre: 'Instagram',
-      icono: <Instagram size={24} />,
-      url: 'https://instagram.com/isaacnewton',
-      color: 'hover:text-pink-600'
-    },
-    {
-      nombre: 'YouTube',
-      icono: <Youtube size={24} />,
-      url: 'https://youtube.com/isaacnewton',
-      color: 'hover:text-red-600'
+    if (!formData.nombre.trim()) nuevosErrores.nombre = 'El nombre es obligatorio';
+    if (!formData.correo.trim()) {
+      nuevosErrores.correo = 'El correo es obligatorio';
+    } else if (!emailRegex.test(formData.correo)) {
+      nuevosErrores.correo = 'Correo inválido';
     }
-  ];
+    if (!formData.nivel) nuevosErrores.nivel = 'Selecciona un nivel';
+    if (!formData.sede) nuevosErrores.sede = 'Selecciona una sede';
+    if (!formData.asunto) nuevosErrores.asunto = 'Selecciona un asunto';
+    if (!formData.mensaje.trim()) nuevosErrores.mensaje = 'El mensaje es obligatorio';
 
+    setErrores(nuevosErrores);
+    return Object.keys(nuevosErrores).length === 0;
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (!validarFormulario()) return;
+
+    setCargando(true);
+    setEnviado(false);
+
+    const contacto = contactosPorSede[formData.sede];
+
+    const mensajeWhatsApp = `
+Nueva solicitud desde la Web:
+
+Nombre: ${formData.nombre}
+Correo: ${formData.correo}
+Teléfono: ${formData.telefono || 'No proporcionado'}
+
+Nivel: ${formData.nivel}
+Sede: ${formData.sede}
+Asunto: ${formData.asunto}
+
+Mensaje:
+${formData.mensaje}
+    `.trim();
+
+    setTimeout(() => {
+      setCargando(false);
+      setEnviado(true);
+
+      if (contacto?.whatsapp) {
+        window.open(
+          `https://wa.me/${contacto.whatsapp}?text=${encodeURIComponent(mensajeWhatsApp)}`,
+          '_blank'
+        );
+      }
+
+      setFormData({
+        nombre: '',
+        correo: '',
+        telefono: '',
+        nivel: '',
+        sede: '',
+        asunto: '',
+        mensaje: ''
+      });
+    }, 1200);
+  };
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-azul-oscuro to-verde-azulado text-white">
-        <div className="container mx-auto px-4">
-          <motion.div
+      
+      {/* HERO SECTION */}
+      <section className="relative py-32 md:py-48 bg-cover bg-center" style={{ 
+        backgroundImage: "url('https://images.unsplash.com/photo-1523050854805-950e31889000?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" 
+      }}>
+        <div className="absolute inset-0 bg-azul-oscuro/80 backdrop-blur-sm" />
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center max-w-4xl mx-auto"
+            className="font-anton text-5xl md:text-7xl text-white mb-4"
           >
-            <h1 className="font-anton text-5xl md:text-6xl mb-6">
-              Contáctanos
-            </h1>
-            <p className="text-xl md:text-2xl font-light">
-              Estamos aquí para responder todas tus preguntas
-            </p>
-          </motion.div>
+            Contáctanos
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-xl md:text-2xl text-amarillo-dorado max-w-3xl mx-auto"
+          >
+            Estamos aquí para responder todas tus preguntas
+          </motion.p>
         </div>
       </section>
 
@@ -104,106 +224,123 @@ const Contacto = () => {
                 </motion.div>
               )}
 
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+               <form onSubmit={handleSubmit} className="space-y-6">
+
                 {/* Nombre */}
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">
-                    Nombre completo *
-                  </label>
+                  <label className="block text-gray-700 font-semibold mb-2">Nombre completo *</label>
                   <input
                     type="text"
-                    {...register('nombre', { required: 'El nombre es obligatorio' })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-verde-azulado"
-                    placeholder="Tu nombre completo"
+                    name="nombre"
+                    value={formData.nombre}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border rounded-lg ${errores.nombre ? 'border-red-500' : 'border-gray-300'} focus:ring-2 focus:ring-verde-azulado`}
                   />
-                  {errors.nombre && (
-                    <p className="text-red-500 text-sm mt-1">{errors.nombre.message}</p>
-                  )}
+                  {errores.nombre && <p className="text-red-500 text-sm">{errores.nombre}</p>}
                 </div>
 
                 {/* Correo */}
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">
-                    Correo electrónico *
-                  </label>
+                  <label className="block text-gray-700 font-semibold mb-2">Correo electrónico *</label>
                   <input
                     type="email"
-                    {...register('email', {
-                      required: 'El correo es obligatorio',
-                      pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: 'Correo electrónico inválido'
-                      }
-                    })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-verde-azulado"
-                    placeholder="tu@email.com"
+                    name="correo"
+                    value={formData.correo}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border rounded-lg ${errores.correo ? 'border-red-500' : 'border-gray-300'} focus:ring-2 focus:ring-verde-azulado`}
                   />
-                  {errors.email && (
-                    <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-                  )}
+                  {errores.correo && <p className="text-red-500 text-sm">{errores.correo}</p>}
                 </div>
 
                 {/* Teléfono */}
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">
-                    Teléfono
-                  </label>
+                  <label className="block text-gray-700 font-semibold mb-2">Teléfono</label>
                   <input
                     type="tel"
-                    {...register('telefono')}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-verde-azulado"
-                    placeholder="+51 999 999 999"
+                    name="telefono"
+                    value={formData.telefono}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-verde-azulado"
                   />
+                </div>
+
+                {/* Nivel */}
+                <div>
+                  <label className="block text-gray-700 font-semibold mb-2">Nivel *</label>
+                  <select
+                    name="nivel"
+                    value={formData.nivel}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border rounded-lg ${errores.nivel ? 'border-red-500' : 'border-gray-300'}`}
+                  >
+                    <option value="">Selecciona un nivel</option>
+                    {niveles.map(n => <option key={n} value={n}>{n}</option>)}
+                  </select>
+                  {errores.nivel && <p className="text-red-500 text-sm">{errores.nivel}</p>}
+                </div>
+
+                {/* Sede */}
+                <div>
+                  <label className="block text-gray-700 font-semibold mb-2">Campus *</label>
+                  <select
+                    name="sede"
+                    value={formData.sede}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border rounded-lg ${errores.sede ? 'border-red-500' : 'border-gray-300'}`}
+                  >
+                    <option value="">Selecciona una sede</option>
+                    {sedes.map(s => <option key={s} value={s}>{s}</option>)}
+                  </select>
+                  {errores.sede && <p className="text-red-500 text-sm">{errores.sede}</p>}
                 </div>
 
                 {/* Asunto */}
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">
-                    Asunto *
-                  </label>
+                  <label className="block text-gray-700 font-semibold mb-2">Asunto *</label>
                   <select
-                    {...register('asunto', { required: 'Selecciona un asunto' })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-verde-azulado"
+                    name="asunto"
+                    value={formData.asunto}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border rounded-lg ${errores.asunto ? 'border-red-500' : 'border-gray-300'}`}
                   >
-                    <option value="">Selecciona una opción</option>
+                    <option value="">Selecciona un asunto</option>
                     <option value="informacion">Información general</option>
                     <option value="admision">Proceso de admisión</option>
                     <option value="visita">Agendar visita</option>
                     <option value="becas">Becas y beneficios</option>
                     <option value="otro">Otro</option>
                   </select>
-                  {errors.asunto && (
-                    <p className="text-red-500 text-sm mt-1">{errors.asunto.message}</p>
-                  )}
+                  {errores.asunto && <p className="text-red-500 text-sm">{errores.asunto}</p>}
                 </div>
 
                 {/* Mensaje */}
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">
-                    Mensaje *
-                  </label>
+                  <label className="block text-gray-700 font-semibold mb-2">Mensaje *</label>
                   <textarea
-                    {...register('mensaje', { required: 'El mensaje es obligatorio' })}
+                    name="mensaje"
                     rows="5"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-verde-azulado resize-none"
-                    placeholder="Escribe tu mensaje aquí..."
-                  ></textarea>
-                  {errors.mensaje && (
-                    <p className="text-red-500 text-sm mt-1">{errors.mensaje.message}</p>
-                  )}
+                    value={formData.mensaje}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border rounded-lg resize-none ${errores.mensaje ? 'border-red-500' : 'border-gray-300'}`}
+                  />
+                  {errores.mensaje && <p className="text-red-500 text-sm">{errores.mensaje}</p>}
                 </div>
 
                 {/* Botón */}
                 <motion.button
                   type="submit"
+                  disabled={cargando || enviado}
                   whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full bg-verde-azulado text-white px-6 py-4 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                  whileTap={{ scale: 0.97 }}
+                  className={`w-full py-4 rounded-lg font-bold text-lg flex justify-center gap-2
+                    ${enviado ? 'bg-green-500' : cargando ? 'bg-verde-azulado/70' : 'bg-verde-azulado hover:opacity-90'} text-white`}
                 >
-                  <Send size={20} />
-                  Enviar mensaje
+                  {enviado ? '¡Mensaje enviado!' : cargando ? 'Enviando...' : 'Enviar mensaje'}
+                  {!cargando && !enviado && <Send size={20} />}
                 </motion.button>
+
               </form>
+
             </motion.div>
 
             {/* Información de contacto */}
@@ -305,8 +442,8 @@ const Contacto = () => {
           <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg">
             <div className="space-y-4">
               {[
-                { dia: 'Lunes a Viernes', horario: '7:00 AM - 5:00 PM' },
-                { dia: 'Sábados', horario: '8:00 AM - 1:00 PM' },
+                { dia: 'Lunes a Viernes', horario: '7:30 AM - 6:30 PM' },
+                { dia: 'Sábados', horario: '9:00 AM - 12:00 PM' },
                 { dia: 'Domingos y Feriados', horario: 'Cerrado' }
               ].map((item, index) => (
                 <motion.div
@@ -386,7 +523,7 @@ const Contacto = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-verde-azulado to-azul-oscuro text-white">
+      <section className="relative py-24 bg-gradient-to-br from-[#013055] via-[#014a6e] to-[#013055] overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -394,10 +531,10 @@ const Contacto = () => {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h2 className="font-anton text-4xl md:text-5xl mb-6">
+            <h2 className="font-anton text-4xl md:text-5xl mb-6 text-white">
               ¿Prefieres hablar directamente?
             </h2>
-            <p className="text-xl mb-8">
+            <p className="text-xl mb-8 text-white">
               Llámanos o escríbenos por WhatsApp y con gusto te atenderemos
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -15,6 +15,7 @@ const VisitaGuiada = () => {
     sede: '',
     comentarios: '',
   });
+  
   const [enviado, setEnviado] = useState(false);
   const [cargando, setCargando] = useState(false);
 
@@ -406,7 +407,7 @@ Sede: ${formData.sede}
                         : 'bg-verde-azulado text-white hover:bg-verde-azulado/90'}
                   `}
                 >
-                  {enviado ? '¡Agendado!' : cargando ? 'Enviando...' : 'Agendar Visita'}
+                  {enviado ? '¡Agendado!' : cargando ? 'Enviando...' : ' Enviar mensaje'}
                   {!cargando && !enviado && <ArrowRight className="w-5 h-5" />}
                 </motion.button>
 

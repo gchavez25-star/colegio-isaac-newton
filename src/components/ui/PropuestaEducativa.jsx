@@ -47,7 +47,7 @@ export default function PropuestaEducativa() {
 
           {/* BOTÓN */}
           <motion.a
-            href="/Niveles"
+            href="#niveles"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
             className="
@@ -68,7 +68,7 @@ export default function PropuestaEducativa() {
           >
             Ver niveles educativos
 
-            <svg
+            <svg 
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"

@@ -22,7 +22,7 @@ const HeroSlider = () => {
       imageMobile: '/Hero/Prueba.jpg',
       imageDesktop: '/Hero/Prueba.jpg',
       buttons: [
-        { text: 'Agenda una Visita Guiada', link: '/contacto', style: 'primary' },
+        { text: 'Agenda una Visita Guiada', link: '/agenda-visita', style: 'primary' },
       ],
     },
     {
@@ -33,7 +33,7 @@ const HeroSlider = () => {
       imageDesktop: '/Hero/Visita.jpg',
       videoUrl: 'https://drive.google.com/uc?export=download&id=6vKq5Ac-hQ96UdR20luryTy42bkTFFv8',
       buttons: [
-        { text: 'Ver noticia', link: '/comunidad', style: 'primary' },
+        { text: 'Ver noticia', link: '/comunidad/publicacionesw', style: 'primary' },
         { text: 'Ver video', style: 'secondary', isVideo: true },
       ],
     },
