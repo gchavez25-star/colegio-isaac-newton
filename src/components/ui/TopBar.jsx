@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Phone } from "lucide-react";
 
+
 const TopBar = () => {
   return (
     <div className="hidden md:block bg-[#013055] border-b border-white/10">
@@ -8,13 +9,13 @@ const TopBar = () => {
 
         {/* LINKS */}
         <div className="flex gap-6">
-          <Link to="/noticias" className="hover:text-[#ffcd00] transition-colors">
+          <Link to="/comunidad/publicaciones" className="hover:text-[#ffcd00] transition-colors">
             Noticias
           </Link>
           <Link to="/servicios" className="hover:text-[#fccc00] transition-colors">
             Servicios
           </Link>
-          <Link to="/trabaja-con-nosotros" className="hover:text-[#fccc00] transition-colors">
+          <Link to="/vacantes" className="hover:text-[#fccc00] transition-colors">
             Trabaja con nosotros
           </Link>
         </div>

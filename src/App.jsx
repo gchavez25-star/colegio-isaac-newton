@@ -19,6 +19,10 @@ import Alumnos from './components/ui/Alumnos';
 import CampusBanos from './components/ui/CampusBaños';
 import CampusCajamarca from './components/ui/CampusCajamarca';
 import VisitaGuiada from './components/ui/VisitaGuiada';
+import Servicios from './components/ui/Servicios';
+import VacantesCategorias from '@/pages/VacantesCategorias';
+import VacantesListado from '@/pages/VacantesListado';
+import Postular from '@/pages/Postular';
 import './App.css';
 
 function App() {
@@ -45,6 +49,11 @@ function App() {
             <Route path='/campus/banos' element={<CampusBanos/>} />
             <Route path='/campus/cajamarca' element={<CampusCajamarca/>} />
             <Route path='/agenda-visita' element={<VisitaGuiada/>} />
+            <Route path='/servicios' element={<Servicios/>} />
+            <Route path="/vacantes" element={<VacantesCategorias />} />
+            <Route path="/vacantes/:tipo" element={<VacantesListado />} />
+            <Route path="/postular/:id" element={<Postular />} />
+
           </Routes>
         </main>
         <Footer />

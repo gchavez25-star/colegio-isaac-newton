@@ -69,8 +69,8 @@ export default function WelcomeNewton() {
                 border-2 border-[#013055]
                 text-white
                 bg-[#013055]
-                hover:bg-[#fccc00]
-                hover:border-[#fccc00]
+                hover:bg-[#fccd00]
+                hover:border-[#fccd00]
                 hover:text-[#013055]
                 transition-all duration-300
                 shadow-md hover:shadow-xl
