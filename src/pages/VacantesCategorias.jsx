@@ -73,7 +73,7 @@ export default function VacantesCategorias() {
 
                 {/* CONTENIDO */}
                 <div className="p-8 text-center">
-                  <h3 className="font-anton text-3xl mb-4">
+                  <h3 className="font-anton text-3xl mb-4 text-[#013055]">
                     {categoria.label}
                   </h3>
 

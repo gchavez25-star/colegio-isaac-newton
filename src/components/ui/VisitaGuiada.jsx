@@ -504,7 +504,7 @@ Sede: ${formData.sede}
             Nuestro equipo de admisiones está listo para ayudarte.
           </p>
           <a
-            href="mailto:admision@isaacnewton.edu.pe"
+            href="mailto:admision@inewton.edu.pe"
             className="inline-flex items-center gap-3 bg-verde-azulado text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-verde-azulado/90 transition-all shadow-lg"
           >
             <Mail className="w-6 h-6" />

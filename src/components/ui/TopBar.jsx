@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone } from "lucide-react";
-
+import { FileText, Newspaper, Briefcase, Users } from 'lucide-react';
 
 const TopBar = () => {
   return (
@@ -8,17 +8,45 @@ const TopBar = () => {
       <div className="container mx-auto px-4 py-2 flex justify-between items-center text-white text-sm">
 
         {/* LINKS */}
-        <div className="flex gap-6">
-          <Link to="/comunidad/publicaciones" className="hover:text-[#ffcd00] transition-colors">
-            Noticias
-          </Link>
-          <Link to="/servicios" className="hover:text-[#fccc00] transition-colors">
-            Servicios
-          </Link>
-          <Link to="/vacantes" className="hover:text-[#fccc00] transition-colors">
-            Trabaja con nosotros
-          </Link>
-        </div>
+       <div className="flex gap-6 items-center">
+        {/* Reglamento (PDF) */}
+        <a
+          href="/docs/reglamento.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 hover:text-[#fccc00] transition-colors"
+        >
+          <FileText size={18} />
+          <span>Reglamento</span>
+        </a>
+
+        {/* Noticias */}
+        <Link
+          to="/comunidad/publicaciones"
+          className="flex items-center gap-2 hover:text-[#ffcd00] transition-colors"
+        >
+          <Newspaper size={18} />
+          <span>Noticias</span>
+        </Link>
+
+        {/* Servicios */}
+        <Link
+          to="/servicios"
+          className="flex items-center gap-2 hover:text-[#fccc00] transition-colors"
+        >
+          <Users size={18} />
+          <span>Servicios</span>
+        </Link>
+
+        {/* Trabaja con nosotros */}
+        <Link
+          to="/vacantes"
+          className="flex items-center gap-2 hover:text-[#fccc00] transition-colors"
+        >
+          <Briefcase size={18} />
+          <span>Trabaja con nosotros</span>
+        </Link>
+      </div>
 
         {/* SEDES + WHATSAPP */}
         <div className="flex gap-6">

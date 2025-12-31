@@ -39,7 +39,7 @@ export default function VacantesListado() {
               className="bg-white rounded-xl shadow-lg flex flex-col"
             >
               <div className="p-6 flex-grow">
-                <h3 className="font-anton text-2xl mb-3">
+                <h3 className="font-anton text-2xl mb-3 text-[#013055]">
                   {vacante.titulo}
                 </h3>
                 <p className="text-gray-600 mb-4">
