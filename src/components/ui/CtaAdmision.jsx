@@ -1,31 +1,12 @@
+// src/components/Noticias/NoticiasSection.jsx
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, FileText } from "lucide-react";
+import { getAllNoticias } from "@/data/noticiasData";
 
 const NoticiasSection = () => {
-  const noticias = [
-    {
-      id: 1,
-      titulo: "Ganadores Feria Eureka 2025",
-      fecha: "29 noviembre",
-      imagen: "/Inicio/Eureka.png",
-      link: "/comunidad/publicaciones/graduacion-2024"
-    },
-    {
-      id: 2,
-      titulo: "Elección de Municipio Escolar 2026",
-      fecha: "28 noviembre",
-      imagen: "/Inicio/Municipio.png",
-      link: "/comunidad/publicaciones/feria-ciencias"
-    },
-    {
-      id: 3,
-      titulo: "III Concurso de Spelling Bee",
-      fecha: "27 noviembre",
-      imagen: "/Inicio/Spelling.png",
-      link: "/comunidad/publicaciones/laboratorio-robotica"
-    }
-  ];
+  // Obtener todas las noticias y tomar las 3 más recientes
+  const noticias = getAllNoticias().slice(0, 3);
 
   return (
     <section className="relative py-24 bg-gradient-to-br from-[#013055] via-[#014a6e] to-[#013055] overflow-hidden">
@@ -94,10 +75,14 @@ const NoticiasSection = () => {
               <div className="relative h-64 overflow-hidden rounded-t-3xl">
                 
                 <img
-                  src={noticia.imagen}
+                  src={noticia.imagenPrincipal}
                   alt={noticia.titulo}
                   className="absolute inset-0 w-full h-full object-cover 
                   group-hover:scale-110 transition-transform duration-500"
+                  onError={(e) => {
+                    e.target.src =
+                      "https://via.placeholder.com/600x400/013055/ffffff?text=Isaac+Newton";
+                  }}
                 />
 
                 {/* Overlay */}
@@ -132,7 +117,7 @@ const NoticiasSection = () => {
                   </span>
 
                   <Link
-                    to={noticia.link}
+                    to={`/comunidad/publicaciones/${noticia.slug}`}
                     className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full 
                     border-2 border-[#007a75] text-[#007a75] font-bold text-sm
                     hover:bg-[#007a75] hover:text-white transition-all duration-300

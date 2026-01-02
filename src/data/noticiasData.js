@@ -234,30 +234,23 @@ export const noticiasData = [
   }
 ];
 
-// Función helper para obtener una noticia por slug
-export const getNoticiaBySlug = (slug) => {
-  return noticiasData.find(noticia => noticia.slug === slug);
-};
+// -------------------- HELPERS --------------------
 
-// Función helper para obtener todas las noticias
-export const getAllNoticias = () => {
-  return noticiasData;
-};
+// Obtener noticia por slug
+export const getNoticiaBySlug = (slug) => noticiasData.find(n => n.slug.toLowerCase() === slug.toLowerCase());
 
-// Función helper para obtener noticias por categoría
+// Obtener todas las noticias
+export const getAllNoticias = () => [...noticiasData];
+
+// Obtener noticias por categoría
 export const getNoticiasByCategoria = (categoria) => {
-  if (categoria === "Todas") return noticiasData;
-  return noticiasData.filter(noticia => 
-    noticia.categorias.includes(categoria)
-  );
+  if (categoria === "Todas") return [...noticiasData];
+  return noticiasData.filter(n => n.categorias.includes(categoria));
 };
 
-// Función helper para obtener noticias relacionadas (mismas categorías)
+// Obtener noticias relacionadas (mismas categorías, límite 3)
 export const getNoticiasRelacionadas = (noticiaActual, limite = 3) => {
   return noticiasData
-    .filter(noticia => 
-      noticia.id !== noticiaActual.id && 
-      noticia.categorias.some(cat => noticiaActual.categorias.includes(cat))
-    )
+    .filter(n => n.id !== noticiaActual.id && n.categorias.some(cat => noticiaActual.categorias.includes(cat)))
     .slice(0, limite);
 };

@@ -20,7 +20,7 @@ const AccesosRapidos = () => {
     {
       nombre: 'Calendario',
       icono: <Calendar size={48} />,
-      link: '/CALENDARIO 2026.pdf',
+      link: '/Docs/CALENDARIO 2026.pdf',
       descripcion: 'Consulta el calendario académico',
       external: true
     }

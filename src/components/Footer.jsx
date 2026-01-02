@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Youtube } from "lucide-react";
 import { FaTiktok as Tiktok } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -118,13 +119,44 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* ================= LINKS INFERIORES ================= */}
+          {/* ================= LINKS INFERIORES ================= */}
       <div className="mt-14 border-t border-white/20 py-10">
-        <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2  justify-center items-center md:grid-cols-4 text-center text-sm gap-6">
-          <a className="hover:text-[#fccd00] transition">✦ Libro de reclamaciones</a>
-          <a className="hover:text-[#fccd00] transition">✦ Solicite información</a>
-          <a className="hover:text-[#fccd00] transition">✦ Trabaja con nosotros</a>
-          <a className="hover:text-[#fccd00] transition">✦ Términos legales</a>
+        <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 text-center text-sm gap-6">
+
+          {/* Libro de reclamaciones */}
+          <a
+            href="https://www.indecopi.gob.pe/libro-reclamaciones"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#fccd00] transition"
+          >
+            ✦ Libro de reclamaciones
+          </a>
+
+          {/* Solicite información */}
+          <Link
+            to="/contacto"
+            className="hover:text-[#fccd00] transition"
+          >
+            ✦ Solicite información
+          </Link>
+
+          {/* Trabaja con nosotros */}
+          <Link
+            to="/vacantes"
+            className="hover:text-[#fccd00] transition"
+          >
+            ✦ Trabaja con nosotros
+          </Link>
+
+          {/* Términos legales */}
+          <Link
+            to="/terminos-legales"
+            className="hover:text-[#fccd00] transition"
+          >
+            ✦ Términos legales
+          </Link>
+
         </div>
       </div>
 

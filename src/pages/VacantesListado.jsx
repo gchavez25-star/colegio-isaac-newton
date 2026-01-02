@@ -19,7 +19,7 @@ export default function VacantesListado() {
   return (
     <>
       {/* HERO */}
-      <section className="py-20 bg-gradient-to-br from-azul-oscuro to-verde-azulado text-white">
+      <section className="py-20 bg-gradient-to-br from-azul-oscuro to-verde-azulado text-[#007a75]">
         <div className="container mx-auto px-6 text-center">
           <h1 className="font-anton text-5xl mb-4 capitalize">
             Vacantes {tipo}
