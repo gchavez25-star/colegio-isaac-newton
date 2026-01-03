@@ -117,7 +117,7 @@ const NoticiasSection = () => {
                   </span>
 
                   <Link
-                    to={`/comunidad/publicaciones/${noticia.slug}`}
+                    to={`/comunidad/${noticia.slug}`}
                     className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full 
                     border-2 border-[#007a75] text-[#007a75] font-bold text-sm
                     hover:bg-[#007a75] hover:text-white transition-all duration-300

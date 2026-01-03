@@ -23,6 +23,7 @@ import Servicios from './components/ui/Servicios';
 import VacantesCategorias from '@/pages/VacantesCategorias';
 import VacantesListado from '@/pages/VacantesListado';
 import Postular from '@/pages/Postular';
+import TerminosYCondiciones from './components/ui/TerminosYCondiciones';
 import './App.css';
 
 function App() {
@@ -53,7 +54,7 @@ function App() {
             <Route path="/vacantes" element={<VacantesCategorias />} />
             <Route path="/vacantes/:tipo" element={<VacantesListado />} />
             <Route path="/postular/:id" element={<Postular />} />
-
+            <Route path='/terminos' element={<TerminosYCondiciones/>} />
           </Routes>
         </main>
         <Footer />

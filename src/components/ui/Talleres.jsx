@@ -12,8 +12,8 @@ export default function Talleres() {
   ];
 
   const whatsappNumbers = {
-    cajamarca: "51987654321",
-    baños: "51912345678",
+    cajamarca: "51932274369",
+    baños: "51920438721",
   };
 
   const openWhatsApp = (campus) => {

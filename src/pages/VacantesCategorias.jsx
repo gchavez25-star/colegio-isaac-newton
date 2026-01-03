@@ -3,7 +3,6 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { vacantesData } from '@/data/vacantesData';
 
-
 const categoriasConfig = {
   docente: {
     label: 'Docente',

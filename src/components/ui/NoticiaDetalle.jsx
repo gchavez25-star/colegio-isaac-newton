@@ -46,21 +46,7 @@ const NoticiaDetalle = () => {
       <section className="relative bg-azul-oscuro text-white py-24 pb-0">
         <div className="container mx-auto px-6">
 
-          {/* Botón Volver */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="mb-12"
-          >
-            <Link
-              to="/comunidad/publicaciones"
-              className="inline-flex items-center gap-2 text-white hover:text-amarillo-dorado transition-colors duration-300 text-lg"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              Volver a Noticias
-            </Link>
-          </motion.div>
-
+          
           {/* Título y Metadata */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

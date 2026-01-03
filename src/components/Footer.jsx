@@ -125,7 +125,7 @@ const Footer = () => {
 
           {/* Libro de reclamaciones */}
           <a
-            href="https://www.indecopi.gob.pe/libro-reclamaciones"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdosVFR8OYBpIH48s8wyRgpnSetiE1Eyt2wiXWU1f49bcBN-Q/viewform?usp=header"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[#fccd00] transition"
@@ -151,7 +151,7 @@ const Footer = () => {
 
           {/* Términos legales */}
           <Link
-            to="/terminos-legales"
+            to="/terminos"
             className="hover:text-[#fccd00] transition"
           >
             ✦ Términos legales
@@ -162,7 +162,7 @@ const Footer = () => {
 
       {/* ================= COPYRIGHT ================= */}
       <div className="text-center py-6 text-sm text-white/80 border-t border-white/10">
-        © 2025 Colegio Privado de Ciencias Isaac Newton. Todos los derechos reservados.
+        © 2026 Colegio Privado de Ciencias Isaac Newton. Todos los derechos reservados.
       </div>
     </footer>
   );
