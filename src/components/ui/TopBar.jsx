@@ -11,7 +11,7 @@ const TopBar = () => {
        <div className="flex gap-6 items-center">
         {/* Reglamento (PDF) */}
         <a
-          href="/Docs/reglamento.pdf"
+          href="/Docs/R.I. 2026 NEWTON Cajamarca.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 hover:text-[#fccc00] transition-colors"
