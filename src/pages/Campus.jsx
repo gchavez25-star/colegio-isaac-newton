@@ -1,372 +1,274 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, ChevronRight, Video, Image, BookOpen, School } from 'lucide-react';
-import { useState, useMemo } from 'react';
+import { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
+import { MapPin, School, ChevronRight, BookOpen } from "lucide-react";
 
-// =====================================================
-// 1. ESTRUCTURA DE DATOS PARA MÚLTIPLES SEDES Y NIVELES
-// =====================================================
+/* =====================================================
+   DATA DE CAMPUS
+===================================================== */
 
-// Datos base del campus Cajamarca (tomados del código original)
-const campusCajamarcaBase = {
-  direccion: 'Av. Héroes del Cenepa 123, Cajamarca',
-  telefono: '(076) 123-456',
-  email: 'cajamarca@isaacnewton.edu.pe',
-  horario: 'Lunes a Viernes: 7:00 AM - 5:00 PM',
-  mapa: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.1!2d-78.5!3d-7.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!5e0!3m2!1ses!2spe',
-  video: 'https://www.youtube.com/embed/VIDEO_ID_CAJAMARCA',
-};
+const campusData = {
+  Cajamarca: {
+    seo: {
+      title: "Campus Cajamarca | Colegio Isaac Newton",
+      description:
+        "Infraestructura moderna del Campus Cajamarca del Colegio Isaac Newton.",
+      image: "/seo/campus-cajamarca.jpg"
+    },
+    whatsapp: "51932274369",
+    direccion: "Jr. Cruz de Piedra 582, Cajamarca",
+    mapa: "https://www.google.com/maps?q=-7.1583289,-78.5191143&z=17&output=embed",
 
-// Datos base del campus Baños del Inca (datos ficticios)
-const campusBanosIncaBase = {
-  direccion: 'Av. Los Incas 456, Baños del Inca',
-  telefono: '(076) 789-012',
-  email: 'banosdelinca@isaacnewton.edu.pe',
-  horario: 'Lunes a Viernes: 7:30 AM - 4:30 PM',
-  mapa: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.1!2d-78.5!3d-7.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!5e0!3m2!1ses!2spe',
-  video: 'https://www.youtube.com/embed/VIDEO_ID_BANOS_INCA',
-};
-
-const infraestructuraData = {
-  'Cajamarca': {
-    ...campusCajamarcaBase,
-    'General': {
-      titulo: 'Infraestructura General',
-      descripcion: 'Nuestro campus principal concentra la gestión académica y administrativa del colegio. Cuenta con infraestructura moderna, laboratorios especializados y servicios de apoyo integral al estudiante.',
-      imagen: 'https://images.unsplash.com/photo-1562774053-701939374585?w=1200&h=800&fit=crop',
+    General: {
+      titulo: "Infraestructura General",
+      descripcion:
+        "Campus principal con infraestructura moderna orientada a la excelencia académica.",
+      imagen: "https://images.unsplash.com/photo-1562774053-701939374585?w=1200",
       caracteristicas: [
-        'Laboratorios de Física, Química y Biología',
-        'Biblioteca física y digital',
-        'Área de Psicología Educativa',
-        'Tópico y enfermería escolar',
-        'Auditorio institucional',
-        'Canchas deportivas techadas'
-      ],
-      galeria: [
-        { titulo: 'Laboratorios de Ciencias', imagen: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=600&fit=crop' },
-        { titulo: 'Biblioteca Central', imagen: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&h=600&fit=crop' },
-        { titulo: 'Auditorio Principal', imagen: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=600&fit=crop' },
-        { titulo: 'Área de Psicología', imagen: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&h=600&fit=crop' }
+        "Auditorio institucional",
+        "Laboratorios especializados",
+        "Biblioteca física y digital",
+        "Áreas administrativas"
       ]
     },
-    'Inicial': {
-      titulo: 'Nivel Inicial',
-      descripcion: 'Espacios diseñados para el desarrollo integral de los más pequeños, fomentando la creatividad y el juego como herramientas de aprendizaje.',
-      imagen: 'https://images.unsplash.com/photo-1576092768241-dec231879549?w=1200&h=800&fit=crop',
-      caracteristicas: ['Aulas temáticas', 'Patios de juego seguros', 'Huerto escolar', 'Sala de psicomotricidad'],
-      galeria: []
+
+    Primaria: {
+      titulo: "Nivel Primaria",
+      descripcion:
+        "Espacios pedagógicos diseñados para el desarrollo integral del estudiante.",
+      imagen: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1200",
+      caracteristicas: [
+        "Aulas interactivas",
+        "Laboratorio de cómputo",
+        "Patios recreativos",
+        "Comedor escolar"
+      ]
     },
-    'Primaria': {
-      titulo: 'Nivel Primaria',
-      descripcion: 'Aulas amplias y equipadas para una educación activa y participativa. Contamos con tecnología de punta para el desarrollo de proyectos.',
-      imagen: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1200&h=800&fit=crop',
-      caracteristicas: ['Aulas interactivas', 'Laboratorio de cómputo', 'Cancha de usos múltiples', 'Comedor escolar'],
-      galeria: []
-    },
-    'Secundaria': {
-      titulo: 'Nivel Secundaria',
-      descripcion: 'Infraestructura especializada para la formación preuniversitaria. Laboratorios avanzados y espacios de estudio colaborativo.',
-      imagen: 'https://images.unsplash.com/photo-1541339907198-e0875663f974?w=1200&h=800&fit=crop',
-      caracteristicas: ['Laboratorios avanzados de ciencias', 'Salas de estudio grupal', 'Gimnasio', 'Área de robótica'],
-      galeria: []
+
+    Secundaria: {
+      titulo: "Nivel Secundaria",
+      descripcion:
+        "Infraestructura orientada a la formación preuniversitaria.",
+      imagen: "https://images.unsplash.com/photo-1541339907198-e0875663f974?w=1200",
+      caracteristicas: [
+        "Laboratorios de ciencias",
+        "Área de tecnología",
+        "Auditorio académico"
+      ]
     }
   },
-  'Baños del Inca': {
-    ...campusBanosIncaBase,
-    'General': {
-      titulo: 'Infraestructura General',
-      descripcion: 'Nuestro campus en Baños del Inca ofrece un ambiente tranquilo y natural, ideal para el aprendizaje. Mantenemos los mismos estándares de calidad y equipamiento.',
-      imagen: 'https://images.unsplash.com/photo-1552581234-26160f608093?w=1200&h=800&fit=crop',
+
+  "Baños del Inca": {
+    seo: {
+      title: "Campus Baños del Inca | Colegio Isaac Newton",
+      description:
+        "Campus rodeado de naturaleza y amplios espacios de aprendizaje.",
+      image: "/seo/campus-banos.jpg"
+    },
+    whatsapp: "51920438721",
+    direccion: "Jr. Yahuar Huacca #779, Baños del Inca",
+    mapa: "https://www.google.com/maps?q=-7.1677904,-78.4584945&z=17&output=embed",
+
+    General: {
+      titulo: "Infraestructura General",
+      descripcion:
+        "Campus rodeado de naturaleza que promueve el bienestar estudiantil.",
+      imagen: "https://images.unsplash.com/photo-1552581234-26160f608093?w=1200",
       caracteristicas: [
-        'Aulas con vista a la naturaleza',
-        'Talleres de arte y música',
-        'Campo deportivo de grass natural',
-        'Biblioteca con áreas de lectura al aire libre'
-      ],
-      galeria: []
+        "Áreas verdes",
+        "Ambientes abiertos",
+        "Canchas deportivas"
+      ]
     },
-    'Inicial': {
-      titulo: 'Nivel Inicial',
-      descripcion: 'Jardines y áreas de juego al aire libre, aprovechando el entorno natural para la estimulación temprana.',
-      imagen: 'https://images.unsplash.com/photo-1576092768241-dec231879549?w=1200&h=800&fit=crop',
-      caracteristicas: ['Patios de juego con elementos naturales', 'Aulas con luz natural', 'Sala de siesta'],
-      galeria: []
+
+    Primaria: {
+      titulo: "Nivel Primaria",
+      descripcion:
+        "Ambientes amplios y naturales para el aprendizaje activo.",
+      imagen: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1200",
+      caracteristicas: [
+        "Aulas iluminadas",
+        "Sala de cómputo",
+        "Patios amplios"
+      ]
     },
-    'Primaria': {
-      titulo: 'Nivel Primaria',
-      descripcion: 'Fomentamos el aprendizaje experiencial con espacios que permiten la conexión con el medio ambiente.',
-      imagen: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1200&h=800&fit=crop',
-      caracteristicas: ['Invernadero educativo', 'Laboratorio de idiomas', 'Cancha de fútbol'],
-      galeria: []
-    },
-    'Secundaria': {
-      titulo: 'Nivel Secundaria',
-      descripcion: 'Espacios de concentración y debate, preparando a los estudiantes para los desafíos académicos futuros.',
-      imagen: 'https://images.unsplash.com/photo-1541339907198-e0875663f974?w=1200&h=800&fit=crop',
-      caracteristicas: ['Salas de conferencias', 'Laboratorio de robótica', 'Biblioteca especializada'],
-      galeria: []
+
+    Secundaria: {
+      titulo: "Nivel Secundaria",
+      descripcion:
+        "Formación académica en armonía con la naturaleza.",
+      imagen: "https://images.unsplash.com/photo-1541339907198-e0875663f974?w=1200",
+      caracteristicas: [
+        "Laboratorios",
+        "Áreas deportivas",
+        "Salas de estudio"
+      ]
     }
   }
 };
 
-const niveles = ['General', 'Inicial', 'Primaria', 'Secundaria'];
-const sedes = ['Cajamarca', 'Baños del Inca'];
+const sedes = Object.keys(campusData);
+const niveles = ["General", "Primaria", "Secundaria"];
 
-// =====================================================
-// 2. COMPONENTE PRINCIPAL INFRAESTRUCTURA
-// =====================================================
+/* =====================================================
+   CTA WHATSAPP
+===================================================== */
 
-export default function Infraestructura() {
-  const [selectedSede, setSelectedSede] = useState('Cajamarca');
-  const [selectedNivel, setSelectedNivel] = useState('General');
-  const [modalOpen, setModalOpen] = useState(false);
-  const [imagenSeleccionada, setImagenSeleccionada] = useState(null);
-
-  const sedeData = infraestructuraData[selectedSede];
-  const nivelData = sedeData[selectedNivel];
-  
-  // Datos combinados para el contenido
-  const contenido = useMemo(() => ({
-    ...sedeData, // Direccion, telefono, email, horario, mapa, video
-    ...nivelData // Titulo, descripcion, imagen, caracteristicas, galeria
-  }), [sedeData, nivelData]);
-
-  const abrirModal = (item) => {
-    setImagenSeleccionada(item);
-    setModalOpen(true);
-  };
-
-  const cerrarModal = () => {
-    setModalOpen(false);
-    setImagenSeleccionada(null);
-  };
+function WhatsAppCTA({ sede, nivel }) {
+  const telefono = campusData[sede].whatsapp;
+  const mensaje = encodeURIComponent(
+    `Hola, deseo información sobre ${nivel} en el Campus ${sede} del Colegio Isaac Newton.`
+  );
 
   return (
-    <div className="min-h-screen pt-24 bg-white">
-      
-      {/* HERO SECTION */}
-      <section className="py-16 bg-gradient-to-br from-azul-oscuro to-verde-azulado text-white">
-        <div className="container mx-auto px-6 text-center max-w-4xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="font-anton text-5xl md:text-6xl mb-4"
-          >
-            Nuestra Infraestructura
-          </motion.h1>
-          <p className="text-xl font-light">Espacios diseñados para la excelencia educativa</p>
-        </div>
-      </section>
+    <a
+      href={`https://wa.me/${telefono}?text=${mensaje}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow-lg"
+    >
+      Contactar por WhatsApp
+    </a>
+  );
+}
 
-      {/* 3. CONTENIDO PRINCIPAL CON TABS */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-6">
-          
-          {/* TABS SUPERIORES PARA SEDES (Cajamarca / Baños del Inca) */}
-          <div className="flex justify-center mb-10 border-b border-gray-200">
-            {sedes.map((sede) => (
-              <button
-                key={sede}
-                onClick={() => {
-                  setSelectedSede(sede);
-                  setSelectedNivel('General'); // Reset al cambiar de sede
-                }}
-                className={`
-                  px-8 py-3 text-lg font-semibold transition-all relative
-                  ${selectedSede === sede
-                    ? 'text-azul-oscuro border-b-4 border-amarillo-dorado'
-                    : 'text-gray-500 hover:text-azul-oscuro'
-                  }
-                `}
-              >
-                <MapPin className="w-5 h-5 inline-block mr-2" />
-                {sede}
-              </button>
-            ))}
+/* =====================================================
+   COMPONENTE PRINCIPAL
+===================================================== */
+
+export default function Campus() {
+  const [sedeActiva, setSedeActiva] = useState("Cajamarca");
+  const [nivelActivo, setNivelActivo] = useState("General");
+
+  const sedeData = campusData[sedeActiva];
+  const nivelData = sedeData[nivelActivo];
+
+  const seoTitle = `${nivelActivo} | ${sedeData.seo.title}`;
+  const seoDescription = `${nivelData.descripcion} ${sedeData.seo.description}`;
+
+  return (
+    <div className="min-h-screen bg-gray-50 ">
+
+      {/* SEO */}
+      <Helmet>
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDescription} />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
+        <meta property="og:image" content={sedeData.seo.image} />
+      </Helmet>
+
+      {/* HERO */}
+      <section
+      className="relative py-24 text-white text-center bg-cover bg-center"
+      style={{
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600')"
+      }}
+    >
+      {/* OVERLAY */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 to-teal-700/80" />
+
+      {/* CONTENIDO */}
+      <div className="relative z-10 container mx-auto px-6">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="font-anton text-5xl md:text-6xl mb-4"
+        >
+          Campus Isaac Newton
+        </motion.h1>
+
+        <p className="text-xl max-w-2xl mx-auto">
+          Infraestructura académica por sede
+        </p>
+      </div>
+    </section>
+
+      {/* SEDES */}
+      <div className="flex justify-center border-b mt-10">
+        {sedes.map(sede => (
+          <button
+            key={sede}
+            onClick={() => {
+              setSedeActiva(sede);
+              setNivelActivo("General");
+            }}
+            className={`px-8 py-3 font-semibold ${
+              sede === sedeActiva
+                ? "border-b-4 border-yellow-400"
+                : "text-gray-500"
+            }`}
+          >
+            <MapPin className="inline mr-2" />
+            {sede}
+          </button>
+        ))}
+      </div>
+
+      {/* CONTENIDO */}
+      <section className="py-16 container mx-auto px-6 grid lg:grid-cols-4 gap-8">
+
+        {/* NIVELES */}
+        <aside className="bg-white p-6 rounded-xl shadow">
+          <h3 className="text-xl font-semibold mb-4">Niveles</h3>
+          {niveles.map(nivel => (
+            <button
+              key={nivel}
+              onClick={() => setNivelActivo(nivel)}
+              className={`w-full mb-2 px-4 py-3 rounded-lg flex gap-2 items-center ${
+                nivel === nivelActivo
+                  ? "bg-teal-700 text-white"
+                  : "hover:bg-gray-100"
+              }`}
+            >
+              <School />
+              {nivel}
+            </button>
+          ))}
+        </aside>
+
+        {/* INFO */}
+        <motion.div className="lg:col-span-3 space-y-10">
+          <div className="bg-white p-8 rounded-xl shadow">
+            <h2 className="text-4xl font-bold mb-4">
+              {nivelData.titulo} – {sedeActiva}
+            </h2>
+            <p>{nivelData.descripcion}</p>
           </div>
 
-          {/* CONTENIDO CON MENÚ LATERAL PARA NIVELES */}
-          <div className="grid lg:grid-cols-4 gap-8">
-            
-            {/* MENÚ LATERAL (Niveles) - Estilo SIR */}
-            <div className="lg:col-span-1 bg-white rounded-xl shadow-lg p-4 h-fit">
-              <h3 className="text-xl font-bold text-azul-oscuro mb-4 border-b pb-2">
-                Secciones
-              </h3>
-              <nav className="space-y-2">
-                {niveles.map((nivel) => (
-                  <button
-                    key={nivel}
-                    onClick={() => setSelectedNivel(nivel)}
-                    className={`
-                      w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3
-                      ${selectedNivel === nivel
-                        ? 'bg-verde-azulado text-white shadow-md'
-                        : 'text-gray-700 hover:bg-gray-100'
-                      }
-                    `}
-                  >
-                    <School className="w-5 h-5" />
-                    {nivel}
-                  </button>
-                ))}
-              </nav>
-            </div>
+          <img src={nivelData.imagen} className="rounded-xl shadow-xl" />
 
-            {/* CONTENIDO PRINCIPAL */}
-            <motion.div
-              key={selectedSede + selectedNivel}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="lg:col-span-3 space-y-12"
-            >
-              
-              {/* TÍTULO Y DESCRIPCIÓN */}
-              <div className="bg-white rounded-xl shadow-lg p-8">
-                <h2 className="font-anton text-4xl text-azul-oscuro mb-4">
-                  {contenido.titulo} - {selectedSede}
-                </h2>
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  {contenido.descripcion}
-                </p>
-              </div>
-
-              {/* IMAGEN PRINCIPAL */}
-              <div className="rounded-xl overflow-hidden shadow-2xl">
-                <img src={contenido.imagen} alt={contenido.titulo} className="w-full h-auto object-cover" />
-              </div>
-
-              {/* CARACTERÍSTICAS Y CONTACTO */}
-              <div className="grid md:grid-cols-2 gap-8">
-                
-                {/* CARACTERÍSTICAS */}
-                <div className="bg-white rounded-xl shadow-lg p-8">
-                  <h3 className="font-bold text-2xl text-verde-azulado mb-4 flex items-center gap-2">
-                    <BookOpen className="w-6 h-6" />
-                    Características Destacadas
-                  </h3>
-                  <ul className="space-y-3">
-                    {contenido.caracteristicas.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-gray-700">
-                        <ChevronRight className="w-5 h-5 text-amarillo-dorado mt-1 flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* CONTACTO */}
-                <div className="bg-white rounded-xl shadow-lg p-8">
-                  <h3 className="font-bold text-2xl text-verde-azulado mb-4 flex items-center gap-2">
-                    <Phone className="w-6 h-6" />
-                    Información de Contacto
-                  </h3>
-                  <div className="space-y-4 text-gray-700">
-                    <div className="flex items-center gap-3">
-                      <MapPin className="text-azul-oscuro" /> {contenido.direccion}
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Phone className="text-azul-oscuro" /> {contenido.telefono}
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Mail className="text-azul-oscuro" /> {contenido.email}
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Clock className="text-azul-oscuro" /> {contenido.horario}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* VIDEO */}
-              <div className="bg-white rounded-xl shadow-lg p-8">
-                <h3 className="font-bold text-2xl text-azul-oscuro mb-4 flex items-center gap-2">
-                  <Video className="w-6 h-6 text-verde-azulado" />
-                  Recorrido Virtual
-                </h3>
-                <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                  <iframe
-                    src={contenido.video}
-                    className="w-full h-full"
-                    allowFullScreen
-                    title={`Recorrido ${contenido.titulo} - ${selectedSede}`}
-                  />
-                </div>
-              </div>
-
-              {/* GALERÍA */}
-              {contenido.galeria && contenido.galeria.length > 0 && (
-                <div className="bg-white rounded-xl shadow-lg p-8">
-                  <h3 className="font-bold text-2xl text-azul-oscuro mb-6 flex items-center gap-2">
-                    <Image className="w-6 h-6 text-verde-azulado" />
-                    Galería de Instalaciones
-                  </h3>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {contenido.galeria.map((item, i) => (
-                      <motion.div
-                        key={i}
-                        whileHover={{ scale: 1.05 }}
-                        onClick={() => abrirModal(item)}
-                        className="cursor-pointer rounded-lg overflow-hidden shadow-md"
-                      >
-                        <img src={item.imagen} alt={item.titulo} className="w-full h-36 object-cover" />
-                        <div className="p-2 bg-azul-oscuro text-white text-center text-sm font-semibold">
-                          {item.titulo}
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* MAPA */}
-              <div className="bg-white rounded-xl shadow-lg p-8">
-                <h3 className="font-bold text-2xl text-azul-oscuro mb-4 flex items-center gap-2">
-                  <MapPin className="w-6 h-6 text-verde-azulado" />
-                  Ubicación
-                </h3>
-                <div className="h-96 rounded-xl overflow-hidden shadow-lg">
-                  <iframe src={contenido.mapa} className="w-full h-full" loading="lazy" title={`Mapa ${selectedSede}`} />
-                </div>
-              </div>
-
-            </motion.div>
+          <div className="bg-white p-8 rounded-xl shadow">
+            <h3 className="text-2xl font-bold mb-4 flex gap-2">
+              <BookOpen /> Características
+            </h3>
+            <ul>
+              {nivelData.caracteristicas.map((c, i) => (
+                <li key={i} className="flex gap-2">
+                  <ChevronRight />
+                  {c}
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
+
+          <div className="bg-white p-10 rounded-xl shadow text-center">
+            <h3 className="text-2xl font-bold mb-4">
+              ¿Deseas más información?
+            </h3>
+            <WhatsAppCTA sede={sedeActiva} nivel={nivelActivo} />
+          </div>
+
+          <iframe
+            src={sedeData.mapa}
+            className="w-full h-96 rounded-xl"
+            loading="lazy"
+          />
+        </motion.div>
       </section>
 
-      {/* MODAL */}
-      <AnimatePresence>
-        {modalOpen && imagenSeleccionada && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
-            onClick={cerrarModal}
-          >
-            <motion.div
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.8 }}
-              transition={{ type: "spring", duration: 0.3 }}
-              className="max-w-4xl w-full"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <img src={imagenSeleccionada.imagen} alt={imagenSeleccionada.titulo} className="rounded-xl shadow-2xl" />
-              <h3 className="font-anton text-white text-3xl mt-4 text-center">
-                {imagenSeleccionada.titulo}
-              </h3>
-              <button
-                onClick={cerrarModal}
-                className="absolute top-4 right-4 text-white/80 hover:text-white bg-black/50 rounded-full p-2"
-              >
-                <X size={28} />
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+      </div>
   );
 }
