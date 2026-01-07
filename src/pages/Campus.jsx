@@ -13,7 +13,7 @@ const campusData = {
       title: "Campus Cajamarca | Colegio Isaac Newton",
       description:
         "Infraestructura moderna del Campus Cajamarca del Colegio Isaac Newton.",
-      image: "/seo/campus-cajamarca.jpg"
+      image: "/seo/campus-cajamarca.jpg",
     },
     whatsapp: "51932274369",
     direccion: "Jr. Cruz de Piedra 582, Cajamarca",
@@ -23,39 +23,41 @@ const campusData = {
       titulo: "Infraestructura General",
       descripcion:
         "Campus principal con infraestructura moderna orientada a la excelencia académica.",
-      imagen: "https://images.unsplash.com/photo-1562774053-701939374585?w=1200",
+      imagen:
+        "https://images.unsplash.com/photo-1562774053-701939374585?w=1200",
       caracteristicas: [
         "Auditorio institucional",
         "Laboratorios especializados",
         "Biblioteca física y digital",
-        "Áreas administrativas"
-      ]
+        "Áreas administrativas",
+      ],
     },
 
     Primaria: {
       titulo: "Nivel Primaria",
       descripcion:
         "Espacios pedagógicos diseñados para el desarrollo integral del estudiante.",
-      imagen: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1200",
+      imagen:
+        "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1200",
       caracteristicas: [
         "Aulas interactivas",
         "Laboratorio de cómputo",
         "Patios recreativos",
-        "Comedor escolar"
-      ]
+        "Comedor escolar",
+      ],
     },
 
     Secundaria: {
       titulo: "Nivel Secundaria",
-      descripcion:
-        "Infraestructura orientada a la formación preuniversitaria.",
-      imagen: "https://images.unsplash.com/photo-1541339907198-e0875663f974?w=1200",
+      descripcion: "Infraestructura orientada a la formación preuniversitaria.",
+      imagen:
+        "https://images.unsplash.com/photo-1541339907198-e0875663f974?w=1200",
       caracteristicas: [
         "Laboratorios de ciencias",
         "Área de tecnología",
-        "Auditorio académico"
-      ]
-    }
+        "Auditorio académico",
+      ],
+    },
   },
 
   "Baños del Inca": {
@@ -63,7 +65,7 @@ const campusData = {
       title: "Campus Baños del Inca | Colegio Isaac Newton",
       description:
         "Campus rodeado de naturaleza y amplios espacios de aprendizaje.",
-      image: "/seo/campus-banos.jpg"
+      image: "/seo/campus-banos.jpg",
     },
     whatsapp: "51920438721",
     direccion: "Jr. Yahuar Huacca #779, Baños del Inca",
@@ -73,38 +75,35 @@ const campusData = {
       titulo: "Infraestructura General",
       descripcion:
         "Campus rodeado de naturaleza que promueve el bienestar estudiantil.",
-      imagen: "https://images.unsplash.com/photo-1552581234-26160f608093?w=1200",
+      imagen:
+        "https://images.unsplash.com/photo-1552581234-26160f608093?w=1200",
       caracteristicas: [
         "Áreas verdes",
         "Ambientes abiertos",
-        "Canchas deportivas"
-      ]
+        "Canchas deportivas",
+      ],
     },
 
     Primaria: {
       titulo: "Nivel Primaria",
-      descripcion:
-        "Ambientes amplios y naturales para el aprendizaje activo.",
-      imagen: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1200",
+      descripcion: "Ambientes amplios y naturales para el aprendizaje activo.",
+      imagen:
+        "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1200",
       caracteristicas: [
         "Aulas iluminadas",
         "Sala de cómputo",
-        "Patios amplios"
-      ]
+        "Patios amplios",
+      ],
     },
 
     Secundaria: {
       titulo: "Nivel Secundaria",
-      descripcion:
-        "Formación académica en armonía con la naturaleza.",
-      imagen: "https://images.unsplash.com/photo-1541339907198-e0875663f974?w=1200",
-      caracteristicas: [
-        "Laboratorios",
-        "Áreas deportivas",
-        "Salas de estudio"
-      ]
-    }
-  }
+      descripcion: "Formación académica en armonía con la naturaleza.",
+      imagen:
+        "https://images.unsplash.com/photo-1541339907198-e0875663f974?w=1200",
+      caracteristicas: ["Laboratorios", "Áreas deportivas", "Salas de estudio"],
+    },
+  },
 };
 
 const sedes = Object.keys(campusData);
@@ -148,7 +147,6 @@ export default function Campus() {
 
   return (
     <div className="min-h-screen bg-gray-50 ">
-
       {/* SEO */}
       <Helmet>
         <title>{seoTitle}</title>
@@ -160,35 +158,35 @@ export default function Campus() {
 
       {/* HERO */}
       <section
-      className="relative py-24 text-white text-center bg-cover bg-center"
-      style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600')"
-      }}
-    >
-      {/* OVERLAY */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 to-teal-700/80" />
+        className="relative py-24 text-white text-center bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600')",
+        }}
+      >
+        {/* OVERLAY */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 to-teal-700/80" />
 
-      {/* CONTENIDO */}
-      <div className="relative z-10 container mx-auto px-6">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="font-anton text-5xl md:text-6xl mb-4"
-        >
-          Campus Isaac Newton
-        </motion.h1>
+        {/* CONTENIDO */}
+        <div className="relative z-10 container mx-auto px-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="font-anton text-5xl md:text-6xl mb-4"
+          >
+            Campus Isaac Newton
+          </motion.h1>
 
-        <p className="text-xl max-w-2xl mx-auto">
-          Infraestructura académica por sede
-        </p>
-      </div>
-    </section>
+          <p className="text-xl max-w-2xl mx-auto">
+            Infraestructura académica por sede
+          </p>
+        </div>
+      </section>
 
       {/* SEDES */}
       <div className="flex justify-center border-b mt-10">
-        {sedes.map(sede => (
+        {sedes.map((sede) => (
           <button
             key={sede}
             onClick={() => {
@@ -209,11 +207,10 @@ export default function Campus() {
 
       {/* CONTENIDO */}
       <section className="py-16 container mx-auto px-6 grid lg:grid-cols-4 gap-8">
-
         {/* NIVELES */}
         <aside className="bg-white p-6 rounded-xl shadow">
           <h3 className="text-xl font-semibold mb-4">Niveles</h3>
-          {niveles.map(nivel => (
+          {niveles.map((nivel) => (
             <button
               key={nivel}
               onClick={() => setNivelActivo(nivel)}
@@ -268,7 +265,6 @@ export default function Campus() {
           />
         </motion.div>
       </section>
-
-      </div>
+    </div>
   );
 }
