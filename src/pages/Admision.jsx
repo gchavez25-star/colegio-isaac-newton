@@ -1,6 +1,131 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FileText, Calendar, Users, CheckCircle, ChevronRight, Download } from 'lucide-react';
+import { FileText, Calendar, Users, CheckCircle, ChevronRight, Download, Play } from 'lucide-react';
+
+// =====================================================
+// COMPONENTE 1: RequisitosMatricula (Integrado)
+// =====================================================
+
+const requisitosEstudiante = [
+  "Partida de nacimiento.",
+  "Copia del DNI del postulante.",
+  "Libreta de notas o informe de aprendizaje actualizado del colegio.",
+  "Ficha única de matrícula",
+  "Constancia de no adeudo de la institución educativa de origen.",
+];
+
+const requisitosPadres = [
+  "Copia del DNI de ambos padres.",
+  "De no ser el padre, documento que acredite.",
+];
+
+const RequisitosMatricula = () => {
+  return (
+    <div className="container mx-auto px-6 max-w-6xl">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8 }}
+        className="relative bg-white p-8 md:p-12 rounded-3xl shadow-2xl overflow-hidden"
+      >
+        
+        {/* TÍTULO BICOLOR Y AÑO */}
+        <div className="relative z-10 mb-8">
+          <h2 className="text-6xl md:text-8xl leading-none font-anton">
+            <span className="block text-amarillo-dorado -mb-4 md:-mb-6 relative z-10 italic font-serif" style={{ fontSize: '0.6em', transform: 'rotate(-5deg)', display: 'inline-block' }}>
+              Requisitos
+            </span>
+            <span className="block text-azul-oscuro">
+              MATRÍCULA
+            </span>
+          </h2>
+          <p className="text-gray-600 mt-2">
+            Para completar tu inscripción, asegúrate de cumplir con los siguientes datos.
+          </p>
+          
+          {/* AÑO 2026 (Estilizado) */}
+          <div className="absolute top-0 right-0 text-amarillo-dorado font-anton text-4xl transform rotate-12">
+            2026
+          </div>
+        </div>
+
+        {/* CONTENIDO PRINCIPAL (Grid de 2 columnas) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 relative">
+          
+          {/* COLUMNA IZQUIERDA: REQUISITOS */}
+          <div className="space-y-8 relative z-10">
+            
+            {/* REQUISITOS ESTUDIANTE */}
+            <div className="space-y-4">
+              <div className="bg-verde-azulado inline-flex items-center px-4 py-2 rounded-lg shadow-lg">
+                <Play className="w-5 h-5 text-white mr-2 fill-white" />
+                <h3 className="text-white font text-xl ">Estudiante</h3>
+              </div>
+              
+              <ul className="space-y-3 text-lg text-gray-700">
+                {requisitosEstudiante.map((req, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <CheckCircle className="w-6 h-6 text-verde-azulado flex-shrink-0 mt-1" />
+                    {req}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* REQUISITOS PADRES DE FAMILIA */}
+            <div className="space-y-4">
+              <div className="bg-verde-azulado inline-flex items-center px-4 py-2 rounded-lg shadow-lg">
+                <Play className="w-5 h-5 text-white mr-2 fill-white" />
+                <h3 className="text-white font text-xl ">Padres de familia</h3>
+              </div>
+              
+              <ul className="space-y-3 text-lg text-gray-700">
+                {requisitosPadres.map((req, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <CheckCircle className="w-6 h-6 text-verde-azulado flex-shrink-0 mt-1" />
+                    {req}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            {/* BOTÓN DE LLAMADA A LA ACCIÓN */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-6 bg-azul-oscuro text-white font-anton text-xl uppercase px-8 py-4 rounded-lg shadow-xl hover:bg-azul-oscuro/90 transition-colors"
+            >
+              ¡SÉ PARTE DE NOSOTROS!
+            </motion.button>
+          </div>
+
+          {/* COLUMNA DERECHA: IMAGEN DEL ESTUDIANTE */}
+          <div className="hidden lg:block absolute right-0 top-0 h-full w-1/2">
+            {/* Fondo de color que se ve detrás de la imagen */}
+            <div className="absolute inset-0 bg-amarillo-dorado/50 rounded-3xl transform translate-x-10 translate-y-10"></div>
+            
+            {/* Contenedor de la imagen con bordes redondeados */}
+            <div className="absolute inset-0 rounded-[40px] overflow-hidden shadow-2xl">
+              <img
+                src="/public/Admision/Matricula.png" // Usar una imagen de un estudiante apuntando
+                alt="Estudiante apuntando a los requisitos"
+                className="w-full h-full object-cover object-top"
+              />
+              {/* Overlay sutil para integrar la imagen */}
+              <div className="absolute inset-0 bg-verde-azulado/10"></div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+
+// =====================================================
+// COMPONENTE 2: Admision (Principal)
+// =====================================================
 
 const Admision = () => {
   const proceso = [
@@ -30,36 +155,6 @@ const Admision = () => {
     }
   ];
 
-  const requisitos = {
-    inicial: [
-      'Partida de nacimiento original',
-      'DNI del estudiante (copia)',
-      'DNI de los padres (copia)',
-      'Certificado de salud',
-      'Dos fotos tamaño carnet',
-      'Constancia de no adeudo (si procede de otra institución)'
-    ],
-    primaria: [
-      'Partida de nacimiento original',
-      'DNI del estudiante (copia)',
-      'DNI de los padres (copia)',
-      'Certificado de estudios del nivel anterior',
-      'Certificado de salud',
-      'Dos fotos tamaño carnet',
-      'Constancia de no adeudo (si procede de otra institución)'
-    ],
-    secundaria: [
-      'Partida de nacimiento original',
-      'DNI del estudiante (copia)',
-      'DNI de los padres (copia)',
-      'Certificado de estudios de primaria completa',
-      'Libreta de notas del último año cursado',
-      'Certificado de salud',
-      'Dos fotos tamaño carnet',
-      'Constancia de no adeudo (si procede de otra institución)'
-    ]
-  };
-
   const beneficios = [
     {
       titulo: 'Becas Académicas',
@@ -79,10 +174,10 @@ const Admision = () => {
   ];
 
   const fechasImportantes = [
-    { evento: 'Inicio de inscripciones', fecha: 'Enero 2025' },
-    { evento: 'Evaluaciones de admisión', fecha: 'Febrero 2025' },
-    { evento: 'Proceso de matrícula', fecha: 'Febrero - Marzo 2025' },
-    { evento: 'Inicio del año escolar', fecha: 'Marzo 2025' }
+    { evento: 'Inicio de inscripciones', fecha: 'Enero 2026' },
+    { evento: 'Evaluaciones de admisión', fecha: 'Febrero 2026' },
+    { evento: 'Proceso de matrícula', fecha: 'Febrero - Marzo 2026' },
+    { evento: 'Inicio del año escolar', fecha: 'Marzo 2026' }
   ];
 
   return (
@@ -104,7 +199,7 @@ const Admision = () => {
               transition={{ delay: 0.3, type: 'spring' }}
               className="inline-block bg-amarillo-dorado text-azul-oscuro px-6 py-3 rounded-full font-bold mb-6 text-lg"
             >
-              ¡Inscripciones Abiertas 2025!
+              ¡Inscripciones Abiertas 2026!
             </motion.div>
             <h1 className="font-anton text-5xl md:text-6xl mb-6">
               Proceso de Admisión
@@ -174,64 +269,9 @@ const Admision = () => {
         </div>
       </section>
 
-      {/* Requisitos por Nivel */}
+      {/* Requisitos de Matrícula (Componente Gráfico) */}
       <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="font-anton text-4xl md:text-5xl text-azul-oscuro mb-4">
-              Requisitos por Nivel
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Documentación necesaria según el nivel educativo
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {Object.entries(requisitos).map(([nivel, docs], index) => (
-              <motion.div
-                key={nivel}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                className="bg-white p-8 rounded-xl shadow-lg"
-              >
-                <h3 className="font-anton text-2xl text-azul-oscuro mb-6 capitalize">
-                  {nivel}
-                </h3>
-                <ul className="space-y-3">
-                  {docs.map((doc, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-gray-700">
-                      <CheckCircle className="text-verde-azulado flex-shrink-0 mt-1" size={20} />
-                      <span className="text-sm">{doc}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mt-12"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 bg-azul-oscuro text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity"
-            >
-              <Download size={20} />
-              Descargar lista completa
-            </motion.button>
-          </motion.div>
-        </div>
+        <RequisitosMatricula />
       </section>
 
       {/* Becas y Beneficios */}
@@ -260,7 +300,7 @@ const Admision = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
                 whileHover={{ scale: 1.05 }}
-                className="bg-gradient-to-br from-verde-azulado to-azul-oscuro text-white p-8 rounded-xl shadow-lg text-center"
+                className="bg-gradient-to-br from-verde-azulado to-azul-oscuro text-[#007a75] p-8 rounded-xl shadow-lg text-center"
               >
                 <div className="font-anton text-5xl text-amarillo-dorado mb-4">
                   {beneficio.porcentaje}
@@ -290,128 +330,50 @@ const Admision = () => {
               Fechas Importantes
             </h2>
             <p className="text-lg max-w-3xl mx-auto">
-              Calendario del proceso de admisión 2025
+              Mantente al tanto de nuestro calendario de admisión
             </p>
           </motion.div>
 
-          <div className="max-w-3xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {fechasImportantes.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="flex items-center justify-between p-6 mb-4 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition-all"
+                transition={{ delay: index * 0.15 }}
+                className="bg-white text-azul-oscuro p-4 rounded-xl shadow-lg text-center"
               >
-                <div className="flex items-center gap-4">
-                  <Calendar size={32} className="text-amarillo-dorado" />
-                  <span className="font-semibold text-lg">{item.evento}</span>
-                </div>
-                <span className="text-amarillo-dorado font-bold">{item.fecha}</span>
+                <p className="text-sm font-semibold">{item.evento}</p>
+                <p className="font-anton text-xl text-verde-azulado mt-1">{item.fecha}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Imagen Institucional */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="font-anton text-4xl text-azul-oscuro mb-6">
-                ¿Por qué elegir Isaac Newton?
-              </h2>
-              <ul className="space-y-4 mb-6">
-                {[
-                  'Más de 35 años de experiencia educativa',
-                  '85% de ingreso a universidades de prestigio',
-                  'Metodología científica innovadora',
-                  'Docentes altamente calificados',
-                  'Instalaciones modernas y equipadas',
-                  'Formación integral en valores'
-                ].map((item, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-center gap-3 text-gray-700"
-                  >
-                    <CheckCircle className="text-verde-azulado flex-shrink-0" size={24} />
-                    <span className="text-lg">{item}</span>
-                  </motion.li>
-                ))}
-              </ul>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  to="/contacto"
-                  className="inline-flex items-center gap-2 bg-verde-azulado text-white px-8 py-4 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity"
-                >
-                  Solicitar información
-                  <ChevronRight />
-                </Link>
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative h-96 rounded-xl overflow-hidden shadow-2xl"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop"
-                alt="Estudiantes Isaac Newton"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action Final */}
-      <section className="py-20 bg-gradient-to-r from-amarillo-dorado to-yellow-500">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto"
+      {/* Llamada a la Acción Final */}
+      <section className="py-16 bg-white text-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto"
+        >
+          <h2 className="font-anton text-3xl md:text-4xl text-azul-oscuro mb-6">
+            ¿Listo para unirte a la familia Newton?
+          </h2>
+          <Link
+            to="/visita-guiada"
+            className="inline-flex items-center gap-2 bg-verde-azulado text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-verde-azulado/90 transition-colors shadow-xl"
           >
-            <h2 className="font-anton text-4xl md:text-5xl text-azul-oscuro mb-6">
-              ¡Comienza tu futuro hoy!
-            </h2>
-            <p className="text-xl text-azul-oscuro mb-8">
-              No pierdas la oportunidad de formar parte de la mejor institución educativa del norte del Perú
-            </p>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link
-                to="/contacto"
-                className="inline-flex items-center gap-2 bg-azul-oscuro text-white px-8 py-4 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity"
-              >
-                Postular ahora
-                <ChevronRight />
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
+            Agenda tu Visita Guiada
+            <ChevronRight />
+          </Link>
+        </motion.div>
       </section>
     </div>
   );
 };
 
 export default Admision;
-
