@@ -1,39 +1,44 @@
-import { motion } from 'framer-motion';
-import { Mail, Calendar, ExternalLink } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Mail, Calendar, ExternalLink, Folder } from "lucide-react"; // Importar el icono Folder
 
 const AccesosRapidos = () => {
   const accesos = [
     {
-      nombre: 'Correo',
+      nombre: "Correo",
       icono: <Mail size={48} />,
-      link: 'https://mail.google.com/a/inewton.edu.pe',
-      descripcion: 'Accede a tu correo institucional',
-      external: true
+      link: "https://mail.google.com/a/inewton.edu.pe",
+      descripcion: "Accede a tu correo institucional",
+      external: true,
     },
     {
-      nombre: 'SIEWEB',
+      nombre: "SIEWEB",
       icono: <ExternalLink size={48} />,
-      link: 'https://in.sieweb.com.pe/sistema/login',
-      descripcion: 'Sistema de información educativa',
-      external: true
+      link: "https://in.sieweb.com.pe/sistema/login",
+      descripcion: "Sistema de información educativa",
+      external: true,
     },
     {
-      nombre: 'Calendario',
+      nombre: "Calendario",
       icono: <Calendar size={48} />,
-      link: '/Docs/CALENDARIO 2026.pdf',
-      descripcion: 'Consulta el calendario académico',
-      external: true
-    }
+      link: "/Docs/CALENDARIO 2026.pdf",
+      descripcion: "Consulta el calendario académico",
+      external: true,
+    },
+    {
+      nombre: "Google Drive",
+      icono: <Folder size={48} />,
+      link: "https://drive.google.com/a/inewton.edu.pe",
+      descripcion: "Acceso a documentos y recursos compartidos",
+      external: true,
+    },
   ];
 
   return (
     <section className="relative -mt-20 z-20 pb-12">
       {/* Contenedor con padding lateral */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* Grid de tarjetas */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {accesos.map((acceso, index) => (
             <motion.a
               key={index}
@@ -43,14 +48,14 @@ const AccesosRapidos = () => {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ 
+              transition={{
                 delay: index * 0.15,
                 duration: 0.5,
-                ease: "easeOut"
+                ease: "easeOut",
               }}
-              whileHover={{ 
+              whileHover={{
                 y: -8,
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
               className="
                 bg-white
@@ -66,13 +71,12 @@ const AccesosRapidos = () => {
                 group
               "
             >
-
               {/* Icono */}
               <motion.div
-                whileHover={{ 
+                whileHover={{
                   scale: 1.1,
                   rotate: 5,
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3 },
                 }}
                 className="mb-6 text-[#013055] group-hover:text-[#007a75] transition-colors duration-300"
               >
@@ -88,12 +92,9 @@ const AccesosRapidos = () => {
               <p className="text-sm md:text-base text-gray-600 font-montserrat leading-relaxed">
                 {acceso.descripcion}
               </p>
-
             </motion.a>
           ))}
-
         </div>
-        
       </div>
     </section>
   );

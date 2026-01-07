@@ -23,8 +23,7 @@ const campusData = {
       titulo: "Infraestructura General",
       descripcion:
         "Campus principal con infraestructura moderna orientada a la excelencia académica.",
-      imagen:
-        "https://images.unsplash.com/photo-1562774053-701939374585?w=1200",
+      imagen: "/public/Campus/Campus Colegio.jpg",
       caracteristicas: [
         "Auditorio institucional",
         "Laboratorios especializados",
@@ -37,8 +36,7 @@ const campusData = {
       titulo: "Nivel Primaria",
       descripcion:
         "Espacios pedagógicos diseñados para el desarrollo integral del estudiante.",
-      imagen:
-        "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1200",
+      imagen: "/public/Campus/Espacios Pedagogicos.jpg",
       caracteristicas: [
         "Aulas interactivas",
         "Laboratorio de cómputo",
@@ -50,8 +48,7 @@ const campusData = {
     Secundaria: {
       titulo: "Nivel Secundaria",
       descripcion: "Infraestructura orientada a la formación preuniversitaria.",
-      imagen:
-        "https://images.unsplash.com/photo-1541339907198-e0875663f974?w=1200",
+      imagen: "/public/Campus/Infraestructura.jpg",
       caracteristicas: [
         "Laboratorios de ciencias",
         "Área de tecnología",
@@ -75,8 +72,7 @@ const campusData = {
       titulo: "Infraestructura General",
       descripcion:
         "Campus rodeado de naturaleza que promueve el bienestar estudiantil.",
-      imagen:
-        "https://images.unsplash.com/photo-1552581234-26160f608093?w=1200",
+      imagen: "/public/Campus/Campus Baños.jpg",
       caracteristicas: [
         "Áreas verdes",
         "Ambientes abiertos",
@@ -87,8 +83,7 @@ const campusData = {
     Primaria: {
       titulo: "Nivel Primaria",
       descripcion: "Ambientes amplios y naturales para el aprendizaje activo.",
-      imagen:
-        "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1200",
+      imagen: "/public/Campus/Ambientes Primaria.jpg",
       caracteristicas: [
         "Aulas iluminadas",
         "Sala de cómputo",
@@ -99,8 +94,7 @@ const campusData = {
     Secundaria: {
       titulo: "Nivel Secundaria",
       descripcion: "Formación académica en armonía con la naturaleza.",
-      imagen:
-        "https://images.unsplash.com/photo-1541339907198-e0875663f974?w=1200",
+      imagen: "/public/Campus/Academica Primaria.jpg",
       caracteristicas: ["Laboratorios", "Áreas deportivas", "Salas de estudio"],
     },
   },
@@ -160,12 +154,11 @@ export default function Campus() {
       <section
         className="relative py-24 text-white text-center bg-cover bg-center"
         style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600')",
+          backgroundImage: "url('/public/Campus/Campus.jpg')",
         }}
       >
         {/* OVERLAY */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 to-teal-700/80" />
+        <div className="absolute inset-0 bg-gradient-to-br" />
 
         {/* CONTENIDO */}
         <div className="relative z-10 container mx-auto px-6">
@@ -173,12 +166,12 @@ export default function Campus() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-anton text-5xl md:text-6xl mb-4"
+            className="font-anton text-5xl md:text-6xl mb-4 text-white"
           >
             Campus Isaac Newton
           </motion.h1>
 
-          <p className="text-xl max-w-2xl mx-auto">
+          <p className="text-xl max-w-2xl mx-auto text-[#ffcd00]">
             Infraestructura académica por sede
           </p>
         </div>
@@ -195,7 +188,7 @@ export default function Campus() {
             }}
             className={`px-8 py-3 font-semibold ${
               sede === sedeActiva
-                ? "border-b-4 border-yellow-400"
+                ? "border-b-4 border-yellow-400 text-[#013055]"
                 : "text-gray-500"
             }`}
           >
@@ -209,15 +202,15 @@ export default function Campus() {
       <section className="py-16 container mx-auto px-6 grid lg:grid-cols-4 gap-8">
         {/* NIVELES */}
         <aside className="bg-white p-6 rounded-xl shadow">
-          <h3 className="text-xl font-semibold mb-4">Niveles</h3>
+          <h3 className="text-xl font-semibold mb-4 text-[#013055]">Niveles</h3>
           {niveles.map((nivel) => (
             <button
               key={nivel}
               onClick={() => setNivelActivo(nivel)}
               className={`w-full mb-2 px-4 py-3 rounded-lg flex gap-2 items-center ${
                 nivel === nivelActivo
-                  ? "bg-teal-700 text-white"
-                  : "hover:bg-gray-100"
+                  ? "bg-teal-700 text-white "
+                  : "hover:bg-gray-100  text-gray-700"
               }`}
             >
               <School />
@@ -229,7 +222,7 @@ export default function Campus() {
         {/* INFO */}
         <motion.div className="lg:col-span-3 space-y-10">
           <div className="bg-white p-8 rounded-xl shadow">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-4xl font-bold mb-4 text-[#013055]">
               {nivelData.titulo} – {sedeActiva}
             </h2>
             <p>{nivelData.descripcion}</p>
@@ -238,12 +231,12 @@ export default function Campus() {
           <img src={nivelData.imagen} className="rounded-xl shadow-xl" />
 
           <div className="bg-white p-8 rounded-xl shadow">
-            <h3 className="text-2xl font-bold mb-4 flex gap-2">
+            <h3 className="text-2xl font-bold mb-4 flex gap-2 text-[#013055]">
               <BookOpen /> Características
             </h3>
             <ul>
               {nivelData.caracteristicas.map((c, i) => (
-                <li key={i} className="flex gap-2">
+                <li key={i} className="flex gap-2 text-gray-700">
                   <ChevronRight />
                   {c}
                 </li>
@@ -252,7 +245,7 @@ export default function Campus() {
           </div>
 
           <div className="bg-white p-10 rounded-xl shadow text-center">
-            <h3 className="text-2xl font-bold mb-4">
+            <h3 className="text-2xl font-bold mb-4 text-[#013055]">
               ¿Deseas más información?
             </h3>
             <WhatsAppCTA sede={sedeActiva} nivel={nivelActivo} />

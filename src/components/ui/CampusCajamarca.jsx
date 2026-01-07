@@ -10,7 +10,7 @@ import {
   Image,
   BookOpen,
   School,
-  X
+  X,
 } from "lucide-react";
 import { useState, useMemo } from "react";
 
@@ -20,96 +20,87 @@ import { useState, useMemo } from "react";
 
 const campusData = {
   nombre: "Campus Cajamarca",
-  direccion: "Jr. Cruz de Piedra 582, Cajamarca",
+  direccion: "Jr. Cruz de Piedra N° 582, Cajamarca",
   telefono: "932 274 369",
   email: "newtoncajamarca@inewton.edu.pe",
   horario: "Lunes a Viernes: 7:30 AM - 6:30 PM",
 
   mapa: "www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d896.8977769707326!2d-78.51926669999999!3d-7.158194300000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91b25af8ca0f6cbb%3A0xb3d709b3b3a239d2!2sC.P.C.%20Isaac%20Newton!5e1!3m2!1ses-419!2spe!4v1765823134766!5m2!1ses-419!2spe",
 
-  video:
-    "https://www.youtube.com/embed/VIDEO_ID_AQUI",
+  video: "https://www.youtube.com/embed/VIDEO_ID_AQUI",
 
   niveles: {
     Primaria: {
       titulo: "Nivel Primaria",
       descripcion:
         "Espacios pedagógicos diseñados para el desarrollo integral del estudiante, fomentando el aprendizaje activo, la creatividad y la formación en valores.",
-      imagen:
-        "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1200",
+      imagen: "/public/Campus/Cajamarca/Primaria.jpg",
       caracteristicas: [
         "Aulas interactivas con pantallas digitales",
         "Laboratorio de cómputo educativo",
         "Patios recreativos seguros",
-        "Comedor escolar supervisado"
+        "Comedor escolar supervisado",
       ],
       galeria: [
         {
           titulo: "Aulas Interactivas",
-          imagen:
-            "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800"
+          imagen: "/public/Campus/Cajamarca/Aula Interactiva.jpg",
         },
         {
           titulo: "Laboratorio de Computo",
-          imagen:
-            "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=800"
+          imagen: "/public/Campus/Cajamarca/Laboratorio.jpg",
         },
         {
           titulo: "Patios recreativos seguros",
-          imagen:
-            "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=800"
-        }
-      ]
+          imagen: "/public/Campus/Cajamarca/Patios.jpg",
+        },
+      ],
     },
 
     Secundaria: {
       titulo: "Nivel Secundaria",
       descripcion:
         "Infraestructura moderna orientada a la formación preuniversitaria, la investigación científica y el desarrollo tecnológico.",
-      imagen:
-        "https://images.unsplash.com/photo-1541339907198-e0875663f974?w=1200",
+      imagen: "/public/Campus/Cajamarca/Secundaria.jpg",
       caracteristicas: [
         "Laboratorios de Física, Química y Biología",
         "Salas de estudio colaborativo",
         "Área tecnología",
         "Plataforma deportiva",
-        "Auditorio institucional"
+        "Auditorio institucional",
       ],
       galeria: [
         {
           titulo: "Laboratorio de Ciencias",
-          imagen:
-            "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800"
+          imagen: "/public/Campus/Cajamarca/Ciencias.jpg",
         },
         {
           titulo: "Área de Tecnologia",
-          imagen:
-            "https://images.unsplash.com/photo-1581091012184-7c54cdded28d?w=800"
+          imagen: "/public/Campus/Cajamarca/Tecnologia.jpg",
         },
         {
           titulo: "Auditorio institucional",
-          imagen:
-            "https://images.unsplash.com/photo-1581091012184-7c54cdded28d?w=800"
-        }
-      ]
-    }
-  }
+          imagen: "/public/Campus/Cajamarca/Auditorio.jpg",
+        },
+      ],
+    },
+  },
 };
 
 const niveles = ["Primaria", "Secundaria"];
 
 const ubicacion = {
-  nombre: "C.P.C. Isaac Newton",
+  nombre: "Colegio Isaac Newton Cajamarca",
   direccion: "Jr. Cruz de Piedra 582, Cajamarca",
   lat: -7.1583289,
-  lng: -78.5191143
+  lng: -78.5191143,
 };
 const esMovil = typeof window !== "undefined" && window.innerWidth < 768;
 const zoom = esMovil ? 16 : 17;
 
-const mapaEmbed = `https://www.google.com/maps?q=${ubicacion.lat},${ubicacion.lng}(${encodeURIComponent(
-  ubicacion.nombre
-)})&z=${zoom}&hl=es&output=embed`;
+const mapaEmbed = `https://www.google.com/maps?q=${ubicacion.lat},${
+  ubicacion.lng
+}(${encodeURIComponent(ubicacion.nombre)})&z=${zoom}&hl=es&output=embed`;
 
 const mapaExterno = `https://www.google.com/maps/search/?api=1&query=${ubicacion.lat},${ubicacion.lng}`;
 
@@ -130,7 +121,7 @@ const CTAButtons = () => (
       <Phone /> Contáctanos
     </a>
 
-   <Link
+    <Link
       to="/agenda-visita"
       className="px-8 py-4 rounded-xl bg-verde-azulado text-white
                 font-bold text-lg flex items-center justify-center gap-2
@@ -154,109 +145,119 @@ export default function InfraestructuraCajamarca() {
   const contenido = useMemo(
     () => ({
       ...campusData,
-      ...campusData.niveles[nivelActivo]
+      ...campusData.niveles[nivelActivo],
     }),
     [nivelActivo]
   );
 
   return (
-    <div className="min-h-screen pt-24 bg-gray-50">
-
+    <div className="min-h-screen bg-gray-50">
       {/* HERO */}
-        <section className="py-20 bg-gradient-to-br from-azul-oscuro to-verde-azulado text-white text-center">
-        <div className="container mx-auto px-6 max-w-5xl">
+      <section
+        className="relative min-h-[85vh] md:min-h-[90vh] 
+             bg-cover bg-right-top text-white text-center 
+             flex items-center"
+        style={{
+          backgroundImage: "url('/public//Campus/Campus Colegio.jpg')",
+        }}
+      >
+        {/* OVERLAY */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/20" />
 
-            <motion.h1
+        <div className="relative z-10 container mx-auto px-6 max-w-5xl">
+          {/* TÍTULO */}
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             className="font-anton text-5xl md:text-6xl mb-6"
-            >
+          >
             Infraestructura Académica
             <br /> Campus Cajamarca
-            </motion.h1>
+          </motion.h1>
 
-            <p className="text-xl md:text-2xl font-light mb-8">
-            Espacios modernos para Primaria y Secundaria
-            </p>
-
-            {/* ICONOS DE CONTACTO */}
-            <motion.div
-            initial={{ opacity: 0, y: 20 }}
+          {/* SUBTÍTULO */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-6 mb-8"
-            >
+            className="text-xl md:text-2xl font-light mb-12"
+          >
+            Espacios modernos para Primaria y Secundaria
+          </motion.p>
 
+          {/* ICONOS DE CONTACTO */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-wrap justify-center gap-6 mb-12"
+          >
             {/* MAPA */}
             <a
-                href="https://www.google.com/maps/search/?api=1&query=Colegio+Isaac+Newton+Cajamarca"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full
+              href="https://www.google.com/maps/search/?api=1&query=Colegio+Isaac+Newton+Cajamarca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full
                         hover:bg-white/20 transition backdrop-blur"
             >
-                <MapPin className="w-6 h-6 text-amarillo-dorado" />
-                <span className="font-semibold">Cómo llegar</span>
+              <MapPin className="w-6 h-6 text-amarillo-dorado" />
+              <span className="font-semibold">Cómo llegar</span>
             </a>
 
             {/* WHATSAPP */}
             <a
-                href="https://wa.me/51932274369"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full
+              href="https://wa.me/51932274369"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full
                         hover:bg-white/20 transition backdrop-blur"
             >
-                <Phone className="w-6 h-6 text-amarillo-dorado" />
-                <span className="font-semibold">WhatsApp</span>
+              <Phone className="w-6 h-6 text-amarillo-dorado" />
+              <span className="font-semibold">WhatsApp</span>
             </a>
 
             {/* CORREO */}
             <a
-                href="mailto:newtoncajamarca@inewton.edu.pe"
-                className="flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full
+              href="mailto:newtoncajamarca@inewton.edu.pe"
+              className="flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full
                         hover:bg-white/20 transition backdrop-blur"
             >
-                <Mail className="w-6 h-6 text-amarillo-dorado" />
-                <span className="font-semibold">Correo</span>
+              <Mail className="w-6 h-6 text-amarillo-dorado" />
+              <span className="font-semibold">Correo</span>
             </a>
+          </motion.div>
 
-            </motion.div>
-
-            {/* BOTONES CTA */}
-            <CTAButtons />
-
+          {/* CTA */}
+          <CTAButtons />
         </div>
-        </section>
+      </section>
 
       {/* CONTENIDO */}
       <section className="py-16">
         <div className="container mx-auto px-6 grid lg:grid-cols-4 gap-8">
-
           {/* MENU + INFO CAMPUS */}
-            <aside className="bg-white rounded-xl shadow-lg p-6 h-fit space-y-6">
-
+          <aside className="bg-white rounded-xl shadow-lg p-6 h-fit space-y-6">
             {/* MENU */}
             <div>
-                <h3 className="font-semibold text-xl text-azul-oscuro mb-4">
+              <h3 className="font-semibold text-xl text-azul-oscuro mb-4">
                 Niveles Académicos
-                </h3>
+              </h3>
 
-                {niveles.map((nivel) => (
+              {niveles.map((nivel) => (
                 <button
-                    key={nivel}
-                    onClick={() => setNivelActivo(nivel)}
-                    className={`w-full mb-2 px-4 py-3 rounded-lg flex gap-2 items-center transition
+                  key={nivel}
+                  onClick={() => setNivelActivo(nivel)}
+                  className={`w-full mb-2 px-4 py-3 rounded-lg flex gap-2 items-center transition
                     ${
-                        nivelActivo === nivel
+                      nivelActivo === nivel
                         ? "bg-verde-azulado text-white shadow"
-                        : "hover:bg-gray-100 text-gray-700"
+                        : "hover:bg-gray-100 "
                     }`}
                 >
-                    <School className="w-5 h-5" />
-                    {nivel}
+                  <School className="w-5 h-5" />
+                  {nivel}
                 </button>
-                ))}
+              ))}
             </div>
 
             {/* DIVISOR */}
@@ -264,62 +265,64 @@ export default function InfraestructuraCajamarca() {
 
             {/* INFO CAMPUS */}
             <div className="space-y-4 text-gray-700 text-sm">
-
-            {/* DIRECCIÓN */}
-            <a
+              {/* DIRECCIÓN */}
+              <a
                 href="https://www.google.com/maps/search/?api=1&query=Colegio+Isaac+Newton+Cajamarca"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 hover:text-verde-azulado transition"
-            >
+              >
                 <MapPin className="w-4 h-4 text-verde-azulado mt-1" />
                 <span>
-                <strong>Dirección:</strong><br />
-                Jr. Cruz de Piedra 582,<br />
-                Cajamarca
+                  <strong>Dirección:</strong>
+                  <br />
+                  Jr. Cruz de Piedra N° 582,
+                  <br />
+                  Cajamarca
                 </span>
-            </a>
+              </a>
 
-            {/* TELÉFONO */}
-            <a
+              {/* TELÉFONO */}
+              <a
                 href="https://wa.me/51932274369"
                 target="_blank"
                 className="flex items-center gap-3 hover:text-verde-azulado transition"
-            >
+              >
                 <Phone className="w-4 h-4 text-verde-azulado" />
                 <span>
-                <strong>Teléfono:</strong> 932 274 369
+                  <strong>Teléfono:</strong> 932 274 369
                 </span>
-            </a>
+              </a>
 
-            {/* CORREO */}
-            <a
-            href="mailto:newtoncajamarca@inewton.edu.pe"
-            target="_blank"
-            className="flex items-center gap-3 hover:text-verde-azulado transition"
-            >
-            <Mail  className="w-4 h-4 text-verde-azulado shrink-0 min-w-[16px]" />
+              {/* CORREO */}
+              <a
+                href="mailto:newtoncajamarca@inewton.edu.pe"
+                target="_blank"
+                className="flex items-center gap-3 hover:text-verde-azulado transition"
+              >
+                <Mail className="w-4 h-4 text-verde-azulado shrink-0 min-w-[16px]" />
 
-            <span className="break-all">
-              <strong>Correo:</strong><br />
-              newtoncajamarca@inewton.edu.pe
-            </span>
+                <span className="break-all">
+                  <strong>Correo:</strong>
+                  <br />
+                  newtoncajamarca@inewton.edu.pe
+                </span>
+              </a>
 
-            </a>
+              {/* HORARIO */}
+              <div className="flex items-center gap-3">
+                <Clock className="w-4 h-4 text-verde-azulado" />
 
-
-            {/* HORARIO */}
-            <div className="flex items-center gap-3">
-            <Clock className="w-4 h-4 text-verde-azulado" />
-
-            <span>
-                <strong>Horario:</strong><br />
-                Lunes a Viernes<br />
-                7:30 AM – 6:30 PM
-            </span>
+                <span>
+                  <strong>Horario:</strong>
+                  <br />
+                  Lunes a Viernes
+                  <br />
+                  7:30 AM – 6:30 PM
+                </span>
+              </div>
             </div>
-            </div>
-            </aside>
+          </aside>
 
           {/* INFO */}
           <motion.div
@@ -328,7 +331,6 @@ export default function InfraestructuraCajamarca() {
             animate={{ opacity: 1, y: 0 }}
             className="lg:col-span-3 space-y-10"
           >
-
             {/* TEXTO */}
             <div className="bg-white rounded-xl shadow-lg p-8">
               <h2 className="font-anton text-4xl text-azul-oscuro mb-4">
@@ -377,7 +379,7 @@ export default function InfraestructuraCajamarca() {
 
             {/* GALERIA */}
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <h3 className="font-bold text-2xl mb-6 flex gap-2">
+              <h3 className="font-bold text-2xl mb-6 flex gap-2 text-[#013055]">
                 <Image /> Galería
               </h3>
               <div className="grid md:grid-cols-2 gap-4">
@@ -395,47 +397,47 @@ export default function InfraestructuraCajamarca() {
                       alt={img.titulo}
                       className="rounded-lg shadow-md hover:scale-105 transition"
                     />
-                    <p className="text-center font-semibold mt-2">
+                    <p className="text-center font-semibold mt-2 text-[#007a75]">
                       {img.titulo}
                     </p>
                   </div>
                 ))}
               </div>
             </div>
-                
-              {/* MAPA */}
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <h3 className="font-bold text-2xl text-azul-oscuro mb-4 flex gap-2 items-center">
-              <MapPin className="text-verde-azulado" />
-              Cómo Llegar
-            </h3>
 
-            <p className="mb-4 text-gray-600">
-              <strong>{ubicacion.nombre}</strong><br />
-              {ubicacion.direccion}
-            </p>
+            {/* MAPA */}
+            <div className="bg-white rounded-xl shadow-lg p-8">
+              <h3 className="font-bold text-2xl text-azul-oscuro mb-4 flex gap-2 items-center">
+                <MapPin className="text-verde-azulado" />
+                Cómo Llegar
+              </h3>
 
-            <div className="h-96 rounded-xl overflow-hidden shadow-lg relative">
-              <iframe
-                src={mapaEmbed}
-                className="w-full h-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title={`Mapa ${ubicacion.nombre}`}
-              />
+              <p className="mb-4 text-gray-600">
+                <strong>{ubicacion.nombre}</strong>
+                <br />
+                {ubicacion.direccion}
+              </p>
 
-              {/* Botón Abrir en Google Maps */}
-              <a
-                href={mapaExterno}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute bottom-4 right-4 bg-verde-azulado text-white px-4 py-2 rounded-lg shadow-lg hover:bg-opacity-90 transition text-sm font-semibold"
-              >
-                Abrir en Google Maps
-              </a>
+              <div className="h-96 rounded-xl overflow-hidden shadow-lg relative">
+                <iframe
+                  src={mapaEmbed}
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={`Mapa ${ubicacion.nombre}`}
+                />
+
+                {/* Botón Abrir en Google Maps */}
+                <a
+                  href={mapaExterno}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-4 right-4 bg-verde-azulado text-white px-4 py-2 rounded-lg shadow-lg hover:bg-opacity-90 transition text-sm font-semibold"
+                >
+                  Abrir en Google Maps
+                </a>
+              </div>
             </div>
-          </div>
-
 
             {/* CTA FINAL */}
             <div className="bg-azul-oscuro text-white rounded-xl p-10 text-center">
@@ -447,7 +449,6 @@ export default function InfraestructuraCajamarca() {
               </p>
               <CTAButtons />
             </div>
-
           </motion.div>
         </div>
       </section>

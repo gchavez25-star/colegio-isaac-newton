@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import {
   MapPin,
   Phone,
@@ -8,71 +8,68 @@ import {
   Facebook,
   Instagram,
   Youtube,
-  Send
-} from 'lucide-react';
-import { FaTiktok } from 'react-icons/fa';
-
+  Send,
+} from "lucide-react";
+import { FaTiktok } from "react-icons/fa";
 
 /* ==================================================
    CONFIGURACIÓN GENERAL
 ================================================== */
 
-const niveles = ['Primaria', 'Secundaria'];
-const sedes = ['Cajamarca', 'Los Baños del Inca'];
+const niveles = ["Primaria", "Secundaria"];
+const sedes = ["Cajamarca", "Los Baños del Inca"];
 
 const contactosPorSede = {
   Cajamarca: {
-    telefono: '932274369',
-    telefonoTexto: '932 274 369',
-    whatsapp: '51932274369',
-    email: 'newtoncajamarca@inewton.edu.pe',
-    direccion: 'Jr. Cruz de Piedra 582, Cajamarca',
-    horario: 'Lunes a Viernes: 7:00 AM - 5:00 PM',
-    imagen:
-      'https://images.unsplash.com/photo-1562774053-701939374585?w=600&h=400&fit=crop'
+    telefono: "932274369",
+    telefonoTexto: "932 274 369",
+    whatsapp: "51932274369",
+    email: "newtoncajamarca@inewton.edu.pe",
+    direccion: "Jr. Cruz de Piedra N° 582, Cajamarca",
+    horario: "Lunes a Viernes: 7:30 AM - 6:30 PM",
+    imagen: "/public/Contacto/Cajamarca.jpg",
   },
-  'Los Baños del Inca': {
-    telefono: '920438721',
-    telefonoTexto: '920 438 721',
-    whatsapp: '51920438721',
-    email: 'secretariabi@inewton.edu.pe',
-    direccion: 'Jr. Yahuar Huaca 799, Los Baños del Inca',
-    horario: 'Lunes a Viernes: 7:00 AM - 5:00 PM',
-    imagen:
-      'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=600&h=400&fit=crop'
-  }
+  "Los Baños del Inca": {
+    telefono: "920438721",
+    telefonoTexto: "920 438 721",
+    whatsapp: "51920438721",
+    email: "secretariabi@inewton.edu.pe",
+    direccion: "Jr. Yahuar Huaca N° 799, Los Baños del Inca",
+    horario: "Lunes a Viernes: 7:30 AM - 6:30 PM",
+    imagen: "/public/Contacto/LosBañosdelInca.jpg",
+  },
 };
 
-const campusInfo = Object.keys(contactosPorSede).map(nombre => ({
+const campusInfo = Object.keys(contactosPorSede).map((nombre) => ({
   nombre,
-  ...contactosPorSede[nombre]
+  ...contactosPorSede[nombre],
 }));
 
 const redesSociales = [
   {
-    nombre: 'Facebook',
+    nombre: "Facebook",
     icono: <Facebook size={24} />,
-    url: 'https://facebook.com/isaacnewton',
-    color: 'hover:text-blue-600'
+    url: "https://www.facebook.com/IsaacNewtonCajamarca",
+    color: "hover:text-blue-600",
   },
   {
-    nombre: 'Instagram',
+    nombre: "Instagram",
     icono: <Instagram size={24} />,
-    url: 'https://instagram.com/isaacnewton',
-    color: 'hover:text-pink-600'
+    url: "https://www.instagram.com/colegio_isaac_newton/?hl=es-la",
+    color: "hover:text-pink-600",
   },
   {
-    nombre: 'YouTube',
+    nombre: "YouTube",
     icono: <Youtube size={24} />,
-    url: 'https://youtube.com/isaacnewton',
-    color: 'hover:text-red-600'
+    url: "https://www.youtube.com/@ColegioPrivadoIsaacNewton",
+    color: "hover:text-red-600",
   },
   {
-    nombre: 'TikTok',
+    nombre: "TikTok",
     icono: <FaTiktok size={22} />,
-    url: 'https://www.tiktok.com/@isaacnewton',
-    color: 'hover:text-black'
-  }
+    url: "https://www.tiktok.com/@colegio_isaacnewton",
+    color: "hover:text-black",
+  },
 ];
 
 /* ==================================================
@@ -81,13 +78,13 @@ const redesSociales = [
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
-    nombre: '',
-    correo: '',
-    telefono: '',
-    nivel: '',
-    sede: '',
-    asunto: '',
-    mensaje: ''
+    nombre: "",
+    correo: "",
+    telefono: "",
+    nivel: "",
+    sede: "",
+    asunto: "",
+    mensaje: "",
   });
 
   const [errores, setErrores] = useState({});
@@ -99,32 +96,34 @@ const Contacto = () => {
     setContactoActual(contactosPorSede[formData.sede] || null);
   }, [formData.sede]);
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    setErrores(prev => ({ ...prev, [name]: '' }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setErrores((prev) => ({ ...prev, [name]: "" }));
   };
 
   const validarFormulario = () => {
     const nuevosErrores = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!formData.nombre.trim()) nuevosErrores.nombre = 'El nombre es obligatorio';
+    if (!formData.nombre.trim())
+      nuevosErrores.nombre = "El nombre es obligatorio";
     if (!formData.correo.trim()) {
-      nuevosErrores.correo = 'El correo es obligatorio';
+      nuevosErrores.correo = "El correo es obligatorio";
     } else if (!emailRegex.test(formData.correo)) {
-      nuevosErrores.correo = 'Correo inválido';
+      nuevosErrores.correo = "Correo inválido";
     }
-    if (!formData.nivel) nuevosErrores.nivel = 'Selecciona un nivel';
-    if (!formData.sede) nuevosErrores.sede = 'Selecciona una sede';
-    if (!formData.asunto) nuevosErrores.asunto = 'Selecciona un asunto';
-    if (!formData.mensaje.trim()) nuevosErrores.mensaje = 'El mensaje es obligatorio';
+    if (!formData.nivel) nuevosErrores.nivel = "Selecciona un nivel";
+    if (!formData.sede) nuevosErrores.sede = "Selecciona una sede";
+    if (!formData.asunto) nuevosErrores.asunto = "Selecciona un asunto";
+    if (!formData.mensaje.trim())
+      nuevosErrores.mensaje = "El mensaje es obligatorio";
 
     setErrores(nuevosErrores);
     return Object.keys(nuevosErrores).length === 0;
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!validarFormulario()) return;
 
@@ -138,7 +137,7 @@ Nueva solicitud desde la Web:
 
 Nombre: ${formData.nombre}
 Correo: ${formData.correo}
-Teléfono: ${formData.telefono || 'No proporcionado'}
+Teléfono: ${formData.telefono || "No proporcionado"}
 
 Nivel: ${formData.nivel}
 Sede: ${formData.sede}
@@ -154,35 +153,39 @@ ${formData.mensaje}
 
       if (contacto?.whatsapp) {
         window.open(
-          `https://wa.me/${contacto.whatsapp}?text=${encodeURIComponent(mensajeWhatsApp)}`,
-          '_blank'
+          `https://wa.me/${contacto.whatsapp}?text=${encodeURIComponent(
+            mensajeWhatsApp
+          )}`,
+          "_blank"
         );
       }
 
       setFormData({
-        nombre: '',
-        correo: '',
-        telefono: '',
-        nivel: '',
-        sede: '',
-        asunto: '',
-        mensaje: ''
+        nombre: "",
+        correo: "",
+        telefono: "",
+        nivel: "",
+        sede: "",
+        asunto: "",
+        mensaje: "",
       });
     }, 1200);
   };
   return (
     <div className="min-h-screen">
-      
       {/* HERO SECTION */}
-      <section className="relative py-32 md:py-48 bg-cover bg-center" style={{ 
-        backgroundImage: "url('https://images.unsplash.com/photo-1523050854805-950e31889000?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" 
-      }}>
-        <div className="absolute inset-0 bg-azul-oscuro/80 backdrop-blur-sm" />
+      <section
+        className="relative py-32 md:py-48 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/Contacto/Contacto.jpg')",
+        }}
+      >
+        <div className="absolute inset-0 bg-azul-oscuro/80 " />
         <div className="container mx-auto px-6 relative z-10 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-anton text-5xl md:text-7xl text-white mb-4"
+            className="font-anton text-5xl md:text-7xl text-[#013055] mb-4"
           >
             Contáctanos
           </motion.h1>
@@ -190,7 +193,7 @@ ${formData.mensaje}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl md:text-2xl text-amarillo-dorado max-w-3xl mx-auto"
+            className="text-xl md:text-2xl text-[#fccd00] max-w-3xl mx-auto"
           >
             Estamos aquí para responder todas tus preguntas
           </motion.p>
@@ -211,7 +214,8 @@ ${formData.mensaje}
                 Envíanos un mensaje
               </h2>
               <p className="text-gray-600 mb-8">
-                Completa el formulario y nos pondremos en contacto contigo a la brevedad
+                Completa el formulario y nos pondremos en contacto contigo a la
+                brevedad
               </p>
 
               {enviado && (
@@ -220,41 +224,55 @@ ${formData.mensaje}
                   animate={{ opacity: 1, y: 0 }}
                   className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-6"
                 >
-                  ¡Mensaje enviado exitosamente! Nos pondremos en contacto contigo pronto.
+                  ¡Mensaje enviado exitosamente! Nos pondremos en contacto
+                  contigo pronto.
                 </motion.div>
               )}
 
-               <form onSubmit={handleSubmit} className="space-y-6">
-
+              <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Nombre */}
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Nombre completo *</label>
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    Nombre completo *
+                  </label>
                   <input
                     type="text"
                     name="nombre"
                     value={formData.nombre}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg ${errores.nombre ? 'border-red-500' : 'border-gray-300'} focus:ring-2 focus:ring-verde-azulado`}
+                    className={`w-full px-4 py-3 border rounded-lg ${
+                      errores.nombre ? "border-red-500" : "border-gray-300"
+                    } focus:ring-2 focus:ring-verde-azulado`}
                   />
-                  {errores.nombre && <p className="text-red-500 text-sm">{errores.nombre}</p>}
+                  {errores.nombre && (
+                    <p className="text-red-500 text-sm">{errores.nombre}</p>
+                  )}
                 </div>
 
                 {/* Correo */}
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Correo electrónico *</label>
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    Correo electrónico *
+                  </label>
                   <input
                     type="email"
                     name="correo"
                     value={formData.correo}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg ${errores.correo ? 'border-red-500' : 'border-gray-300'} focus:ring-2 focus:ring-verde-azulado`}
+                    className={`w-full px-4 py-3 border rounded-lg ${
+                      errores.correo ? "border-red-500" : "border-gray-300"
+                    } focus:ring-2 focus:ring-verde-azulado`}
                   />
-                  {errores.correo && <p className="text-red-500 text-sm">{errores.correo}</p>}
+                  {errores.correo && (
+                    <p className="text-red-500 text-sm">{errores.correo}</p>
+                  )}
                 </div>
 
                 {/* Teléfono */}
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Teléfono</label>
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    Teléfono
+                  </label>
                   <input
                     type="tel"
                     name="telefono"
@@ -266,42 +284,66 @@ ${formData.mensaje}
 
                 {/* Nivel */}
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Nivel *</label>
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    Nivel *
+                  </label>
                   <select
                     name="nivel"
                     value={formData.nivel}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg ${errores.nivel ? 'border-red-500' : 'border-gray-300'}`}
+                    className={`w-full px-4 py-3 border rounded-lg ${
+                      errores.nivel ? "border-red-500" : "border-gray-300"
+                    }`}
                   >
                     <option value="">Selecciona un nivel</option>
-                    {niveles.map(n => <option key={n} value={n}>{n}</option>)}
+                    {niveles.map((n) => (
+                      <option key={n} value={n}>
+                        {n}
+                      </option>
+                    ))}
                   </select>
-                  {errores.nivel && <p className="text-red-500 text-sm">{errores.nivel}</p>}
+                  {errores.nivel && (
+                    <p className="text-red-500 text-sm">{errores.nivel}</p>
+                  )}
                 </div>
 
                 {/* Sede */}
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Campus *</label>
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    Campus *
+                  </label>
                   <select
                     name="sede"
                     value={formData.sede}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg ${errores.sede ? 'border-red-500' : 'border-gray-300'}`}
+                    className={`w-full px-4 py-3 border rounded-lg ${
+                      errores.sede ? "border-red-500" : "border-gray-300"
+                    }`}
                   >
                     <option value="">Selecciona una sede</option>
-                    {sedes.map(s => <option key={s} value={s}>{s}</option>)}
+                    {sedes.map((s) => (
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
+                    ))}
                   </select>
-                  {errores.sede && <p className="text-red-500 text-sm">{errores.sede}</p>}
+                  {errores.sede && (
+                    <p className="text-red-500 text-sm">{errores.sede}</p>
+                  )}
                 </div>
 
                 {/* Asunto */}
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Asunto *</label>
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    Asunto *
+                  </label>
                   <select
                     name="asunto"
                     value={formData.asunto}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg ${errores.asunto ? 'border-red-500' : 'border-gray-300'}`}
+                    className={`w-full px-4 py-3 border rounded-lg ${
+                      errores.asunto ? "border-red-500" : "border-gray-300"
+                    }`}
                   >
                     <option value="">Selecciona un asunto</option>
                     <option value="informacion">Información general</option>
@@ -310,20 +352,28 @@ ${formData.mensaje}
                     <option value="becas">Becas y beneficios</option>
                     <option value="otro">Otro</option>
                   </select>
-                  {errores.asunto && <p className="text-red-500 text-sm">{errores.asunto}</p>}
+                  {errores.asunto && (
+                    <p className="text-red-500 text-sm">{errores.asunto}</p>
+                  )}
                 </div>
 
                 {/* Mensaje */}
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Mensaje *</label>
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    Mensaje *
+                  </label>
                   <textarea
                     name="mensaje"
                     rows="5"
                     value={formData.mensaje}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg resize-none ${errores.mensaje ? 'border-red-500' : 'border-gray-300'}`}
+                    className={`w-full px-4 py-3 border rounded-lg resize-none ${
+                      errores.mensaje ? "border-red-500" : "border-gray-300"
+                    }`}
                   />
-                  {errores.mensaje && <p className="text-red-500 text-sm">{errores.mensaje}</p>}
+                  {errores.mensaje && (
+                    <p className="text-red-500 text-sm">{errores.mensaje}</p>
+                  )}
                 </div>
 
                 {/* Botón */}
@@ -333,14 +383,22 @@ ${formData.mensaje}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.97 }}
                   className={`w-full py-4 rounded-lg font-bold text-lg flex justify-center gap-2
-                    ${enviado ? 'bg-green-500' : cargando ? 'bg-verde-azulado/70' : 'bg-verde-azulado hover:opacity-90'} text-white`}
+                    ${
+                      enviado
+                        ? "bg-green-500"
+                        : cargando
+                        ? "bg-verde-azulado/70"
+                        : "bg-verde-azulado hover:opacity-90"
+                    } text-white`}
                 >
-                  {enviado ? '¡Mensaje enviado!' : cargando ? 'Enviando...' : 'Enviar mensaje'}
+                  {enviado
+                    ? "¡Mensaje enviado!"
+                    : cargando
+                    ? "Enviando..."
+                    : "Enviar mensaje"}
                   {!cargando && !enviado && <Send size={20} />}
                 </motion.button>
-
               </form>
-
             </motion.div>
 
             {/* Información de contacto */}
@@ -353,7 +411,8 @@ ${formData.mensaje}
                 Información de contacto
               </h2>
               <p className="text-gray-600 mb-8">
-                Visítanos en cualquiera de nuestros dos campus o comunícate con nosotros
+                Visítanos en cualquiera de nuestros dos campus o comunícate con
+                nosotros
               </p>
 
               <div className="space-y-6">
@@ -371,24 +430,39 @@ ${formData.mensaje}
                     </h3>
                     <div className="space-y-3">
                       <div className="flex items-start gap-3 text-gray-700">
-                        <MapPin size={20} className="text-verde-azulado flex-shrink-0 mt-1" />
+                        <MapPin
+                          size={20}
+                          className="text-verde-azulado flex-shrink-0 mt-1"
+                        />
                         <span>{campus.direccion}</span>
                       </div>
                       <div className="flex items-center gap-3 text-gray-700">
-                        <Phone size={20} className="text-verde-azulado flex-shrink-0" />
+                        <Phone
+                          size={20}
+                          className="text-verde-azulado flex-shrink-0"
+                        />
                         <div>
                           <div>{campus.telefono}</div>
                           <div>{campus.celular}</div>
                         </div>
                       </div>
                       <div className="flex items-center gap-3 text-gray-700">
-                        <Mail size={20} className="text-verde-azulado flex-shrink-0" />
-                        <a href={`mailto:${campus.email}`} className="hover:text-verde-azulado transition-colors">
+                        <Mail
+                          size={20}
+                          className="text-verde-azulado flex-shrink-0"
+                        />
+                        <a
+                          href={`mailto:${campus.email}`}
+                          className="hover:text-verde-azulado transition-colors"
+                        >
                           {campus.email}
                         </a>
                       </div>
                       <div className="flex items-center gap-3 text-gray-700">
-                        <Clock size={20} className="text-verde-azulado flex-shrink-0" />
+                        <Clock
+                          size={20}
+                          className="text-verde-azulado flex-shrink-0"
+                        />
                         <span>{campus.horario}</span>
                       </div>
                     </div>
@@ -397,20 +471,22 @@ ${formData.mensaje}
               </div>
 
               {/* Redes Sociales */}
-              <div className="mt-8 bg-azul-oscuro p-6 rounded-xl">
-                <h3 className="font-anton text-2xl text-white mb-4">
+
+              <div className="bg-azul-oscuro p-8 rounded-xl w-full">
+                <h3 className="font-anton text-2xl text-white text-center mb-6">
                   Síguenos en redes sociales
                 </h3>
-                <div className="flex gap-4">
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 place-items-center">
                   {redesSociales.map((red, index) => (
                     <motion.a
                       key={index}
                       href={red.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.2 }}
-                      whileTap={{ scale: 0.9 }}
-                      className={`text-white ${red.color} transition-colors`}
+                      whileHover={{ scale: 1.15 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`w-14 h-14 flex items-center justify-center rounded-full bg-white/10 text-white ${red.color}`}
                     >
                       {red.icono}
                     </motion.a>
@@ -442,9 +518,9 @@ ${formData.mensaje}
           <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg">
             <div className="space-y-4">
               {[
-                { dia: 'Lunes a Viernes', horario: '7:30 AM - 6:30 PM' },
-                { dia: 'Sábados', horario: '9:00 AM - 12:00 PM' },
-                { dia: 'Domingos y Feriados', horario: 'Cerrado' }
+                { dia: "Lunes a Viernes", horario: "7:30 AM - 6:30 PM" },
+                { dia: "Sábados", horario: "9:00 AM - 12:00 PM" },
+                { dia: "Domingos y Feriados", horario: "Cerrado" },
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -454,8 +530,12 @@ ${formData.mensaje}
                   transition={{ delay: index * 0.1 }}
                   className="flex justify-between items-center p-4 bg-gray-50 rounded-lg"
                 >
-                  <span className="font-semibold text-azul-oscuro">{item.dia}</span>
-                  <span className="text-verde-azulado font-bold">{item.horario}</span>
+                  <span className="font-semibold text-azul-oscuro">
+                    {item.dia}
+                  </span>
+                  <span className="text-verde-azulado font-bold">
+                    {item.horario}
+                  </span>
                 </motion.div>
               ))}
             </div>
@@ -506,7 +586,9 @@ ${formData.mensaje}
                     {campus.direccion}
                   </p>
                   <motion.a
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(campus.direccion)}`}
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                      campus.direccion
+                    )}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
@@ -566,4 +648,3 @@ ${formData.mensaje}
 };
 
 export default Contacto;
-

@@ -10,7 +10,7 @@ import {
   Image,
   BookOpen,
   School,
-  X
+  X,
 } from "lucide-react";
 import { useState, useMemo } from "react";
 
@@ -39,20 +39,20 @@ const campusData = {
         "Sala de cómputo equipada",
         "Área de Psicología Educativa",
         "Patios recreativos amplios",
-        "Acompañamiento pedagógico permanente"
+        "Acompañamiento pedagógico permanente",
       ],
       galeria: [
         {
           titulo: "Aulas modernas",
           imagen:
-            "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800"
+            "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800",
         },
         {
           titulo: "Sala de cómputo",
           imagen:
-            "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800"
-        }
-      ]
+            "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800",
+        },
+      ],
     },
 
     Secundaria: {
@@ -66,22 +66,22 @@ const campusData = {
         "Área de tecnología educativa",
         "Tópico y enfermería escolar",
         "Áreas deportivas al aire libre",
-        "Espacios verdes para el aprendizaje"
+        "Espacios verdes para el aprendizaje",
       ],
       galeria: [
         {
           titulo: "Áreas deportivas",
           imagen:
-            "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800"
+            "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800",
         },
         {
           titulo: "Tópico escolar",
           imagen:
-            "https://images.unsplash.com/photo-1580281658629-9c5a77f9c1d6?w=800"
-        }
-      ]
-    }
-  }
+            "https://images.unsplash.com/photo-1580281658629-9c5a77f9c1d6?w=800",
+        },
+      ],
+    },
+  },
 };
 
 const niveles = ["Primaria", "Secundaria"];
@@ -90,15 +90,15 @@ const ubicacion = {
   nombre: "Campus Los Baños del Inca",
   direccion: "Jr. Yahuar Huacca #779, Los Baños del Inca",
   lat: -7.1677904,
-  lng: -78.4584945
+  lng: -78.4584945,
 };
 
 const esMovil = typeof window !== "undefined" && window.innerWidth < 768;
 const zoom = esMovil ? 16 : 17;
 
-const mapaEmbed = `https://www.google.com/maps?q=${ubicacion.lat},${ubicacion.lng}(${encodeURIComponent(
-  ubicacion.nombre
-)})&z=${zoom}&hl=es&output=embed`;
+const mapaEmbed = `https://www.google.com/maps?q=${ubicacion.lat},${
+  ubicacion.lng
+}(${encodeURIComponent(ubicacion.nombre)})&z=${zoom}&hl=es&output=embed`;
 
 const mapaExterno = `https://www.google.com/maps/search/?api=1&query=${ubicacion.lat},${ubicacion.lng}`;
 
@@ -118,7 +118,7 @@ const CTAButtons = () => (
     >
       <Phone /> Contáctanos
     </a>
-    
+
     <Link
       to="/agenda-visita"
       className="px-8 py-4 rounded-xl bg-verde-azulado text-white
@@ -143,18 +143,25 @@ export default function InfraestructuraBanosDelInca() {
   const contenido = useMemo(
     () => ({
       ...campusData,
-      ...campusData.niveles[nivelActivo]
+      ...campusData.niveles[nivelActivo],
     }),
     [nivelActivo]
   );
 
   return (
-    <div className="min-h-screen pt-24 bg-gray-50">
-
+    <div className="min-h-screen bg-gray-50">
       {/* HERO */}
-      <section className="py-20 bg-gradient-to-br from-azul-oscuro to-verde-azulado text-white text-center">
-        <div className="container mx-auto px-6 max-w-5xl">
+      <section
+        className="relative min-h-[85vh] md:min-h-[90vh] 
+             bg-cover bg-right-top text-white text-center 
+             flex items-center"
+        style={{
+          backgroundImage: "url('/public/Campus/Campus Baños.jpg')",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/20" />
 
+        <div className="relative z-10 container mx-auto px-6 max-w-5xl">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -167,52 +174,50 @@ export default function InfraestructuraBanosDelInca() {
           <p className="text-xl md:text-2xl font-light mb-8">
             Educación en armonía con la naturaleza
           </p>
-          
-            {/* ICONOS DE CONTACTO */}
-            <motion.div
+
+          {/* ICONOS DE CONTACTO */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             className="flex flex-wrap justify-center gap-6 mb-8"
-            >
-
+          >
             {/* MAPA */}
             <a
-                href="https://www.google.com/maps/place/Colegio+Isaac+Newton/@-7.1677851,-78.4633654,17z/data=!3m1!4b1!4m6!3m5!1s0x91b2456d977947b9:0x399e095184287eda!8m2!3d-7.1677904!4d-78.4584945!16s%2Fg%2F11vl1p_5lb?authuser=0&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full
+              href="https://www.google.com/maps/place/Colegio+Isaac+Newton/@-7.1677851,-78.4633654,17z/data=!3m1!4b1!4m6!3m5!1s0x91b2456d977947b9:0x399e095184287eda!8m2!3d-7.1677904!4d-78.4584945!16s%2Fg%2F11vl1p_5lb?authuser=0&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full
                         hover:bg-white/20 transition backdrop-blur"
             >
-                <MapPin className="w-6 h-6 text-amarillo-dorado" />
-                <span className="font-semibold">Cómo llegar</span>
+              <MapPin className="w-6 h-6 text-amarillo-dorado" />
+              <span className="font-semibold">Cómo llegar</span>
             </a>
 
             {/* WHATSAPP */}
             <a
-                href="https://wa.me/51920438721"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full
+              href="https://wa.me/51920438721"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full
                         hover:bg-white/20 transition backdrop-blur"
             >
-                <Phone className="w-6 h-6 text-amarillo-dorado" />
-                <span className="font-semibold">WhatsApp</span>
+              <Phone className="w-6 h-6 text-amarillo-dorado" />
+              <span className="font-semibold">WhatsApp</span>
             </a>
 
             {/* CORREO */}
             <a
-                href="mailto:secretariabi@inewton.edu.pe"
-                className="flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full
+              href="mailto:secretariabi@inewton.edu.pe"
+              className="flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full
                         hover:bg-white/20 transition backdrop-blur"
             >
-                <Mail className="w-6 h-6 text-amarillo-dorado" />
-                <span className="font-semibold">Correo</span>
+              <Mail className="w-6 h-6 text-amarillo-dorado" />
+              <span className="font-semibold">Correo</span>
             </a>
+          </motion.div>
 
-            </motion.div>
-
-            {/* BOTONES CTA */}
+          {/* BOTONES CTA */}
           <CTAButtons />
         </div>
       </section>
@@ -220,10 +225,8 @@ export default function InfraestructuraBanosDelInca() {
       {/* CONTENIDO */}
       <section className="py-16">
         <div className="container mx-auto px-6 grid lg:grid-cols-4 gap-8">
-
           {/* SIDEBAR */}
           <aside className="bg-white rounded-xl shadow-lg p-6 h-fit space-y-6">
-
             <div>
               <h3 className="font-semibold text-xl text-azul-oscuro mb-4">
                 Niveles Académicos
@@ -250,60 +253,62 @@ export default function InfraestructuraBanosDelInca() {
 
             {/* INFO CAMPUS */}
             <div className="space-y-4 text-gray-700 text-sm">
-
-            {/* DIRECCIÓN */}
-            <a
+              {/* DIRECCIÓN */}
+              <a
                 href="https://www.google.com/maps?q=-7.1677904,-78.4584945"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 hover:text-verde-azulado transition"
-            >
+              >
                 <MapPin className="w-4 h-4 text-verde-azulado mt-1" />
                 <span>
-                <strong>Dirección:</strong><br />
-                Jr. Yahuar Huacca #779,<br />
-                Los Baños del Inca
+                  <strong>Dirección:</strong>
+                  <br />
+                  Jr. Yahuar Huacca #779,
+                  <br />
+                  Los Baños del Inca
                 </span>
-            </a>
+              </a>
 
-            {/* TELÉFONO */}
-            <a
+              {/* TELÉFONO */}
+              <a
                 href="https://wa.me/51920438721"
                 target="_blank"
                 className="flex items-center gap-3 hover:text-verde-azulado transition"
-            >
+              >
                 <Phone className="w-4 h-4 text-verde-azulado" />
                 <span>
-                <strong>Teléfono:</strong> 920 438 721
+                  <strong>Teléfono:</strong> 920 438 721
                 </span>
-            </a>
+              </a>
 
-            {/* CORREO */}
-            <a
-            href="mailto:secretariabi@inewton.edu.pe"
-            target="_blank"
-            className="flex items-center gap-3 hover:text-verde-azulado transition"
-            >
-            <Mail  className="w-4 h-4 text-verde-azulado shrink-0 min-w-[16px]" />
+              {/* CORREO */}
+              <a
+                href="mailto:secretariabi@inewton.edu.pe"
+                target="_blank"
+                className="flex items-center gap-3 hover:text-verde-azulado transition"
+              >
+                <Mail className="w-4 h-4 text-verde-azulado shrink-0 min-w-[16px]" />
 
-            <span className="break-all">
-              <strong>Correo:</strong><br />
-              secretariabi@inewton.edu.pe
-            </span>
+                <span className="break-all">
+                  <strong>Correo:</strong>
+                  <br />
+                  secretariabi@inewton.edu.pe
+                </span>
+              </a>
 
-            </a>
+              {/* HORARIO */}
+              <div className="flex items-center gap-3">
+                <Clock className="w-4 h-4 text-verde-azulado" />
 
-
-            {/* HORARIO */}
-            <div className="flex items-center gap-3">
-            <Clock className="w-4 h-4 text-verde-azulado" />
-
-            <span>
-                <strong>Horario:</strong><br />
-                Lunes a Viernes<br />
-                7:30 AM – 6:30 PM
-            </span>
-            </div>
+                <span>
+                  <strong>Horario:</strong>
+                  <br />
+                  Lunes a Viernes
+                  <br />
+                  7:30 AM – 6:30 PM
+                </span>
+              </div>
             </div>
           </aside>
 
@@ -314,14 +319,11 @@ export default function InfraestructuraBanosDelInca() {
             animate={{ opacity: 1, y: 0 }}
             className="lg:col-span-3 space-y-10"
           >
-
             <div className="bg-white rounded-xl shadow-lg p-8">
               <h2 className="font-anton text-4xl text-azul-oscuro mb-4">
                 {contenido.titulo}
               </h2>
-              <p className="text-gray-700 text-lg">
-                {contenido.descripcion}
-              </p>
+              <p className="text-gray-700 text-lg">{contenido.descripcion}</p>
             </div>
 
             <img
@@ -373,37 +375,37 @@ export default function InfraestructuraBanosDelInca() {
 
             {/* MAPA */}
             <div className="bg-white rounded-xl shadow-lg p-8">
-                       <h3 className="font-bold text-2xl text-azul-oscuro mb-4 flex gap-2 items-center">
-                         <MapPin className="text-verde-azulado" />
-                         Cómo Llegar
-                       </h3>
-           
-                       <p className="mb-4 text-gray-600">
-                         <strong>{ubicacion.nombre}</strong><br />
-                         {ubicacion.direccion}
-                       </p>
-           
-                       <div className="h-96 rounded-xl overflow-hidden shadow-lg relative">
-                         <iframe
-                           src={mapaEmbed}
-                           className="w-full h-full border-0"
-                           loading="lazy"
-                           referrerPolicy="no-referrer-when-downgrade"
-                           title={`Mapa ${ubicacion.nombre}`}
-                         />
-           
-                         {/* Botón Abrir en Google Maps */}
-                         <a
-                           href={mapaExterno}
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           className="absolute bottom-4 right-4 bg-verde-azulado text-white px-4 py-2 rounded-lg shadow-lg hover:bg-opacity-90 transition text-sm font-semibold"
-                         >
-                           Abrir en Google Maps
-                         </a>
-                       </div>
-                     </div>
+              <h3 className="font-bold text-2xl text-azul-oscuro mb-4 flex gap-2 items-center">
+                <MapPin className="text-verde-azulado" />
+                Cómo Llegar
+              </h3>
 
+              <p className="mb-4 text-gray-600">
+                <strong>{ubicacion.nombre}</strong>
+                <br />
+                {ubicacion.direccion}
+              </p>
+
+              <div className="h-96 rounded-xl overflow-hidden shadow-lg relative">
+                <iframe
+                  src={mapaEmbed}
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={`Mapa ${ubicacion.nombre}`}
+                />
+
+                {/* Botón Abrir en Google Maps */}
+                <a
+                  href={mapaExterno}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-4 right-4 bg-verde-azulado text-white px-4 py-2 rounded-lg shadow-lg hover:bg-opacity-90 transition text-sm font-semibold"
+                >
+                  Abrir en Google Maps
+                </a>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -436,7 +438,6 @@ export default function InfraestructuraBanosDelInca() {
           </motion.div>
         )}
       </AnimatePresence>
-
     </div>
   );
 }
