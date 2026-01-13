@@ -1,14 +1,6 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import {
-  FileText,
-  Calendar,
-  Users,
-  CheckCircle,
-  ChevronRight,
-  Download,
-  Play,
-} from "lucide-react";
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { FileText, Calendar, Users, CheckCircle, ChevronRight, Download, Play } from 'lucide-react';
 
 // =====================================================
 // COMPONENTE 1: RequisitosMatricula (Integrado)
@@ -37,26 +29,21 @@ const RequisitosMatricula = () => {
         transition={{ duration: 0.8 }}
         className="relative bg-white p-8 md:p-12 rounded-3xl shadow-2xl overflow-hidden"
       >
+        
         {/* TÍTULO BICOLOR Y AÑO */}
         <div className="relative z-10 mb-8">
           <h2 className="text-6xl md:text-8xl leading-none font-anton">
-            <span
-              className="block text-amarillo-dorado -mb-4 md:-mb-6 relative z-10 italic font-serif"
-              style={{
-                fontSize: "0.6em",
-                transform: "rotate(-5deg)",
-                display: "inline-block",
-              }}
-            >
+            <span className="block text-amarillo-dorado -mb-4 md:-mb-6 relative z-10 italic font-serif" style={{ fontSize: '0.6em', transform: 'rotate(-5deg)', display: 'inline-block' }}>
               Requisitos
             </span>
-            <span className="block text-azul-oscuro">MATRÍCULA</span>
+            <span className="block text-azul-oscuro">
+              MATRÍCULA
+            </span>
           </h2>
           <p className="text-gray-600 mt-2">
-            Para completar tu inscripción, asegúrate de cumplir con los
-            siguientes datos.
+            Para completar tu inscripción, asegúrate de cumplir con los siguientes datos.
           </p>
-
+          
           {/* AÑO 2026 (Estilizado) */}
           <div className="absolute top-0 right-0 text-amarillo-dorado font-anton text-4xl transform rotate-12">
             2026
@@ -65,15 +52,17 @@ const RequisitosMatricula = () => {
 
         {/* CONTENIDO PRINCIPAL (Grid de 2 columnas) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 relative">
+          
           {/* COLUMNA IZQUIERDA: REQUISITOS */}
           <div className="space-y-8 relative z-10">
+            
             {/* REQUISITOS ESTUDIANTE */}
             <div className="space-y-4">
               <div className="bg-verde-azulado inline-flex items-center px-4 py-2 rounded-lg shadow-lg">
                 <Play className="w-5 h-5 text-white mr-2 fill-white" />
-                <h3 className="text-white font text-xl ">Estudiante</h3>
+                <h3 className="text-white font-bold text-xl uppercase">Estudiante</h3>
               </div>
-
+              
               <ul className="space-y-3 text-lg text-gray-700">
                 {requisitosEstudiante.map((req, index) => (
                   <li key={index} className="flex items-start gap-3">
@@ -88,9 +77,9 @@ const RequisitosMatricula = () => {
             <div className="space-y-4">
               <div className="bg-verde-azulado inline-flex items-center px-4 py-2 rounded-lg shadow-lg">
                 <Play className="w-5 h-5 text-white mr-2 fill-white" />
-                <h3 className="text-white font text-xl ">Padres de familia</h3>
+                <h3 className="text-white font-bold text-xl uppercase">Padres de familia</h3>
               </div>
-
+              
               <ul className="space-y-3 text-lg text-gray-700">
                 {requisitosPadres.map((req, index) => (
                   <li key={index} className="flex items-start gap-3">
@@ -100,7 +89,7 @@ const RequisitosMatricula = () => {
                 ))}
               </ul>
             </div>
-
+            
             {/* BOTÓN DE LLAMADA A LA ACCIÓN */}
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -115,11 +104,11 @@ const RequisitosMatricula = () => {
           <div className="hidden lg:block absolute right-0 top-0 h-full w-1/2">
             {/* Fondo de color que se ve detrás de la imagen */}
             <div className="absolute inset-0 bg-amarillo-dorado/50 rounded-3xl transform translate-x-10 translate-y-10"></div>
-
+            
             {/* Contenedor de la imagen con bordes redondeados */}
             <div className="absolute inset-0 rounded-[40px] overflow-hidden shadow-2xl">
               <img
-                src="/public/Admision/Matricula.png" // Usar una imagen de un estudiante apuntando
+                src="/matricula/estudiante-matricula.png" // Usar una imagen de un estudiante apuntando
                 alt="Estudiante apuntando a los requisitos"
                 className="w-full h-full object-cover object-top"
               />
@@ -133,6 +122,7 @@ const RequisitosMatricula = () => {
   );
 };
 
+
 // =====================================================
 // COMPONENTE 2: Admision (Principal)
 // =====================================================
@@ -141,68 +131,61 @@ const Admision = () => {
   const proceso = [
     {
       paso: 1,
-      titulo: "Solicitud de Información",
-      descripcion:
-        "Completa el formulario de contacto o comunícate con nosotros para recibir información detallada sobre el proceso de admisión.",
-      icono: <FileText size={48} />,
+      titulo: 'Solicitud de Información',
+      descripcion: 'Completa el formulario de contacto o comunícate con nosotros para recibir información detallada sobre el proceso de admisión.',
+      icono: <FileText size={48} />
     },
     {
       paso: 2,
-      titulo: "Visita Guiada",
-      descripcion:
-        "Agenda una visita a nuestros campus para conocer las instalaciones, hablar con directivos y resolver todas tus dudas.",
-      icono: <Calendar size={48} />,
+      titulo: 'Visita Guiada',
+      descripcion: 'Agenda una visita a nuestros campus para conocer las instalaciones, hablar con directivos y resolver todas tus dudas.',
+      icono: <Calendar size={48} />
     },
     {
       paso: 3,
-      titulo: "Evaluación",
-      descripcion:
-        "El estudiante participa en una evaluación diagnóstica acorde a su nivel educativo para conocer sus fortalezas y áreas de desarrollo.",
-      icono: <Users size={48} />,
+      titulo: 'Evaluación',
+      descripcion: 'El estudiante participa en una evaluación diagnóstica acorde a su nivel educativo para conocer sus fortalezas y áreas de desarrollo.',
+      icono: <Users size={48} />
     },
     {
       paso: 4,
-      titulo: "Matrícula",
-      descripcion:
-        "Una vez aceptado, procede con la matrícula presentando la documentación requerida y realizando el pago correspondiente.",
-      icono: <CheckCircle size={48} />,
-    },
+      titulo: 'Matrícula',
+      descripcion: 'Una vez aceptado, procede con la matrícula presentando la documentación requerida y realizando el pago correspondiente.',
+      icono: <CheckCircle size={48} />
+    }
   ];
 
   const beneficios = [
     {
-      titulo: "Becas Académicas",
-      descripcion:
-        "Ofrecemos becas parciales y completas para estudiantes con excelente rendimiento académico.",
-      porcentaje: "Hasta 100%",
+      titulo: 'Becas Académicas',
+      descripcion: 'Ofrecemos becas parciales y completas para estudiantes con excelente rendimiento académico.',
+      porcentaje: 'Hasta 100%'
     },
     {
-      titulo: "Becas Deportivas",
-      descripcion:
-        "Reconocemos el talento deportivo con becas especiales para atletas destacados.",
-      porcentaje: "Hasta 50%",
+      titulo: 'Becas Deportivas',
+      descripcion: 'Reconocemos el talento deportivo con becas especiales para atletas destacados.',
+      porcentaje: 'Hasta 50%'
     },
     {
-      titulo: "Descuentos por Hermanos",
-      descripcion:
-        "Familias con más de un hijo matriculado reciben descuentos especiales.",
-      porcentaje: "15% - 25%",
-    },
+      titulo: 'Descuentos por Hermanos',
+      descripcion: 'Familias con más de un hijo matriculado reciben descuentos especiales.',
+      porcentaje: '15% - 25%'
+    }
   ];
 
   const fechasImportantes = [
-    { evento: "Inicio de inscripciones", fecha: "Enero 2026" },
-    { evento: "Evaluaciones de admisión", fecha: "Febrero 2026" },
-    { evento: "Proceso de matrícula", fecha: "Febrero - Marzo 2026" },
-    { evento: "Inicio del año escolar", fecha: "Marzo 2026" },
+    { evento: 'Inicio de inscripciones', fecha: 'Enero 2025' },
+    { evento: 'Evaluaciones de admisión', fecha: 'Febrero 2025' },
+    { evento: 'Proceso de matrícula', fecha: 'Febrero - Marzo 2025' },
+    { evento: 'Inicio del año escolar', fecha: 'Marzo 2025' }
   ];
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen pt-32">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-azul-oscuro to-verde-azulado text-white relative overflow-hidden">
-        <div className="absolute inset-0 ">
-          <div className="absolute inset-0 bg-[url('/Admision/Admision2026.jpg')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=1080&fit=crop')] bg-cover bg-center"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -213,18 +196,21 @@ const Admision = () => {
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ delay: 0.3, type: "spring" }}
+              transition={{ delay: 0.3, type: 'spring' }}
               className="inline-block bg-amarillo-dorado text-azul-oscuro px-6 py-3 rounded-full font-bold mb-6 text-lg"
             >
-              ¡Inscripciones Abiertas 2026!
+              ¡Inscripciones Abiertas 2025!
             </motion.div>
-            <h1 className="font-anton text-5xl md:text-6xl mb-6 text-[#013055]">
+            <h1 className="font-anton text-5xl md:text-6xl mb-6">
               Proceso de Admisión
             </h1>
-            <p className="text-xl md:text-2xl font-light mb-8 text-[#013055]">
+            <p className="text-xl md:text-2xl font-light mb-8">
               Únete a la familia Isaac Newton y descubre todo tu potencial
             </p>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <Link
                 to="/contacto"
                 className="inline-flex items-center gap-2 bg-amarillo-dorado text-azul-oscuro px-8 py-4 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity"
@@ -250,8 +236,7 @@ const Admision = () => {
               Proceso de Admisión
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Cuatro pasos sencillos para formar parte de nuestra comunidad
-              educativa
+              Cuatro pasos sencillos para formar parte de nuestra comunidad educativa
             </p>
           </motion.div>
 
@@ -315,13 +300,17 @@ const Admision = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
                 whileHover={{ scale: 1.05 }}
-                className="bg-gradient-to-br from-verde-azulado to-azul-oscuro text-[#007a75] p-8 rounded-xl shadow-lg text-center"
+                className="bg-gradient-to-br from-verde-azulado to-azul-oscuro text-white p-8 rounded-xl shadow-lg text-center"
               >
                 <div className="font-anton text-5xl text-amarillo-dorado mb-4">
                   {beneficio.porcentaje}
                 </div>
-                <h3 className="font-anton text-2xl mb-3">{beneficio.titulo}</h3>
-                <p className="text-sm">{beneficio.descripcion}</p>
+                <h3 className="font-anton text-2xl mb-3">
+                  {beneficio.titulo}
+                </h3>
+                <p className="text-sm">
+                  {beneficio.descripcion}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -356,9 +345,7 @@ const Admision = () => {
                 className="bg-white text-azul-oscuro p-4 rounded-xl shadow-lg text-center"
               >
                 <p className="text-sm font-semibold">{item.evento}</p>
-                <p className="font-anton text-xl text-verde-azulado mt-1">
-                  {item.fecha}
-                </p>
+                <p className="font-anton text-xl text-verde-azulado mt-1">{item.fecha}</p>
               </motion.div>
             ))}
           </div>
