@@ -3,23 +3,23 @@ import { motion } from "framer-motion";
 const espacios = [
   {
     titulo: "Formación Integral",
-    imagen: "/public/Aprendizaje/Formacion.jpg",
+    imagen: "/Inicio/EspaciosAprendizaje/Formacion.jpg",
     color: "from-[#fccc00] to-[#fccc00]/80",
     
   },
   {
     titulo: "Tecnología",
-    imagen: "/public/Aprendizaje/Tecnologia.jpg",
+    imagen: "/Inicio/EspaciosAprendizaje/Tecnologia.jpg",
     color: "from-[#007a75] to-[#007a75]/80",
   },
   {
     titulo: "Deporte",
-    imagen: "/public/Aprendizaje/Deporte.jpg",
+    imagen: "/Inicio/EspaciosAprendizaje/Deporte.jpg",
     color: "from-[#013055] to-[#013055]/80",
   },
   {
     titulo: "Cultura",
-    imagen: "/public/Aprendizaje/Cultura.JPG",
+    imagen: "/Inicio/EspaciosAprendizaje/Cultura.JPG",
     color: "from-[#e2ddd0] to-[#e2ddd0]/80",
   },
 ];
