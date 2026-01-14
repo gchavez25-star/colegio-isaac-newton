@@ -7,7 +7,7 @@ const CampusSection = () => {
     {
       name: "Campus Cajamarca",
       location: "Centro de la ciudad",
-      image: "/Inicio/Cajamarca.png",
+      image: "/Inicio/Campus/Cajamarca.png",
       description: "Instalaciones modernas en el corazón de Cajamarca con tecnología de punta.",
       icon: <Building2 className="w-6 h-6 text-azul-oscuro" />, 
       highlights: ["Laboratorios equipados", "Biblioteca digital", "Áreas deportivas"],
@@ -17,7 +17,7 @@ const CampusSection = () => {
     {
       name: "Campus Baños del Inca",
       location: "Zona natural",
-      image: "/Inicio/Baños.png",
+      image: "/Inicio/Campus/Baños.png",
       description: "Entorno natural ideal para el aprendizaje experiencial y actividades al aire libre.",
       icon: <Trees className="w-6 h-6 text-azul-oscuro" />, 
       highlights: ["Áreas verdes", "Espacios abiertos", "Conexión con naturaleza"],
