@@ -56,7 +56,8 @@ const Directivos = () => {
         "Coordinador de equipos pedagógicos y operativos",
         "Especialista en resolución de conflictos y mediación",
       ],
-      imagen: "/Directivos/subdirector.jpg",
+      imagen:
+        "/public/Docentes/Los Baños del Inca/Directivo/Ascurra-Guitierrez-Alicia-Marisol.jpg",
     },
   ];
 
