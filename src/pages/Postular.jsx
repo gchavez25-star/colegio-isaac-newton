@@ -4,7 +4,7 @@ import { vacantesData } from "@/data/vacantesData";
 
 export default function Postular() {
   const { id } = useParams();
-  const vacante = vacantesData.find(v => v.id === Number(id));
+  const vacante = vacantesData.find((v) => v.id === Number(id));
 
   const [cvFile, setCvFile] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -14,7 +14,7 @@ export default function Postular() {
   if (!vacante) return <Navigate to="/vacantes" replace />;
 
   // Convertir archivo a Base64
-  const toBase64 = file =>
+  const toBase64 = (file) =>
     new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = () => resolve(reader.result.split(",")[1]);
@@ -22,7 +22,7 @@ export default function Postular() {
       reader.readAsDataURL(file);
     });
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
@@ -37,7 +37,7 @@ export default function Postular() {
     const allowedTypes = [
       "application/pdf",
       "application/msword",
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
     ];
     if (!allowedTypes.includes(cv.type))
       return setError("Formato de CV no permitido.");
@@ -45,8 +45,7 @@ export default function Postular() {
     if (!/\S+@\S+\.\S+/.test(form.email.value))
       return setError("Correo electrónico no válido.");
 
-    if (form.dni.value.length < 8)
-      return setError("DNI no válido.");
+    if (form.dni.value.length < 8) return setError("DNI no válido.");
 
     setLoading(true);
 
@@ -60,10 +59,10 @@ export default function Postular() {
       formData.append("archivoTipo", cv.type);
 
       const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbxQt4JOx8o2Bcp8eMUHny5m4WQiB6Zm7JUtLRvkCXHD_D_kZMD7Cx5d5I8PXHCQ734/exec",
+        "https://script.google.com/macros/s/AKfycbyWVOE_izcb_pFcuWNiwvXVnjxQXYkJS7whVcx8JCBkhXPyRfYsIZi42LnIatjaaVDN/exec",
         {
           method: "POST",
-          body: formData
+          body: formData,
         }
       );
 
@@ -86,7 +85,6 @@ export default function Postular() {
   return (
     <section className="min-h-screen py-24 bg-gray-50">
       <div className="container mx-auto px-6 max-w-3xl bg-white p-10 rounded-xl shadow-lg">
-
         <h1 className="font-anton text-4xl mb-4 text-[#013055]">
           {vacante.titulo}
         </h1>
@@ -103,25 +101,44 @@ export default function Postular() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
-
-            <select name="campus" required className="w-full border p-3 rounded">
+            <select
+              name="campus"
+              required
+              className="w-full border p-3 rounded"
+            >
               <option value="">Seleccione campus</option>
               <option value="Central">Cajamarca</option>
               <option value="Baños del Inca">Los Baños del Inca</option>
             </select>
 
-            <input name="nombre" required placeholder="Nombre completo"
-              className="w-full border p-3 rounded" />
+            <input
+              name="nombre"
+              required
+              placeholder="Nombre completo"
+              className="w-full border p-3 rounded"
+            />
 
-            <input name="dni" required placeholder="DNI"
-              className="w-full border p-3 rounded" />
+            <input
+              name="dni"
+              required
+              placeholder="DNI"
+              className="w-full border p-3 rounded"
+            />
 
-            <input type="email" name="email" required
+            <input
+              type="email"
+              name="email"
+              required
               placeholder="Correo electrónico"
-              className="w-full border p-3 rounded" />
+              className="w-full border p-3 rounded"
+            />
 
-            <input name="telefono" required placeholder="Teléfono"
-              className="w-full border p-3 rounded" />
+            <input
+              name="telefono"
+              required
+              placeholder="Teléfono"
+              className="w-full border p-3 rounded"
+            />
 
             {/* CV */}
             <div>
@@ -131,11 +148,13 @@ export default function Postular() {
                 name="cv"
                 accept=".pdf,.doc,.docx"
                 className="hidden"
-                onChange={e => setCvFile(e.target.files[0])}
+                onChange={(e) => setCvFile(e.target.files[0])}
               />
 
-              <label htmlFor="cv"
-                className="inline-block bg-[#013055] text-white px-6 py-3 rounded cursor-pointer">
+              <label
+                htmlFor="cv"
+                className="inline-block bg-[#013055] text-white px-6 py-3 rounded cursor-pointer"
+              >
                 Subir tu CV
               </label>
 
@@ -148,11 +167,12 @@ export default function Postular() {
 
             {error && <p className="text-red-600 text-sm">{error}</p>}
 
-            <button disabled={loading}
-              className="w-full bg-[#013055] text-white py-3 rounded">
+            <button
+              disabled={loading}
+              className="w-full bg-[#013055] text-white py-3 rounded"
+            >
               {loading ? "Enviando..." : "Postular"}
             </button>
-
           </form>
         )}
       </div>

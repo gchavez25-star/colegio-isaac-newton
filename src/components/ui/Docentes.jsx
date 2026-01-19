@@ -1,6 +1,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BookOpen, Search, Mail, MapPin, GraduationCap, X } from "lucide-react";
+import {
+  Search,
+  Mail,
+  MapPin,
+  GraduationCap,
+  X,
+  ChevronRight,
+  Award,
+  Calendar,
+  BookOpen,
+} from "lucide-react";
 
 // ========================================
 // DATOS DE DOCENTES CON CORREOS
@@ -8,131 +18,63 @@ import { BookOpen, Search, Mail, MapPin, GraduationCap, X } from "lucide-react";
 const docentes = [
   // CAJAMARCA - PRIMARIA
   {
-    nombre: "Prof. Cecilia Alfaro",
+    id: 1,
+    nombre: "Erika Cesia León Guadaña",
+    cargo: "Docente de Primaria",
+    area: "Comunicación",
+    sede: "Cajamarca",
+    nivel: "Primaria",
+    correo: "eleon@inewton.edu.pe",
+    imagen:
+      "/public/Comunidad/Docentes/Cajamarca/Primaria/ERIKA LEÓN GUADAÑA_1.jpg",
+    frase:
+      "La educación es el arma más poderosa que puedes usar para cambiar el mundo.",
+    experiencia: "10 años",
+    especialidad: "Comprensión Lectora y Redacción",
+  },
+  {
+    id: 2,
+    nombre: "Terrones Julcamoro Gary",
+    cargo: "Docente de Primaria",
     area: "Polidocente",
-    nivel: "Primaria",
     sede: "Cajamarca",
-    correo: "maria.gonzalez@isaacnewton.edu.pe",
-    foto: "/public/Docentes/Cajamarca/Primaria/CECILIA-NOEMI-ALFARO-RODRÍGUEZ.jpg",
-    mensaje:
-      "La lectura y escritura son las llaves que abren todas las puertas del conocimiento.",
+    nivel: "Primaria",
+    correo: "gterrones@inewton.edu.pe",
+    imagen: "/public/Comunidad/Docentes/Cajamarca/Primaria/Gary Terrones.jpg",
+    frase:
+      "Las matemáticas son el lenguaje con el que Dios ha escrito el universo.",
+    experiencia: "8 años",
+    especialidad: "Álgebra y Cálculo",
   },
   {
-    nombre: "Prof. Rosa Campos",
-    area: "Matemáticas",
-    nivel: "Primaria",
+    id: 3,
+    nombre: "Limay Ñontol Daniela Karina",
+    cargo: "Docente de Primaria",
+    area: "Comunicación",
     sede: "Cajamarca",
-    correo: "rosa.campos@isaacnewton.edu.pe",
-    foto: "/public/Docentes/Cajamarca/Primaria/CORDOVA-COBIAN-SONIA-FANNY.jpg",
-    mensaje:
-      "Los primeros años son fundamentales. Cada día es una oportunidad para sembrar amor por el aprendizaje.",
+    nivel: "Primaria",
+    correo: "dlimay@inewton.edu.pe",
+    imagen: "/public/Comunidad/Docentes/Cajamarca/Primaria/Daniela Limay.jpg",
+    frase:
+      "Enseñar no es transferir conocimiento, sino crear las posibilidades para su propia producción.",
+    experiencia: "12 años",
+    especialidad: "Compresión Lectora",
   },
   {
-    nombre: "Prof. Juan Vásquez",
-    area: "Ciencias Naturales",
-    nivel: "Primaria",
+    id: 4,
+    nombre: "Imboma Salvatierra Claudia Estefany",
+    cargo: "Docente de Primaria",
+    area: "Ingles",
     sede: "Cajamarca",
-    correo: "juan.vasquez@isaacnewton.edu.pe",
-    foto: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-    mensaje:
-      "Despertar la curiosidad científica desde pequeños es mi mayor pasión.",
+    nivel: "Primaria",
+    correo: "cimboma@inewton.edu.pe",
+    imagen: "/public/Comunidad/Docentes/Cajamarca/Primaria/Claudia Imboma.jpg",
+    frase: "La historia es la ciencia de los hombres en el tiempo.",
+    experiencia: "5 años",
+    especialidad: "Idiomas",
   },
 
   // CAJAMARCA - SECUNDARIA
-  {
-    nombre: "Prof. Ana Martínez",
-    area: "Matemáticas",
-    nivel: "Secundaria",
-    sede: "Cajamarca",
-    correo: "ana.martinez@isaacnewton.edu.pe",
-    foto: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400&h=400&fit=crop",
-    mensaje:
-      "Enseñar matemáticas es mostrar la belleza del pensamiento lógico y la resolución de problemas.",
-  },
-  {
-    nombre: "Prof. Lucía Fernández",
-    area: "Inglés",
-    nivel: "Secundaria",
-    sede: "Cajamarca",
-    correo: "lucia.fernandez@isaacnewton.edu.pe",
-    foto: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
-    mensaje:
-      "Aprender un idioma es abrir una puerta al mundo. Ayudo a mis estudiantes a cruzar ese umbral.",
-  },
-  {
-    nombre: "Prof. Roberto Silva",
-    area: "Física",
-    nivel: "Secundaria",
-    sede: "Cajamarca",
-    correo: "roberto.silva@isaacnewton.edu.pe",
-    foto: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop",
-    mensaje:
-      "La física explica el universo. Mi misión es hacer que mis estudiantes lo comprendan y lo amen.",
-  },
-
-  // BAÑOS DEL INCA - PRIMARIA
-  {
-    nombre: "Prof. Carlos Pérez",
-    area: "Ciencias",
-    nivel: "Primaria",
-    sede: "Baños del Inca",
-    correo: "carlos.perez@isaacnewton.edu.pe",
-    foto: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
-    mensaje:
-      "La ciencia es curiosidad en acción. Mi misión es despertar esa curiosidad en cada estudiante.",
-  },
-  {
-    nombre: "Prof. Miguel Torres",
-    area: "Educación Física",
-    nivel: "Primaria",
-    sede: "Baños del Inca",
-    correo: "miguel.torres@isaacnewton.edu.pe",
-    foto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-    mensaje:
-      "El deporte forma carácter, disciplina y trabajo en equipo. Valores esenciales para la vida.",
-  },
-  {
-    nombre: "Prof. Patricia Díaz",
-    area: "Arte",
-    nivel: "Primaria",
-    sede: "Baños del Inca",
-    correo: "patricia.diaz@isaacnewton.edu.pe",
-    foto: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop",
-    mensaje:
-      "El arte desarrolla la creatividad y la expresión. Cada niño es un artista en potencia.",
-  },
-
-  // BAÑOS DEL INCA - SECUNDARIA
-  {
-    nombre: "Prof. David Rojas",
-    area: "Historia",
-    nivel: "Secundaria",
-    sede: "Baños del Inca",
-    correo: "david.rojas@isaacnewton.edu.pe",
-    foto: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-    mensaje:
-      "La historia nos enseña quiénes somos y hacia dónde vamos. Es el espejo de la humanidad.",
-  },
-  {
-    nombre: "Prof. Carmen Ruiz",
-    area: "Química",
-    nivel: "Secundaria",
-    sede: "Baños del Inca",
-    correo: "carmen.ruiz@isaacnewton.edu.pe",
-    foto: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
-    mensaje:
-      "La química está en todo lo que nos rodea. Enseño a mis estudiantes a ver el mundo molecular.",
-  },
-  {
-    nombre: "Prof. Fernando López",
-    area: "Literatura",
-    nivel: "Secundaria",
-    sede: "Baños del Inca",
-    correo: "fernando.lopez@isaacnewton.edu.pe",
-    foto: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
-    mensaje:
-      "La literatura es el arte de las palabras. Cada libro es un viaje a mundos infinitos.",
-  },
 ];
 
 export default function Docentes() {
@@ -165,7 +107,7 @@ export default function Docentes() {
   return (
     <div className="w-full">
       {/* HERO */}
-      <section className="py-24 bg-gradient-to-br from-azul-oscuro to-verde-azulado text-[#013055] text-center relative overflow-hidden">
+      <section className="py-6 bg-gradient-to-br from-azul-oscuro to-verde-azulado text-[#013055] text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-20 w-64 h-64 bg-[#013055] rounded-full blur-3xl" />
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-amarillo-dorado rounded-full blur-3xl" />
@@ -205,13 +147,11 @@ export default function Docentes() {
               <div className="text-3xl font-bold text-amarillo-dorado">
                 {contadores.banosDelInca}
               </div>
-              <div className="text-sm">Baños del Inca</div>
+              <div className="text-sm">Los Baños del Inca</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4">
-              <div className="text-3xl font-bold text-amarillo-dorado">
-                {contadores.primaria + contadores.secundaria}
-              </div>
-              <div className="text-sm">Niveles</div>
+              <div className="text-3xl font-bold text-amarillo-dorado">2</div>
+              <div className="text-sm">Campus</div>
             </div>
           </div>
         </div>
@@ -250,10 +190,10 @@ export default function Docentes() {
           <div className="mb-8">
             <h3 className="text-center text-lg font-semibold text-azul-oscuro mb-4 flex items-center justify-center gap-2">
               <MapPin className="w-5 h-5" />
-              Filtrar por Sede
+              Filtrar por Campus
             </h3>
             <div className="flex flex-wrap gap-4 justify-center">
-              {["Todos", "Cajamarca", "Baños del Inca"].map((sede) => (
+              {["Todos", "Cajamarca", "Los Baños del Inca"].map((sede) => (
                 <button
                   key={sede}
                   onClick={() => {
@@ -335,156 +275,216 @@ export default function Docentes() {
       </section>
 
       {/* GRID DE DOCENTES */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6">
-          {docentesFiltrados.length === 0 ? (
-            <div className="text-center py-20">
-              <Search className="w-20 h-20 mx-auto text-gray-300 mb-4" />
-              <h3 className="text-2xl font-bold text-gray-400 mb-2">
-                No se encontraron docentes
-              </h3>
-              <p className="text-gray-500">
-                Intenta con otros términos de búsqueda o filtros
-              </p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {docentesFiltrados.map((docente, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <AnimatePresence mode="popLayout">
+              {docentesFiltrados.map((docente) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ y: -8 }}
-                  onClick={() => setDocenteSeleccionado(docente)}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border border-gray-100"
+                  key={docente.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  whileHover={{ y: -10 }}
+                  className="group bg-white rounded-[2.5rem] shadow-lg hover:shadow-2xl transition-all overflow-hidden border border-gray-100"
                 >
-                  {/* Foto */}
-                  <div className="relative h-64 overflow-hidden">
+                  {/* Imagen */}
+                  <div className="relative aspect-[4/5] overflow-hidden bg-gray-200">
                     <img
-                      src={docente.foto}
+                      src={docente.imagen}
                       alt={docente.nombre}
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-                    {/* Badge de nivel */}
-                    <div className="absolute top-4 right-4 bg-amarillo-dorado text-azul-oscuro px-3 py-1 rounded-full text-xs font-bold">
-                      {docente.nivel}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#013055]/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+
+                    <div className="absolute top-4 right-4">
+                      <span
+                        className={`px-4 py-1 rounded-full text-xs font-bold text-white shadow-lg ${
+                          docente.nivel === "Primaria"
+                            ? "bg-amber-500"
+                            : "bg-indigo-500"
+                        }`}
+                      >
+                        {docente.nivel}
+                      </span>
+                    </div>
+
+                    <div className="absolute bottom-6 left-6 right-6 text-white">
+                      <p className="text-xs font-bold uppercase tracking-widest text-white/70 mb-1">
+                        {docente.area}
+                      </p>
+                      <h3 className="text-2xl font-anton leading-tight">
+                        {docente.nombre}
+                      </h3>
                     </div>
                   </div>
 
                   {/* Contenido */}
-                  <div className="p-6">
-                    <h3 className="font-bold text-xl text-azul-oscuro mb-2">
-                      {docente.nombre}
-                    </h3>
-
-                    <p className="text-verde-azulado font-semibold mb-3">
-                      {docente.area}
-                    </p>
-
-                    <div className="flex items-center gap-2 text-gray-600 text-sm mb-2">
-                      <MapPin className="w-4 h-4" />
-                      <span>{docente.sede}</span>
+                  <div className="p-6 space-y-4">
+                    <div className="flex items-center gap-3 text-gray-600">
+                      <div className="p-2 bg-gray-100 rounded-lg">
+                        <MapPin className="w-4 h-4 text-[#007a75]" />
+                      </div>
+                      <span className="text-sm font-medium">
+                        Sede {docente.sede}
+                      </span>
                     </div>
 
-                    <div className="flex items-start gap-2 text-gray-600 text-sm">
-                      <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                      <span className="break-all">{docente.correo}</span>
+                    <div className="flex items-center gap-3 text-gray-600">
+                      <div className="p-2 bg-gray-100 rounded-lg">
+                        <Mail className="w-4 h-4 text-[#007a75]" />
+                      </div>
+                      <span className="text-sm font-medium truncate">
+                        {docente.correo}
+                      </span>
                     </div>
 
-                    <button className="mt-4 w-full bg-azul-oscuro text-white py-2 rounded-lg font-semibold hover:bg-verde-azulado transition-colors">
-                      Ver más
+                    <button
+                      onClick={() => setDocenteSeleccionado(docente)}
+                      className="w-full py-3 bg-gray-50 hover:bg-[#013055] text-[#013055] hover:text-white rounded-2xl font-bold transition-all flex items-center justify-center gap-2 group/btn"
+                    >
+                      Ver Perfil Completo
+                      <ChevronRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" />
                     </button>
                   </div>
                 </motion.div>
               ))}
-            </div>
-          )}
+            </AnimatePresence>
+          </div>
         </div>
       </section>
 
       {/* MODAL DE DETALLE */}
       <AnimatePresence>
         {docenteSeleccionado && (
-          <motion.div
-            className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center p-4 z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setDocenteSeleccionado(null)}
-          >
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
             <motion.div
-              initial={{ scale: 0.8, opacity: 0, y: 50 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.8, opacity: 0, y: 50 }}
-              transition={{ type: "spring", duration: 0.5 }}
-              className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full relative overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setDocenteSeleccionado(null)}
+              className="absolute inset-0 bg-[#013055]/80 backdrop-blur-md"
+            />
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative bg-white w-full max-w-5xl rounded-[3rem] shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh]"
             >
-              {/* Header con foto */}
-              <div className="relative h-80">
+              {/* Botón Cerrar */}
+              <button
+                onClick={() => setDocenteSeleccionado(null)}
+                className="absolute top-6 right-6 z-10 p-3 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white md:text-gray-400 md:hover:text-red-500 rounded-full transition-all"
+              >
+                <X className="w-6 h-6" />
+              </button>
+
+              {/* Imagen Lateral (Vertical) */}
+              <div className="w-full md:w-2/5 h-64 md:h-auto relative bg-gray-200">
                 <img
-                  src={docenteSeleccionado.foto}
+                  src={docenteSeleccionado.imagen}
                   alt={docenteSeleccionado.nombre}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-azul-oscuro via-azul-oscuro/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#013055] via-transparent to-transparent opacity-40" />
+              </div>
 
-                {/* Botón cerrar */}
-                <button
-                  onClick={() => setDocenteSeleccionado(null)}
-                  className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 rounded-full p-2 transition-all"
-                >
-                  <X size={24} />
-                </button>
+              {/* Contenido del Perfil */}
+              <div className="w-full md:w-3/5 p-8 md:p-12 overflow-y-auto">
+                <div className="space-y-8">
+                  {/* Header Perfil */}
+                  <div>
+                    <span className="px-4 py-1 bg-[#007a75]/10 text-[#007a75] rounded-full text-xs font-bold uppercase tracking-widest mb-3 inline-block">
+                      {docenteSeleccionado.area}
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-anton text-[#013055] leading-tight">
+                      {docenteSeleccionado.nombre}
+                    </h2>
+                    <p className="text-xl text-gray-500 font-medium mt-2">
+                      {docenteSeleccionado.cargo}
+                    </p>
+                  </div>
 
-                {/* Info sobre la foto */}
-                <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <h2 className="text-4xl font-bold mb-2">
-                    {docenteSeleccionado.nombre}
-                  </h2>
-                  <p className="text-amarillo-dorado text-xl font-semibold mb-2">
-                    {docenteSeleccionado.area}
-                  </p>
-                  <div className="flex items-center gap-4 text-sm">
-                    <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
-                      {docenteSeleccionado.nivel}
-                    </span>
-                    <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
-                      {docenteSeleccionado.sede}
-                    </span>
+                  {/* Frase Inspiradora */}
+                  <div className="bg-gray-50 p-6 rounded-3xl border-l-4 border-[#fccc00] italic text-gray-600 text-lg">
+                    "{docenteSeleccionado.frase}"
+                  </div>
+
+                  {/* Grid de Información */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 bg-[#013055]/5 rounded-2xl">
+                        <Award className="w-6 h-6 text-[#013055]" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold text-gray-400 uppercase">
+                          Experiencia
+                        </p>
+                        <p className="font-bold text-gray-700">
+                          {docenteSeleccionado.experiencia}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 bg-[#013055]/5 rounded-2xl">
+                        <BookOpen className="w-6 h-6 text-[#013055]" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold text-gray-400 uppercase">
+                          Especialidad
+                        </p>
+                        <p className="font-bold text-gray-700">
+                          {docenteSeleccionado.especialidad}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 bg-[#013055]/5 rounded-2xl">
+                        <MapPin className="w-6 h-6 text-[#013055]" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold text-gray-400 uppercase">
+                          Campus
+                        </p>
+                        <p className="font-bold text-gray-700">
+                          {docenteSeleccionado.sede}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 bg-[#013055]/5 rounded-2xl">
+                        <Calendar className="w-6 h-6 text-[#013055]" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold text-gray-400 uppercase">
+                          Nivel
+                        </p>
+                        <p className="font-bold text-gray-700">
+                          {docenteSeleccionado.nivel}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Contacto */}
+                  <div className="pt-6 border-t border-gray-100">
+                    <a
+                      href={`https://mail.google.com/mail/?view=cm&fs=1&to=${docenteSeleccionado.correo}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-3 py-4 bg-[#013055] text-white rounded-2xl font-bold hover:bg-[#013055]/90 transition-all shadow-lg"
+                    >
+                      <Mail className="w-5 h-5" />
+                      Enviar Correo
+                    </a>
                   </div>
                 </div>
               </div>
-
-              {/* Contenido */}
-              <div className="p-8">
-                {/* Mensaje */}
-                <div className="mb-6">
-                  <BookOpen className="w-8 h-8 text-verde-azulado mb-3" />
-                  <p className="text-gray-700 text-lg leading-relaxed italic">
-                    "{docenteSeleccionado.mensaje}"
-                  </p>
-                </div>
-
-                {/* Contacto */}
-                <div className="bg-gray-50 rounded-2xl p-6">
-                  <h3 className="font-bold text-azul-oscuro mb-4 flex items-center gap-2">
-                    <Mail className="w-5 h-5" />
-                    Información de Contacto
-                  </h3>
-                  <a
-                    href={`mailto:${docenteSeleccionado.correo}`}
-                    className="text-verde-azulado hover:text-azul-oscuro font-semibold break-all"
-                  >
-                    {docenteSeleccionado.correo}
-                  </a>
-                </div>
-              </div>
             </motion.div>
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </div>
