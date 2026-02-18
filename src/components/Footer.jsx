@@ -5,11 +5,9 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="bg-[#013055] text-white pt-16">
-
       {/* ================= PARTE SUPERIOR ================= */}
-      <div className="container mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 items-center">
-
           {/* LOGO */}
           <div className="flex justify-center lg:justify-start">
             <img
@@ -21,7 +19,6 @@ const Footer = () => {
 
           {/* CAMPUS */}
           <div className="lg:col-span-2 flex flex-col sm:flex-row justify-center lg:justify-start gap-6">
-
             {/* Cajamarca */}
             <div className="backdrop-blur-md rounded-2xl p-6 w-full sm:w-72">
               <h3 className="text-lg font text-[#fccc00] mb-3">
@@ -79,22 +76,26 @@ const Footer = () => {
 
           {/* REDES + BOTÓN */}
           <div className="flex flex-col items-center lg:items-end gap-6">
-
             {/* Redes */}
             <div className="flex gap-4">
-              {[{
-                href: "https://www.facebook.com/IsaacNewtonCajamarca",
-                icon: <Facebook size={22} />
-              },{
-                href: "https://www.instagram.com/colegio_isaac_newton/?hl=es-la",
-                icon: <Instagram size={22} />
-              },{
-                href: "https://www.youtube.com/@ColegioPrivadoIsaacNewton",
-                icon: <Youtube size={22} />
-              },{
-                href: "https://www.tiktok.com/@colegio_isaacnewton",
-                icon: <Tiktok size={22} />
-              }].map((item, index) => (
+              {[
+                {
+                  href: "https://www.facebook.com/IsaacNewtonCajamarca",
+                  icon: <Facebook size={22} />,
+                },
+                {
+                  href: "https://www.instagram.com/colegio_isaac_newton/?hl=es-la",
+                  icon: <Instagram size={22} />,
+                },
+                {
+                  href: "https://www.youtube.com/@ColegioPrivadoIsaacNewton",
+                  icon: <Youtube size={22} />,
+                },
+                {
+                  href: "https://www.tiktok.com/@colegio_isaacnewton",
+                  icon: <Tiktok size={22} />,
+                },
+              ].map((item, index) => (
                 <a
                   key={index}
                   href={item.href}
@@ -119,10 +120,9 @@ const Footer = () => {
         </div>
       </div>
 
-          {/* ================= LINKS INFERIORES ================= */}
+      {/* ================= LINKS INFERIORES ================= */}
       <div className="mt-14 border-t border-white/20 py-10">
         <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 text-center text-sm gap-6">
-
           {/* Libro de reclamaciones */}
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSdosVFR8OYBpIH48s8wyRgpnSetiE1Eyt2wiXWU1f49bcBN-Q/viewform?usp=header"
@@ -134,35 +134,26 @@ const Footer = () => {
           </a>
 
           {/* Solicite información */}
-          <Link
-            to="/contacto"
-            className="hover:text-[#fccd00] transition"
-          >
+          <Link to="/contacto" className="hover:text-[#fccd00] transition">
             ✦ Solicite información
           </Link>
 
           {/* Trabaja con nosotros */}
-          <Link
-            to="/vacantes"
-            className="hover:text-[#fccd00] transition"
-          >
+          <Link to="/vacantes" className="hover:text-[#fccd00] transition">
             ✦ Trabaja con nosotros
           </Link>
 
           {/* Términos legales */}
-          <Link
-            to="/terminos"
-            className="hover:text-[#fccd00] transition"
-          >
+          <Link to="/terminos" className="hover:text-[#fccd00] transition">
             ✦ Términos legales
           </Link>
-
         </div>
       </div>
 
       {/* ================= COPYRIGHT ================= */}
       <div className="text-center py-6 text-sm text-white/80 border-t border-white/10">
-        © 2026 Colegio Privado de Ciencias Isaac Newton. Todos los derechos reservados.
+        © 2026 Colegio Privado de Ciencias Isaac Newton. Todos los derechos
+        reservados.
       </div>
     </footer>
   );

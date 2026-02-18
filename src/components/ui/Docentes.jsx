@@ -11,71 +11,9 @@ import {
   Calendar,
   BookOpen,
 } from "lucide-react";
+import { docentes } from "@/data/docentes/index.js";
 
-// ========================================
-// DATOS DE DOCENTES CON CORREOS
-// ========================================
-const docentes = [
-  // CAJAMARCA - PRIMARIA
-  {
-    id: 1,
-    nombre: "Erika Cesia León Guadaña",
-    cargo: "Docente de Primaria",
-    area: "Comunicación",
-    sede: "Cajamarca",
-    nivel: "Primaria",
-    correo: "eleon@inewton.edu.pe",
-    imagen:
-      "/public/Comunidad/Docentes/Cajamarca/Primaria/ERIKA LEÓN GUADAÑA_1.jpg",
-    frase:
-      "La educación es el arma más poderosa que puedes usar para cambiar el mundo.",
-    experiencia: "10 años",
-    especialidad: "Comprensión Lectora y Redacción",
-  },
-  {
-    id: 2,
-    nombre: "Terrones Julcamoro Gary",
-    cargo: "Docente de Primaria",
-    area: "Polidocente",
-    sede: "Cajamarca",
-    nivel: "Primaria",
-    correo: "gterrones@inewton.edu.pe",
-    imagen: "/public/Comunidad/Docentes/Cajamarca/Primaria/Gary Terrones.jpg",
-    frase:
-      "Las matemáticas son el lenguaje con el que Dios ha escrito el universo.",
-    experiencia: "8 años",
-    especialidad: "Álgebra y Cálculo",
-  },
-  {
-    id: 3,
-    nombre: "Limay Ñontol Daniela Karina",
-    cargo: "Docente de Primaria",
-    area: "Comunicación",
-    sede: "Cajamarca",
-    nivel: "Primaria",
-    correo: "dlimay@inewton.edu.pe",
-    imagen: "/public/Comunidad/Docentes/Cajamarca/Primaria/Daniela Limay.jpg",
-    frase:
-      "Enseñar no es transferir conocimiento, sino crear las posibilidades para su propia producción.",
-    experiencia: "12 años",
-    especialidad: "Compresión Lectora",
-  },
-  {
-    id: 4,
-    nombre: "Imboma Salvatierra Claudia Estefany",
-    cargo: "Docente de Primaria",
-    area: "Ingles",
-    sede: "Cajamarca",
-    nivel: "Primaria",
-    correo: "cimboma@inewton.edu.pe",
-    imagen: "/public/Comunidad/Docentes/Cajamarca/Primaria/Claudia Imboma.jpg",
-    frase: "La historia es la ciencia de los hombres en el tiempo.",
-    experiencia: "5 años",
-    especialidad: "Idiomas",
-  },
-
-  // CAJAMARCA - SECUNDARIA
-];
+// CAJAMARCA - SECUNDARIA
 
 export default function Docentes() {
   const [busqueda, setBusqueda] = useState("");
@@ -247,7 +185,7 @@ export default function Docentes() {
                           (
                           {
                             docentes.filter(
-                              (d) => d.sede === sedeFiltro && d.nivel === nivel
+                              (d) => d.sede === sedeFiltro && d.nivel === nivel,
                             ).length
                           }
                           )

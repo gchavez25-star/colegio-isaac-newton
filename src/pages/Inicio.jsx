@@ -1,9 +1,9 @@
 import "swiper/css";
 import "swiper/css/effect-fade";
-import HeroSlider from '../components/ui/HeroSlider';
-import AccesosRapidos from '../components/ui/AccesosRapidos';
+import HeroSlider from "../components/ui/HeroSlider";
+import AccesosRapidos from "../components/ui/AccesosRapidos";
 import Talleres from "../components/ui/Talleres";
-import PropuestaEducativa from "@/components/ui/PropuestaEducativa";  
+import PropuestaEducativa from "@/components/ui/PropuestaEducativa";
 import EspaciosAprendizaje from "@/components/ui/EspaciosAprendizaje";
 import Campus from "../components/ui/Campus";
 import PartnersGaleria from "@/components/ui/PartnersGaleria";
@@ -12,41 +12,30 @@ import WelcomeNewton from "@/components/ui/WelcomeNewton";
 import Metrics from "@/components/ui/Metrics";
 
 const Inicio = () => {
-    return (
-    <div className="min-h-screen ">
-
-      {/* Nuevo Hero Slider */}
+  return (
+    <div className="min-h-screen">
+      {/* HERO FULL WIDTH */}
       <HeroSlider />
 
-      {/* Accesos Rápidos */}
-      <AccesosRapidos />
+      {/* CONTENIDO CENTRADO */}
+      <div className="max-w-7xl mx-auto px-6">
+        <AccesosRapidos />
 
-      {/* Welcome */}
-      <WelcomeNewton/>
+        <WelcomeNewton />
 
-       {/* Métricas Institucionales */}
-      <Metrics/>
+        <Metrics />
 
-      {/* Propuesta Pedagógica */}
-      <PropuestaEducativa/>
+        <PropuestaEducativa />
 
-      {/* Espacios de Aprendizaje*/}
-      <EspaciosAprendizaje/> 
+        <Campus />
 
-      {/* Nuestros Campus */}
-      <Campus/>
-
-      {/* Talleres Extracurriculares */}
-      <Talleres />
-    
-      {/* Partners Universitarios */}
-      <PartnersGaleria/>
-
-      {/* Call to Action */}
-      <CtaAdmision/>
-
+        <Talleres />
+      </div>
+      <EspaciosAprendizaje />
+      <PartnersGaleria />
+      <CtaAdmision />
     </div>
   );
 };
-export default Inicio;
 
+export default Inicio;
