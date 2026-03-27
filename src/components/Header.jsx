@@ -109,12 +109,12 @@ const Header = () => {
         {
           name: "Cajamarca",
           path: "/campus/cajamarca",
-          desc: "Sede principal",
+          desc: "Campus principal",
         },
         {
-          name: "Baños del Inca",
+          name: "Los Baños del Inca",
           path: "/campus/banos",
-          desc: "Sede secundaria",
+          desc: "Campus secundaria",
         },
       ],
     },

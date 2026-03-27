@@ -19,8 +19,8 @@ import { useState, useMemo } from "react";
 ===================================================== */
 
 const campusData = {
-  nombre: "Campus Baños del Inca",
-  direccion: "Jr. Yahuar Huacca, Los Baños del Inca",
+  nombre: "Campus Los Baños del Inca",
+  direccion: "Jr. Yahuar Huacca N° 779, Los Baños del Inca",
   telefono: "920 438 721",
   email: "secretariabi@inewton.edu.pe",
   horario: "Lunes a Viernes: 7:30 AM – 6:30 PM",
@@ -88,7 +88,7 @@ const niveles = ["Primaria", "Secundaria"];
 
 const ubicacion = {
   nombre: "Campus Los Baños del Inca",
-  direccion: "Jr. Yahuar Huacca #779, Los Baños del Inca",
+  direccion: "Jr. Yahuar Huacca N° 779, Los Baños del Inca",
   lat: -7.1677904,
   lng: -78.4584945,
 };
@@ -145,7 +145,7 @@ export default function InfraestructuraBanosDelInca() {
       ...campusData,
       ...campusData.niveles[nivelActivo],
     }),
-    [nivelActivo]
+    [nivelActivo],
   );
 
   return (

@@ -78,7 +78,7 @@ const AccesosRapidos = () => {
                   rotate: 5,
                   transition: { duration: 0.3 },
                 }}
-                className="mb-6 text-[#013055] group-hover:text-[#007a75] transition-colors duration-300"
+                className="mb-6 text-[#013055] group-hover:text-[#ffcd00] transition-colors duration-300"
               >
                 {acceso.icono}
               </motion.div>

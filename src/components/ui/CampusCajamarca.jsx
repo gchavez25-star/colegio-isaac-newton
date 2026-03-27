@@ -21,8 +21,8 @@ import { useState, useMemo } from "react";
 const campusData = {
   nombre: "Campus Cajamarca",
   direccion: "Jr. Cruz de Piedra N° 582, Cajamarca",
-  telefono: "932 274 369",
-  email: "newtoncajamarca@inewton.edu.pe",
+  telefono: "953 751 275",
+  email: "secretaria.cajamarca@inewton.edu.pe",
   horario: "Lunes a Viernes: 7:30 AM - 6:30 PM",
 
   mapa: "www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d896.8977769707326!2d-78.51926669999999!3d-7.158194300000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91b25af8ca0f6cbb%3A0xb3d709b3b3a239d2!2sC.P.C.%20Isaac%20Newton!5e1!3m2!1ses-419!2spe!4v1765823134766!5m2!1ses-419!2spe",
@@ -91,7 +91,7 @@ const niveles = ["Primaria", "Secundaria"];
 
 const ubicacion = {
   nombre: "Colegio Isaac Newton Cajamarca",
-  direccion: "Jr. Cruz de Piedra 582, Cajamarca",
+  direccion: "Jr. Cruz de Piedra N° 582, Cajamarca",
   lat: -7.1583289,
   lng: -78.5191143,
 };
@@ -147,7 +147,7 @@ export default function InfraestructuraCajamarca() {
       ...campusData,
       ...campusData.niveles[nivelActivo],
     }),
-    [nivelActivo]
+    [nivelActivo],
   );
 
   return (
@@ -206,7 +206,7 @@ export default function InfraestructuraCajamarca() {
 
             {/* WHATSAPP */}
             <a
-              href="https://wa.me/51932274369"
+              href="https://wa.me/51953751275"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full
@@ -284,19 +284,19 @@ export default function InfraestructuraCajamarca() {
 
               {/* TELÉFONO */}
               <a
-                href="https://wa.me/51932274369"
+                href="https://wa.me/51953751275"
                 target="_blank"
                 className="flex items-center gap-3 hover:text-verde-azulado transition"
               >
                 <Phone className="w-4 h-4 text-verde-azulado" />
                 <span>
-                  <strong>Teléfono:</strong> 932 274 369
+                  <strong>Teléfono:</strong> 953 751 275
                 </span>
               </a>
 
               {/* CORREO */}
               <a
-                href="mailto:newtoncajamarca@inewton.edu.pe"
+                href="mailto:secretaria.cajamarca@inewton.edu.pe"
                 target="_blank"
                 className="flex items-center gap-3 hover:text-verde-azulado transition"
               >
@@ -305,7 +305,7 @@ export default function InfraestructuraCajamarca() {
                 <span className="break-all">
                   <strong>Correo:</strong>
                   <br />
-                  newtoncajamarca@inewton.edu.pe
+                  secretaria.cajamarca@inewton.edu.pe
                 </span>
               </a>
 

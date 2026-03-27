@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ChevronRight, MapPin, ArrowRight, Sparkles, Building2, Trees } from "lucide-react";
+import {
+  ChevronRight,
+  MapPin,
+  ArrowRight,
+  Sparkles,
+  Building2,
+  Trees,
+} from "lucide-react";
 
 const CampusSection = () => {
   const campusCards = [
@@ -8,22 +15,32 @@ const CampusSection = () => {
       name: "Campus Cajamarca",
       location: "Centro de la ciudad",
       image: "/Inicio/Campus/Cajamarca.png",
-      description: "Instalaciones modernas en el corazón de Cajamarca con tecnología de punta.",
-      icon: <Building2 className="w-6 h-6 text-azul-oscuro" />, 
-      highlights: ["Laboratorios equipados", "Biblioteca digital", "Áreas deportivas"],
+      description:
+        "Instalaciones modernas en el corazón de Cajamarca con tecnología de punta.",
+      icon: <Building2 className="w-6 h-6 text-azul-oscuro" />,
+      highlights: [
+        "Laboratorios equipados",
+        "Biblioteca digital",
+        "Áreas deportivas",
+      ],
       color: "bg-verde-azulado",
-      link: "/campus/cajamarca"
+      link: "/campus/cajamarca",
     },
     {
-      name: "Campus Baños del Inca",
+      name: "Campus Los Baños del Inca",
       location: "Zona natural",
       image: "/Inicio/Campus/Baños.png",
-      description: "Entorno natural ideal para el aprendizaje experiencial y actividades al aire libre.",
-      icon: <Trees className="w-6 h-6 text-azul-oscuro" />, 
-      highlights: ["Áreas verdes", "Espacios abiertos", "Conexión con naturaleza"],
+      description:
+        "Entorno natural ideal para el aprendizaje experiencial y actividades al aire libre.",
+      icon: <Trees className="w-6 h-6 text-azul-oscuro" />,
+      highlights: [
+        "Áreas verdes",
+        "Espacios abiertos",
+        "Conexión con naturaleza",
+      ],
       color: "bg-amarillo-dorado",
-      link: "/campus/banos"
-    }
+      link: "/campus/banos",
+    },
   ];
 
   return (
@@ -45,7 +62,8 @@ const CampusSection = () => {
             Nuestros Campus
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Espacios diseñados para inspirar el aprendizaje y el crecimiento integral
+            Espacios diseñados para inspirar el aprendizaje y el crecimiento
+            integral
           </p>
         </motion.div>
 
@@ -84,7 +102,9 @@ const CampusSection = () => {
                     {campus.name}
                   </h3>
                 </div>
-                <p className="text-gray-700 leading-relaxed">{campus.description}</p>
+                <p className="text-gray-700 leading-relaxed">
+                  {campus.description}
+                </p>
 
                 <div className="flex flex-wrap gap-2">
                   {campus.highlights.map((highlight, i) => (
@@ -106,7 +126,9 @@ const CampusSection = () => {
                 </Link>
               </div>
 
-              <div className={`absolute top-0 right-0 w-32 h-32 ${campus.color} opacity-10 rounded-bl-full`}></div>
+              <div
+                className={`absolute top-0 right-0 w-32 h-32 ${campus.color} opacity-10 rounded-bl-full`}
+              ></div>
             </motion.div>
           ))}
         </div>

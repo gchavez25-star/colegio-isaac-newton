@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import { Facebook, Instagram, Youtube } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { SiTiktok, SiWhatsapp } from 'react-icons/si';
+import { useState } from "react";
+import { Facebook, Instagram, Youtube } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { SiTiktok, SiWhatsapp } from "react-icons/si";
 
 const campuses = {
   cajamarca: {
-    label: 'Campus Cajamarca',
-    phone: '51932274369',
+    label: "Campus Cajamarca",
+    phone: "51953751275",
   },
   banos: {
-    label: 'Campus Los Baños del Inca',
-    phone: '51920438721',
+    label: "Campus Los Baños del Inca",
+    phone: "51920438721",
   },
 };
 
@@ -18,11 +18,11 @@ export default function FloatingSocialButtons() {
   const [open, setOpen] = useState(false);
 
   const message = encodeURIComponent(
-    'Hola, me gustaría obtener información sobre el Colegio Isaac Newton.'
+    "Hola, me gustaría obtener información sobre el Colegio Isaac Newton.",
   );
 
   const openWhatsApp = (phone) => {
-    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
     setOpen(false);
   };
 

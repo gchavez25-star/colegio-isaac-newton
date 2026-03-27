@@ -32,17 +32,17 @@ const Footer = () => {
                 Jr. Cruz de Piedra N° 582
               </a>
               <a
-                href="https://wa.me/51932274369"
+                href="https://wa.me/51953751275"
                 target="_blank"
                 className="block text-sm hover:text-[#fccc00] transition"
               >
-                932 374 369
+                953 751 275
               </a>
               <a
                 href="mailto:newtoncajamarca@inewton.edu.pe"
                 className="block text-sm hover:text-[#fccc00] transition whitespace-nowrap"
               >
-                ✉ newtoncajamarca@inewton.edu.pe
+                ✉ secretaria.cajamarca@inewton.edu.pe
               </a>
             </div>
 
