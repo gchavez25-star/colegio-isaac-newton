@@ -30,7 +30,7 @@ const Header = () => {
 
   const subMenuIcons = {
     "Quiénes Somos": Users,
-    "Nuestra Historia": History,
+    //"Nuestra Historia": History,
     Principios: Target,
     "Ente Promotor": Building,
     Primaria: BookOpen,
@@ -40,7 +40,7 @@ const Header = () => {
     Docentes: UsersRound,
     Alumnos: Award,
     Cajamarca: MapPin,
-    "Baños del Inca": Home,
+    "Los Baños del Inca": Home,
   };
 
   const menuItems = [
@@ -53,11 +53,11 @@ const Header = () => {
           path: "/nosotros?section=quienes",
           desc: "Conoce nuestra identidad",
         },
-        {
+        /*{
           name: "Nuestra Historia",
           path: "/nosotros?section=historia",
           desc: "Nuestro recorrido",
-        },
+        },*/
         {
           name: "Principios",
           path: "/nosotros?section=valores",
@@ -96,11 +96,11 @@ const Header = () => {
           path: "/comunidad/docentes",
           desc: "Plana docente",
         },
-        {
+        /*{
           name: "Alumnos",
           path: "/comunidad/alumnos",
           desc: "Estudiantes destacados",
-        },
+        },*/
       ],
     },
     {
@@ -114,7 +114,7 @@ const Header = () => {
         {
           name: "Los Baños del Inca",
           path: "/campus/banos",
-          desc: "Campus secundaria",
+          desc: "Campus secundario",
         },
       ],
     },

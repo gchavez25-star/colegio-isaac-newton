@@ -37,7 +37,8 @@ export default function Docentes() {
   const contadores = {
     total: docentes.length,
     cajamarca: docentes.filter((d) => d.sede === "Cajamarca").length,
-    banosDelInca: docentes.filter((d) => d.sede === "Baños del Inca").length,
+    banosDelInca: docentes.filter((d) => d.sede === "Los Baños del Inca")
+      .length,
     primaria: docentes.filter((d) => d.nivel === "Primaria").length,
     secundaria: docentes.filter((d) => d.nivel === "Secundaria").length,
   };
@@ -266,7 +267,7 @@ export default function Docentes() {
                         <MapPin className="w-4 h-4 text-[#007a75]" />
                       </div>
                       <span className="text-sm font-medium">
-                        Sede {docente.sede}
+                        Campus {docente.sede}
                       </span>
                     </div>
 
