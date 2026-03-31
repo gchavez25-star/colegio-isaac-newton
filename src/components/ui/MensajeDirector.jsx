@@ -5,19 +5,16 @@ import ReconocimientosPUCP from "./ReconocimientosPUCP";
 const MensajeDirector = () => {
   return (
     <>
-    
       {/* ====================================================== */}
       {/*                  SECCIÓN MENSAJE DEL DIRECTOR         */}
       {/* ====================================================== */}
       <section className="py-24 bg-white relative overflow-hidden">
-        
         {/* Decoraciones */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-amarillo-dorado/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-verde-azulado/5 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
-
             {/* Foto del Director */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
@@ -31,7 +28,7 @@ const MensajeDirector = () => {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                 <div className="aspect-[4/5] bg-gradient-to-br from-gray-200 to-gray-300">
                   <img
-                    src="/Nosotros/Director.png"
+                    src="/Comunidad/Directivos/SOTO COLLAZOS RICARDO RAUL.jpg"
                     alt="Director del Colegio Isaac Newton"
                     className="w-full h-full object-cover"
                   />
@@ -75,15 +72,19 @@ const MensajeDirector = () => {
               {/* Texto */}
               <div className="space-y-6">
                 <p className="text-lg text-gray-700 leading-relaxed text-justify">
-                  En el <strong>Colegio Isaac Newton</strong>, creemos firmemente que cada estudiante 
-                  posee un potencial único que merece ser descubierto y desarrollado. Nuestra misión 
-                  es proporcionar una educación integral que no solo forme mentes brillantes, sino 
-                  también corazones nobles y espíritus resilientes.
+                  En el <strong>Colegio Isaac Newton</strong>, creemos
+                  firmemente que cada estudiante posee un potencial único que
+                  merece ser descubierto y desarrollado. Nuestra misión es
+                  proporcionar una educación integral que no solo forme mentes
+                  brillantes, sino también corazones nobles y espíritus
+                  resilientes.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed text-justify">
-                  Con más de 28 años de experiencia en educación, hemos sido testigos de cómo nuestros 
-                  estudiantes se transforman en líderes, innovadores y ciudadanos comprometidos con su 
-                  comunidad. Los invito a ser parte de esta familia que construye el futuro.
+                  Con más de 28 años de experiencia en educación, hemos sido
+                  testigos de cómo nuestros estudiantes se transforman en
+                  líderes, innovadores y ciudadanos comprometidos con su
+                  comunidad. Los invito a ser parte de esta familia que
+                  construye el futuro.
                 </p>
               </div>
 
@@ -100,7 +101,6 @@ const MensajeDirector = () => {
                 </div>
               </div>
             </motion.div>
-
           </div>
         </div>
       </section>
@@ -110,7 +110,6 @@ const MensajeDirector = () => {
       {/* ====================================================== */}
       <section className="py-16 md:py-10 bg-white">
         <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
-
           {/* Título */}
           <div className="text-center mb-12 md:mb-16">
             <h2 className="font-script text-4xl md:text-5xl text-amarillo-dorado">
@@ -122,7 +121,6 @@ const MensajeDirector = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
-
             {/* Imagen */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
@@ -131,13 +129,19 @@ const MensajeDirector = () => {
               viewport={{ once: true }}
               className="relative flex justify-center"
             >
-              <div className="absolute w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 
+              <div
+                className="absolute w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 
                 rounded-full bg-gradient-to-br from-[#D1D5DB] to-[#9CA3AF]
-                left-8 top-6 z-0">
-              </div>
+                left-8 top-6 z-0"
+              ></div>
 
               <div className="absolute top-6 left-0">
-                <svg width="55" height="55" viewBox="0 0 100 100" className="text-amarillo-dorado fill-current">
+                <svg
+                  width="55"
+                  height="55"
+                  viewBox="0 0 100 100"
+                  className="text-amarillo-dorado fill-current"
+                >
                   <path d="M 30 20 L 70 40 L 50 70 Z" />
                 </svg>
               </div>
@@ -156,25 +160,31 @@ const MensajeDirector = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="
+              <div
+                className="
                 bg-gradient-to-b from-[#0E5C89] to-[#0A3D65] 
                 text-white p-8 sm:p-10 md:p-12 rounded-[40px] sm:rounded-[60px] md:rounded-[80px]
                 shadow-xl
-              ">
-
+              "
+              >
                 {/* Misión */}
                 <div className="mb-10 md:mb-12">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-14 h-14 sm:w-16 sm:h-16 bg-amarillo-dorado rounded-md flex items-center justify-center shadow-md">
-                      <Target className="text-azul-oscuro" size={30} strokeWidth={2.5} />
+                      <Target
+                        className="text-azul-oscuro"
+                        size={30}
+                        strokeWidth={2.5}
+                      />
                     </div>
                     <h3 className="font-anton text-3xl sm:text-4xl">MISIÓN</h3>
                   </div>
 
                   <p className="text-sm sm:text-base font-montserrat leading-relaxed opacity-90 ">
-                    Somos una Institución Educativa competitiva e inclusiva que promueve 
-                    una formación integral con valores en nuestros estudiantes para afrontar 
-                    con éxito los retos del mundo actual.
+                    Somos una Institución Educativa competitiva e inclusiva que
+                    promueve una formación integral con valores en nuestros
+                    estudiantes para afrontar con éxito los retos del mundo
+                    actual.
                   </p>
                 </div>
 
@@ -182,25 +192,28 @@ const MensajeDirector = () => {
                 <div>
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-14 h-14 sm:w-16 sm:h-16 bg-amarillo-dorado rounded-md flex items-center justify-center shadow-md">
-                      <Eye className="text-azul-oscuro" size={30} strokeWidth={2.5} />
+                      <Eye
+                        className="text-azul-oscuro"
+                        size={30}
+                        strokeWidth={2.5}
+                      />
                     </div>
                     <h3 className="font-anton text-3xl sm:text-4xl">VISIÓN</h3>
                   </div>
 
                   <p className="text-sm sm:text-base font-montserrat leading-relaxed opacity-90 ">
-                    Ser una Institución Educativa licenciada que brinda una educación integral 
-                    con el propósito de formar personas preparadas para los retos de un mundo cambiante.
+                    Ser una Institución Educativa licenciada que brinda una
+                    educación integral con el propósito de formar personas
+                    preparadas para los retos de un mundo cambiante.
                   </p>
                 </div>
-
               </div>
             </motion.div>
-
           </div>
         </div>
       </section>
       <section>
-        <ReconocimientosPUCP/>
+        <ReconocimientosPUCP />
       </section>
     </>
   );

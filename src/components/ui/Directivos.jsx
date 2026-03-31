@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Linkedin } from "lucide-react";
+import { Mail, Linkedin, X } from "lucide-react";
 
 const Directivos = () => {
   const [selected, setSelected] = useState(null);
@@ -8,11 +8,11 @@ const Directivos = () => {
   const directivos = [
     {
       id: 1,
-      nombre: "Deysi Noriega",
+      nombre: "Deysi Aidee Noriega Alfaro",
       cargo: "Gerente General",
       profesion: "Magíster en Gestión de Proyectos",
-      imagen: "/Comunidad/Directivos/noriega-deysi.png",
-      email: "direccion@inewton.edu.pe",
+      imagen: "/Comunidad/Directivos/NORIEGA ALFARO DEYSI AIDEÉ.png",
+      email: "dnoriega@inewton.edu.pe",
       linkedin: "#",
       trayectoria: [
         "20 años liderando instituciones educativas",
@@ -22,33 +22,41 @@ const Directivos = () => {
     },
     {
       id: 2,
-      nombre: "Ricardo Soto",
+      nombre: "Ricardo Raúl Soto Collazos",
       cargo: "Director",
       profesion: "Magíster en Educación",
-      imagen: "/Directivos/director.jpg",
-      email: "director@inewton.edu.pe",
+      imagen: "/Comunidad/Directivos/SOTO COLLAZOS RICARDO RAUL.jpg",
+      email: "rsoto@inewton.edu.pe",
       linkedin: "#",
       trayectoria: ["Liderazgo pedagógico", "Gestión curricular"],
     },
     {
       id: 3,
-      nombre: "Jorge Asencio",
-      cargo: "Subdirector",
+      nombre: "Jorge Ivan Asencio Carrera",
+      cargo: "Subdirector - Campus Cajamarca",
       profesion: "Licenciado en Educación",
-      imagen: "/Directivos/subdirector.jpg",
-      email: "subdirector@inewton.edu.pe",
+      imagen: "/Comunidad/Directivos/ASENCIO-CARRERA-JORGE-IVAN.jpg",
+      email: "jasencio@inewton.edu.pe",
       linkedin: "#",
-      trayectoria: ["Gestión institucional", "Convivencia escolar"],
+      trayectoria: [
+        "25 años de experiencia profesional",
+        "Gestión institucional",
+        "Convivencia escolar",
+      ],
     },
     {
       id: 4,
-      nombre: "Alicia Ascurra",
-      cargo: "Subdirectora",
+      nombre: "Alicia Marisol Ascurra Gutierrez",
+      cargo: "Subdirectora - Campus Los Baños del Inca",
       profesion: "Licenciada en Educación",
-      imagen: "/Docentes/Los Baños del Inca/Directivo/ascurra.jpg",
-      email: "subdireccion@inewton.edu.pe",
+      imagen: "/Comunidad/Directivos/ALICIA-MARISOL-ASCURRA-GUTIERREZ.jpg",
+      email: "aascurra@inewton.edu.pe",
       linkedin: "#",
-      trayectoria: ["Coordinación académica", "Gestión educativa"],
+      trayectoria: [
+        "25 años de experiencia profesional",
+        "Coordinación académica",
+        "Gestión educativa",
+      ],
     },
   ];
 
@@ -82,50 +90,14 @@ const Directivos = () => {
       {/* MODAL */}
       <AnimatePresence>
         {selected && (
-          <motion.div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelected(null)}
-          >
-            <motion.div
-              className="bg-white rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl"
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.9 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative">
-                <img
-                  src={selected.imagen}
-                  className="w-full h-64 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-
-                <div className="absolute bottom-4 left-6 text-white">
-                  <h3 className="text-2xl font-semibold">{selected.nombre}</h3>
-                  <p className="text-[#ffcd00]">{selected.cargo}</p>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h4 className="font-semibold text-[#013055] mb-3">
-                  Trayectoria Profesional
-                </h4>
-                <ul className="space-y-2 text-gray-700">
-                  {selected.trayectoria.map((item, i) => (
-                    <li key={i}>• {item}</li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-          </motion.div>
+          <ModalDirectivo selected={selected} setSelected={setSelected} />
         )}
       </AnimatePresence>
     </section>
   );
 };
+
+/* ================= CARD ================= */
 
 const PremiumCard = ({ persona, setSelected }) => {
   return (
@@ -133,43 +105,27 @@ const PremiumCard = ({ persona, setSelected }) => {
       whileHover={{ scale: 1.03 }}
       className="group relative rounded-3xl overflow-hidden shadow-lg cursor-pointer"
     >
-      {/* IMAGEN */}
       <img src={persona.imagen} className="w-full h-[380px] object-cover" />
 
-      {/* GRADIENT */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-      {/* INFO BASE */}
       <div className="absolute bottom-0 p-6 text-white">
-        <h3 className="text-lg font-semibold leading-tight">
-          {persona.nombre}
-        </h3>
+        <h3 className="text-lg font">{persona.nombre}</h3>
         <p className="text-[#ffcd00] text-sm">{persona.cargo}</p>
       </div>
 
-      {/* HOVER GLASS */}
+      {/* HOVER */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 backdrop-blur-md bg-white/10 flex flex-col justify-center items-center text-white p-6 text-center">
         <h3 className="text-xl font-semibold mb-1">{persona.nombre}</h3>
-
         <p className="text-[#ffcd00] text-sm mb-2">{persona.cargo}</p>
-
         <p className="text-sm text-gray-200 mb-4">{persona.profesion}</p>
 
-        {/* ACCIONES */}
         <div className="flex gap-4 mb-4">
           <a
             href={`mailto:${persona.email}`}
             className="p-2 bg-white/20 rounded-full hover:bg-white/40 transition"
           >
             <Mail size={18} />
-          </a>
-
-          <a
-            href={persona.linkedin}
-            target="_blank"
-            className="p-2 bg-white/20 rounded-full hover:bg-white/40 transition"
-          >
-            <Linkedin size={18} />
           </a>
         </div>
 
@@ -180,6 +136,89 @@ const PremiumCard = ({ persona, setSelected }) => {
           Ver perfil completo
         </button>
       </div>
+    </motion.div>
+  );
+};
+
+/* ================= MODAL ================= */
+
+const ModalDirectivo = ({ selected, setSelected }) => {
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === "Escape") setSelected(null);
+    };
+
+    window.addEventListener("keydown", handleKey);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      window.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "auto";
+    };
+  });
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={() => setSelected(null)}
+    >
+      <motion.div
+        className="bg-white rounded-3xl w-full max-w-4xl h-[90vh] overflow-hidden shadow-2xl flex flex-col relative"
+        initial={{ scale: 0.9, y: 40 }}
+        animate={{ scale: 1, y: 0 }}
+        exit={{ scale: 0.9, y: 40 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* BOTÓN CERRAR */}
+        <button
+          onClick={() => setSelected(null)}
+          className="absolute top-4 right-4 z-10 bg-white/90 hover:bg-white p-2 rounded-full shadow"
+        >
+          <X size={20} className="text-[#013055]" />
+        </button>
+
+        {/* CONTENIDO */}
+        <div className="flex flex-col md:flex-row h-full">
+          {/* IMAGEN */}
+          <div className="md:w-1/2 bg-gray-100 flex items-center justify-center p-6">
+            <img
+              src={selected.imagen}
+              className="max-h-full object-contain rounded-xl"
+            />
+          </div>
+
+          {/* INFO */}
+          <div className="md:w-1/2 p-8 overflow-y-auto">
+            <div className="mb-6">
+              <h3 className="text-2xl font-semibold text-[#013055]">
+                {selected.nombre}
+              </h3>
+
+              <p className="text-[#ffcd00] font-medium">{selected.cargo}</p>
+
+              <p className="text-gray-500 mt-2">{selected.profesion}</p>
+            </div>
+
+            <div className="h-[1px] bg-gray-200 mb-6" />
+
+            <h4 className="text-lg font-semibold text-[#013055] mb-4">
+              Trayectoria Profesional
+            </h4>
+
+            <ul className="space-y-3 text-gray-700">
+              {selected.trayectoria.map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="mt-2 w-2 h-2 bg-[#ffcd00] rounded-full" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </motion.div>
     </motion.div>
   );
 };
