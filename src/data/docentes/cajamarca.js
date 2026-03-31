@@ -12,7 +12,7 @@ export const docentesCajamarca = [
     nivel: "Primaria",
     correo: "eleon@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Primaria/LEÓN GUADAÑA ERIKA CESIA.jpg",
+      "/Comunidad/Docentes/Cajamarca/Primaria/LEÓN GUADAÑA ERIKA CESIA.webp",
     frase: "La comunicación transforma, educa y libera.",
     experiencia: "10 años",
     especialidad: "Comunicación",
@@ -54,7 +54,7 @@ export const docentesCajamarca = [
     nivel: "Primaria",
     correo: "cimboma@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Primaria/IMBOMA SALVATIERRA CLAUDIA ESTEFANY.jpg",
+      "/Comunidad/Docentes/Cajamarca/Primaria/IMBOMA SALVATIERRA CLAUDIA ESTEFANY.webp",
     frase:
       "With every word in English, you expand your horizons and elevate your dreams.(Con cada palabra en inglés, expandes tus horizontes y elevas tus sueños)",
     experiencia: "5 años",
@@ -83,7 +83,7 @@ export const docentesCajamarca = [
     nivel: "Primaria",
     correo: "kgonzalesbringas@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Primaria/GONZALES BRINGAS KATIA SILVANA.jpg",
+      "/Comunidad/Docentes/Cajamarca/Primaria/GONZALES BRINGAS KATIA SILVANA.webp",
     frase:
       "Acompañando y fortaleciendo el aprendizaje para lograr resultados con propósito.",
     experiencia: "4 años",
@@ -143,7 +143,7 @@ export const docentesCajamarca = [
     nivel: "Primaria",
     correo: "jgarcia@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Primaria/GARCÍA RAMOS JUAN DAVID.jpg",
+      "/Comunidad/Docentes/Cajamarca/Primaria/GARCÍA RAMOS JUAN DAVID.webp",
     frase: "Dios, la música y el hombre, el acorde perfecto.",
     experiencia: "20 años",
     especialidad: "Música",
@@ -157,7 +157,7 @@ export const docentesCajamarca = [
     nivel: "Primaria",
     correo: "scordova@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Primaria/CORDOVA COBIAN SONIA FANNY.jpg",
+      "/Comunidad/Docentes/Cajamarca/Primaria/CORDOVA COBIAN SONIA FANNY.webp",
     frase:
       "Como docente de Ciencias Naturales, transformo la química y la biología en herramientas clave para comprender el mundo, reflexionar críticamente y cuidarlo con responsabilidad.",
     experiencia: "5 años",
