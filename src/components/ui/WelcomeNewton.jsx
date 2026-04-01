@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import StudentImg from "/Inicio/Welcome/Welcome_1.png"; 
+import StudentImg from "/Inicio/Welcome/Welcome_3.png"; 
 // Ajusta la ruta según tu proyecto
 
 export default function WelcomeNewton() {

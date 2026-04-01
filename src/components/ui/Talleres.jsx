@@ -12,7 +12,7 @@ export default function Talleres() {
   ];
 
   const whatsappNumbers = {
-    cajamarca: "51932274369",
+    cajamarca: "51953751275",
     baños: "51920438721",
   };
 
@@ -29,7 +29,7 @@ export default function Talleres() {
       <section className="relative w-full bg-white">
         <div
           className="w-full h-[480px] md:h-[520px] bg-cover bg-center"
-          style={{ backgroundImage: "url('/Inicio/Talleres/TALLERES.png')" }}
+          style={{ backgroundImage: "url('/Inicio/Talleres/TALLERES_1.png')" }}
         />
         <div className="relative -mt-24 z-10 pb-10">
           <div className="flex flex-col items-center">

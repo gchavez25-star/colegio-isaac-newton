@@ -95,7 +95,7 @@ export default function PropuestaEducativa() {
           {/* Fondo amarillo desplazado */} <div className="absolute inset-0 bg-[#fccc00] rounded-lg translate-x-4 translate-y-4"></div>
 
           <img
-            src="/Inicio/Propuesta/PROPUESTA.png"
+            src="/Inicio/Propuesta/PROPUESTA_1.png"
             alt="Propuesta Educativa"
             className="relative z-10 w-full h-full object-cover rounded-2xl"
           />
