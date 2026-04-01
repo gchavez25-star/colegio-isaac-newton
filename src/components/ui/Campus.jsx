@@ -29,7 +29,7 @@ const CampusSection = () => {
     {
       name: "Campus Los Baños del Inca",
       location: "Zona natural",
-      image: "/Inicio/Campus/Baños.png",
+      image: "/Campus/Campus/LocalBDI.jpg",
       description:
         "Entorno natural ideal para el aprendizaje experiencial y actividades al aire libre.",
       icon: <Trees className="w-6 h-6 text-azul-oscuro" />,
