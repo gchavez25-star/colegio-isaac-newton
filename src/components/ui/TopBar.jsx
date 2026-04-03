@@ -50,7 +50,7 @@ const TopBar = () => {
         {/* SEDES + WHATSAPP */}
         <div className="flex gap-6">
           {[
-            { sede: "Cajamarca", tel: "953751275" },
+            { sede: "Cajamarca", tSel: "953751275"  },
             { sede: "Los Baños del Inca", tel: "920438721" },
           ].map((item, i) => (
             <a
