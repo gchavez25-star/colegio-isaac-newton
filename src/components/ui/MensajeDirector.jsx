@@ -25,15 +25,13 @@ const MensajeDirector = () => {
             >
               <div className="absolute -inset-4 bg-gradient-to-br from-verde-azulado/20 to-amarillo-dorado/20 rounded-3xl blur-2xl"></div>
 
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                <div className="aspect-[4/5] bg-gradient-to-br from-gray-200 to-gray-300">
+             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white h-[500px]">
                   <img
-                    src="/Comunidad/Directivos/SOTO COLLAZOS RICARDO RAUL.jpg"
+                    src="/Nosotros/Director.png"
                     alt="Director del Colegio Isaac Newton"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-[center_20%]"
                   />
                 </div>
-              </div>
 
               {/* Badge */}
               <motion.div
@@ -129,24 +127,7 @@ const MensajeDirector = () => {
               viewport={{ once: true }}
               className="relative flex justify-center"
             >
-              <div
-                className="absolute w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 
-                rounded-full bg-gradient-to-br from-[#D1D5DB] to-[#9CA3AF]
-                left-8 top-6 z-0"
-              ></div>
-
-              <div className="absolute top-6 left-0">
-                <svg
-                  width="55"
-                  height="55"
-                  viewBox="0 0 100 100"
-                  className="text-amarillo-dorado fill-current"
-                >
-                  <path d="M 30 20 L 70 40 L 50 70 Z" />
-                </svg>
-              </div>
-
-              <img
+                            <img
                 src="/Nosotros/Identity.png"
                 alt="Estudiante Newtoniana"
                 className="relative z-10 max-w-[260px] sm:max-w-sm md:max-w-md rounded-xl"

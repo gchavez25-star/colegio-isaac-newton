@@ -11,15 +11,14 @@ import 'swiper/css/navigation';
 // =====================================================
 
 const galeria = [
-  "/niveles/secundaria/galeria-1.jpg",
-  "/niveles/secundaria/galeria-2.jpg",
-  "/niveles/secundaria/galeria-3.jpg",
-  "/niveles/secundaria/galeria-4.jpg",
-  "/niveles/secundaria/galeria-5.jpg",
-  "/niveles/secundaria/galeria-6.jpg",
-  "/niveles/secundaria/galeria-7.jpg",
-  "/niveles/secundaria/galeria-8.jpg",
-  "/niveles/secundaria/galeria-9.jpg"
+  "/Niveles/Secundaria/Expresion Secundaria.jpg",
+  "/Niveles/Secundaria/Puntulidad Secundaria.png",
+  "/Niveles/Secundaria/Examen.jpg",
+  "/Niveles/Secundaria/Secundaria.jpg",
+  "/Niveles/Secundaria/Fromacion Secundaria.jpg",
+  "/Niveles/Secundaria/Secundaria banos.jpg",
+  "/Niveles/Secundaria/Expresion Secundaria.jpg",
+  
 ];
 
 const caracteristicas = [
@@ -29,7 +28,7 @@ const caracteristicas = [
       "Desde los 6 años, nuestros alumnos inician su inmersión en español e inglés, a través de una metodología activa, vivencial, contextualizada y significativa.",
       "Contamos con certificaciones de idiomas reconocidas internacionalmente (Richmond) que validan el nivel de nuestros egresados."
     ],
-    imagen: "/niveles/secundaria/trilingue.jpg"
+    imagen: "/Niveles/Secundaria/Ingles.jpg"
   },
   {
     titulo: "Propuesta Deportiva de Alto Nivel",
@@ -37,7 +36,7 @@ const caracteristicas = [
       "Fomentamos el desarrollo de habilidades básicas, destrezas motrices y la vivencia de valores a través del deporte.",
       "Contamos con infraestructura de primer nivel: coliseo multidisciplinario, piscina temperada, campo de fútbol y lozas deportivas."
     ],
-    imagen: "/niveles/secundaria/deportes.jpg"
+    imagen: "/Niveles/Secundaria/Deporte.jpg"
   },
   {
     titulo: "Formación Artística y Expresión Cultural",
@@ -45,7 +44,7 @@ const caracteristicas = [
       "El arte permite a nuestros estudiantes un encuentro consigo mismos y como agentes creadores de cultura.",
       "Nuestros alumnos desarrollan una visión holística de la realidad, enriquecida con el aprendizaje de distintos lenguajes, técnicas y disciplinas artísticas."
     ],
-    imagen: "/niveles/secundaria/arte.jpg"
+    imagen: "/Niveles/Secundaria/Expresion.jpg"
   }
 ];
 
@@ -136,7 +135,7 @@ const NivelSecundaria = () => {
           <picture>
             <source srcSet="/niveles/secundaria/hero-mobile.jpg" media="(max-width: 767px)" />
             <img
-              src="/niveles/secundaria/hero-desktop.jpg"
+              src="/Niveles/Secundaria/Secundaria Nivel.jpg"
               alt="Nivel Secundaria"
               className="w-full h-full object-cover"
             />
@@ -215,7 +214,7 @@ const NivelSecundaria = () => {
                 className="rounded-3xl overflow-hidden shadow-2xl aspect-square"
               >
                 <img
-                  src="/niveles/secundaria/metodologia-1.jpg"
+                  src="/Niveles/Secundaria/Logro.jpg"
                   alt="Secundaria 1"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                 />
@@ -229,7 +228,7 @@ const NivelSecundaria = () => {
                 className="rounded-3xl overflow-hidden shadow-2xl aspect-square mt-12"
               >
                 <img
-                  src="/niveles/secundaria/metodologia-2.jpg"
+                  src="/Niveles/Secundaria/Programa.jpg"
                   alt="Secundaria 2"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                 />

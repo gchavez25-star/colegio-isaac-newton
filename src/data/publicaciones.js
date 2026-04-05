@@ -1,13 +1,24 @@
 export const publicaciones = [
   {
-    id: 1,
-    titulo: 'Inicio del Año Escolar 2025',
-    categoria: 'General',
-    fecha: '2025-03-01',
-    resumen: 'Damos la bienvenida a todos nuestros estudiantes al nuevo año escolar 2025. Este año viene cargado de nuevos retos y oportunidades de aprendizaje.',
-    imagen: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=500&fit=crop',
-    contenido: 'El Colegio Isaac Newton da inicio al año escolar 2025 con renovadas energías y proyectos innovadores...'
-  },
+  id: 2,
+  titulo: 'Conmemoración del Vía Crucis 2026',
+  categoria: 'Eventos',
+  fecha: '2026-04-01',
+
+  resumen: 'Nuestros estudiantes participaron en un emotivo Vía Crucis, fortaleciendo valores como la fe, el amor y la solidaridad.',
+
+  imagen: '/Comunidad/Publicaciones/Semana Santa/Semana 1.jpg',
+
+  contenido: `
+  En el Colegio Privado de Ciencias "Isaac Newton", conmemoramos esta fecha especial con un emotivo Vía Crucis, donde nuestros estudiantes vivieron una experiencia que va más allá del aprendizaje, conectando con valores como el amor, la fe y la solidaridad.
+
+  Cada representación fue una oportunidad para reflexionar, crecer y fortalecer el espíritu, formando jóvenes conscientes y comprometidos con un mundo mejor.
+
+  Porque educar también es enseñar a sentir, creer y actuar con el corazón.
+
+  ¡Ser Newtoniano es un Honor!
+  `
+},
   {
     id: 2,
     titulo: 'Reconocimiento PUCP a Nuestros Egresados',

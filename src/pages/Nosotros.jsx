@@ -26,16 +26,18 @@ const Nosotros = () => {
       {/* ⭐ SI NO hay ?section → mostrar TODA la página */}
       {!section && (
         <>
-          <HeroNewton />
+           {/* <HeroNewton /> */}
 
           <section id="quienes">
             <MensajeDirector />
           </section>
 
-          <section id="historia">
-            <History />
-          </section>
-
+              {/* HISTORIA OCULTA */}
+        {/*
+        <section id="historia">
+          <History />
+        </section>
+        */}
           <section id="valores">
             <PrincipiosValores />
           </section>
@@ -53,11 +55,13 @@ const Nosotros = () => {
         </section>
       )}
 
-      {section === "historia" && (
-        <section id="historia">
-          <History />
-        </section>
-      )}
+       {/*
+    {section === "historia" && (
+      <section id="historia">
+        <History />
+      </section>
+    )}
+    */}
 
       {section === "valores" && (
         <section id="valores">

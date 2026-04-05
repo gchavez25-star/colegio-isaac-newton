@@ -7,16 +7,16 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 // =====================================================
-// 1. DATOS (Separados del componente)
+// 1. DATOS 
 // =====================================================
 
 const galeria = [
-  "/niveles/primaria/galeria-1.jpg",
-  "/niveles/primaria/galeria-2.jpg",
-  "/niveles/primaria/galeria-3.jpg",
-  "/niveles/primaria/galeria-4.jpg",
-  "/niveles/primaria/galeria-5.jpg",
-  "/niveles/primaria/galeria-6.jpg",
+  "/Niveles/Primaria/Declamacion primaria.jpg",
+  "/Niveles/Primaria/Familia primnaria.jpg",
+  "/Niveles/Primaria/Municipio Desarrollo.jpg",
+  "/Niveles/Primaria/Primer Dia Banos.jpg",
+  "/Niveles/Primaria/Primer Dia Primaria.jpg",
+  "/Niveles/Primaria/Semana Santa.jpg",
 ];
 
 const caracteristicas = [
@@ -26,7 +26,7 @@ const caracteristicas = [
       "Acompañamos a cada estudiante en su desarrollo personal, académico, social y emocional.",
       "Nuestra pedagogía fomenta el juego, la curiosidad, la exploración y el pensamiento crítico desde edades tempranas."
     ],
-    imagen: "/niveles/primaria/aprendizaje.jpg"
+    imagen: "/Niveles/Primaria/Integridad.jpg"
   },
   {
     titulo: "Inglés desde Primer Grado",
@@ -34,15 +34,16 @@ const caracteristicas = [
       "Nuestros alumnos adquieren el idioma inglés a través de experiencias significativas, canciones, lectura y actividades interactivas.",
       "Contamos con certificaciones internacionales y docentes especializados."
     ],
-    imagen: "/niveles/primaria/ingles.jpg"
+    imagen: "/Niveles/Primaria/Ingles primaria.jpg"
   },
+  
   {
     titulo: "Actividades Artísticas y Deportivas",
     descripcion: [
       "El desarrollo motriz, artístico y emocional forma parte esencial del proceso educativo.",
       "Los estudiantes participan en talleres de música, dibujo, danza, psicomotricidad y deportes que fortalecen habilidades sociales."
     ],
-    imagen: "/niveles/primaria/actividades.jpg"
+    imagen: "/Niveles/Primaria/Expresion Primaria.jpg"
   }
 ];
 
@@ -130,9 +131,9 @@ const NivelPrimaria = () => {
       <section className="relative h-[60vh] md:h-[70vh] overflow-hidden">
         <div className="absolute inset-0">
           <picture>
-            <source srcSet="/niveles/primaria/hero-mobile.jpg" media="(max-width: 767px)" />
+            <source srcSet="/Niveles/Primaria/Primer Gardo.jpg" media="(max-width: 767px)" />
             <img
-              src="/niveles/primaria/hero-desktop.jpg"
+              src="/Niveles/Primaria/Primer Gardo.jpg"
               alt="Nivel Primaria"
               className="w-full h-full object-cover"
             />
@@ -211,7 +212,7 @@ const NivelPrimaria = () => {
                 className="rounded-3xl overflow-hidden shadow-2xl aspect-square"
               >
                 <img
-                  src="/niveles/primaria/metodologia-1.jpg"
+                  src="/Niveles/Primaria/Logro.jpg"
                   alt="Primaria 1"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                 />
@@ -225,7 +226,7 @@ const NivelPrimaria = () => {
                 className="rounded-3xl overflow-hidden shadow-2xl aspect-square mt-12"
               >
                 <img
-                  src="/niveles/primaria/metodologia-2.jpg"
+                  src="/Niveles/Primaria/Ciencia.jpg"
                   alt="Primaria 2"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                 />

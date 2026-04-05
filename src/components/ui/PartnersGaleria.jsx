@@ -57,44 +57,44 @@ export default function PartnersGaleria() {
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
               {[
                 {
-                  url: "https://www.instagram.com/p/DRP4I0CESmw/?hl=es-la",
+                  url: "https://www.instagram.com/reel/DWoGUgjEYHs/?hl=es-la",
                   type: "video",
-                  src: "/public/Instagram/1.mp4",
+                  src: "/Instagram/✨ Día Mundial de Concienciación sobre el Autismo 💙Hoy, en el Colegio Isaac Newton, nos unimos p.mp4",
                 },
                 {
-                  url: "https://www.instagram.com/p/DQt51V-EQY6/?hl=es-la",
+                  url: "https://www.instagram.com/reel/DV_dJENkcGR/?hl=es-la",
                   type: "video",
-                  src: "/public/Instagram/2.mp4",
+                  src: "/Instagram/📱 ¿Sabías que ahora el uso de celulares en colegios está regulado en el PerúLa Ley N.º 32385 bu.mp4",
                 },
                 {
-                  url: "https://www.instagram.com/p/DQZRIAnDgA0/?hl=es-la",
+                  url: "https://www.instagram.com/reel/DVycay7Edj9/?hl=es-la",
                   type: "video",
-                  src: "/public/Instagram/3.mp4",
+                  src: "/Instagram/🚀 En el Colegio Privado de Ciencias “Isaac Newton”, sabemos que los grandes logros empiezan con.mp4",
                 },
                 {
-                  url: "https://www.instagram.com/p/DQfa3OdkaIq/?hl=es-la",
+                  url: "https://www.instagram.com/reel/DVkSzAlkRGw/?hl=es-la",
                   type: "video",
-                  src: "/public/Instagram/4.mp4",
+                  src: "/Instagram/Revivamos juntos este gran momento… ✨Ayer nuestros campus de Cajamarca y Los Baños del Inca volv.mp4",
                 },
                 {
-                  url: "https://www.instagram.com/p/DQNwQ09ERtE/?hl=es-la",
+                  url: "https://www.instagram.com/reel/DVZp3AlEQAZ/?hl=es-la",
                   type: "video",
-                  src: "/public/Instagram/5.mp4",
+                  src: "/Instagram/✨ Nuestro director, Ricardo Raúl Soto Collazos, comparte la visión que marcará el rumbo del Cole.mp4",
                 },
                 {
-                  url: "https://www.instagram.com/p/DPcyh8bEacA/?hl=es-la",
+                  url: "https://www.instagram.com/reel/DVUDt99Ebce/?hl=es-la",
                   type: "video",
-                  src: "/public/Instagram/6.mp4",
+                  src: "/Instagram/✨📚 ¡Estamos a nada de empezar una nueva aventura escolar!Los pasillos volverán a llenarse de so.mp4",
                 },
                 {
-                  url: "https://www.instagram.com/p/DOOpqiRkT_R/?hl=es-la",
+                  url: "https://www.instagram.com/reel/DVTn3TcjiVL/?hl=es-la",
                   type: "video",
-                  src: "/public/Instagram/7.mp4",
+                  src: "/Instagram/Así vivió Brina su primer día en Newton ✨📚Desde que llegó, empezó a recorrer cada espacio, desc.mp4",
                 },
                 {
-                  url: "https://www.instagram.com/p/DRKV-drEV9f/?hl=es-la",
-                  type: "image",
-                  src: "/public/Instagram/8.jpg",
+                  url: "https://www.instagram.com/reel/DUb5DRZEeBt/?hl=es-la",
+                  type: "video",
+                  src: "/Instagram/Felicitamos con especial reconocimiento a Angie Juliet Solís Salazar 💐 por su destacada partici.mp4",
                 },
               ].map((item, i) => (
                 <a

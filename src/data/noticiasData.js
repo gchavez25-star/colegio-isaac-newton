@@ -2,81 +2,128 @@
 
 export const noticiasData = [
   {
+    
     id: 1,
-    slug: "Municipio",
-    titulo: "Juramentacion de Municipio Escolar",
-    fecha: "04 Diciembre",
+    slug: "via-crucis-2026",
+    titulo: "Conmemoración del Vía Crucis 2026",
+    fecha: "2026-04-01",
     tiempoLectura: "2 minutos",
-    categorias: ["Alumnos", "Artículos", "Eventos", "Prensa"],
-    imagenPrincipal: "/Noticias/Municipio.png",
-    imagenMiniatura: "/Noticias/Municipio.png",
-    destacado: "Inauguramos nuestro nuevo Centro de Gestión del Aprendizaje, un espacio moderno equipado con tecnología de última generación para potenciar el desarrollo académico de nuestros estudiantes.",
+    categorias: ["Alumnos", "Eventos", "Formación en Valores", "Pastoral"],
+
+    imagenPrincipal: "/Comunidad/Publicaciones/Semana Santa/Semana 1.jpg",
+    imagenMiniatura: "/Comunidad/Publicaciones/Semana Santa/Semana 1.jpg",
+
+    destacado:
+      "Nuestros estudiantes participaron en un emotivo Vía Crucis, fortaleciendo valores como la fe, el amor y la solidaridad.",
+
     contenido: [
       {
         tipo: "parrafo",
-        texto: "Con gran orgullo presentamos nuestro nuevo Centro de Gestión del Aprendizaje, un proyecto que representa nuestro compromiso con la educación de excelencia. Este moderno espacio cuenta con áreas de lectura, zonas de trabajo colaborativo, laboratorios digitales y recursos multimedia de última generación."
+        texto:
+          "En el Colegio Privado de Ciencias 'Isaac Newton', conmemoramos esta fecha especial con un emotivo Vía Crucis, donde nuestros estudiantes vivieron una experiencia que va más allá del aprendizaje, conectando con valores como el amor, la fe y la solidaridad."
       },
+
       {
         tipo: "imagen",
-        src: "/Noticias/Municipio.png",
-        alt: "Interior del centro de aprendizaje"
+        src: "/Comunidad/Publicaciones/Semana Santa/Semana 2.jpg",
+        alt: "Estudiantes participando en el Vía Crucis"
       },
+
       {
         tipo: "parrafo",
-        texto: "El centro fue diseñado pensando en las necesidades del estudiante del siglo XXI, ofreciendo espacios flexibles que promueven tanto el estudio individual como el trabajo en equipo. Contamos con más de 10,000 títulos físicos y acceso a bibliotecas digitales internacionales."
+        texto:
+          "Cada representación fue una oportunidad para reflexionar, crecer y fortalecer el espíritu, formando jóvenes conscientes y comprometidos con un mundo mejor."
       },
+
+      {
+        tipo: "parrafo",
+        texto:
+          "Porque educar también es enseñar a sentir, creer y actuar con el corazón."
+      },
+
+      {
+        tipo: "parrafo",
+        texto:
+          "¡Ser Newtoniano es un Honor!"
+      },
+
       {
         tipo: "imagen",
-        src: "/Noticias/Municipio.png",
-        alt: "Zona de lectura"
+        src: "/Comunidad/Publicaciones/Semana Santa/Semana 3.jpg",
+        alt: "Representación del Vía Crucis en el colegio Isaac Newton"
       }
+    
+  
     ],
     galeria: [
-      "/noticias/centro-aprendizaje/galeria-1.jpg",
-      "/noticias/centro-aprendizaje/galeria-2.jpg",
-      "/noticias/centro-aprendizaje/galeria-3.jpg",
-      "/noticias/centro-aprendizaje/galeria-4.jpg",
-      "/noticias/centro-aprendizaje/galeria-5.jpg",
-      "/noticias/centro-aprendizaje/galeria-6.jpg"
+      "/Comunidad/Publicaciones/Semana Santa/Semana 4.jpg",
+      "/Comunidad/Publicaciones/Semana Santa/Semana 5.jpg",
+      "/Comunidad/Publicaciones/Semana Santa/Semana 6.jpg",
+   
     ]
   },
   {
     id: 2,
-    slug: "newton-mun-2024",
-    titulo: "NewtonMUN 2024",
-    fecha: "23 junio",
-    tiempoLectura: "4 minutos",
-    categorias: ["Alumni", "Artículos", "Eventos", "Prensa"],
-    imagenPrincipal: "/noticias/newton-mun/hero.jpg",
-    imagenMiniatura: "/noticias/newton-mun/miniatura.jpg",
-    destacado: "Nuestros estudiantes participaron en el Modelo de Naciones Unidas 2024, demostrando habilidades de liderazgo, negociación y pensamiento crítico en debates sobre temas globales.",
-    contenido: [
-      {
-        tipo: "parrafo",
-        texto: "El NewtonMUN 2024 reunió a más de 200 estudiantes de diferentes colegios para debatir sobre los desafíos más importantes que enfrenta la humanidad. Durante tres días intensos, nuestros delegados representaron a diversos países en comités especializados."
-      },
-      {
-        tipo: "imagen",
-        src: "/noticias/newton-mun/imagen-1.jpg",
-        alt: "Estudiantes en debate"
-      },
-      {
-        tipo: "parrafo",
-        texto: "Los temas abordados incluyeron cambio climático, derechos humanos, seguridad internacional y desarrollo sostenible. Nuestros estudiantes destacaron por su preparación, oratoria y capacidad de negociación, obteniendo múltiples reconocimientos."
-      },
-      {
-        tipo: "video",
-        thumbnail: "/noticias/newton-mun/video-thumb.jpg",
-        youtubeUrl: "https://www.youtube.com/watch?v=ejemplo",
-        texto: "Ver resumen completo del evento en YouTube"
-      }
-    ],
-    galeria: [
-      "/noticias/newton-mun/galeria-1.jpg",
-      "/noticias/newton-mun/galeria-2.jpg",
-      "/noticias/newton-mun/galeria-3.jpg",
-      "/noticias/newton-mun/galeria-4.jpg"
-    ]
+  slug: "inicio-ano-escolar-2026",
+  titulo: "Inicio del Año Escolar 2026",
+  fecha: "05 marzo",
+  tiempoLectura: "3 minutos",
+
+  categorias: ["Institucional", "Eventos", "Estudiantes", "Prensa"],
+
+  imagenPrincipal: "/Comunidad/Publicaciones/Inicio/Inicio 1.jpg",
+  imagenMiniatura: "/Comunidad/Publicaciones/Inicio/Inicio 1.jpg",
+
+  destacado:
+    "Dimos la bienvenida al Año Escolar 2026 con entusiasmo y compromiso, iniciando una nueva etapa llena de aprendizajes, retos y oportunidades para nuestros estudiantes.",
+
+  contenido: [
+    {
+      tipo: "parrafo",
+      texto:
+        "El Colegio Privado de Ciencias 'Isaac Newton' dio inicio al Año Escolar 2026 en un ambiente lleno de entusiasmo, alegría y expectativas. Estudiantes, docentes y padres de familia se reunieron para comenzar juntos una nueva etapa académica orientada al crecimiento integral."
+    },
+
+    {
+      tipo: "imagen",
+      src: "/Comunidad/Publicaciones/Inicio/Inicio 2.jpg",
+      alt: "Bienvenida a los estudiantes en el inicio del año escolar"
+    },
+
+    {
+      tipo: "parrafo",
+      texto:
+        "Durante la ceremonia de apertura se destacó la importancia del compromiso, la responsabilidad y el esfuerzo constante como pilares fundamentales para alcanzar el éxito académico y personal. Nuestros estudiantes iniciaron esta nueva etapa con motivación y energía positiva."
+    },
+
+    {
+      tipo: "imagen",
+      src: "/Comunidad/Publicaciones/Inicio/Inicio 3.jpg",
+      alt: "Ceremonia de apertura del año escolar 2026"
+    },
+
+    {
+      tipo: "parrafo",
+      texto:
+        "El colegio reafirma su compromiso con la formación integral de sus estudiantes, brindando un entorno seguro, moderno y estimulante, acompañado por docentes altamente capacitados y una propuesta educativa basada en la excelencia académica y los valores institucionales."
+    },
+
+    {
+      tipo: "video",
+      thumbnail: "/noticias/inicio-2026/video-thumb.jpg",
+      youtubeUrl: "/Instagram/Revivamos juntos este gran momento… ✨Ayer nuestros campus de Cajamarca y Los Baños del Inca volv.mp4",
+      texto: "Ver resumen del Inicio del Año Escolar 2026"
+    }
+  ],
+
+  galeria: [
+    "/Comunidad/Publicaciones/Inicio/Inicio 4.jpg",
+    "/Comunidad/Publicaciones/Inicio/Inicio 5.jpg",
+    "/Comunidad/Publicaciones/Inicio/Inicio 6.jpg",
+    "/Comunidad/Publicaciones/Inicio/Inicio 7.jpg",
+    "/Comunidad/Publicaciones/Inicio/Inicio 8.jpg",
+    "/Comunidad/Publicaciones/Inicio/Inicio 9.jpg"
+  ]
   },
   {
     id: 3,
