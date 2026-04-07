@@ -21,10 +21,10 @@ const sedes = ["Cajamarca", "Los Baños del Inca"];
 
 const contactosPorSede = {
   Cajamarca: {
-    telefono: "932274369",
-    telefonoTexto: "932 274 369",
-    whatsapp: "51932274369",
-    email: "newtoncajamarca@inewton.edu.pe",
+    telefono: "953751275",
+    telefonoTexto: "953 751 275",
+    whatsapp: "51953751275",
+    email: "secretaria.cajamarca@inewton.edu.pe",
     direccion: "Jr. Cruz de Piedra N° 582, Cajamarca",
     horario: "Lunes a Viernes: 7:30 AM - 6:30 PM",
     imagen: "/public/Contacto/Cajamarca.jpg",
@@ -36,7 +36,7 @@ const contactosPorSede = {
     email: "secretariabi@inewton.edu.pe",
     direccion: "Jr. Yahuar Huaca N° 799, Los Baños del Inca",
     horario: "Lunes a Viernes: 7:30 AM - 6:30 PM",
-    imagen: "/public/Contacto/LosBañosdelInca.jpg",
+    imagen: "/Campus/Los Baños del Inca/Patio 1.jpg",
   },
 };
 
@@ -154,9 +154,9 @@ ${formData.mensaje}
       if (contacto?.whatsapp) {
         window.open(
           `https://wa.me/${contacto.whatsapp}?text=${encodeURIComponent(
-            mensajeWhatsApp
+            mensajeWhatsApp,
           )}`,
-          "_blank"
+          "_blank",
         );
       }
 
@@ -387,15 +387,15 @@ ${formData.mensaje}
                       enviado
                         ? "bg-green-500"
                         : cargando
-                        ? "bg-verde-azulado/70"
-                        : "bg-verde-azulado hover:opacity-90"
+                          ? "bg-verde-azulado/70"
+                          : "bg-verde-azulado hover:opacity-90"
                     } text-white`}
                 >
                   {enviado
                     ? "¡Mensaje enviado!"
                     : cargando
-                    ? "Enviando..."
-                    : "Enviar mensaje"}
+                      ? "Enviando..."
+                      : "Enviar mensaje"}
                   {!cargando && !enviado && <Send size={20} />}
                 </motion.button>
               </form>
@@ -587,7 +587,7 @@ ${formData.mensaje}
                   </p>
                   <motion.a
                     href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                      campus.direccion
+                      campus.direccion,
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"

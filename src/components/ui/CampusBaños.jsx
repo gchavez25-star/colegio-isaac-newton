@@ -25,15 +25,14 @@ const campusData = {
   email: "secretariabi@inewton.edu.pe",
   horario: "Lunes a Viernes: 7:30 AM – 6:30 PM",
 
-  video: "https://www.youtube.com/embed/VIDEO_ID_AQUI",
+  video: "https://www.youtube.com/embed/PvHZsaZvqNg",
 
   niveles: {
     Primaria: {
       titulo: "Nivel Primaria",
       descripcion:
         "Ambientes diseñados para el desarrollo integral del estudiante en un entorno natural y seguro, promoviendo el aprendizaje activo y el bienestar emocional.",
-      imagen:
-        "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1200",
+      imagen: "/Campus/Los Baños del Inca/Juego Primaria.jpg",
       caracteristicas: [
         "Aulas modernas e iluminadas",
         "Sala de cómputo equipada",
@@ -44,13 +43,11 @@ const campusData = {
       galeria: [
         {
           titulo: "Aulas modernas",
-          imagen:
-            "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800",
+          imagen: "/Campus/Los Baños del Inca/Juego Primaria 2.jpg",
         },
         {
           titulo: "Sala de cómputo",
-          imagen:
-            "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800",
+          imagen: "/Campus/Los Baños del Inca/Laboratorio 1.jpg",
         },
       ],
     },
@@ -59,8 +56,7 @@ const campusData = {
       titulo: "Nivel Secundaria",
       descripcion:
         "Infraestructura orientada al desarrollo académico, tecnológico y personal del estudiante, en contacto con la naturaleza.",
-      imagen:
-        "https://images.unsplash.com/photo-1541339907198-e0875663f974?w=1200",
+      imagen: "/Campus/Los Baños del Inca/Plataforma.jpg",
       caracteristicas: [
         "Laboratorios y aulas especializadas",
         "Área de tecnología educativa",
@@ -71,8 +67,7 @@ const campusData = {
       galeria: [
         {
           titulo: "Áreas deportivas",
-          imagen:
-            "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800",
+          imagen: "/Campus/Los Baños del Inca/Local.jpg",
         },
         {
           titulo: "Tópico escolar",
@@ -156,7 +151,7 @@ export default function InfraestructuraBanosDelInca() {
              bg-cover bg-right-top text-white text-center 
              flex items-center"
         style={{
-          backgroundImage: "url('/public/Campus/Campus Baños.jpg')",
+          backgroundImage: "url('/Campus/Los Baños del Inca/Ingreso.jpg')",
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/20" />

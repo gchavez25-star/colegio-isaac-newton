@@ -15,9 +15,9 @@ const campusData = {
         "Infraestructura moderna del Campus Cajamarca del Colegio Isaac Newton.",
       image: "/seo/campus-cajamarca.jpg",
     },
-    whatsapp: "51932274369",
+    whatsapp: "51953751275",
     direccion: "Jr. Cruz de Piedra 582, Cajamarca",
-    mapa: "https://www.google.com/maps?q=-7.1583289,-78.5191143&z=17&output=embed",
+    mapa: "https://www.google.com/maps/place/Colegio+Isaac+Newton+Cajamarca/@-7.1583236,-78.5216892,17z/data=!3m1!4b1!4m6!3m5!1s0x91b25af8ca0f6cbb:0xb3d709b3b3a239d2!8m2!3d-7.1583289!4d-78.5191143!16s%2Fg%2F11c5rn8bt5?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D",
 
     General: {
       titulo: "Infraestructura General",
@@ -59,20 +59,20 @@ const campusData = {
 
   "Baños del Inca": {
     seo: {
-      title: "Campus Baños del Inca | Colegio Isaac Newton",
+      title: "Campus Los Baños del Inca | Colegio Isaac Newton",
       description:
         "Campus rodeado de naturaleza y amplios espacios de aprendizaje.",
-      image: "/seo/campus-banos.jpg",
+      image: "/Campus/Los Baños del Inca/Patio 1.jpg",
     },
     whatsapp: "51920438721",
     direccion: "Jr. Yahuar Huacca #779, Baños del Inca",
-    mapa: "https://www.google.com/maps?q=-7.1677904,-78.4584945&z=17&output=embed",
+    mapa: "https://www.google.com/maps/place/Colegio+Isaac+Newton+Los+Ba%C3%B1os+del+Inca/@-7.167169,-78.4619201,17z/data=!3m1!4b1!4m6!3m5!1s0x91b2456d977947b9:0x399e095184287eda!8m2!3d-7.1671743!4d-78.4593452!16s%2Fg%2F11vl1p_5lb?entry=ttu&g_ep=EgoyMDI2MDQwNS4wIKXMDSoASAFQAw%3D%3D",
 
     General: {
       titulo: "Infraestructura General",
       descripcion:
         "Campus rodeado de naturaleza que promueve el bienestar estudiantil.",
-      imagen: "/public/Campus/Campus Baños.jpg",
+      imagen: "/Campus/Los Baños del Inca/Patio 1.jpg",
       caracteristicas: [
         "Áreas verdes",
         "Ambientes abiertos",
@@ -83,7 +83,7 @@ const campusData = {
     Primaria: {
       titulo: "Nivel Primaria",
       descripcion: "Ambientes amplios y naturales para el aprendizaje activo.",
-      imagen: "/public/Campus/Ambientes Primaria.jpg",
+      imagen: "/Campus/Los Baños del Inca/Primaria Baja.jpg",
       caracteristicas: [
         "Aulas iluminadas",
         "Sala de cómputo",
@@ -94,7 +94,7 @@ const campusData = {
     Secundaria: {
       titulo: "Nivel Secundaria",
       descripcion: "Formación académica en armonía con la naturaleza.",
-      imagen: "/public/Campus/Academica Primaria.jpg",
+      imagen: "/Campus/Los Baños del Inca/Pabellon.jpg",
       caracteristicas: ["Laboratorios", "Áreas deportivas", "Salas de estudio"],
     },
   },
@@ -110,7 +110,7 @@ const niveles = ["General", "Primaria", "Secundaria"];
 function WhatsAppCTA({ sede, nivel }) {
   const telefono = campusData[sede].whatsapp;
   const mensaje = encodeURIComponent(
-    `Hola, deseo información sobre ${nivel} en el Campus ${sede} del Colegio Isaac Newton.`
+    `Hola, deseo información sobre ${nivel} en el Campus ${sede} del Colegio Isaac Newton.`,
   );
 
   return (

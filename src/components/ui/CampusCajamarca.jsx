@@ -27,7 +27,7 @@ const campusData = {
 
   mapa: "www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d896.8977769707326!2d-78.51926669999999!3d-7.158194300000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91b25af8ca0f6cbb%3A0xb3d709b3b3a239d2!2sC.P.C.%20Isaac%20Newton!5e1!3m2!1ses-419!2spe!4v1765823134766!5m2!1ses-419!2spe",
 
-  video: "https://www.youtube.com/embed/VIDEO_ID_AQUI",
+  video: "https://www.youtube.com/embed/PvHZsaZvqNg",
 
   niveles: {
     Primaria: {
