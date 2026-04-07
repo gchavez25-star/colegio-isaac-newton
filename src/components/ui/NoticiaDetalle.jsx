@@ -5,7 +5,13 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { ArrowLeft, Facebook, Twitter, Linkedin, Link as LinkIcon, Clock } from "lucide-react";
+import { 
+  ArrowLeft, 
+  Facebook, 
+  Instagram,
+  Youtube,
+  Clock 
+} from "lucide-react";
 import { useState } from "react";
 import { getNoticiaBySlug } from "../../data/noticiasData";
 
@@ -20,24 +26,6 @@ const NoticiaDetalle = () => {
   if (!noticia) {
     return <Navigate to="/comunidad/publicaciones" replace />;
   }
-
-  const copiarLink = () => {
-    navigator.clipboard.writeText(window.location.href);
-    setLinkCopiado(true);
-    setTimeout(() => setLinkCopiado(false), 2000);
-  };
-
-  const compartirFacebook = () => {
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`, '_blank');
-  };
-
-  const compartirTwitter = () => {
-    window.open(`https://twitter.com/intent/tweet?url=${window.location.href}&text=${noticia.titulo}`, '_blank');
-  };
-
-  const compartirLinkedIn = () => {
-    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${window.location.href}`, '_blank');
-  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -70,46 +58,82 @@ const NoticiaDetalle = () => {
               </div>
 
               {/* Botones compartir */}
-              <div className="flex items-center gap-3">
-                <span className="text-sm mr-2">Compartir</span>
+              {/* Redes sociales */}
+                <div className="flex items-center gap-3 flex-wrap">
 
-                <button
-                  onClick={compartirFacebook}
-                  className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all"
-                  aria-label="Compartir en Facebook"
-                >
-                  <Facebook className="w-5 h-5" />
-                </button>
+                  <span className="text-sm mr-2 font-semibold">
+                    Síguenos
+                  </span>
 
-                <button
-                  onClick={compartirTwitter}
-                  className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all"
-                  aria-label="Compartir en Twitter"
-                >
-                  <Twitter className="w-5 h-5" />
-                </button>
+                  {/* Facebook */}
+                  <a
+                    href="https://www.facebook.com/IsaacNewtonCajamarca"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-white/10 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all"
+                    aria-label="Facebook"
+                  >
+                    <Facebook className="w-5 h-5" />
+                  </a>
 
-                <button
-                  onClick={compartirLinkedIn}
-                  className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all"
-                  aria-label="Compartir en LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </button>
+                  {/* Instagram */}
+                  <a
+                    href="https://www.instagram.com/colegio_isaac_newton/?hl=es-la"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-white/10 hover:bg-pink-500 rounded-full flex items-center justify-center transition-all"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="w-5 h-5" />
+                  </a>
 
-                <button
-                  onClick={copiarLink}
-                  className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all relative"
-                  aria-label="Copiar enlace"
-                >
-                  <LinkIcon className="w-5 h-5" />
-                  {linkCopiado && (
-                    <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-verde-azulado text-white text-xs px-3 py-1 rounded whitespace-nowrap">
-                      ¡Copiado!
-                    </span>
-                  )}
-                </button>
-              </div>
+                  {/* TikTok */}
+                  <a
+                    href="https://www.tiktok.com/@colegio_isaacnewton"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-white/10 hover:bg-black rounded-full flex items-center justify-center transition-all"
+                    aria-label="TikTok"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      className="w-5 h-5 fill-white"
+                    >
+                      <path d="M12 2h3a5 5 0 005 5v3a8 8 0 01-5-2v7a6 6 0 
+                      11-6-6v3a3 3 0 103 3V2z"/>
+                    </svg>
+                  </a>
+
+                  {/* YouTube */}
+                  <a
+                    href="https://www.youtube.com/@ColegioPrivadoIsaacNewton"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-white/10 hover:bg-red-600 rounded-full flex items-center justify-center transition-all"
+                    aria-label="YouTube"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      className="w-5 h-5 fill-white"
+                    >
+                      <path d="M21.8 8s-.2-1.5-.8-2.2c-.7-.8-1.5-.8-1.9-.9C16.4 
+                      4.7 12 4.7 12 4.7h0s-4.4 
+                      0-7.1.2c-.4 0-1.2.1-1.9.9C2.4 
+                      6.5 2.2 8 2.2 8S2 
+                      9.8 2 11.6v1.7C2 15.1 
+                      2.2 17 2.2 17s.2 1.5.8 
+                      2.2c.7.8 1.7.8 2.1.9 
+                      1.5.1 6.9.2 6.9.2s4.4 
+                      0 7.1-.2c.4 0 1.2-.1 
+                      1.9-.9.6-.7.8-2.2.8-2.2s.2-1.8.2-3.6v-1.7C22 
+                      9.8 21.8 8 21.8 
+                      8zM10 14.5v-5l5 2.5-5 2.5z"/>
+                    </svg>
+                  </a>
+
+                </div>
 
             </div>
           </motion.div>

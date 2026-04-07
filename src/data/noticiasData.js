@@ -1,12 +1,52 @@
 // src/data/noticiasData.js
 
 export const noticiasData = [
+   {
+  id: 1,
+  slug: "ingreso-universidad-nacional-cajamarca-2026",
+  titulo: "Estudiantes Newtonianos ingresan a la UNC",
+  fecha: "abril 2026",
+  tiempoLectura: "3 minutos",
+  categorias: ["Logros", "Admisión"],
+  imagenPrincipal: "/Comunidad/Publicaciones/Ingreso/Ingreso 2.jpg",
+  imagenMiniatura: "/Comunidad/Publicaciones/Ingreso/Ingreso 2.jpg",
+  destacado: "Felicitamos a nuestros estudiantes por su ingreso a la Universidad Nacional de Cajamarca, reflejo de su esfuerzo, disciplina y perseverancia.",
+  contenido: [
+    {
+      tipo: "parrafo",
+      texto: "Hoy celebramos con orgullo el ingreso de nuestros estudiantes a las diferentes carreras profesionales de la Universidad Nacional de Cajamarca. Este importante logro es el resultado de su dedicación constante, disciplina y compromiso con su formación académica."
+    },
+    {
+      tipo: "parrafo",
+      texto: "Como institución educativa, reafirmamos nuestro compromiso de seguir formando líderes con valores, preparados para enfrentar los desafíos del futuro y destacar en el mundo profesional."
+    },
+    {
+      tipo: "parrafo",
+      texto: "¡Sigamos construyendo juntos historias de éxito! Ser Newtoniano es un honor."
+    }
+  ],
+  galeria: [
+    "/Comunidad/Publicaciones/Ingreso/Ingreso 1.jpg",
+    "/Comunidad/Publicaciones/Ingreso/Ingreso 4.jpg",
+    "/Comunidad/Publicaciones/Ingreso/Ingreso 3.jpg",
+    "/Comunidad/Publicaciones/Ingreso/Ingreso 4.jpg",
+    "/Comunidad/Publicaciones/Ingreso/Ingreso 5.jpg"
+  ],
+  tags: [
+    "Admisión2026",
+    "PrimariaSecundaria",
+    "Neurociencia",
+    "DesarrolloSostenible",
+    "InteligenciaArtificial",
+    "Idiomas"
+  ]
+  },
   {
     
-    id: 1,
+    id: 2,
     slug: "via-crucis-2026",
     titulo: "Conmemoración del Vía Crucis 2026",
-    fecha: "2026-04-01",
+    fecha: "abril 2026",
     tiempoLectura: "2 minutos",
     categorias: ["Alumnos", "Eventos", "Formación en Valores", "Pastoral"],
 
@@ -63,7 +103,7 @@ export const noticiasData = [
     ]
   },
   {
-    id: 2,
+  id: 3,
   slug: "inicio-ano-escolar-2026",
   titulo: "Inicio del Año Escolar 2026",
   fecha: "05 marzo",
@@ -125,160 +165,170 @@ export const noticiasData = [
     "/Comunidad/Publicaciones/Inicio/Inicio 9.jpg"
   ]
   },
+ 
   {
-    id: 3,
-    slug: "feria-ciencias-2024",
-    titulo: "Feria de Ciencias Isaac Newton 2024",
-    fecha: "20 noviembre",
-    tiempoLectura: "6 minutos",
-    categorias: ["Eventos", "Artículos"],
-    imagenPrincipal: "/noticias/feria-ciencias/hero.jpg",
-    imagenMiniatura: "/noticias/feria-ciencias/miniatura.jpg",
-    destacado: "La Feria de Ciencias 2024 mostró los proyectos de investigación más innovadores de nuestros estudiantes, desde robótica hasta biotecnología, demostrando el espíritu científico newtoniano.",
-    contenido: [
-      {
-        tipo: "parrafo",
-        texto: "Más de 50 proyectos científicos fueron presentados en nuestra tradicional Feria de Ciencias, abarcando disciplinas como física, química, biología, matemáticas y tecnología. Cada proyecto fue el resultado de meses de investigación y experimentación."
-      },
-      {
-        tipo: "imagen",
-        src: "/noticias/feria-ciencias/imagen-1.jpg",
-        alt: "Proyecto de robótica"
-      },
-      {
-        tipo: "parrafo",
-        texto: "Los proyectos ganadores incluyeron un sistema de purificación de agua usando energía solar, un brazo robótico controlado por señales cerebrales, y un estudio sobre microplásticos en ecosistemas locales. El jurado estuvo conformado por científicos de universidades nacionales e internacionales."
-      },
-      {
-        tipo: "imagen",
-        src: "/noticias/feria-ciencias/imagen-2.jpg",
-        alt: "Estudiantes presentando proyecto"
-      }
+    
+  id: 4,
+  slug: "convenio-pmi-norte-peru",
+  titulo: "Convenio con PMI Norte Perú fortalece la formación académica",
+  fecha: "7 febrero",
+  tiempoLectura: "4 minutos",
+  categorias: ["Convenios", "Institucional"],
+  imagenPrincipal: "/Comunidad/Publicaciones/Convenio/Convenio1.jpg",
+  imagenMiniatura: "/Comunidad/Publicaciones/Convenio/Convenio1.jpg",
+  destacado: "El Colegio Isaac Newton firma un importante convenio con PMI Norte Perú, fortaleciendo la innovación, el liderazgo y la educación con enfoque global.",
+  contenido: [
+    {
+      tipo: "parrafo",
+      texto: "El Colegio Privado de Ciencias Isaac Newton celebró la firma de un importante convenio corporativo con el Project Management Institute (PMI) Norte Perú, estableciendo una alianza estratégica que impulsa la calidad educativa, la innovación y el desarrollo profesional de nuestra comunidad."
+    },
+    {
+      tipo: "imagen",
+      src: "/Comunidad/Publicaciones/Convenio/Convenio2.jpg",
+      alt: "Firma de convenio con PMI"
+    },
+    {
+      tipo: "parrafo",
+      texto: "Gracias a esta alianza, nuestros estudiantes podrán acceder a conocimientos, experiencias y buenas prácticas en gestión de proyectos, fortaleciendo competencias clave como el liderazgo, la planificación estratégica y la innovación con un enfoque global."
+    },
+    {
+      tipo: "imagen",
+      src: "/Comunidad/Publicaciones/Convenio/Convenio3.jpg",
+      alt: "Representantes del colegio y PMI"
+    },
+    {
+      tipo: "parrafo",
+      texto: "Con este tipo de iniciativas, el colegio reafirma su compromiso de construir vínculos con instituciones de prestigio, contribuyendo al crecimiento de la comunidad educativa y preparando a los estudiantes para los desafíos del futuro."
+    }
+  ],
+  galeria: [
+    "/Comunidad/Publicaciones/Convenio/Convenio4.jpg",
+    "/Comunidad/Publicaciones/Convenio/Convenio5.jpg",
+    "/Comunidad/Publicaciones/Convenio/Convenio6.jpg",
+    "/Comunidad/Publicaciones/Convenio/Convenio7.jpg"
+  ],
+  tags: [
+    "ConvenioCorporativo",
+    "PMINortePeru",
+    "AlianzaEstrategica",
+    "EducacionQueTransforma",
+    "InnovacionEducativa",
+    "Cajamarca",
+    "LosBañosDelInca"
+  ],
+  contacto: {
+    telefonos: [
+      "076 280932 - Cajamarca",
+      "932 274 369 - Cajamarca",
+      "920 438 721 - Los Baños del Inca"
     ],
-    galeria: [
-      "/noticias/feria-ciencias/galeria-1.jpg",
-      "/noticias/feria-ciencias/galeria-2.jpg",
-      "/noticias/feria-ciencias/galeria-3.jpg",
-      "/noticias/feria-ciencias/galeria-4.jpg",
-      "/noticias/feria-ciencias/galeria-5.jpg"
-    ]
-  },
-  {
-    id: 4,
-    slug: "graduacion-2024",
-    titulo: "Ceremonia de Graduación 2024",
-    fecha: "15 diciembre",
-    tiempoLectura: "4 minutos",
-    categorias: ["Eventos", "Alumnos"],
-    imagenPrincipal: "/noticias/graduacion/hero.jpg",
-    imagenMiniatura: "/noticias/graduacion/miniatura.jpg",
-    destacado: "Celebramos con orgullo la graduación de la promoción 2024, jóvenes preparados para enfrentar los desafíos del futuro con los valores y conocimientos adquiridos en Isaac Newton.",
-    contenido: [
-      {
-        tipo: "parrafo",
-        texto: "En una emotiva ceremonia, despedimos a la promoción 2024, conformada por 85 estudiantes que culminaron exitosamente su educación secundaria. Durante cinco años, estos jóvenes han demostrado excelencia académica, liderazgo y compromiso con los valores institucionales."
-      },
-      {
-        tipo: "imagen",
-        src: "/noticias/graduacion/imagen-1.jpg",
-        alt: "Graduados lanzando birretes"
-      },
-      {
-        tipo: "parrafo",
-        texto: "El 95% de nuestros graduados ha sido aceptado en universidades de prestigio nacional e internacional. Varios obtuvieron becas completas en instituciones como la Universidad Nacional Mayor de San Marcos, PUCP, y universidades en España y Estados Unidos."
-      },
-      {
-        tipo: "video",
-        thumbnail: "/noticias/graduacion/video-thumb.jpg",
-        youtubeUrl: "https://www.youtube.com/watch?v=ejemplo",
-        texto: "Ver ceremonia completa en YouTube"
-      }
-    ],
-    galeria: [
-      "/noticias/graduacion/galeria-1.jpg",
-      "/noticias/graduacion/galeria-2.jpg",
-      "/noticias/graduacion/galeria-3.jpg",
-      "/noticias/graduacion/galeria-4.jpg",
-      "/noticias/graduacion/galeria-5.jpg",
-      "/noticias/graduacion/galeria-6.jpg"
-    ]
-  },
-  {
-    id: 5,
-    slug: "festival-cultural-2024",
-    titulo: "Festival Cultural Newtoniano 2024",
-    fecha: "10 octubre",
-    tiempoLectura: "5 minutos",
-    categorias: ["Eventos", "Artículos"],
-    imagenPrincipal: "/noticias/festival-cultural/hero.jpg",
-    imagenMiniatura: "/noticias/festival-cultural/miniatura.jpg",
-    destacado: "El Festival Cultural reunió música, danza, teatro y arte de diferentes culturas del mundo, celebrando la diversidad y el talento artístico de nuestra comunidad educativa.",
-    contenido: [
-      {
-        tipo: "parrafo",
-        texto: "Nuestro Festival Cultural anual se convirtió en una celebración de la diversidad, con presentaciones que abarcaron desde danzas folclóricas peruanas hasta música clásica europea, pasando por teatro contemporáneo y exposiciones de arte visual."
-      },
-      {
-        tipo: "imagen",
-        src: "/noticias/festival-cultural/imagen-1.jpg",
-        alt: "Presentación de danza"
-      },
-      {
-        tipo: "parrafo",
-        texto: "Más de 300 estudiantes participaron en las diferentes presentaciones, demostrando meses de preparación y dedicación. El evento contó con la presencia de artistas invitados que compartieron talleres y masterclasses con nuestros estudiantes."
-      },
-      {
-        tipo: "imagen",
-        src: "/noticias/festival-cultural/imagen-2.jpg",
-        alt: "Orquesta estudiantil"
-      }
-    ],
-    galeria: [
-      "/noticias/festival-cultural/galeria-1.jpg",
-      "/noticias/festival-cultural/galeria-2.jpg",
-      "/noticias/festival-cultural/galeria-3.jpg",
-      "/noticias/festival-cultural/galeria-4.jpg"
-    ]
-  },
-  {
-    id: 6,
-    slug: "olimpiadas-deportivas-2024",
-    titulo: "Olimpiadas Deportivas Isaac Newton 2024",
-    fecha: "5 septiembre",
-    tiempoLectura: "4 minutos",
-    categorias: ["Eventos", "Alumni"],
-    imagenPrincipal: "/noticias/olimpiadas/hero.jpg",
-    imagenMiniatura: "/noticias/olimpiadas/miniatura.jpg",
-    destacado: "Las Olimpiadas Deportivas 2024 fueron un éxito rotundo, con la participación de todos los niveles en competencias de atletismo, natación, fútbol, vóley y básquet.",
-    contenido: [
-      {
-        tipo: "parrafo",
-        texto: "Durante una semana completa, nuestras instalaciones deportivas fueron el escenario de emocionantes competencias donde estudiantes de todos los niveles demostraron sus habilidades atléticas, trabajo en equipo y espíritu deportivo."
-      },
-      {
-        tipo: "imagen",
-        src: "/noticias/olimpiadas/imagen-1.jpg",
-        alt: "Competencia de atletismo"
-      },
-      {
-        tipo: "parrafo",
-        texto: "Las olimpiadas no solo fueron una competencia deportiva, sino también una celebración de valores como el respeto, la perseverancia y el fair play. Cada estudiante dio lo mejor de sí, creando momentos memorables y fortaleciendo los lazos de amistad."
-      },
-      {
-        tipo: "video",
-        thumbnail: "/noticias/olimpiadas/video-thumb.jpg",
-        youtubeUrl: "https://www.youtube.com/watch?v=ejemplo",
-        texto: "Ver mejores momentos en YouTube"
-      }
-    ],
-    galeria: [
-      "/noticias/olimpiadas/galeria-1.jpg",
-      "/noticias/olimpiadas/galeria-2.jpg",
-      "/noticias/olimpiadas/galeria-3.jpg",
-      "/noticias/olimpiadas/galeria-4.jpg",
-      "/noticias/olimpiadas/galeria-5.jpg"
+    direcciones: [
+      "Jr. Cruz de Piedra #582 - Cajamarca",
+      "Jr. Yahuar Huaca #779 - Baños del Inca"
     ]
   }
+  },
+  {
+  id: 5,
+  slug: "mejor-colegio-privado-cajamarca",
+  titulo: "Isaac Newton reconocido como Mejor Colegio Privado de Cajamarca",
+  fecha: "19 enero",
+  tiempoLectura: "3 minutos",
+  categorias: ["Logros", "Institucional"],
+  imagenPrincipal: "/Comunidad/Publicaciones/Newton/Newton1.jpg",
+  imagenMiniatura: "/Comunidad/Publicaciones/Newton/Newton1.jpg",
+  destacado: "El Colegio Isaac Newton es reconocido como el Mejor Colegio Privado de Cajamarca, destacando por su excelencia académica y compromiso educativo.",
+  contenido: [
+    {
+      tipo: "parrafo",
+      texto: "Con gran orgullo, el Colegio Privado de Ciencias Isaac Newton celebra haber sido reconocido como ganador en la nominación al Mejor Colegio Privado de Cajamarca, un logro que reafirma su liderazgo en educación de calidad."
+    },
+    {
+      tipo: "imagen",
+      src: "/Comunidad/Publicaciones/Newton/Newton2.jpg",
+      alt: "Reconocimiento al mejor colegio"
+    },
+    {
+      tipo: "parrafo",
+      texto: "En esta importante categoría participaron 15 colegios privados de la región, siendo nuestra institución distinguida por brindar una verdadera excelencia académica, basada en innovación, disciplina y formación integral."
+    },
+    {
+      tipo: "parrafo",
+      texto: "Este reconocimiento es resultado del compromiso conjunto de estudiantes, docentes y familias, quienes día a día contribuyen a consolidar una educación de alto nivel y a formar ciudadanos preparados para el futuro."
+    },
+    {
+      tipo: "parrafo",
+      texto: "Ser Newtoniano es un honor."
+    }
+  ],
+  galeria: [
+    "/Comunidad/Publicaciones/Newton/Newton3.jpg",
+    "/Comunidad/Publicaciones/Newton/Newton4.jpg",
+    "/Comunidad/Publicaciones/Newton/Newton5.jpg",
+    "/Comunidad/Publicaciones/Newton/Newton6.jpg"
+  ],
+  tags: [
+    "MejorColegio",
+    "ExcelenciaAcademica",
+    "Cajamarca",
+    "LogrosNewtonianos",
+    "EducacionDeCalidad"
+  ]
+  },
+  {
+  id: 6,
+  slug: "clausura-ano-escolar-2025",
+  titulo: "Clausura del Año Escolar 2025 en Isaac Newton",
+  fecha: "diciembre 2025",
+  tiempoLectura: "4 minutos",
+  categorias: ["Eventos", "Institucional"],
+  imagenPrincipal: "/Comunidad/Publicaciones/Clausura/Clausura1.jpg",
+  imagenMiniatura: "/Comunidad/Publicaciones/Clausura/Clausura1.jpg",
+  destacado: "El Colegio Isaac Newton celebró la clausura del Año Escolar 2025 con una emotiva ceremonia que destacó los logros académicos, el liderazgo estudiantil y el espíritu de unidad.",
+  contenido: [
+    {
+      tipo: "parrafo",
+      texto: "El Colegio Privado de Ciencias Isaac Newton realizó la clausura oficial del Año Escolar 2025 mediante una significativa ceremonia que reunió a estudiantes, docentes, directivos y familias, marcando el cierre de un año lleno de logros académicos y formativos."
+    },
+    {
+      tipo: "imagen",
+      src: "/Comunidad/Publicaciones/Clausura/Clausura2.jpg",
+      alt: "Ceremonia de clausura escolar"
+    },
+    {
+      tipo: "parrafo",
+      texto: "Durante el acto central, se llevó a cabo la juramentación del nuevo Municipio Escolar, fortaleciendo la participación democrática y el liderazgo estudiantil. Asimismo, se realizó el tradicional cambio de escolta, símbolo del relevo del honor, la disciplina y el compromiso entre los estudiantes."
+    },
+    {
+      tipo: "imagen",
+      src: "/Comunidad/Publicaciones/Clausura/Clausura3.jpg",
+      alt: "Cambio de escolta"
+    },
+    {
+      tipo: "parrafo",
+      texto: "La ceremonia se desarrolló en un ambiente festivo y de unidad, destacando la presentación de los estudiantes, quienes interpretaron villancicos navideños, transmitiendo mensajes de paz, esperanza y alegría propios de la temporada."
+    },
+    {
+      tipo: "parrafo",
+      texto: "Ser Newtoniano es un honor."
+    }
+  ],
+  galeria: [
+    "/Comunidad/Publicaciones/Clausura/Clausura4.jpg",
+    "/Comunidad/Publicaciones/Clausura/Clausura5.jpg",
+    "/Comunidad/Publicaciones/Clausura/Clausura6.jpg",
+    "/Comunidad/Publicaciones/Clausura/Clausura7.jpg",
+    "/Comunidad/Publicaciones/Clausura/Clausura8.jpg"
+  ],
+  tags: [
+    "Clausura2025",
+    "MunicipioEscolar",
+    "CambioDeEscolta",
+    "EventosEscolares",
+    "Navidad",
+    "Cajamarca"
+  ]
+}
 ];
 
 // -------------------- HELPERS --------------------

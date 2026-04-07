@@ -22,8 +22,8 @@ const Comunidad = () => {
        {/* Docentes */}
       <Docentes />          
 
-      {/* Alumnos */}
-      <Alumnos />               
+     {/* Alumnos */}
+      {/*<Alumnos />*/}               
                   
   </div>   
   );
