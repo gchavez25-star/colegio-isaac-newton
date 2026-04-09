@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
 export default defineConfig({
-  base: '/web/', // 👈 AGREGA ESTA LÍNEA
+  base: '/web/', //
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
