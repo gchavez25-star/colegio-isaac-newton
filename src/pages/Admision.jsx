@@ -60,7 +60,7 @@ const RequisitosMatricula = () => {
             <div className="space-y-4">
               <div className="bg-verde-azulado inline-flex items-center px-4 py-2 rounded-lg shadow-lg">
                 <Play className="w-5 h-5 text-white mr-2 fill-white" />
-                <h3 className="text-white font-bold text-xl uppercase">Estudiante</h3>
+                <h3 className="text-white  text-xl uppercase">Estudiante</h3>
               </div>
               
               <ul className="space-y-3 text-lg text-gray-700">
@@ -77,7 +77,7 @@ const RequisitosMatricula = () => {
             <div className="space-y-4">
               <div className="bg-verde-azulado inline-flex items-center px-4 py-2 rounded-lg shadow-lg">
                 <Play className="w-5 h-5 text-white mr-2 fill-white" />
-                <h3 className="text-white font-bold text-xl uppercase">Padres de familia</h3>
+                <h3 className="text-white  text-xl uppercase">Padres de familia</h3>
               </div>
               
               <ul className="space-y-3 text-lg text-gray-700">
@@ -108,7 +108,7 @@ const RequisitosMatricula = () => {
             {/* Contenedor de la imagen con bordes redondeados */}
             <div className="absolute inset-0 rounded-[40px] overflow-hidden shadow-2xl">
               <img
-                src="/matricula/estudiante-matricula.png" // Usar una imagen de un estudiante apuntando
+                src="/Admision/IMG_8072.jpg" // Usar una imagen de un estudiante apuntando
                 alt="Estudiante apuntando a los requisitos"
                 className="w-full h-full object-cover object-top"
               />
@@ -174,55 +174,59 @@ const Admision = () => {
   ];
 
   const fechasImportantes = [
-    { evento: 'Inicio de inscripciones', fecha: 'Enero 2025' },
-    { evento: 'Evaluaciones de admisión', fecha: 'Febrero 2025' },
-    { evento: 'Proceso de matrícula', fecha: 'Febrero - Marzo 2025' },
-    { evento: 'Inicio del año escolar', fecha: 'Marzo 2025' }
+    { evento: 'Inicio de inscripciones', fecha: 'Enero 2026' },
+    { evento: 'Evaluaciones de admisión', fecha: 'Febrero 2026' },
+    { evento: 'Proceso de matrícula', fecha: 'Febrero - Marzo 2026' },
+    { evento: 'Inicio del año escolar', fecha: 'Marzo 2026' }
   ];
 
   return (
-    <div className="min-h-screen pt-32">
+    <div className="min-h-screen ">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-azul-oscuro to-verde-azulado text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=1080&fit=crop')] bg-cover bg-center"></div>
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.3, type: 'spring' }}
-              className="inline-block bg-amarillo-dorado text-azul-oscuro px-6 py-3 rounded-full font-bold mb-6 text-lg"
-            >
-              ¡Inscripciones Abiertas 2025!
-            </motion.div>
-            <h1 className="font-anton text-5xl md:text-6xl mb-6">
-              Proceso de Admisión
-            </h1>
-            <p className="text-xl md:text-2xl font-light mb-8">
-              Únete a la familia Isaac Newton y descubre todo tu potencial
-            </p>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link
-                to="/contacto"
-                className="inline-flex items-center gap-2 bg-amarillo-dorado text-azul-oscuro px-8 py-4 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity"
-              >
-                Postular ahora
-                <ChevronRight />
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+     <section className="relative py-24 overflow-hidden">
+  {/* Background */}
+  <div className="absolute inset-0">
+    <img
+      src="/Admision/Admision.jpg"
+      alt="Proceso de admisión"
+      className="w-full h-full object-cover"
+    />
+    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70 backdrop-blur-[2px]"></div>
+  </div>
 
+  {/* Content */}
+  <div className="relative z-10 container mx-auto px-6">
+    <div className="max-w-3xl mx-auto text-center text-white">
+
+      {/* Badge */}
+      <div className="inline-block mb-6 px-5 py-2 rounded-full bg-yellow-400/90 text-gray-900 text-sm md:text-base font-semibold shadow-md backdrop-blur">
+        Inscripciones Abiertas 2027
+      </div>
+
+      {/* Title */}
+      <h1 className="font-anton text-4xl md:text-6xl leading-tight mb-6 tracking-wide">
+        Proceso de <span className="text-yellow-400">Admisión</span>
+      </h1>
+
+      {/* Subtitle */}
+      <p className="text-lg md:text-xl text-gray-200 mb-10 font-light leading-relaxed">
+        Únete a la familia Isaac Newton y descubre todo tu potencial académico y humano.
+      </p>
+
+      {/* CTA */}
+      <div>
+        <Link
+          to="/contacto"
+          className="inline-flex items-center gap-3 bg-yellow-400 text-gray-900 px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+        >
+          Postular ahora
+          <ChevronRight className="w-5 h-5" />
+        </Link>
+      </div>
+
+    </div>
+  </div>
+</section>
       {/* Proceso de Admisión */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">

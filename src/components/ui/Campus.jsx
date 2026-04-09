@@ -24,7 +24,7 @@ const CampusSection = () => {
         "Áreas deportivas",
       ],
       color: "bg-verde-azulado",
-      link: "/campus/cajamarca",
+      link: "/Inicio/Campus/Cajamarca.png",
     },
     {
       name: "Campus Los Baños del Inca",

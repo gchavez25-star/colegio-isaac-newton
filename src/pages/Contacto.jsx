@@ -27,7 +27,7 @@ const contactosPorSede = {
     email: "secretaria.cajamarca@inewton.edu.pe",
     direccion: "Jr. Cruz de Piedra N° 582, Cajamarca",
     horario: "Lunes a Viernes: 7:30 AM - 6:30 PM",
-    imagen: "/public/Contacto/Cajamarca.jpg",
+    imagen: "/Contacto/Pabellon A1.png",
   },
   "Los Baños del Inca": {
     telefono: "920438721",
@@ -36,7 +36,7 @@ const contactosPorSede = {
     email: "secretariabi@inewton.edu.pe",
     direccion: "Jr. Yahuar Huaca N° 799, Los Baños del Inca",
     horario: "Lunes a Viernes: 7:30 AM - 6:30 PM",
-    imagen: "/Campus/Los Baños del Inca/Patio 1.jpg",
+    imagen: "/Contacto/Patio 1.jpg",
   },
 };
 
@@ -519,8 +519,7 @@ ${formData.mensaje}
             <div className="space-y-4">
               {[
                 { dia: "Lunes a Viernes", horario: "7:30 AM - 6:30 PM" },
-                { dia: "Sábados", horario: "9:00 AM - 12:00 PM" },
-                { dia: "Domingos y Feriados", horario: "Cerrado" },
+                { dia: "Sábados, Domingos y Feriados", horario: "Cerrado" },
               ].map((item, index) => (
                 <motion.div
                   key={index}

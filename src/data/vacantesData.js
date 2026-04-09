@@ -8,24 +8,24 @@ export const vacantesData = [
   {
     id: 1,
     tipo: 'docente',
-    titulo: 'Convocatoria Docentes 2026 – Secundaria',
+    titulo: 'Convocatoria Docente – Primaria',
     descripcion:
-      'Buscamos docentes para Matemática, Comunicación y Ciencias Sociales.',
+      'Buscamos docente para 1re grado de primaria.',
     requisitos:
-      'Licenciado en Educación, experiencia mínima de 2 años.',
-    fechaCierre: '30 de Enero de 2025',
+      'Titulo profesional en Educación, experiencia mínima de 2 años.',
+    fechaCierre: '06 de Febrero de 2026',
     icono: GraduationCap,
     basesUrl: '/bases/docentes-2025'
   },
   {
     id: 2,
     tipo: 'administrativo',
-    titulo: 'Asistente de Admisiones y Marketing',
+    titulo: 'Coordinador de Logística y Servicios Generales.',
     descripcion:
-      'Gestión de admisiones, atención a padres y apoyo en campañas.',
+      'Manejo de Inventarios, Dominio de excel y gestión de proveedores.',
     requisitos:
-      'Experiencia en atención al cliente y redes sociales.',
-    fechaCierre: '15 de Febrero de 2025',
+      'Experiencia minima de 2 años.',
+    fechaCierre: '10 de Marzo de 2026',
     icono: Briefcase,
     basesUrl: '/bases/admisiones'
   },

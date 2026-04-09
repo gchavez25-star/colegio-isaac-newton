@@ -27,21 +27,21 @@ const serviciosData = [
         detalle:
           'Laboratorios de Física, Química y Biología equipados con tecnología moderna.',
         imagen:
-          '/Servicios/Ciencias.jpg'
+          '/Header/Servicios/Laboratorio Especializados.jpg'
       },
       {
         titulo: 'Programa de Idiomas',
         detalle:
           'Certificación en Inglés Richmond con inmersión cultural.',
         imagen:
-          '/Servicios/Idiomas.jpg'
+          '/Header/Servicios/Programa Ingles.jpg'
       },
       {
         titulo: 'Plataforma Virtual SIEWEB',
         detalle:
           'Acceso 24/7 a notas, tareas, comunicados y materiales.',
         imagen:
-          '/Servicios/Sieweb.jpg'
+          '/Header/Servicios/SIEWEB.png'
       }
     ]
   },
@@ -57,14 +57,14 @@ const serviciosData = [
         detalle:
           'Fútbol, vóley, básquet y natación.',
         imagen:
-          '/Servicios/Deportes.jpg'
+          '/Header/Servicios/Deportes .jpg'
       },
       {
         titulo: 'Arte y Cultura',
         detalle:
           'Música, danza, teatro y artes plásticas.',
         imagen:
-          '/Servicios/Arte.jpg'
+          '/Header/Servicios/Arte.jpg'
       }
     ]
   },
@@ -80,15 +80,15 @@ const serviciosData = [
         detalle:
           'Orientación personalizada para estudiantes.',
         imagen:
-          '/Servicios/Psicologia.jpg'
+          '/Header/Servicios/Psicologia.jpg'
       }, 
       { titulo: 'Tópico y Enfermería', 
         detalle: 'Atención de primeros auxilios y seguimiento de salud escolar.', 
-        imagen: '/Servicios/Topico.jpg' }, 
+        imagen: '/Header/Servicios/Topico.jpg' }, 
 
       { titulo: 'Escuela de Padres',
         detalle: 'Charlas y talleres para fortalecer las habilidades parentales.',
-        imagen: '/Servicios/Escuela.jpg' }
+        imagen: '/Header/Servicios/Escuela.jpg' }
     ]
   },
   {
@@ -103,7 +103,7 @@ const serviciosData = [
         detalle:
           'Alimentación balanceada supervisada.',
         imagen:
-          '/Servicios/Comedor.jpg'
+          '/Header/Servicios/Comedor.png'
       }
     ]
   }
@@ -152,7 +152,7 @@ export default function Servicios() {
      <section className="relative py-20 text-white">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/Servicios/Services.jpg')" }}
+        style={{ backgroundImage: "url('/Header/Servicios/Services.jpg')" }}
       ></div>
       <div className="absolute inset-0 bg-gradient-to-br from-azul-oscuro to-verde-azulado opacity-80"></div>
       

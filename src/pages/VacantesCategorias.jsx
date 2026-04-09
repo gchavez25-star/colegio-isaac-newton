@@ -6,15 +6,15 @@ import { vacantesData } from '@/data/vacantesData';
 const categoriasConfig = {
   docente: {
     label: 'Docente',
-    image: 'public/Vacantes/Docente.jpg'
+    image: '/Header/Vacantes/Docente.jpg'
   },
   administrativo: {
     label: 'Administrativo',
-    image: 'public/Vacantes/Administrativo.jpg'
+    image: '/Header/Vacantes/Administrativo.jpg'
   },
   servicios: {
     label: 'Servicios',
-    image: 'public/Vacantes/Servicios.jpg'
+    image: '/Header/Vacantes/Servicios.jpg'
   }
 };
 
@@ -32,7 +32,7 @@ export default function VacantesCategorias() {
                 rgba(7, 40, 66, 0.85),
                 rgba(0, 128, 128, 0.85)
             ),
-            url('/Vacantes/Convocatoria.jpg')
+            url('/Header/Vacantes/Convocatoria.jpg')
             `
         }}
         >

@@ -43,7 +43,7 @@ const campusData = {
       galeria: [
         {
           titulo: "Aulas modernas",
-          imagen: "/Campus/Los Baños del Inca/Juego Primaria 2.jpg",
+          imagen: "/Campus/Los Baños del Inca/Aulas Interactivas.jpg",
         },
         {
           titulo: "Sala de cómputo",
@@ -72,7 +72,7 @@ const campusData = {
         {
           titulo: "Tópico escolar",
           imagen:
-            "https://images.unsplash.com/photo-1580281658629-9c5a77f9c1d6?w=800",
+            "/Campus/Los Baños del Inca/Topico.jpg",
         },
       ],
     },

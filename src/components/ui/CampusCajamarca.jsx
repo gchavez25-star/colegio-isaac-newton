@@ -34,7 +34,7 @@ const campusData = {
       titulo: "Nivel Primaria",
       descripcion:
         "Espacios pedagógicos diseñados para el desarrollo integral del estudiante, fomentando el aprendizaje activo, la creatividad y la formación en valores.",
-      imagen: "/public/Campus/Cajamarca/Primaria.jpg",
+      imagen: "/Campus/Cajamarca/Patio 3.jpg",
       caracteristicas: [
         "Aulas interactivas con pantallas digitales",
         "Laboratorio de cómputo educativo",
@@ -44,15 +44,15 @@ const campusData = {
       galeria: [
         {
           titulo: "Aulas Interactivas",
-          imagen: "/public/Campus/Cajamarca/Aula Interactiva.jpg",
+          imagen: "/Campus/Cajamarca/Tecnologia.jpg",
         },
         {
           titulo: "Laboratorio de Computo",
-          imagen: "/public/Campus/Cajamarca/Laboratorio.jpg",
+          imagen: "/Campus/Cajamarca/Laboratorio-de-computación.jpg",
         },
         {
-          titulo: "Patios recreativos seguros",
-          imagen: "/public/Campus/Cajamarca/Patios.jpg",
+          titulo: "Patios Recreativos Seguros",
+          imagen: "/Campus/Cajamarca/Patio.png",
         },
       ],
     },
@@ -61,7 +61,7 @@ const campusData = {
       titulo: "Nivel Secundaria",
       descripcion:
         "Infraestructura moderna orientada a la formación preuniversitaria, la investigación científica y el desarrollo tecnológico.",
-      imagen: "/public/Campus/Cajamarca/Secundaria.jpg",
+      imagen: "/Campus/Cajamarca/Secundaria.jpg",
       caracteristicas: [
         "Laboratorios de Física, Química y Biología",
         "Salas de estudio colaborativo",
@@ -72,16 +72,17 @@ const campusData = {
       galeria: [
         {
           titulo: "Laboratorio de Ciencias",
-          imagen: "/public/Campus/Cajamarca/Ciencias.jpg",
+          imagen: "/Campus/Cajamarca/Laboratorio 2.jpg",
         },
         {
-          titulo: "Área de Tecnologia",
-          imagen: "/public/Campus/Cajamarca/Tecnologia.jpg",
+          titulo: "Espacios Amplios",
+          imagen: "/Campus/Cajamarca/Patio 2.png",
         },
         {
           titulo: "Auditorio institucional",
-          imagen: "/public/Campus/Cajamarca/Auditorio.jpg",
-        },
+          imagen: "/Campus/Cajamarca/Auditorio 1.jpg",
+        }
+        
       ],
     },
   },
@@ -158,7 +159,7 @@ export default function InfraestructuraCajamarca() {
              bg-cover bg-right-top text-white text-center 
              flex items-center"
         style={{
-          backgroundImage: "url('/public//Campus/Campus Colegio.jpg')",
+          backgroundImage: "url('/Campus/Cajamarca/Pabellon A1.png')",
         }}
       >
         {/* OVERLAY */}
