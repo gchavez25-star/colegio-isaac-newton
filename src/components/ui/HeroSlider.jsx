@@ -58,8 +58,8 @@ const HeroSlider = () => {
       id: 4,
       type: "image",
       title: "Un entorno Seguro y Familiar para tus hijos",
-      imageMobile: "/Inicio/Hero/Familia.jpg",
-      imageDesktop: "/Inicio/Hero/Familia.jpg",
+      imageMobile: "./Inicio/Hero/Familia.jpg",
+      imageDesktop: "./Inicio/Hero/Familia.jpg",
       buttons: [
         {
           text: "Inicia el Proceso de Admisión",

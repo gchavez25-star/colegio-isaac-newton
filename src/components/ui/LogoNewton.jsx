@@ -11,7 +11,7 @@ export default function LogoNewton() {
 
         {/* Escudo */}
         <img
-          src="/Escudo líneas.png"
+          src="public/Escudo líneas.png"
           alt="Escudo Isaac Newton"
           className="
             h-7 xs:h-8 sm:h-9 md:h-10 lg:h-12 
