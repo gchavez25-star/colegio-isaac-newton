@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { BookOpen, CheckCircle, ChevronRight, User, GraduationCap, Microscope, Palette, Dumbbell } from 'lucide-react';
@@ -128,6 +129,12 @@ const BeneficioCard = ({ icono, titulo, descripcion }) => {
 const NivelSecundaria = () => {
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title="Nivel Secundaria | Colegio Isaac Newton"
+        description="Descubre el nivel secundaria del Colegio Isaac Newton: formación académica sólida, laboratorios, programa bilingüe y preparación para el futuro universitario."
+        canonicalPath="/nivel/secundaria"
+        image="/Niveles/Secundaria/Secundaria Nivel.jpg"
+      />
       
       {/* HERO SECTION */}
       <section className="relative h-[60vh] md:h-[70vh] overflow-hidden">

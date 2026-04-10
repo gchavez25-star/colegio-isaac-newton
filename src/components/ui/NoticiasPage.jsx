@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -23,6 +24,12 @@ const NoticiasPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Noticias y Publicaciones | Colegio Isaac Newton"
+        description="Mantente al día con las noticias, actividades, eventos y publicaciones más recientes de la comunidad educativa Isaac Newton."
+        canonicalPath="/comunidad/publicaciones"
+        image="/Comunidad/Publicaciones/Inicio/Inicio 1.jpg"
+      />
       
       {/* HERO SECTION CON SLIDER */}
       <section className="relative min-h-screen bg-azul-oscuro overflow-hidden">

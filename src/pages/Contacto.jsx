@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 import {
   MapPin,
   Phone,
@@ -90,12 +91,6 @@ const Contacto = () => {
   const [errores, setErrores] = useState({});
   const [cargando, setCargando] = useState(false);
   const [enviado, setEnviado] = useState(false);
-  const [contactoActual, setContactoActual] = useState(null);
-
-  useEffect(() => {
-    setContactoActual(contactosPorSede[formData.sede] || null);
-  }, [formData.sede]);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -173,6 +168,13 @@ ${formData.mensaje}
   };
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Contacto | Colegio Isaac Newton"
+        description="Comunícate con el Colegio Isaac Newton. Encuentra teléfonos, correos, campus en Cajamarca y Los Baños del Inca, horarios de atención y formulario de contacto."
+        canonicalPath="/contacto"
+        image="/Contacto/Contacto.jpg"
+      />
+
       {/* HERO SECTION */}
       <section
         className="relative py-32 md:py-48 bg-cover bg-center"

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import SEO from '@/components/SEO';
 import {
   BookOpen,
   Users,
@@ -148,6 +149,13 @@ export default function Servicios() {
 
   return (
     <div className="min-h-screen  bg-gray-50">
+      <SEO
+        title="Servicios Educativos | Colegio Isaac Newton"
+        description="Conoce los servicios académicos, extracurriculares, de bienestar y complementarios del Colegio Isaac Newton en Cajamarca y Los Baños del Inca."
+        canonicalPath="/servicios"
+        image="/Header/Servicios/Services.jpg"
+      />
+
       {/* HERO SECTION - Estilo CBB */} 
      <section className="relative py-20 text-white">
       <div

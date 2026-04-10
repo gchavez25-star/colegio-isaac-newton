@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { MapPin, School, ChevronRight, BookOpen } from "lucide-react";
+import SEO from "@/components/SEO";
 
 /* =====================================================
    DATA DE CAMPUS
@@ -141,14 +141,12 @@ export default function Campus() {
 
   return (
     <div className="min-h-screen bg-gray-50 ">
-      {/* SEO */}
-      <Helmet>
-        <title>{seoTitle}</title>
-        <meta name="description" content={seoDescription} />
-        <meta property="og:title" content={seoTitle} />
-        <meta property="og:description" content={seoDescription} />
-        <meta property="og:image" content={sedeData.seo.image} />
-      </Helmet>
+      <SEO
+        title={seoTitle}
+        description={seoDescription}
+        canonicalPath="/campus"
+        image={sedeData.seo.image}
+      />
 
       {/* HERO */}
       <section

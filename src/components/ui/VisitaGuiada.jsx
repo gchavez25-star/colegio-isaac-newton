@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, CheckCircle, ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 // Datos de ejemplo para el formulario
 const niveles = ['Primaria', 'Secundaria'];
 const sedes = ['Cajamarca', 'Los Baños del Inca'];
 
 const VisitaGuiada = () => {
+  const MotionDiv = motion.div;
+  const MotionH1 = motion.h1;
+  const MotionP = motion.p;
+  const MotionButton = motion.button;
+
   const [formData, setFormData] = useState({
     nombre: '',
     correo: '',
@@ -130,28 +136,121 @@ Sede: ${formData.sede}
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title="Visita Guiada | Colegio Isaac Newton"
+        description="Agenda una visita guiada al Colegio Isaac Newton y conoce nuestras instalaciones, propuesta educativa y campus en Cajamarca y Los Baños del Inca."
+        canonicalPath="/agenda-visita"
+        image="/Admision/Visita/Fachada.jpg"
+      />
       
       {/* HERO SECTION */}
-      <section className="relative py-32 md:py-48 bg-cover bg-center" style={{ 
-        backgroundImage: "url('https://images.unsplash.com/photo-1523050854805-950e31889000?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" 
-      }}>
-        <div className="absolute inset-0 bg-azul-oscuro/80 backdrop-blur-sm" />
-        <div className="container mx-auto px-6 relative z-10 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="font-anton text-5xl md:text-7xl text-white mb-4"
-          >
-            Visita Guiada
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl md:text-2xl text-amarillo-dorado max-w-3xl mx-auto"
-          >
-            Conoce nuestras instalaciones y descubre la experiencia educativa Isaac Newton.
-          </motion.p>
+      <section
+        className="relative overflow-hidden bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/Admision/Visita/Fachada.jpg')",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-[#013055]/92 via-[#013055]/78 to-[#013055]/48" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-[#ffcd00]/10" />
+        <div className="absolute -left-16 top-20 h-44 w-44 rounded-full bg-[#ffcd00]/15 blur-3xl" />
+        <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
+
+        <div className="container relative z-10 mx-auto px-6 py-24 md:py-32 lg:py-36">
+          <div className="max-w-4xl">
+            <MotionDiv
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.22em] text-white/90 backdrop-blur-md"
+            >
+              <span className="h-2 w-2 rounded-full bg-[#ffcd00]" />
+              Agenda una experiencia personalizada
+            </MotionDiv>
+
+            <MotionDiv
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="mt-6 rounded-[2rem] border border-white/15 bg-white/10 p-8 shadow-2xl backdrop-blur-md md:p-10"
+            >
+              <MotionH1
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.15 }}
+                className="font-anton text-5xl leading-none text-white drop-shadow-2xl md:text-7xl lg:text-8xl"
+              >
+                Visita Guiada
+              </MotionH1>
+
+              <MotionP
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25, duration: 0.8 }}
+                className="mt-5 max-w-3xl text-lg leading-relaxed text-white/90 md:text-2xl"
+              >
+                Recorre nuestros espacios, conoce el ambiente que acompaña a cada
+                estudiante y descubre por qué Isaac Newton ofrece una experiencia
+                educativa cercana, sólida y con visión de futuro.
+              </MotionP>
+
+              <MotionDiv
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35, duration: 0.7 }}
+                className="mt-8 flex flex-col gap-4 sm:flex-row"
+              >
+                <a
+                  href="#formulario-visita"
+                  className="inline-flex items-center justify-center gap-3 rounded-xl bg-[#ffcd00] px-7 py-4 text-base font-bold text-[#013055] shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
+                >
+                  <Calendar className="h-5 w-5" />
+                  Agendar ahora
+                </a>
+
+                <a
+                  href="#beneficios-visita"
+                  className="inline-flex items-center justify-center gap-3 rounded-xl border border-white/25 bg-white/10 px-7 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/15"
+                >
+                  Descubrir la experiencia
+                  <ArrowRight className="h-5 w-5" />
+                </a>
+              </MotionDiv>
+
+              <MotionDiv
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.45, duration: 0.7 }}
+                className="mt-8 grid gap-4 md:grid-cols-3"
+              >
+                <div className="rounded-2xl border border-white/15 bg-[#01294a]/55 p-4 text-white backdrop-blur-sm">
+                  <p className="text-sm uppercase tracking-[0.18em] text-[#ffcd00]">
+                    Recorrido
+                  </p>
+                  <p className="mt-2 text-lg font-semibold">
+                    Instalaciones, aulas y espacios formativos.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-white/15 bg-[#01294a]/55 p-4 text-white backdrop-blur-sm">
+                  <p className="text-sm uppercase tracking-[0.18em] text-[#ffcd00]">
+                    Orientación
+                  </p>
+                  <p className="mt-2 text-lg font-semibold">
+                    Resolvemos tus dudas sobre nivel, sede y admisión.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-white/15 bg-[#01294a]/55 p-4 text-white backdrop-blur-sm">
+                  <p className="text-sm uppercase tracking-[0.18em] text-[#ffcd00]">
+                    Atención
+                  </p>
+                  <p className="mt-2 text-lg font-semibold">
+                    Confirmación rápida por parte de nuestro equipo.
+                  </p>
+                </div>
+              </MotionDiv>
+            </MotionDiv>
+          </div>
         </div>
       </section>
 
@@ -164,7 +263,7 @@ Sede: ${formData.sede}
             <div className="lg:col-span-2 space-y-12">
               
               {/* PASOS PARA LA VISITA */}
-              <motion.div
+              <MotionDiv
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -197,10 +296,11 @@ Sede: ${formData.sede}
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </MotionDiv>
 
               {/* BENEFICIOS */}
-              <motion.div
+              <MotionDiv
+                id="beneficios-visita"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -228,11 +328,12 @@ Sede: ${formData.sede}
                     <p>Obtendrás información detallada sobre el proceso de admisión.</p>
                   </li>
                 </ul>
-              </motion.div>
+              </MotionDiv>
             </div>
 
             {/* COLUMNA DE FORMULARIO (1/3) */}
-            <motion.div
+            <MotionDiv
+              id="formulario-visita"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -393,7 +494,7 @@ Sede: ${formData.sede}
                 />
 
                 {/* Botón */}
-                <motion.button
+                <MotionButton
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.97 }}
@@ -409,7 +510,7 @@ Sede: ${formData.sede}
                 >
                   {enviado ? '¡Agendado!' : cargando ? 'Enviando...' : ' Enviar mensaje'}
                   {!cargando && !enviado && <ArrowRight className="w-5 h-5" />}
-                </motion.button>
+                </MotionButton>
 
               </form>
 
@@ -417,7 +518,7 @@ Sede: ${formData.sede}
                 {/* Información de contacto alternativa */}
 
                 <div className="mt-6 pt-4 border-t border-white/20">
-                  <motion.div
+                  <MotionDiv
                     key={formData.sede || 'sin-sede'}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -486,10 +587,10 @@ Sede: ${formData.sede}
                         </div>
                       </>
                     )}
-                  </motion.div>
+                  </MotionDiv>
                 </div>
               </div>
-            </motion.div>
+            </MotionDiv>
           </div>
         </div>
       </section>

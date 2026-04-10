@@ -14,7 +14,7 @@ const CampusSection = () => {
     {
       name: "Campus Cajamarca",
       location: "Centro de la ciudad",
-      image: "public/Inicio/Campus/Baños.jpg",
+      image: "/Inicio/Campus/Cajamarca.png",
       description:
         "Instalaciones modernas en el corazón de Cajamarca con tecnología de punta.",
       icon: <Building2 className="w-6 h-6 text-azul-oscuro" />,

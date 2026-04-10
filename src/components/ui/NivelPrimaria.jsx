@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { BookOpen, CheckCircle, ChevronRight, User, GraduationCap } from 'lucide-react';
@@ -126,6 +127,12 @@ const BeneficioCard = ({ icono, titulo, descripcion }) => {
 const NivelPrimaria = () => {
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title="Nivel Primaria | Colegio Isaac Newton"
+        description="Conoce el nivel primaria del Colegio Isaac Newton: aprendizaje activo, inglés desde los primeros grados, formación integral y espacios diseñados para niños."
+        canonicalPath="/nivel/primaria"
+        image="/Niveles/Primaria/Primer Gardo.jpg"
+      />
       
       {/* HERO SECTION */}
       <section className="relative h-[60vh] md:h-[70vh] overflow-hidden">

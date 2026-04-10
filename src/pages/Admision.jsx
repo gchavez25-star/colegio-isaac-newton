@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FileText, Calendar, Users, CheckCircle, ChevronRight, Download, Play } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 // =====================================================
 // COMPONENTE 1: RequisitosMatricula (Integrado)
@@ -182,6 +183,13 @@ const Admision = () => {
 
   return (
     <div className="min-h-screen ">
+      <SEO
+        title="Admisión | Colegio Isaac Newton"
+        description="Inicia tu proceso de admisión en el Colegio Isaac Newton. Revisa etapas, requisitos, becas, fechas importantes y agenda una visita guiada."
+        canonicalPath="/admision"
+        image="/Admision/Admision.jpg"
+      />
+
       {/* Hero Section */}
      <section className="relative py-24 overflow-hidden">
   {/* Background */}

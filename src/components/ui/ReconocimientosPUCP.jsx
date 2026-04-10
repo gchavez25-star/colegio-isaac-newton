@@ -3,40 +3,50 @@ import React from "react";
 
 export default function ReconocimientosPUCP() {
   const reconocimientos = [
+     {
+      year: "2016",
+      desc: "Excelencia Académica – PUCP",
+      img: "/Nosotros/PUCP/1.png",
+    },
+     {
+      year: "2017",
+      desc: "Excelencia Académica – PUCP",
+      img: "/Nosotros/PUCP/2.png",
+    },
     {
       year: "2018",
-      desc: "Reconocimiento PUCP al Mejor Colegio de Cajamarca",
-      img: "/PUCP/pucp1.png",
+      desc: "Excelencia Académica – PUCP",
+      img: "/Nosotros/PUCP/3.png",
     },
     {
       year: "2019",
-      desc: "Excelencia Académica Regional – PUCP",
-      img: "/PUCP/pucp2.png",
+      desc: "Excelencia Académica – PUCP",
+      img: "/Nosotros/PUCP/4.png",
     },
     {
       year: "2020",
-      desc: "Alto Desempeño en Admisión – PUCP",
-      img: "/PUCP/pucp3.png",
+      desc: "Excelencia Académica – PUCP",
+      img: "/Nosotros/PUCP/5.png",
     },
     {
       year: "2021",
-      desc: "Mejor Preparación Preuniversitaria – PUCP",
-      img: "/PUCP/pucp4.png",
+      desc: "Excelencia Académica – PUCP",
+      img: "/Nosotros/PUCP/6.png",
     },
     {
       year: "2022",
-      desc: "Reconocimiento de Mérito Académico – PUCP",
-      img: "/PUCP/pucp5.png",
+      desc: "Excelencia Académica – PUCP",
+      img: "/Nosotros/PUCP/7.png",
     },
     {
       year: "2023",
-      desc: "Primer Lugar en Ingresantes PUCP – Cajamarca",
-      img: "/PUCP/pucp6.png",
+      desc: "Excelencia Académica – PUCP",
+      img: "/Nosotros/PUCP/8.png",
     },
     {
       year: "2024",
-      desc: "Institución Destacada por 7 Años Consecutivos – PUCP",
-      img: "/PUCP/pucp7.png",
+      desc: "Excelencia Académica – PUCP",
+      img: "/Nosotros/PUCP/9.png",
     },
   ];
 
@@ -56,7 +66,7 @@ export default function ReconocimientosPUCP() {
           <p className="text-lg max-w-4xl mx-auto">
             La Pontificia Universidad Católica del Perú (PUCP) 
             nos reconoce como el <strong> Mejor Colegio de Cajamarca </strong>  
-            por 7 años consecutivos.
+            por 9 años consecutivos.
           </p>
         </motion.div>
 

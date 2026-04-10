@@ -1,5 +1,6 @@
 import { Link, useParams, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -12,12 +13,10 @@ import {
   Youtube,
   Clock 
 } from "lucide-react";
-import { useState } from "react";
 import { getNoticiaBySlug } from "../../data/noticiasData";
 
 const NoticiaDetalle = () => {
   const { slug } = useParams();
-  const [linkCopiado, setLinkCopiado] = useState(false);
 
   // Obtener la noticia por slug
   const noticia = getNoticiaBySlug(slug);
@@ -29,6 +28,13 @@ const NoticiaDetalle = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title={`${noticia.titulo} | Colegio Isaac Newton`}
+        description={noticia.destacado || noticia.resumen || `Lee la publicación ${noticia.titulo} de la comunidad educativa Isaac Newton.`}
+        canonicalPath={`/comunidad/${noticia.slug}`}
+        image={noticia.imagenPrincipal}
+        type="article"
+      />
 
       {/* HERO SECTION */}
       <section className="relative bg-azul-oscuro text-white py-24 pb-0">

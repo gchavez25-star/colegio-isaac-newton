@@ -1,4 +1,5 @@
 import { useSearchParams } from "react-router-dom";
+import SEO from "@/components/SEO";
 import HeroNewton from "@/components/ui/HeroNewton";
 import MensajeDirector from "@/components/ui/MensajeDirector";
 import History from "@/components/ui/History";
@@ -22,6 +23,12 @@ const Nosotros = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Nosotros | Colegio Isaac Newton"
+        description="Conoce la misión, visión, principios y propuesta institucional del Colegio Isaac Newton, una comunidad educativa enfocada en ciencia, valores y formación integral."
+        canonicalPath="/nosotros"
+        image="/Nosotros/Director.png"
+      />
 
       {/* ⭐ SI NO hay ?section → mostrar TODA la página */}
       {!section && (

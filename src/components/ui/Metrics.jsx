@@ -2,6 +2,9 @@ import { useEffect, useRef } from "react";
 import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 
 const Metrics = () => {
+  const MotionH2 = motion.h2;
+  const MotionDiv = motion.div;
+  const MotionSpan = motion.span;
 
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { margin: "-100px", once: false });
@@ -31,7 +34,7 @@ const Metrics = () => {
   // Valores de logros
   const count1 = useCounter(0, 28, 2, isInView);
   const count2 = useCounter(0, 900, 2.3, isInView);
-  const count3 = useCounter(0, 50, 2.1, isInView);
+  const count3 = useCounter(0, 40, 2.1, isInView);
   const count4 = useCounter(0, 85, 2.5, isInView);
 
   return (
@@ -39,7 +42,7 @@ const Metrics = () => {
       <div className="container mx-auto px-4">
 
         {/* Título tipo <h2 class="entry-title"> */}
-        <motion.h2
+        <MotionH2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -47,7 +50,7 @@ const Metrics = () => {
           className="entry-title text-center text-4xl md:text-5xl font-bold text-[#013055] mb-14"
         >
           Logros Institucionales
-        </motion.h2>
+        </MotionH2>
 
         {/* GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
@@ -58,7 +61,7 @@ const Metrics = () => {
             { value: count3, prefix: "+", suffix: "", text: "Docentes altamente capacitados." },
             { value: count4, prefix: "", suffix: "%", text: "de los alumnos van a la universidad luego de graduarse." }
           ].map((item, i) => (
-            <motion.div
+            <MotionDiv
               key={i}
               initial={{ opacity: 0, scale: 0.8, rotateX: -15 }}
               animate={isInView ? { opacity: 1, scale: 1, rotateX: 0 } : {}}
@@ -90,9 +93,9 @@ const Metrics = () => {
                   )}
 
                   {/* Valor animado */}
-                  <motion.span className="inline-block font-anton text-inherit leading-none">
+                  <MotionSpan className="inline-block font-anton text-inherit leading-none">
                     {item.value}
-                  </motion.span>
+                  </MotionSpan>
 
                   {/* % al final */}
                   {item.suffix && (
@@ -125,13 +128,13 @@ const Metrics = () => {
                 </p>
               </div>
 
-            </motion.div>
+            </MotionDiv>
           ))}
 
         </div>
 
         {/* Botón a Comunidad */}
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -169,7 +172,7 @@ const Metrics = () => {
               />
             </svg>
           </a>
-        </motion.div>
+        </MotionDiv>
 
       </div>
     </section>

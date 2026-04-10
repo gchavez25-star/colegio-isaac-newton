@@ -1,12 +1,16 @@
-import { useScroll, useTransform, motion } from "framer-motion";
-import { BookOpen, GraduationCap, ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
 import NivelPrimaria from "@/components/ui/NivelPrimaria";
 import NivelSecundaria from "@/components/ui/NivelSecundaria";
+import SEO from "@/components/SEO";
 
 const Niveles = () => {
     return (
     <div className="min-h-screen relative overflow-hidden">
+      <SEO
+        title="Niveles Educativos | Colegio Isaac Newton"
+        description="Explora nuestros niveles educativos de primaria y secundaria, con enfoque integral, acompañamiento cercano y preparación académica de alto nivel."
+        canonicalPath="/niveles"
+        image="/Niveles/Secundaria/Secundaria.jpg"
+      />
       {/* Primaria*/}
       <NivelPrimaria/>
 
