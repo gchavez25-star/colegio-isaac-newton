@@ -44,7 +44,7 @@ const campusData = {
       galeria: [
         {
           titulo: "Aulas Interactivas",
-          imagen: "/Campus/Cajamarca/Tecnologia.jpg",
+          imagen: "/Campus/Cajamarca/Aula.jpeg",
         },
         {
           titulo: "Laboratorio de Computo",
@@ -93,17 +93,13 @@ const niveles = ["Primaria", "Secundaria"];
 const ubicacion = {
   nombre: "Colegio Isaac Newton Cajamarca",
   direccion: "Jr. Cruz de Piedra N° 582, Cajamarca",
-  lat: -7.1583289,
-  lng: -78.5191143,
 };
-const esMovil = typeof window !== "undefined" && window.innerWidth < 768;
-const zoom = esMovil ? 16 : 17;
 
-const mapaEmbed = `https://www.google.com/maps?q=${ubicacion.lat},${
-  ubicacion.lng
-}(${encodeURIComponent(ubicacion.nombre)})&z=${zoom}&hl=es&output=embed`;
+const mapaEmbed =
+  "https://www.google.com/maps?q=Colegio+Isaac+Newton+Cajamarca&output=embed";
 
-const mapaExterno = `https://www.google.com/maps/search/?api=1&query=${ubicacion.lat},${ubicacion.lng}`;
+const mapaExterno =
+  "https://www.google.com/maps/search/?api=1&query=Colegio+Isaac+Newton+Cajamarca";
 
 /* =====================================================
    BOTONES CTA

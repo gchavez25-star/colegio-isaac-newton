@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, School, ChevronRight, BookOpen } from "lucide-react";
 import SEO from "@/components/SEO";
@@ -221,7 +221,7 @@ export default function Campus() {
         <motion.div className="lg:col-span-3 space-y-10">
           <div className="bg-white p-8 rounded-xl shadow">
             <h2 className="text-4xl font-bold mb-4 text-[#013055]">
-              {nivelData.titulo} – {sedeActiva}
+              {nivelData.titulo} - {sedeActiva}
             </h2>
             <p>{nivelData.descripcion}</p>
           </div>
@@ -259,3 +259,4 @@ export default function Campus() {
     </div>
   );
 }
+

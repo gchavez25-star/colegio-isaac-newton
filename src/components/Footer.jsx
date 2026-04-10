@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Youtube } from "lucide-react";
+﻿import { Facebook, Instagram, Youtube } from "lucide-react";
 import { FaTiktok as Tiktok } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
@@ -42,7 +42,7 @@ const Footer = () => {
                 href="mailto:newtoncajamarca@inewton.edu.pe"
                 className="block text-sm hover:text-[#fccc00] transition whitespace-nowrap"
               >
-                ✉ secretaria.cajamarca@inewton.edu.pe
+                	 secretaria.cajamarca@inewton.edu.pe
               </a>
             </div>
 
@@ -69,7 +69,7 @@ const Footer = () => {
                 href="mailto:secretariabi@inewton.edu.pe"
                 className="block text-sm hover:text-[#fccc00] transition whitespace-nowrap"
               >
-                ✉ secretariabi@inewton.edu.pe
+                	 secretariabi@inewton.edu.pe
               </a>
             </div>
           </div>
@@ -130,22 +130,22 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="hover:text-[#fccd00] transition"
           >
-            ✦ Libro de reclamaciones
+            & Libro de reclamaciones
           </a>
 
           {/* Solicite información */}
           <Link to="/contacto" className="hover:text-[#fccd00] transition">
-            ✦ Solicite información
+            & Solicite información
           </Link>
 
           {/* Trabaja con nosotros */}
           <Link to="/vacantes" className="hover:text-[#fccd00] transition">
-            ✦ Trabaja con nosotros
+            & Trabaja con nosotros
           </Link>
 
           {/* Términos legales */}
           <Link to="/terminos" className="hover:text-[#fccd00] transition">
-            ✦ Términos legales
+            & Términos legales
           </Link>
         </div>
       </div>
@@ -160,3 +160,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

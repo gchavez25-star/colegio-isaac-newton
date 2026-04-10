@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, CheckCircle, ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
 import SEO from '@/components/SEO';
@@ -114,7 +114,7 @@ const handleSubmit = (e) => {
     setCargando(false);
     setEnviado(true);
 
-    // 👉 WhatsApp automático por sede (opcional activar)
+    // WhatsApp automático por sede (opcional activar)
     const contacto = contactosPorSede[formData.sede];
     if (contacto?.whatsapp) {
       const mensaje = `
@@ -532,7 +532,7 @@ Sede: ${formData.sede}
                     ) : (
                       <>
                         <p className="font-semibold">
-                          Contáctanos directamente – {formData.sede}
+                          Contáctanos directamente - {formData.sede}
                         </p>
 
                         {/* Teléfono */}
@@ -619,3 +619,5 @@ Sede: ${formData.sede}
 };
 
 export default VisitaGuiada;
+
+

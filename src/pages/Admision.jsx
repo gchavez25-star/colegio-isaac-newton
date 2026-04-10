@@ -160,17 +160,17 @@ const Admision = () => {
     {
       titulo: 'Becas Académicas',
       descripcion: 'Ofrecemos becas parciales y completas para estudiantes con excelente rendimiento académico.',
-      porcentaje: 'Hasta 100%'
+      porcentaje: 'Hasta 25%'
     },
     {
       titulo: 'Becas Deportivas',
       descripcion: 'Reconocemos el talento deportivo con becas especiales para atletas destacados.',
-      porcentaje: 'Hasta 50%'
+      porcentaje: 'Hasta 15%'
     },
     {
       titulo: 'Descuentos por Hermanos',
       descripcion: 'Familias con más de un hijo matriculado reciben descuentos especiales.',
-      porcentaje: '15% - 25%'
+      porcentaje: '5% - 10%'
     }
   ];
 
@@ -376,7 +376,7 @@ const Admision = () => {
             ¿Listo para unirte a la familia Newton?
           </h2>
           <Link
-            to="/visita-guiada"
+            to="/agenda-visita"
             className="inline-flex items-center gap-2 bg-verde-azulado text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-verde-azulado/90 transition-colors shadow-xl"
           >
             Agenda tu Visita Guiada
