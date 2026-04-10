@@ -2,27 +2,27 @@ import React from "react";
 
 const logos = [
   {
-    src: "public/Inicio/Partners/LOG_SANTILLANA.png",
+    src: "/Inicio/Partners/LOG_SANTILLANA.png",
     url: "https://www.santillana.com.pe/",
   },
   {
-    src: "public/Inicio/Partners/LOG_RICHMOND.png",
+    src: "/Inicio/Partners/LOG_RICHMOND.png",
     url: "https://richmondsolution.com/",
   },
   {
-    src: "public/Inicio/Partners/LOG_SIEWEB.png",
+    src: "/Inicio/Partners/LOG_SIEWEB.png",
     url: "https://sieweb.com.pe/",
   },
   {
-    src: "public/Inicio/Partners/LOG_CAMARA.png",
+    src: "/Inicio/Partners/LOG_CAMARA.png",
     url: "https://camcajamarca.com.pe/",
   },
   {
-    src: "public/Inicio/Partners/LOG_GOOGLE.png",
+    src: "/Inicio/Partners/LOG_GOOGLE.png",
     url: "https://edu.google.com/intl/es-419_ALL/",
   },
   {
-    src: "public/Inicio/Partners/LOG_PMI.png",
+    src: "/Inicio/Partners/LOG_PMI.png",
     url: "https://www.pmi.org/",
   },
 ];
