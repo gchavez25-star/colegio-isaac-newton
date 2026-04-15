@@ -14,7 +14,7 @@ const campusData = {
       title: "Campus Cajamarca | Colegio Isaac Newton",
       description:
         "Infraestructura moderna del Campus Cajamarca del Colegio Isaac Newton.",
-      image: "/seo/campus-cajamarca.jpg",
+      image: "/Campus/Cajamarca/Pabellon A1.png",
     },
     whatsapp: "51953751275",
     direccion: LOCATIONS.cajamarca.address,
@@ -24,7 +24,7 @@ const campusData = {
       titulo: "Infraestructura General",
       descripcion:
         "Campus principal con infraestructura moderna orientada a la excelencia académica.",
-      imagen: "/public/Campus/Campus Colegio.jpg",
+      imagen: "/Campus/Cajamarca/Pabellon A1.png",
       caracteristicas: [
         "Auditorio institucional",
         "Laboratorios especializados",
@@ -37,7 +37,7 @@ const campusData = {
       titulo: "Nivel Primaria",
       descripcion:
         "Espacios pedagógicos diseñados para el desarrollo integral del estudiante.",
-      imagen: "/public/Campus/Espacios Pedagogicos.jpg",
+      imagen: "/Campus/Cajamarca/Patio 3.jpg",
       caracteristicas: [
         "Aulas interactivas",
         "Laboratorio de cómputo",
@@ -49,7 +49,7 @@ const campusData = {
     Secundaria: {
       titulo: "Nivel Secundaria",
       descripcion: "Infraestructura orientada a la formación preuniversitaria.",
-      imagen: "/public/Campus/Infraestructura.jpg",
+      imagen: "/Campus/Cajamarca/Secundaria.jpg",
       caracteristicas: [
         "Laboratorios de ciencias",
         "Área de tecnología",
@@ -84,7 +84,7 @@ const campusData = {
     Primaria: {
       titulo: "Nivel Primaria",
       descripcion: "Ambientes amplios y naturales para el aprendizaje activo.",
-      imagen: "/Campus/Los Baños del Inca/Primaria Baja.jpg",
+      imagen: "/Campus/Los Baños del Inca/Juego Primaria.jpg",
       caracteristicas: [
         "Aulas iluminadas",
         "Sala de cómputo",
@@ -95,7 +95,7 @@ const campusData = {
     Secundaria: {
       titulo: "Nivel Secundaria",
       descripcion: "Formación académica en armonía con la naturaleza.",
-      imagen: "/Campus/Los Baños del Inca/Pabellon.jpg",
+      imagen: "/Campus/Los Baños del Inca/Plataforma.jpg",
       caracteristicas: ["Laboratorios", "Áreas deportivas", "Salas de estudio"],
     },
   },
@@ -153,7 +153,7 @@ export default function Campus() {
       <section
         className="relative py-24 text-white text-center bg-cover bg-center"
         style={{
-          backgroundImage: "url('/public/Campus/Campus.jpg')",
+          backgroundImage: "url('/Campus/Cajamarca/Pabellon A1.png')",
         }}
       >
         {/* OVERLAY */}

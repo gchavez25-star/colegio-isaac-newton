@@ -140,10 +140,17 @@ const NivelSecundaria = () => {
       <section className="relative h-[60vh] md:h-[70vh] overflow-hidden">
         <div className="absolute inset-0">
           <picture>
-            <source srcSet="/niveles/secundaria/hero-mobile.jpg" media="(max-width: 767px)" />
+            <source
+              srcSet="/Niveles/Secundaria/Secundaria Nivel.optimized.webp"
+              media="(max-width: 767px)"
+              type="image/webp"
+            />
             <img
               src="/Niveles/Secundaria/Secundaria Nivel.optimized.webp"
               alt="Nivel Secundaria"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               className="w-full h-full object-cover"
             />
           </picture>

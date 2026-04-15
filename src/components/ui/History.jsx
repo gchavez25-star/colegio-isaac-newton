@@ -111,28 +111,28 @@ export default function History() {
       titulo: "Fundación del Colegio",
       descripcion:
         "Iniciamos nuestro compromiso con la educación y la ciencia, marcando el primer gran hito institucional.",
-      img: "/Nosotros/hito1998.jpg",
+      img: "/Nosotros/JorgeVidal.jpg",
     },
     {
       año: "2005",
       titulo: "Apertura de la Sede Baños del Inca",
       descripcion:
         "Expansión estratégica que permitió llevar nuestra propuesta educativa a más familias de la región.",
-      img: "/Nosotros/hito2005.jpg",
+      img: "/Nosotros/COSEM.jpg",
     },
     {
       año: "2015",
       titulo: "Modernización Tecnológica",
       descripcion:
         "Actualización de infraestructura, laboratorios y herramientas digitales para una educación moderna.",
-      img: "/Nosotros/hito2015.jpg",
+      img: "/Nosotros/Identity.optimized.webp",
     },
     {
       año: "2024",
       titulo: "Expansión Académica",
       descripcion:
         "Nuevos programas, metodologías activas y una renovada visión educativa para el futuro.",
-      img: "/Nosotros/hito2024.jpg",
+      img: "/Nosotros/Director.optimized.webp",
     },
   ];
 

@@ -1,0 +1,6 @@
+
+> colegio-isaac-newton@0.0.0 preview C:\Users\jchav\Documents\GitHub\colegio-isaac-newton
+> vite preview "--host" "127.0.0.1" "--port" "4173"
+
+Port 4173 is in use, trying another one...
+  [32m➜[39m  [1mLocal[22m:   ELIFECYCLE  Command failed with exit c ELIFECYCLE  Command failed with exit code 3221225786.

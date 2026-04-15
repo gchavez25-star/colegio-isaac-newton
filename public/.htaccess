@@ -2,6 +2,22 @@
   RewriteEngine On
   RewriteBase /
 
+  # Normalize capitalized SPA URLs before Apache treats matching asset folders
+  # such as /Contacto or /Admision as real directories and returns 403.
+  RewriteRule ^Inicio/?$ / [R=301,L]
+  RewriteRule ^Admision/?$ /admision [R=301,L]
+  RewriteRule ^Contacto/?$ /contacto [R=301,L]
+  RewriteRule ^Campus/?$ /campus [R=301,L]
+  RewriteRule ^Campus/Cajamarca/?$ /campus/cajamarca [R=301,L]
+  RewriteRule ^Campus/Banos/?$ /campus/banos [R=301,L]
+  RewriteRule ^Comunidad/?$ /comunidad [R=301,L]
+  RewriteRule ^Comunidad/Publicaciones/?$ /comunidad/publicaciones [R=301,L]
+  RewriteRule ^Comunidad/Directivos/?$ /comunidad/directivos [R=301,L]
+  RewriteRule ^Comunidad/Docentes/?$ /comunidad/docentes [R=301,L]
+  RewriteRule ^Comunidad/Alumnos/?$ /comunidad/alumnos [R=301,L]
+  RewriteRule ^Niveles/?$ /niveles [R=301,L]
+  RewriteRule ^Nosotros/?$ /nosotros [R=301,L]
+
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]

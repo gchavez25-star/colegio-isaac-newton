@@ -141,14 +141,14 @@ Sede: ${formData.sede}
         title="Visita Guiada | Colegio Isaac Newton"
         description="Agenda una visita guiada al Colegio Isaac Newton y conoce nuestras instalaciones, propuesta educativa y campus en Cajamarca y Los Baños del Inca."
         canonicalPath="/agenda-visita"
-        image="/Admision/Visita/Fachada.jpg"
+        image="/Admision/Admision.optimized.webp"
       />
       
       {/* HERO SECTION */}
       <section
         className="relative overflow-hidden bg-cover bg-center"
         style={{
-          backgroundImage: "url('/Admision/Visita/Fachada.jpg')",
+          backgroundImage: "url('/Admision/Admision.optimized.webp')",
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#013055]/92 via-[#013055]/78 to-[#013055]/48" />

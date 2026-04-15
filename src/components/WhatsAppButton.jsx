@@ -80,7 +80,7 @@ export default function FloatingSocialButtons() {
       </AnimatePresence>
 
       {/* ================= SOCIAL NETWORKS ================= */}
-      <div className="fixed bottom-6 left-6 z-50 flex flex-col gap-3">
+      <div className="fixed bottom-6 left-6 z-50 hidden flex-col gap-3 md:flex">
         <a
           href="https://www.facebook.com/IsaacNewtonCajamarca"
           target="_blank"

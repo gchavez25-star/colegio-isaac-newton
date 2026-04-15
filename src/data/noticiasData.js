@@ -151,7 +151,7 @@ export const noticiasData = [
 
     {
       tipo: "video",
-      thumbnail: "/noticias/inicio-2026/video-thumb.jpg",
+      thumbnail: "/Comunidad/Publicaciones/Inicio/Inicio 3.jpg",
       youtubeUrl: "/Instagram/Revivamos juntos este gran momento… ✨Ayer nuestros campus de Cajamarca y Los Baños del Inca volv.mp4",
       texto: "Ver resumen del Inicio del Año Escolar 2026"
     }
