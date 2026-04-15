@@ -12,6 +12,7 @@ import {
   Send,
 } from "lucide-react";
 import { FaTiktok } from "react-icons/fa";
+import { LOCATIONS } from "@/constants/locations";
 
 /* ==================================================
    CONFIGURACIÓN GENERAL
@@ -26,18 +27,20 @@ const contactosPorSede = {
     telefonoTexto: "953 751 275",
     whatsapp: "51953751275",
     email: "secretaria.cajamarca@inewton.edu.pe",
-    direccion: "Jr. Cruz de Piedra N° 582, Cajamarca",
+    direccion: LOCATIONS.cajamarca.address,
+    mapUrl: LOCATIONS.cajamarca.mapUrl,
     horario: "Lunes a Viernes: 7:30 AM - 6:30 PM",
-    imagen: "/Contacto/Pabellon A1.png",
+    imagen: "/Contacto/Pabellon A1.optimized.webp",
   },
   "Los Baños del Inca": {
     telefono: "920438721",
     telefonoTexto: "920 438 721",
     whatsapp: "51920438721",
     email: "secretariabi@inewton.edu.pe",
-    direccion: "Jr. Yahuar Huaca N° 799, Los Baños del Inca",
+    direccion: LOCATIONS.banos.address,
+    mapUrl: LOCATIONS.banos.mapUrl,
     horario: "Lunes a Viernes: 7:30 AM - 6:30 PM",
-    imagen: "/Contacto/Patio 1.jpg",
+    imagen: "/Contacto/Patio 1.optimized.webp",
   },
 };
 
@@ -172,14 +175,14 @@ ${formData.mensaje}
         title="Contacto | Colegio Isaac Newton"
         description="Comunícate con el Colegio Isaac Newton. Encuentra teléfonos, correos, campus en Cajamarca y Los Baños del Inca, horarios de atención y formulario de contacto."
         canonicalPath="/contacto"
-        image="/Contacto/Contacto.jpg"
+        image="/Contacto/Contacto.optimized.webp"
       />
 
       {/* HERO SECTION */}
       <section
         className="relative py-32 md:py-48 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/Contacto/Contacto.jpg')",
+          backgroundImage: "url('/Contacto/Contacto.optimized.webp')",
         }}
       >
         <div className="absolute inset-0 bg-azul-oscuro/80 " />
@@ -587,9 +590,7 @@ ${formData.mensaje}
                     {campus.direccion}
                   </p>
                   <motion.a
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                      campus.direccion,
-                    )}`}
+                    href={campus.mapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}

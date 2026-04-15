@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { Calendar, CheckCircle, ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
 import SEO from '@/components/SEO';
+import { LOCATIONS } from '@/constants/locations';
 
 // Datos de ejemplo para el formulario
 const niveles = ['Primaria', 'Secundaria'];
@@ -32,16 +33,16 @@ const contactosPorSede = {
     telefonoTexto: '932 274 369',
     whatsapp: '51932274369',
     correo: 'newtoncajamarca@inewton.edu.pe',
-    direccion: 'Jr. Cruz de Piedra 582, Cajamarca',
-    maps: 'https://www.google.com/maps?q=-7.1677904,-78.4584945',
+    direccion: LOCATIONS.cajamarca.address,
+    maps: LOCATIONS.cajamarca.mapUrl,
   },
   'Los Baños del Inca': {
     telefono: '920438721',
     telefonoTexto: '920 438 721',
     whatsapp: '51920438721',
     correo: 'secretariabi@inewton.edu.pe',
-    direccion: 'Jr. Yahuar Huaca 799, Los Baños del Inca',
-    maps: 'https://www.google.com/maps?q=-7.1583289,-78.5191143',
+    direccion: LOCATIONS.banos.address,
+    maps: LOCATIONS.banos.mapUrl,
   },
 };
 const [errores, setErrores] = useState({});

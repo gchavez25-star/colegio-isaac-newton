@@ -27,7 +27,7 @@ const MensajeDirector = () => {
 
              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white h-[500px]">
                   <img
-                    src="/Nosotros/Director.png"
+                    src="/Nosotros/Director.optimized.webp"
                     alt="Director del Colegio Isaac Newton"
                     className="w-full h-full object-cover object-[center_20%]"
                   />
@@ -89,7 +89,7 @@ const MensajeDirector = () => {
               {/* Firma */}
               <div className="pt-6 border-t border-gray-200">
                 <div className="font-anton text-2xl text-azul-oscuro mb-1">
-                  Mg. Ricardo Raul Soto Collazos
+                  Mg. Ricardo Raúl Soto Collazos
                 </div>
                 <div className="text-verde-azulado font-semibold text-lg">
                   Director
@@ -128,7 +128,7 @@ const MensajeDirector = () => {
               className="relative flex justify-center"
             >
                             <img
-                src="/Nosotros/Identity.png"
+                src="/Nosotros/Identity.optimized.webp"
                 alt="Estudiante Newtoniana"
                 className="relative z-10 max-w-[260px] sm:max-w-sm md:max-w-md rounded-xl"
               />

@@ -1,7 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
+import { LOCATIONS } from "@/constants/locations";
 
-const SITE_NAME = "Colegio Privado de Ciencias Isaac Newton";
+const SITE_NAME = "Colegio Isaac Newton";
 const DEFAULT_TITLE = `${SITE_NAME} | Educación de excelencia en Cajamarca`;
 const DEFAULT_DESCRIPTION =
   "Colegio Privado de Ciencias Isaac Newton: educación de excelencia en Cajamarca y Los Baños del Inca, con formación integral en primaria y secundaria.";
@@ -34,13 +35,13 @@ const defaultOrganizationSchema = (origin) => ({
   address: [
     {
       "@type": "PostalAddress",
-      streetAddress: "Jr. Cruz de Piedra 582",
+      streetAddress: LOCATIONS.cajamarca.shortAddress,
       addressLocality: "Cajamarca",
       addressCountry: "PE",
     },
     {
       "@type": "PostalAddress",
-      streetAddress: "Jr. Yahuar Huaca 779",
+      streetAddress: LOCATIONS.banos.shortAddress,
       addressLocality: "Los Baños del Inca",
       addressCountry: "PE",
     },

@@ -146,7 +146,7 @@ const NoticiasPage = () => {
 // Componente de Tarjeta para el Slider
 const TarjetaNoticia = ({ noticia }) => {
   return (
-    <Link to={`/noticias/${noticia.slug}`}>
+    <Link to={`/comunidad/${noticia.slug}`}>
       <div className="bg-white rounded-[40px] overflow-hidden shadow-2xl p-8 group cursor-pointer hover:shadow-3xl transition-all duration-500">
         
         {/* Imagen */}
@@ -154,6 +154,9 @@ const TarjetaNoticia = ({ noticia }) => {
           <img
             src={noticia.imagenMiniatura || noticia.imagenPrincipal}
             alt={noticia.titulo}
+            loading="lazy"
+            decoding="async"
+            sizes="(min-width: 1024px) 40vw, 90vw"
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             onError={(e) => {
               e.target.src = 'https://via.placeholder.com/800x600/013055/ffffff?text=Isaac+Newton';
@@ -207,6 +210,9 @@ const TarjetaNoticiaGrid = ({ noticia }) => {
           <img
             src={noticia.imagenMiniatura || noticia.imagenPrincipal}
             alt={noticia.titulo}
+            loading="lazy"
+            decoding="async"
+            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 90vw"
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             onError={(e) => {
               e.target.src = 'https://via.placeholder.com/600x400/013055/ffffff?text=Isaac+Newton';

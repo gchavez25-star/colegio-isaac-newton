@@ -1,6 +1,8 @@
 ﻿import { Facebook, Instagram, Youtube } from "lucide-react";
 import { FaTiktok as Tiktok } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { LOCATIONS } from "@/constants/locations";
+
 
 const Footer = () => {
   return (
@@ -14,6 +16,8 @@ const Footer = () => {
               src="/Escudo líneas.png"
               className="h-24 md:h-28 brightness-0 invert object-contain"
               alt="Logo"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -25,15 +29,17 @@ const Footer = () => {
                 Campus Cajamarca
               </h3>
               <a
-                href="https://www.google.com/maps/place/Jirón+Cruz+de+Piedra+582,+Cajamarca"
+                href={LOCATIONS.cajamarca.mapUrl}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="block text-sm hover:text-[#fccc00] transition"
               >
-                Jr. Cruz de Piedra N° 582
+                {LOCATIONS.cajamarca.shortAddress}
               </a>
               <a
                 href="https://wa.me/51953751275"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="block text-sm hover:text-[#fccc00] transition"
               >
                 953 751 275
@@ -52,15 +58,17 @@ const Footer = () => {
                 Campus Los Baños del Inca
               </h3>
               <a
-                href="https://www.google.com/maps/place/Colegio+Isaac+Newton"
+                href={LOCATIONS.banos.mapUrl}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="block text-sm hover:text-[#fccc00] transition"
               >
-                Jr. Yahuar Huaca N° 779
+                {LOCATIONS.banos.shortAddress}
               </a>
               <a
                 href="https://wa.me/51920438721"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="block text-sm hover:text-[#fccc00] transition"
               >
                 920 438 721
@@ -100,6 +108,7 @@ const Footer = () => {
                   key={index}
                   href={item.href}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center
                              hover:bg-[#fccc00] hover:text-[#013055] transition shadow-md"
                 >
@@ -109,13 +118,13 @@ const Footer = () => {
             </div>
 
             {/* Botón */}
-            <a
-              href="/Contacto"
+            <Link
+              to="/admision"
               className="font-bold px-8 py-3 border border-white rounded-full text-sm
-                         hover:bg-[#fccc00] hover:text-[#013055] transition shadow-md"
+                        hover:bg-[#fccc00] hover:text-[#013055] transition shadow-md"
             >
               Admisión y Traslados →
-            </a>
+            </Link>
           </div>
         </div>
       </div>

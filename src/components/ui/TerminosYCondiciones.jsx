@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone } from 'lucide-react';
+import { LOCATIONS } from "@/constants/locations";
 
 // Datos del Colegio Isaac Newton
 const COLEGIO_NOMBRE = "Colegio Privado de Ciencias Isaac Newton";
 const COLEGIO_DOMINIO = "inewton.edu.pe ";
 const COLEGIO_RUC = "20368745546"; 
-const COLEGIO_DIRECCION = "Jr. Cruz de Piedra #582, Cajamarca"; 
+const COLEGIO_DIRECCION = LOCATIONS.cajamarca.address; 
 const COLEGIO_EMAIL = "legal@inewton.edu.pe";
 const COLEGIO_TELEFONO = "(076) 280932";
 

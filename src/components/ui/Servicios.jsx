@@ -28,7 +28,7 @@ const serviciosData = [
         detalle:
           'Laboratorios de Física, Química y Biología equipados con tecnología moderna.',
         imagen:
-          '/Header/Servicios/Laboratorio Especializados.jpg'
+          '/Header/Servicios/Laboratorio Especializados.optimized.webp'
       },
       {
         titulo: 'Programa de Idiomas',
@@ -42,7 +42,7 @@ const serviciosData = [
         detalle:
           'Acceso 24/7 a notas, tareas, comunicados y materiales.',
         imagen:
-          '/Header/Servicios/SIEWEB.png'
+          '/Header/Servicios/SIEWEB.optimized.webp'
       }
     ]
   },
@@ -58,14 +58,14 @@ const serviciosData = [
         detalle:
           'Fútbol, vóley, básquet y natación.',
         imagen:
-          '/Header/Servicios/Deportes .jpg'
+          '/Header/Servicios/Deportes .optimized.webp'
       },
       {
         titulo: 'Arte y Cultura',
         detalle:
           'Música, danza, teatro y artes plásticas.',
         imagen:
-          '/Header/Servicios/Arte.jpg'
+          '/Header/Servicios/Arte.optimized.webp'
       }
     ]
   },
@@ -81,15 +81,15 @@ const serviciosData = [
         detalle:
           'Orientación personalizada para estudiantes.',
         imagen:
-          '/Header/Servicios/Psicologia.jpg'
+          '/Header/Servicios/Psicologia.optimized.webp'
       }, 
       { titulo: 'Tópico y Enfermería', 
         detalle: 'Atención de primeros auxilios y seguimiento de salud escolar.', 
-        imagen: '/Header/Servicios/Topico.jpg' }, 
+        imagen: '/Header/Servicios/Topico.optimized.webp' }, 
 
       { titulo: 'Escuela de Padres',
         detalle: 'Charlas y talleres para fortalecer las habilidades parentales.',
-        imagen: '/Header/Servicios/Escuela.jpg' }
+        imagen: '/Header/Servicios/Escuela.optimized.webp' }
     ]
   },
   {
@@ -104,7 +104,7 @@ const serviciosData = [
         detalle:
           'Alimentación balanceada supervisada.',
         imagen:
-          '/Header/Servicios/Comedor.png'
+          '/Header/Servicios/Comedor.optimized.webp'
       }
     ]
   }

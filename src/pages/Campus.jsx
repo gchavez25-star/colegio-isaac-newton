@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { MapPin, School, ChevronRight, BookOpen } from "lucide-react";
 import SEO from "@/components/SEO";
+import { LOCATIONS } from "@/constants/locations";
 
 /* =====================================================
    DATA DE CAMPUS
@@ -16,8 +17,8 @@ const campusData = {
       image: "/seo/campus-cajamarca.jpg",
     },
     whatsapp: "51953751275",
-    direccion: "Jr. Cruz de Piedra 582, Cajamarca",
-    mapa: "https://www.google.com/maps/place/Colegio+Isaac+Newton+Cajamarca/@-7.1583236,-78.5216892,17z/data=!3m1!4b1!4m6!3m5!1s0x91b25af8ca0f6cbb:0xb3d709b3b3a239d2!8m2!3d-7.1583289!4d-78.5191143!16s%2Fg%2F11c5rn8bt5?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D",
+    direccion: LOCATIONS.cajamarca.address,
+    mapa: LOCATIONS.cajamarca.embedUrl,
 
     General: {
       titulo: "Infraestructura General",
@@ -65,8 +66,8 @@ const campusData = {
       image: "/Campus/Los Baños del Inca/Patio 1.jpg",
     },
     whatsapp: "51920438721",
-    direccion: "Jr. Yahuar Huacca #779, Baños del Inca",
-    mapa: "https://www.google.com/maps/place/Colegio+Isaac+Newton+Los+Ba%C3%B1os+del+Inca/@-7.167169,-78.4619201,17z/data=!3m1!4b1!4m6!3m5!1s0x91b2456d977947b9:0x399e095184287eda!8m2!3d-7.1671743!4d-78.4593452!16s%2Fg%2F11vl1p_5lb?entry=ttu&g_ep=EgoyMDI2MDQwNS4wIKXMDSoASAFQAw%3D%3D",
+    direccion: LOCATIONS.banos.address,
+    mapa: LOCATIONS.banos.embedUrl,
 
     General: {
       titulo: "Infraestructura General",
@@ -226,7 +227,14 @@ export default function Campus() {
             <p>{nivelData.descripcion}</p>
           </div>
 
-          <img src={nivelData.imagen} className="rounded-xl shadow-xl" />
+          <img
+            src={nivelData.imagen}
+            alt={`${nivelData.titulo} - ${sedeActiva}`}
+            loading="lazy"
+            decoding="async"
+            sizes="(min-width: 1024px) 75vw, 90vw"
+            className="rounded-xl shadow-xl"
+          />
 
           <div className="bg-white p-8 rounded-xl shadow">
             <h3 className="text-2xl font-bold mb-4 flex gap-2 text-[#013055]">

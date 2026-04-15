@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import StudentImg from "/Inicio/Welcome/Welcome_3.png"; 
+import StudentImg from "/optimized/Inicio/Welcome/Welcome_3-900.webp"; 
 // Ajusta la ruta según tu proyecto
 
 export default function WelcomeNewton() {
@@ -29,6 +29,8 @@ export default function WelcomeNewton() {
           <img
             src={StudentImg}
             alt="Estudiante Isaac Newton"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover md:rounded-l-2xl"
           />
         </motion.div>
@@ -58,7 +60,7 @@ export default function WelcomeNewton() {
 
           {/* BOTÓN */}
           <motion.a
-            href="/Nosotros"
+            href="/nosotros"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
             className="

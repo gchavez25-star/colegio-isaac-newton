@@ -1,5 +1,100 @@
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import AliadosSlider from "./AliadosSlider";
+
+const socialItems = [
+  {
+    url: "https://www.instagram.com/reel/DWoGUgjEYHs/?hl=es-la",
+    src: "/Instagram/✨ Día Mundial de Concienciación sobre el Autismo 💙Hoy, en el Colegio Isaac Newton, nos unimos p.mp4",
+  },
+  {
+    url: "https://www.instagram.com/reel/DV_dJENkcGR/?hl=es-la",
+    src: "/Instagram/📱 ¿Sabías que ahora el uso de celulares en colegios está regulado en el PerúLa Ley N.º 32385 bu.mp4",
+  },
+  {
+    url: "https://www.instagram.com/reel/DVycay7Edj9/?hl=es-la",
+    src: "/Instagram/🚀 En el Colegio Privado de Ciencias “Isaac Newton”, sabemos que los grandes logros empiezan con.mp4",
+  },
+  {
+    url: "https://www.instagram.com/reel/DVkSzAlkRGw/?hl=es-la",
+    src: "/Instagram/Revivamos juntos este gran momento… ✨Ayer nuestros campus de Cajamarca y Los Baños del Inca volv.mp4",
+  },
+  {
+    url: "https://www.instagram.com/reel/DVZp3AlEQAZ/?hl=es-la",
+    src: "/Instagram/✨ Nuestro director, Ricardo Raúl Soto Collazos, comparte la visión que marcará el rumbo del Cole.mp4",
+  },
+  {
+    url: "https://www.instagram.com/reel/DVUDt99Ebce/?hl=es-la",
+    src: "/Instagram/✨📚 ¡Estamos a nada de empezar una nueva aventura escolar!Los pasillos volverán a llenarse de so.mp4",
+  },
+  {
+    url: "https://www.instagram.com/reel/DVTn3TcjiVL/?hl=es-la",
+    src: "/Instagram/Así vivió Brina su primer día en Newton ✨📚Desde que llegó, empezó a recorrer cada espacio, desc.mp4",
+  },
+  {
+    url: "https://www.instagram.com/reel/DUb5DRZEeBt/?hl=es-la",
+    src: "/Instagram/Felicitamos con especial reconocimiento a Angie Juliet Solís Salazar 💐 por su destacada partici.mp4",
+  },
+];
+
+function LazySocialVideo({ src }) {
+  const containerRef = useRef(null);
+  const videoRef = useRef(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const video = videoRef.current;
+
+    if (!container || !video || !("IntersectionObserver" in window)) {
+      setShouldLoad(true);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { rootMargin: "200px 0px", threshold: 0.2 },
+    );
+
+    observer.observe(container);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (shouldLoad && video) {
+      video.load();
+      video.play().catch(() => {});
+    }
+  }, [shouldLoad]);
+
+  return (
+    <div ref={containerRef} className="w-full h-full bg-black/20">
+      <video
+        ref={videoRef}
+        className="w-full h-full object-cover"
+        preload="none"
+        muted
+        loop
+        playsInline
+        width="360"
+        height="640"
+        aria-label="Video de la galeria social Isaac Newton"
+      >
+        {shouldLoad && <source src={src} type="video/mp4" />}
+      </video>
+    </div>
+  );
+}
 
 export default function PartnersGaleria() {
   return (
@@ -55,48 +150,7 @@ export default function PartnersGaleria() {
           {/* Grid mosaico */}
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-              {[
-                {
-                  url: "https://www.instagram.com/reel/DWoGUgjEYHs/?hl=es-la",
-                  type: "video",
-                  src: "/Instagram/✨ Día Mundial de Concienciación sobre el Autismo 💙Hoy, en el Colegio Isaac Newton, nos unimos p.mp4",
-                },
-                {
-                  url: "https://www.instagram.com/reel/DV_dJENkcGR/?hl=es-la",
-                  type: "video",
-                  src: "/Instagram/📱 ¿Sabías que ahora el uso de celulares en colegios está regulado en el PerúLa Ley N.º 32385 bu.mp4",
-                },
-                {
-                  url: "https://www.instagram.com/reel/DVycay7Edj9/?hl=es-la",
-                  type: "video",
-                  src: "/Instagram/🚀 En el Colegio Privado de Ciencias “Isaac Newton”, sabemos que los grandes logros empiezan con.mp4",
-                },
-                {
-                  url: "https://www.instagram.com/reel/DVkSzAlkRGw/?hl=es-la",
-                  type: "video",
-                  src: "/Instagram/Revivamos juntos este gran momento… ✨Ayer nuestros campus de Cajamarca y Los Baños del Inca volv.mp4",
-                },
-                {
-                  url: "https://www.instagram.com/reel/DVZp3AlEQAZ/?hl=es-la",
-                  type: "video",
-                  src: "/Instagram/✨ Nuestro director, Ricardo Raúl Soto Collazos, comparte la visión que marcará el rumbo del Cole.mp4",
-                },
-                {
-                  url: "https://www.instagram.com/reel/DVUDt99Ebce/?hl=es-la",
-                  type: "video",
-                  src: "/Instagram/✨📚 ¡Estamos a nada de empezar una nueva aventura escolar!Los pasillos volverán a llenarse de so.mp4",
-                },
-                {
-                  url: "https://www.instagram.com/reel/DVTn3TcjiVL/?hl=es-la",
-                  type: "video",
-                  src: "/Instagram/Así vivió Brina su primer día en Newton ✨📚Desde que llegó, empezó a recorrer cada espacio, desc.mp4",
-                },
-                {
-                  url: "https://www.instagram.com/reel/DUb5DRZEeBt/?hl=es-la",
-                  type: "video",
-                  src: "/Instagram/Felicitamos con especial reconocimiento a Angie Juliet Solís Salazar 💐 por su destacada partici.mp4",
-                },
-              ].map((item, i) => (
+              {socialItems.map((item, i) => (
                 <a
                   key={i}
                   href={item.url}
@@ -115,24 +169,7 @@ export default function PartnersGaleria() {
                     </svg>
                   </div>
 
-                  {item.type === "video" ? (
-                    <video
-                      className="w-full h-full object-cover"
-                      preload="none"
-                      muted
-                      autoPlay
-                      loop
-                      playsInline
-                    >
-                      <source src={item.src} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <img
-                      src={item.src}
-                      alt="Galería"
-                      className="w-full h-full object-cover"
-                    />
-                  )}
+                  <LazySocialVideo src={item.src} />
                 </a>
               ))}
             </div>

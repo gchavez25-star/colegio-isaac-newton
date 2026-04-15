@@ -1,16 +1,16 @@
-import "swiper/css";
-import "swiper/css/effect-fade";
+import { lazy, Suspense } from "react";
 import SEO from "@/components/SEO";
 import HeroSlider from "../components/ui/HeroSlider";
 import AccesosRapidos from "../components/ui/AccesosRapidos";
-import Talleres from "../components/ui/Talleres";
-import PropuestaEducativa from "@/components/ui/PropuestaEducativa";
-import EspaciosAprendizaje from "@/components/ui/EspaciosAprendizaje";
-import Campus from "../components/ui/Campus";
-import PartnersGaleria from "@/components/ui/PartnersGaleria";
-import CtaAdmision from "@/components/ui/CtaAdmision";
 import WelcomeNewton from "@/components/ui/WelcomeNewton";
-import Metrics from "@/components/ui/Metrics";
+
+const Metrics = lazy(() => import("@/components/ui/Metrics"));
+const PropuestaEducativa = lazy(() => import("@/components/ui/PropuestaEducativa"));
+const Campus = lazy(() => import("../components/ui/Campus"));
+const Talleres = lazy(() => import("../components/ui/Talleres"));
+const EspaciosAprendizaje = lazy(() => import("@/components/ui/EspaciosAprendizaje"));
+const PartnersGaleria = lazy(() => import("@/components/ui/PartnersGaleria"));
+const CtaAdmision = lazy(() => import("@/components/ui/CtaAdmision"));
 
 const Inicio = () => {
   return (
@@ -38,17 +38,21 @@ const Inicio = () => {
 
         <WelcomeNewton />
 
-        <Metrics />
+        <Suspense fallback={null}>
+          <Metrics />
 
-        <PropuestaEducativa />
+          <PropuestaEducativa />
 
-        <Campus />
+          <Campus />
 
-        <Talleres />
+          <Talleres />
+        </Suspense>
       </div>
-      <EspaciosAprendizaje />
-      <PartnersGaleria />
-      <CtaAdmision />
+      <Suspense fallback={null}>
+        <EspaciosAprendizaje />
+        <PartnersGaleria />
+        <CtaAdmision />
+      </Suspense>
     </div>
   );
 };

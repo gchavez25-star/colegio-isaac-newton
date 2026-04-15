@@ -1,4 +1,5 @@
 // src/data/noticiasData.js
+import { LOCATIONS } from "@/constants/locations";
 
 export const noticiasData = [
    {
@@ -223,8 +224,8 @@ export const noticiasData = [
       "920 438 721 - Los Baños del Inca"
     ],
     direcciones: [
-      "Jr. Cruz de Piedra #582 - Cajamarca",
-      "Jr. Yahuar Huaca #779 - Baños del Inca"
+      LOCATIONS.cajamarca.address,
+      LOCATIONS.banos.address
     ]
   }
   },

@@ -14,19 +14,19 @@ const PrincipiosValores = () => {
     {
       id: 1,
       titulo: "Responsabilidad",
-      imagen: "/Nosotros/Principios/Responsabilidad.png",
+      imagen: "/Nosotros/Principios/Responsabilidad.optimized.webp",
       link: "/nosotros#valores"
     },
     {
       id: 2,
       titulo: "Integridad",
-      imagen: "/Nosotros/Principios/Integridad.png",
+      imagen: "/Nosotros/Principios/Integridad.optimized.webp",
       link: "/nosotros#valores"
     },
     {
       id: 3,
       titulo: "Puntualidad",
-      imagen: "/Nosotros/Principios/Puntualidad.png",
+      imagen: "/Nosotros/Principios/Puntualidad.optimized.webp",
       link: "/nosotros#valores"
     }
   ];
@@ -35,19 +35,19 @@ const PrincipiosValores = () => {
     {
       id: 4,
       titulo: "Solidaridad",
-      imagen: "/Nosotros/Principios/Solidaridad.png",
+      imagen: "/Nosotros/Principios/Solidaridad.optimized.webp",
       link: "/nosotros#valores"
     },
     {
       id: 5,
       titulo: "Respeto",
-      imagen: "/Nosotros/Principios/Respeto.png",
+      imagen: "/Nosotros/Principios/Respeto.optimized.webp",
       link: "/nosotros#valores"
     },
     {
       id: 6,
       titulo: "Perseverancia",
-      imagen: "/Nosotros/Principios/Perseverancia.png",
+      imagen: "/Nosotros/Principios/Perseverancia.optimized.webp",
       link: "/nosotros#valores"
     }
   ];

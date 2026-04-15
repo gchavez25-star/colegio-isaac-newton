@@ -3,23 +3,23 @@ import { motion } from "framer-motion";
 const espacios = [
   {
     titulo: "Formación Integral",
-    imagen: "/Inicio/EspaciosAprendizaje/Formacion.jpg",
+    imagen: "/optimized/Inicio/EspaciosAprendizaje/Formacion-720.webp",
     color: "from-[#fccc00] to-[#fccc00]/80",
     
   },
   {
     titulo: "Tecnología",
-    imagen: "/Inicio/EspaciosAprendizaje/Tecnologia.jpg",
+    imagen: "/optimized/Inicio/EspaciosAprendizaje/Tecnologia-720.webp",
     color: "from-[#007a75] to-[#007a75]/80",
   },
   {
     titulo: "Deporte",
-    imagen: "/Inicio/EspaciosAprendizaje/Deporte.jpg",
+    imagen: "/optimized/Inicio/EspaciosAprendizaje/Deporte-720.webp",
     color: "from-[#013055] to-[#013055]/80",
   },
   {
     titulo: "Cultura",
-    imagen: "/Inicio/EspaciosAprendizaje/Cultura.JPG",
+    imagen: "/optimized/Inicio/EspaciosAprendizaje/Cultura-720.webp",
     color: "from-[#e2ddd0] to-[#e2ddd0]/80",
   },
 ];
@@ -56,6 +56,8 @@ export default function EspaciosAprendizaje() {
               <img
                 src={item.imagen}
                 alt={item.titulo}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-[420px] object-cover group-hover:scale-110 transition-transform duration-700"
               />
 

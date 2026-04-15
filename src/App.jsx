@@ -1,30 +1,32 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import Inicio from './pages/Inicio';
-import Nosotros from './pages/Nosotros';
-import Niveles from './pages/Niveles';
-import Comunidad from './pages/Comunidad';
-import Campus from './pages/Campus';
-import Admision from './pages/Admision';
-import Contacto from './pages/Contacto';
-import NivelPrimaria from './components/ui/NivelPrimaria';
-import NivelSecundaria from './components/ui/NivelSecundaria';
-import Directivos from './components/ui/Directivos';
-import NoticiasPage from './components/ui/NoticiasPage';
-import NoticiaDetalle from './components/ui/NoticiaDetalle';
-import Docentes from './components/ui/Docentes';
-import Alumnos from './components/ui/Alumnos';
-import CampusBanos from './components/ui/CampusBaños';
-import CampusCajamarca from './components/ui/CampusCajamarca';
-import VisitaGuiada from './components/ui/VisitaGuiada';
-import Servicios from './components/ui/Servicios';
-import VacantesCategorias from '@/pages/VacantesCategorias';
-import VacantesListado from '@/pages/VacantesListado';
-import Postular from '@/pages/Postular';
-import TerminosYCondiciones from './components/ui/TerminosYCondiciones';
 import './App.css';
+
+const Footer = lazy(() => import('./components/Footer'));
+const Nosotros = lazy(() => import('./pages/Nosotros'));
+const Niveles = lazy(() => import('./pages/Niveles'));
+const Comunidad = lazy(() => import('./pages/Comunidad'));
+const Campus = lazy(() => import('./pages/Campus'));
+const Admision = lazy(() => import('./pages/Admision'));
+const Contacto = lazy(() => import('./pages/Contacto'));
+const NivelPrimaria = lazy(() => import('./components/ui/NivelPrimaria'));
+const NivelSecundaria = lazy(() => import('./components/ui/NivelSecundaria'));
+const Directivos = lazy(() => import('./components/ui/Directivos'));
+const NoticiasPage = lazy(() => import('./components/ui/NoticiasPage'));
+const NoticiaDetalle = lazy(() => import('./components/ui/NoticiaDetalle'));
+const Docentes = lazy(() => import('./components/ui/Docentes'));
+const Alumnos = lazy(() => import('./components/ui/Alumnos'));
+const CampusBanos = lazy(() => import('./components/ui/CampusBaños'));
+const CampusCajamarca = lazy(() => import('./components/ui/CampusCajamarca'));
+const VisitaGuiada = lazy(() => import('./components/ui/VisitaGuiada'));
+const Servicios = lazy(() => import('./components/ui/Servicios'));
+const VacantesCategorias = lazy(() => import('@/pages/VacantesCategorias'));
+const VacantesListado = lazy(() => import('@/pages/VacantesListado'));
+const Postular = lazy(() => import('@/pages/Postular'));
+const TerminosYCondiciones = lazy(() => import('./components/ui/TerminosYCondiciones'));
 
 function App() {
   return (
@@ -32,32 +34,36 @@ function App() {
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Inicio />} />
-            <Route path="/nosotros" element={<Nosotros />} />
-            <Route path="/niveles" element={<Niveles />} />
-            <Route path="/comunidad" element={<Comunidad />} />
-            <Route path="/campus" element={<Campus />} />
-            <Route path="/admision" element={<Admision />} />
-            <Route path="/contacto" element={<Contacto />} />
-            <Route path="/nivel/primaria" element={<NivelPrimaria />} />
-            <Route path="/nivel/secundaria" element={<NivelSecundaria />} />
-            <Route path='/comunidad/publicaciones' element={<NoticiasPage />} />
-            <Route path="/comunidad/:slug" element={<NoticiaDetalle />} />
-            <Route path='/comunidad/directivos' element={<Directivos />} />
-            <Route path='/comunidad/docentes' element={<Docentes/>} />
-            <Route path='/comunidad/alumnos' element={<Alumnos/>} />
-            <Route path='/campus/banos' element={<CampusBanos/>} />
-            <Route path='/campus/cajamarca' element={<CampusCajamarca/>} />
-            <Route path='/agenda-visita' element={<VisitaGuiada/>} />
-            <Route path='/servicios' element={<Servicios/>} />
-            <Route path="/vacantes" element={<VacantesCategorias />} />
-            <Route path="/vacantes/:tipo" element={<VacantesListado />} />
-            <Route path="/postular/:id" element={<Postular />} />
-            <Route path='/terminos' element={<TerminosYCondiciones/>} />
-          </Routes>
+          <Suspense fallback={null}>
+            <Routes>
+              <Route path="/" element={<Inicio />} />
+              <Route path="/nosotros" element={<Nosotros />} />
+              <Route path="/niveles" element={<Niveles />} />
+              <Route path="/comunidad" element={<Comunidad />} />
+              <Route path="/campus" element={<Campus />} />
+              <Route path="/admision" element={<Admision />} />
+              <Route path="/contacto" element={<Contacto />} />
+              <Route path="/nivel/primaria" element={<NivelPrimaria />} />
+              <Route path="/nivel/secundaria" element={<NivelSecundaria />} />
+              <Route path="/comunidad/publicaciones" element={<NoticiasPage />} />
+              <Route path="/comunidad/:slug" element={<NoticiaDetalle />} />
+              <Route path="/comunidad/directivos" element={<Directivos />} />
+              <Route path="/comunidad/docentes" element={<Docentes />} />
+              <Route path="/comunidad/alumnos" element={<Alumnos />} />
+              <Route path="/campus/banos" element={<CampusBanos />} />
+              <Route path="/campus/cajamarca" element={<CampusCajamarca />} />
+              <Route path="/agenda-visita" element={<VisitaGuiada />} />
+              <Route path="/servicios" element={<Servicios />} />
+              <Route path="/vacantes" element={<VacantesCategorias />} />
+              <Route path="/vacantes/:tipo" element={<VacantesListado />} />
+              <Route path="/postular/:id" element={<Postular />} />
+              <Route path="/terminos" element={<TerminosYCondiciones />} />
+            </Routes>
+          </Suspense>
         </main>
-        <Footer />
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
         <WhatsAppButton />
       </div>
     </Router>
@@ -65,4 +71,3 @@ function App() {
 }
 
 export default App;
-

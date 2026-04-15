@@ -13,6 +13,7 @@ import {
   X,
 } from "lucide-react";
 import { useState, useMemo } from "react";
+import { LOCATIONS } from "@/constants/locations";
 
 /* =====================================================
    DATA CAMPUS CAJAMARCA
@@ -20,12 +21,12 @@ import { useState, useMemo } from "react";
 
 const campusData = {
   nombre: "Campus Cajamarca",
-  direccion: "Jr. Cruz de Piedra N° 582, Cajamarca",
+  direccion: LOCATIONS.cajamarca.address,
   telefono: "953 751 275",
   email: "secretaria.cajamarca@inewton.edu.pe",
   horario: "Lunes a Viernes: 7:30 AM - 6:30 PM",
 
-  mapa: "www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d896.8977769707326!2d-78.51926669999999!3d-7.158194300000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91b25af8ca0f6cbb%3A0xb3d709b3b3a239d2!2sC.P.C.%20Isaac%20Newton!5e1!3m2!1ses-419!2spe!4v1765823134766!5m2!1ses-419!2spe",
+  mapa: LOCATIONS.cajamarca.embedUrl,
 
   video: "https://www.youtube.com/embed/PvHZsaZvqNg",
 
@@ -91,15 +92,13 @@ const campusData = {
 const niveles = ["Primaria", "Secundaria"];
 
 const ubicacion = {
-  nombre: "Colegio Isaac Newton Cajamarca",
-  direccion: "Jr. Cruz de Piedra N° 582, Cajamarca",
+  nombre: LOCATIONS.cajamarca.name,
+  direccion: LOCATIONS.cajamarca.address,
 };
 
-const mapaEmbed =
-  "https://www.google.com/maps?q=Colegio+Isaac+Newton+Cajamarca&output=embed";
+const mapaEmbed = LOCATIONS.cajamarca.embedUrl;
 
-const mapaExterno =
-  "https://www.google.com/maps/search/?api=1&query=Colegio+Isaac+Newton+Cajamarca";
+const mapaExterno = LOCATIONS.cajamarca.mapUrl;
 
 /* =====================================================
    BOTONES CTA
@@ -191,7 +190,7 @@ export default function InfraestructuraCajamarca() {
           >
             {/* MAPA */}
             <a
-              href="https://www.google.com/maps/search/?api=1&query=Colegio+Isaac+Newton+Cajamarca"
+              href={mapaExterno}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-white/10 px-6 py-3 rounded-full
@@ -264,7 +263,7 @@ export default function InfraestructuraCajamarca() {
             <div className="space-y-4 text-gray-700 text-sm">
               {/* DIRECCIÓN */}
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Colegio+Isaac+Newton+Cajamarca"
+                href={mapaExterno}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 hover:text-verde-azulado transition"
@@ -273,7 +272,7 @@ export default function InfraestructuraCajamarca() {
                 <span>
                   <strong>Dirección:</strong>
                   <br />
-                  Jr. Cruz de Piedra N° 582,
+                  {LOCATIONS.cajamarca.shortAddress},
                   <br />
                   Cajamarca
                 </span>
@@ -340,6 +339,9 @@ export default function InfraestructuraCajamarca() {
             <img
               src={contenido.imagen}
               alt={contenido.titulo}
+              loading="lazy"
+              decoding="async"
+              sizes="(min-width: 1024px) 75vw, 90vw"
               className="rounded-xl shadow-xl"
             />
 
@@ -392,6 +394,9 @@ export default function InfraestructuraCajamarca() {
                     <img
                       src={img.imagen}
                       alt={img.titulo}
+                      loading="lazy"
+                      decoding="async"
+                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 90vw"
                       className="rounded-lg shadow-md hover:scale-105 transition"
                     />
                     <p className="text-center font-semibold mt-2 text-[#007a75]">
@@ -466,6 +471,7 @@ export default function InfraestructuraCajamarca() {
               <img
                 src={imagenSeleccionada.imagen}
                 alt={imagenSeleccionada.titulo}
+                decoding="async"
                 className="rounded-xl"
               />
               <button

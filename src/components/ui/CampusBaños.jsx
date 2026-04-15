@@ -13,6 +13,7 @@ import {
   X,
 } from "lucide-react";
 import { useState, useMemo } from "react";
+import { LOCATIONS } from "@/constants/locations";
 
 /* =====================================================
    DATA CAMPUS BAÑOS DEL INCA
@@ -20,7 +21,7 @@ import { useState, useMemo } from "react";
 
 const campusData = {
   nombre: "Campus Los Baños del Inca",
-  direccion: "Jr. Yahuar Huacca N° 779, Los Baños del Inca",
+  direccion: LOCATIONS.banos.address,
   telefono: "920 438 721",
   email: "secretariabi@inewton.edu.pe",
   horario: "Lunes a Viernes: 7:30 AM - 6:30 PM",
@@ -82,15 +83,13 @@ const campusData = {
 const niveles = ["Primaria", "Secundaria"];
 
 const ubicacion = {
-  nombre: "Campus Los Baños del Inca",
-  direccion: "Jr. Yahuar Huacca N° 779, Los Baños del Inca",
+  nombre: LOCATIONS.banos.name,
+  direccion: LOCATIONS.banos.address,
 };
 
-const mapaEmbed =
-  "https://www.google.com/maps?q=Colegio+Isaac+Newton+Los+Baños+del+Inca&output=embed";
+const mapaEmbed = LOCATIONS.banos.embedUrl;
 
-const mapaExterno =
-  "https://www.google.com/maps/search/?api=1&query=Colegio+Isaac+Newton+Los+Baños+del+Inca/";
+const mapaExterno = LOCATIONS.banos.mapUrl;
 
 /* =====================================================
    BOTONES CTA
@@ -245,7 +244,7 @@ export default function InfraestructuraBanosDelInca() {
             <div className="space-y-4 text-gray-700 text-sm">
               {/* DIRECCIÓN */}
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Colegio+Isaac+Newton+Los+Baños+del+Inca"
+                href={mapaExterno}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 hover:text-verde-azulado transition"
@@ -254,7 +253,7 @@ export default function InfraestructuraBanosDelInca() {
                 <span>
                   <strong>Dirección:</strong>
                   <br />
-                  Jr. Yahuar Huacca #779,
+                  {LOCATIONS.banos.shortAddress},
                   <br />
                   Los Baños del Inca
                 </span>
@@ -319,6 +318,9 @@ export default function InfraestructuraBanosDelInca() {
             <img
               src={contenido.imagen}
               alt={contenido.titulo}
+              loading="lazy"
+              decoding="async"
+              sizes="(min-width: 1024px) 75vw, 90vw"
               className="rounded-xl shadow-xl"
             />
 
@@ -353,6 +355,9 @@ export default function InfraestructuraBanosDelInca() {
                     <img
                       src={img.imagen}
                       alt={img.titulo}
+                      loading="lazy"
+                      decoding="async"
+                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 90vw"
                       className="rounded-lg shadow-md hover:scale-105 transition"
                     />
                     <p className="text-center font-semibold mt-2">
@@ -387,7 +392,7 @@ export default function InfraestructuraBanosDelInca() {
 
                 {/* Botón Abrir en Google Maps */}
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Colegio+Isaac+Newton+Los+Baños+del+Inca"
+                  href={mapaExterno}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="absolute bottom-4 right-4 bg-verde-azulado text-white px-4 py-2 rounded-lg shadow-lg hover:bg-opacity-90 transition text-sm font-semibold"
@@ -416,6 +421,7 @@ export default function InfraestructuraBanosDelInca() {
               <img
                 src={imagenSeleccionada.imagen}
                 alt={imagenSeleccionada.titulo}
+                decoding="async"
                 className="rounded-xl"
               />
               <button

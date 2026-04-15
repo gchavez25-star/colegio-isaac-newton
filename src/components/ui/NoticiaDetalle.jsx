@@ -162,6 +162,10 @@ const NoticiaDetalle = () => {
             <img
               src={noticia.imagenPrincipal}
               alt={noticia.titulo}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              sizes="100vw"
               className="w-full h-full object-contain object-center rounded-3xl"
               onError={(e) => {
                 e.target.src =
@@ -214,6 +218,9 @@ const NoticiaDetalle = () => {
                     <img
                       src={bloque.src}
                       alt={bloque.alt}
+                      loading="lazy"
+                      decoding="async"
+                      sizes="(min-width: 1024px) 768px, 90vw"
                       className="w-full h-auto"
                       onError={(e) => {
                         e.target.src =
@@ -229,6 +236,9 @@ const NoticiaDetalle = () => {
                       <img
                         src={bloque.thumbnail}
                         alt="Video thumbnail"
+                        loading="lazy"
+                        decoding="async"
+                        sizes="(min-width: 1024px) 768px, 90vw"
                         className="w-full h-auto"
                         onError={(e) => {
                           e.target.src =
@@ -293,6 +303,9 @@ const NoticiaDetalle = () => {
                     <img
                       src={imagen}
                       alt={`Galería ${index + 1}`}
+                      loading="lazy"
+                      decoding="async"
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 90vw"
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                       onError={(e) => {
                         e.target.src =

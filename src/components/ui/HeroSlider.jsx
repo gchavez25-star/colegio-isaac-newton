@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 import { motion } from "framer-motion";
@@ -9,77 +10,83 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
+const slides = [
+  {
+    id: 1,
+    title: "Admisión y Traslados 2026 - 2027",
+    imageMobile: "/Inicio/Hero/Prueba.jpg",
+    imageDesktop: "/Inicio/Hero/Prueba.jpg",
+    imageMobileWebp: "/optimized/Inicio/Hero/Prueba-960.webp",
+    imageDesktopWebp: "/optimized/Inicio/Hero/Prueba-1920.webp",
+    buttons: [
+      {
+        text: "Agenda una Visita Guiada",
+        link: "/agenda-visita",
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "Nuestros Espacios Educativos",
+    imageMobile: "/Inicio/Hero/Visita.jpg",
+    imageDesktop: "/Inicio/Hero/Visita.jpg",
+    imageMobileWebp: "/optimized/Inicio/Hero/Visita-960.webp",
+    imageDesktopWebp: "/optimized/Inicio/Hero/Visita-1920.webp",
+    videoUrl: "https://www.youtube.com/embed/PvHZsaZvqNg",
+    buttons: [
+      {
+        text: "Ver noticia",
+        link: "/comunidad/publicaciones",
+      },
+      { text: "Ver video", isVideo: true },
+    ],
+  },
+  {
+    id: 3,
+    title: "Formamos Científicos Líderes para el Mundo",
+    imageMobile: "/Inicio/Hero/Alumno.jpg",
+    imageDesktop: "/Inicio/Hero/Alumno.jpg",
+    imageMobileWebp: "/optimized/Inicio/Hero/Alumno-960.webp",
+    imageDesktopWebp: "/optimized/Inicio/Hero/Alumno-1920.webp",
+    buttons: [{ text: "Conócenos", link: "/nosotros" }],
+  },
+  {
+    id: 4,
+    title: "Un entorno Seguro y Familiar para tus hijos",
+    imageMobile: "/Inicio/Hero/Familia.jpg",
+    imageDesktop: "/Inicio/Hero/Familia.jpg",
+    imageMobileWebp: "/optimized/Inicio/Hero/Familia-960.webp",
+    imageDesktopWebp: "/optimized/Inicio/Hero/Familia-1920.webp",
+    buttons: [
+      {
+        text: "Inicia el Proceso de Admisión",
+        link: "/admision",
+      },
+    ],
+  },
+];
+
+const MotionDiv = motion.div;
+const MotionButton = motion.button;
+
 const HeroSlider = () => {
+  const navigate = useNavigate();
   const [showVideo, setShowVideo] = useState(false);
   const [videoSrc, setVideoSrc] = useState("");
-  const MotionDiv = motion.div;
-  const MotionButton = motion.button;
 
-  const slides = [
-    {
-      id: 1,
-      type: "image",
-      title: "Admisión y Traslados 2026 – 2027",
-      imageMobile: "/Inicio/Hero/Prueba.jpg",
-      imageDesktop: "/Inicio/Hero/Prueba.jpg",
-      buttons: [
-        {
-          text: "Agenda una Visita Guiada",
-          link: "/agenda-visita",
-          style: "primary",
-        },
-      ],
-    },
-    {
-      id: 2,
-      type: "image",
-      title: "Nuestros Espacios Educativos",
-      imageMobile: "/Inicio/Hero/Visita.jpg",
-      imageDesktop: "/Inicio/Hero/Visita.jpg",
-      videoUrl: "https://www.youtube.com/embed/PvHZsaZvqNg",
-      buttons: [
-        {
-          text: "Ver noticia",
-          link: "/comunidad/publicacionesw",
-          style: "primary",
-        },
-        { text: "Ver video", style: "secondary", isVideo: true },
-      ],
-    },
-    {
-      id: 3,
-      type: "image",
-      title: "Formamos Científicos Líderes para el Mundo",
-      imageMobile: "/Inicio/Hero/Alumno.jpg",
-      imageDesktop: "/Inicio/Hero/Alumno.jpg",
-      buttons: [{ text: "Conócenos", link: "/nosotros", style: "primary" }],
-    },
-    {
-      id: 4,
-      type: "image",
-      title: "Un entorno Seguro y Familiar para tus hijos",
-      imageMobile: "/Inicio/Hero/Familia.jpg",
-      imageDesktop: "/Inicio/Hero/Familia.jpg",
-      buttons: [
-        {
-          text: "Inicia el Proceso de Admisión",
-          link: "/admision",
-          style: "primary",
-        },
-      ],
-    },
-  ];
-
-  const handleButtonClick = (button, slide) => {
+  const handleButtonClick = useCallback((button, slide) => {
     if (button.isVideo) {
       if (slide.videoUrl) {
         setVideoSrc(slide.videoUrl);
         setShowVideo(true);
       }
-    } else {
-      window.location.href = button.link;
+      return;
     }
-  };
+
+    if (button.link) {
+      navigate(button.link);
+    }
+  }, [navigate]);
 
   return (
     <section className="heroSlider relative w-full h-screen overflow-hidden">
@@ -98,14 +105,39 @@ const HeroSlider = () => {
         loop={true}
         className="w-full h-full"
       >
-        {slides.map((slide) => (
+        {slides.map((slide, index) => {
+          const isPrioritySlide = index === 0;
+          const TitleTag = isPrioritySlide ? "h1" : "h2";
+
+          return (
           <SwiperSlide key={slide.id}>
             <div className="relative w-full h-full">
               <picture className="absolute inset-0">
-                <source srcSet={slide.imageMobile} media="(max-width: 767px)" />
+                <source
+                  srcSet={slide.imageMobileWebp}
+                  media="(max-width: 767px)"
+                  type="image/webp"
+                  sizes="100vw"
+                />
+                <source
+                  srcSet={slide.imageDesktopWebp}
+                  type="image/webp"
+                  sizes="100vw"
+                />
+                <source
+                  srcSet={slide.imageMobile}
+                  media="(max-width: 767px)"
+                  sizes="100vw"
+                />
                 <img
                   src={slide.imageDesktop}
                   alt={slide.title}
+                  width="1920"
+                  height="1280"
+                  loading={isPrioritySlide ? "eager" : "lazy"}
+                  fetchPriority={isPrioritySlide ? "high" : "low"}
+                  decoding={isPrioritySlide ? "sync" : "async"}
+                  sizes="100vw"
                   className="w-full h-full object-cover"
                 />
               </picture>
@@ -120,17 +152,19 @@ const HeroSlider = () => {
                     transition={{ duration: 0.9 }}
                     className="max-w-2xl"
                   >
-                    <h1 className="font-anton text-3xl md:text-5xl text-white mb-6">
+                    <TitleTag className="font-anton text-3xl md:text-5xl text-white mb-6">
                       {slide.title}
-                    </h1>
+                    </TitleTag>
 
                     <div className="flex flex-col sm:flex-row gap-3">
                       {slide.buttons.map((button, index) => (
                         <MotionButton
                           key={index}
+                          type="button"
                           onClick={() => handleButtonClick(button, slide)}
                           whileHover={{ scale: 1.07 }}
                           whileTap={{ scale: 0.95 }}
+                          aria-label={button.text}
                           className="inline-flex items-center gap-3 bg-[#ffcd00] text-[#013055]
                           font-semibold px-8 py-3 rounded-xl text-lg"
                         >
@@ -144,7 +178,8 @@ const HeroSlider = () => {
               </div>
             </div>
           </SwiperSlide>
-        ))}
+          );
+        })}
       </Swiper>
 
       {/* MODAL */}

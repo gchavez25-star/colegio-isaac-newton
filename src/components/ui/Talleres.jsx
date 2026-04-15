@@ -5,10 +5,10 @@ export default function Talleres() {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const talleres = [
-    { titulo: "Vóley", descripcion: "Aprende técnica, coordinación y trabajo en equipo.", imagen: "/Inicio/Talleres/Voley.png", icono: "🏐" },
-    { titulo: "Música", descripcion: "Desarrolla tu talento musical con instrumentos.", imagen: "/Inicio/Talleres/Musica.png", icono: "🎸" },
-    { titulo: "Danza típica", descripcion: "Expresa tu cultura y movimiento.", imagen: "/Inicio/Talleres/Danza.png", icono: "💃" },
-    { titulo: "Fútbol", descripcion: "Refuerza tu resistencia y disciplina deportiva.", imagen: "/Inicio/Talleres/Futbol.png", icono: "⚽" },
+    { titulo: "Vóley", descripcion: "Aprende técnica, coordinación y trabajo en equipo.", imagen: "/optimized/Inicio/Talleres/Voley-640.webp", icono: "🏐" },
+    { titulo: "Música", descripcion: "Desarrolla tu talento musical con instrumentos.", imagen: "/optimized/Inicio/Talleres/Musica-640.webp", icono: "🎸" },
+    { titulo: "Danza típica", descripcion: "Expresa tu cultura y movimiento.", imagen: "/optimized/Inicio/Talleres/Danza-640.webp", icono: "💃" },
+    { titulo: "Fútbol", descripcion: "Refuerza tu resistencia y disciplina deportiva.", imagen: "/optimized/Inicio/Talleres/Futbol-640.webp", icono: "⚽" },
   ];
 
   const whatsappNumbers = {
@@ -29,7 +29,7 @@ export default function Talleres() {
       <section className="relative w-full bg-white">
         <div
           className="w-full h-[480px] md:h-[520px] bg-cover bg-center"
-          style={{ backgroundImage: "url('/Inicio/Talleres/TALLERES_1.png')" }}
+          style={{ backgroundImage: "url('/optimized/Inicio/Talleres/TALLERES_1-1536.webp')" }}
         />
         <div className="relative -mt-24 z-10 pb-10">
           <div className="flex flex-col items-center">
@@ -82,6 +82,8 @@ export default function Talleres() {
                   <img
                     src={taller.imagen}
                     alt={taller.titulo}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                 </div>

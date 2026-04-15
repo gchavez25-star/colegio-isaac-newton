@@ -109,7 +109,7 @@ const RequisitosMatricula = () => {
             {/* Contenedor de la imagen con bordes redondeados */}
             <div className="absolute inset-0 rounded-[40px] overflow-hidden shadow-2xl">
               <img
-                src="/Admision/IMG_8072.jpg" // Usar una imagen de un estudiante apuntando
+                src="/Admision/IMG_8072.optimized.webp" // Usar una imagen de un estudiante apuntando
                 alt="Estudiante apuntando a los requisitos"
                 className="w-full h-full object-cover object-top"
               />
@@ -187,7 +187,7 @@ const Admision = () => {
         title="Admisión | Colegio Isaac Newton"
         description="Inicia tu proceso de admisión en el Colegio Isaac Newton. Revisa etapas, requisitos, becas, fechas importantes y agenda una visita guiada."
         canonicalPath="/admision"
-        image="/Admision/Admision.jpg"
+        image="/Admision/Admision.optimized.webp"
       />
 
       {/* Hero Section */}
@@ -195,7 +195,7 @@ const Admision = () => {
   {/* Background */}
   <div className="absolute inset-0">
     <img
-      src="/Admision/Admision.jpg"
+      src="/Admision/Admision.optimized.webp"
       alt="Proceso de admisión"
       className="w-full h-full object-cover"
     />

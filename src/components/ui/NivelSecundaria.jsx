@@ -133,7 +133,7 @@ const NivelSecundaria = () => {
         title="Nivel Secundaria | Colegio Isaac Newton"
         description="Descubre el nivel secundaria del Colegio Isaac Newton: formación académica sólida, laboratorios, programa bilingüe y preparación para el futuro universitario."
         canonicalPath="/nivel/secundaria"
-        image="/Niveles/Secundaria/Secundaria Nivel.jpg"
+        image="/Niveles/Secundaria/Secundaria Nivel.optimized.webp"
       />
       
       {/* HERO SECTION */}
@@ -142,7 +142,7 @@ const NivelSecundaria = () => {
           <picture>
             <source srcSet="/niveles/secundaria/hero-mobile.jpg" media="(max-width: 767px)" />
             <img
-              src="/Niveles/Secundaria/Secundaria Nivel.jpg"
+              src="/Niveles/Secundaria/Secundaria Nivel.optimized.webp"
               alt="Nivel Secundaria"
               className="w-full h-full object-cover"
             />
@@ -221,7 +221,7 @@ const NivelSecundaria = () => {
                 className="rounded-3xl overflow-hidden shadow-2xl aspect-square"
               >
                 <img
-                  src="/Niveles/Secundaria/Logro.jpg"
+                  src="/Niveles/Secundaria/Logro.optimized.webp"
                   alt="Secundaria 1"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                 />
@@ -235,7 +235,7 @@ const NivelSecundaria = () => {
                 className="rounded-3xl overflow-hidden shadow-2xl aspect-square mt-12"
               >
                 <img
-                  src="/Niveles/Secundaria/Programa.jpg"
+                  src="/Niveles/Secundaria/Programa.optimized.webp"
                   alt="Secundaria 2"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                 />

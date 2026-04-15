@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Search,
@@ -14,34 +14,50 @@ import {
 import { docentes } from "@/data/docentes/index.js";
 
 // CAJAMARCA - SECUNDARIA
+const DOCENTES_PAGE_SIZE = 12;
 
 export default function Docentes() {
   const [busqueda, setBusqueda] = useState("");
   const [sedeFiltro, setSedeFiltro] = useState("Todos");
   const [nivelFiltro, setNivelFiltro] = useState("Todos");
   const [docenteSeleccionado, setDocenteSeleccionado] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(DOCENTES_PAGE_SIZE);
 
   // Filtrado de docentes
-  const docentesFiltrados = docentes.filter((d) => {
-    const coincideNombre =
-      d.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
-      d.area.toLowerCase().includes(busqueda.toLowerCase()) ||
-      d.correo.toLowerCase().includes(busqueda.toLowerCase());
-    const coincideSede = sedeFiltro === "Todos" || d.sede === sedeFiltro;
-    const coincideNivel = nivelFiltro === "Todos" || d.nivel === nivelFiltro;
+  const docentesFiltrados = useMemo(() => {
+    const termino = busqueda.trim().toLowerCase();
 
-    return coincideNombre && coincideSede && coincideNivel;
-  });
+    return docentes.filter((d) => {
+      const coincideNombre =
+        d.nombre.toLowerCase().includes(termino) ||
+        d.area.toLowerCase().includes(termino) ||
+        d.correo.toLowerCase().includes(termino);
+      const coincideSede = sedeFiltro === "Todos" || d.sede === sedeFiltro;
+      const coincideNivel = nivelFiltro === "Todos" || d.nivel === nivelFiltro;
+
+      return coincideNombre && coincideSede && coincideNivel;
+    });
+  }, [busqueda, sedeFiltro, nivelFiltro]);
 
   // Contador de docentes por categoría
-  const contadores = {
-    total: docentes.length,
-    cajamarca: docentes.filter((d) => d.sede === "Cajamarca").length,
-    banosDelInca: docentes.filter((d) => d.sede === "Los Baños del Inca")
-      .length,
-    primaria: docentes.filter((d) => d.nivel === "Primaria").length,
-    secundaria: docentes.filter((d) => d.nivel === "Secundaria").length,
-  };
+  const contadores = useMemo(
+    () => ({
+      total: docentes.length,
+      cajamarca: docentes.filter((d) => d.sede === "Cajamarca").length,
+      banosDelInca: docentes.filter((d) => d.sede === "Los Baños del Inca")
+        .length,
+      primaria: docentes.filter((d) => d.nivel === "Primaria").length,
+      secundaria: docentes.filter((d) => d.nivel === "Secundaria").length,
+    }),
+    [],
+  );
+
+  const docentesVisibles = docentesFiltrados.slice(0, visibleCount);
+  const hayMasDocentes = visibleCount < docentesFiltrados.length;
+
+  useEffect(() => {
+    setVisibleCount(DOCENTES_PAGE_SIZE);
+  }, [busqueda, sedeFiltro, nivelFiltro]);
 
   return (
     <div className="w-full">
@@ -204,6 +220,10 @@ export default function Docentes() {
             <p className="text-gray-600 text-lg">
               Mostrando{" "}
               <span className="font-bold text-verde-azulado">
+                {docentesVisibles.length}
+              </span>{" "}
+              de{" "}
+              <span className="font-bold text-verde-azulado">
                 {docentesFiltrados.length}
               </span>{" "}
               docente{docentesFiltrados.length !== 1 ? "s" : ""}
@@ -218,7 +238,7 @@ export default function Docentes() {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             <AnimatePresence mode="popLayout">
-              {docentesFiltrados.map((docente) => (
+              {docentesVisibles.map((docente) => (
                 <motion.div
                   key={docente.id}
                   layout
@@ -233,6 +253,8 @@ export default function Docentes() {
                     <img
                       src={docente.imagen}
                       alt={docente.nombre}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                     />
 
@@ -292,6 +314,20 @@ export default function Docentes() {
               ))}
             </AnimatePresence>
           </div>
+
+          {hayMasDocentes && (
+            <div className="text-center mt-12">
+              <button
+                type="button"
+                onClick={() =>
+                  setVisibleCount((count) => count + DOCENTES_PAGE_SIZE)
+                }
+                className="inline-flex items-center justify-center px-8 py-4 bg-[#013055] text-white rounded-2xl font-bold hover:bg-[#013055]/90 transition-all shadow-lg"
+              >
+                Ver más docentes
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -326,6 +362,7 @@ export default function Docentes() {
                 <img
                   src={docenteSeleccionado.imagen}
                   alt={docenteSeleccionado.nombre}
+                  decoding="async"
                   className="w-full h-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#013055] via-transparent to-transparent opacity-40" />

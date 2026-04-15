@@ -131,16 +131,16 @@ const NivelPrimaria = () => {
         title="Nivel Primaria | Colegio Isaac Newton"
         description="Conoce el nivel primaria del Colegio Isaac Newton: aprendizaje activo, inglés desde los primeros grados, formación integral y espacios diseñados para niños."
         canonicalPath="/nivel/primaria"
-        image="/Niveles/Primaria/Primer Gardo.jpg"
+        image="/Niveles/Primaria/Primer Gardo.optimized.webp"
       />
       
       {/* HERO SECTION */}
       <section className="relative h-[60vh] md:h-[70vh] overflow-hidden">
         <div className="absolute inset-0">
           <picture>
-            <source srcSet="/Niveles/Primaria/Primer Gardo.jpg" media="(max-width: 767px)" />
+            <source srcSet="/Niveles/Primaria/Primer Gardo.optimized.webp" media="(max-width: 767px)" />
             <img
-              src="/Niveles/Primaria/Primer Gardo.jpg"
+              src="/Niveles/Primaria/Primer Gardo.optimized.webp"
               alt="Nivel Primaria"
               className="w-full h-full object-cover"
             />
@@ -219,7 +219,7 @@ const NivelPrimaria = () => {
                 className="rounded-3xl overflow-hidden shadow-2xl aspect-square"
               >
                 <img
-                  src="/Niveles/Primaria/Logro.jpg"
+                  src="/Niveles/Primaria/Logro.optimized.webp"
                   alt="Primaria 1"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                 />
@@ -233,7 +233,7 @@ const NivelPrimaria = () => {
                 className="rounded-3xl overflow-hidden shadow-2xl aspect-square mt-12"
               >
                 <img
-                  src="/Niveles/Primaria/Ciencia.jpg"
+                  src="/Niveles/Primaria/Ciencia.optimized.webp"
                   alt="Primaria 2"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                 />
