@@ -265,7 +265,7 @@ export default function Docentes() {
                   <div className="relative aspect-[4/5] overflow-hidden bg-gray-200">
                     <img
                       src={docente.imagen}
-                      alt={docente.nombre}
+                      alt={`Foto de ${docente.nombre}, ${docente.cargo}`}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
@@ -380,7 +380,7 @@ export default function Docentes() {
               <div className="w-full md:w-2/5 h-64 md:h-auto relative bg-gray-200">
                 <img
                   src={docenteSeleccionado.imagen}
-                  alt={docenteSeleccionado.nombre}
+                  alt={`Foto de ${docenteSeleccionado.nombre}, ${docenteSeleccionado.cargo}`}
                   decoding="async"
                   className="w-full h-full object-cover object-top"
                 />

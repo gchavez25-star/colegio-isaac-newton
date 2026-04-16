@@ -12,7 +12,7 @@ export const docentesCajamarca = [
     nivel: "Primaria",
     correo: "eleon@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Primaria/LEÓN GUADAÑA ERIKA CESIA.webp",
+      "/Comunidad/Docentes/Cajamarca/Primaria/LEÓN GUADAÑA ERIKA CESIA.optimized.jpg",
     frase: "La comunicación transforma, educa y libera.",
     experiencia: "10 años",
     especialidad: "Comunicación",
@@ -26,7 +26,7 @@ export const docentesCajamarca = [
     nivel: "Primaria",
     correo: "calfaro@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Primaria/ALFARO RODRÍGUEZ  CECILIA NOEMI.webp",
+      "/Comunidad/Docentes/Cajamarca/Primaria/ALFARO RODRÍGUEZ  CECILIA NOEMI.optimized.jpg",
     frase: "Aprende y crece, tú eres la semilla de un futuro brillante.",
     experiencia: "10 años",
     especialidad: "Polidocencia",
@@ -40,7 +40,7 @@ export const docentesCajamarca = [
     nivel: "Primaria",
     correo: "dlimay@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Primaria/LIMAY ÑONTOL DANIELA KARINA.jpg",
+      "/Comunidad/Docentes/Cajamarca/Primaria/LIMAY ÑONTOL DANIELA KARINA.optimized.jpg",
     frase: "En los sueños empiezan las responsabilidades .",
     experiencia: "4 años",
     especialidad: "Lenguaje y Literatura",
@@ -54,7 +54,7 @@ export const docentesCajamarca = [
     nivel: "Primaria",
     correo: "cimboma@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Primaria/IMBOMA SALVATIERRA CLAUDIA ESTEFANY.webp",
+      "/Comunidad/Docentes/Cajamarca/Primaria/IMBOMA SALVATIERRA CLAUDIA ESTEFANY.optimized.jpg",
     frase:
       "With every word in English, you expand your horizons and elevate your dreams.(Con cada palabra en inglés, expandes tus horizontes y elevas tus sueños)",
     experiencia: "5 años",
@@ -69,7 +69,7 @@ export const docentesCajamarca = [
     nivel: "Primaria",
     correo: "klulaico@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Primaria/LULAICO MINCHÁN KARINA MAGALY.jpg",
+      "/Comunidad/Docentes/Cajamarca/Primaria/LULAICO MINCHÁN KARINA MAGALY.optimized.jpg",
     frase: "Siempre debemos ser buenas personas.",
     experiencia: "4 años",
     especialidad: "Polidocencia",
@@ -83,7 +83,7 @@ export const docentesCajamarca = [
     nivel: "Primaria",
     correo: "kgonzalesbringas@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Primaria/GONZALES BRINGAS KATIA SILVANA.webp",
+      "/Comunidad/Docentes/Cajamarca/Primaria/GONZALES BRINGAS KATIA SILVANA.optimized.jpg",
     frase:
       "Acompañando y fortaleciendo el aprendizaje para lograr resultados con propósito.",
     experiencia: "4 años",
@@ -98,7 +98,7 @@ export const docentesCajamarca = [
     nivel: "Primaria",
     correo: "vmunoz@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Primaria/VIVIAN ELIZABETH MUÑOZ ÑONTOL.png",
+      "/Comunidad/Docentes/Cajamarca/Primaria/VIVIAN ELIZABETH MUÑOZ ÑONTOL.optimized.jpg",
     frase:
       "Un maestro afecta la eternidad; solo él puede decir dónde para su influencia.",
     experiencia: "5 años",
@@ -113,7 +113,7 @@ export const docentesCajamarca = [
     nivel: "Primaria",
     correo: "lsalazar@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Primaria/SALAZAR PEREZ LUIS ALBERTO.jpg",
+      "/Comunidad/Docentes/Cajamarca/Primaria/SALAZAR PEREZ LUIS ALBERTO.optimized.jpg",
     frase:
       "La educación no cambia al mundo: cambia a las personas que van a cambiar el mundo.",
     experiencia: "15 años",
@@ -128,7 +128,7 @@ export const docentesCajamarca = [
     nivel: "Primaria",
     correo: "ksevillano@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Primaria/SEVILLANO GONZÁLES KATTERYNE LIZSETH.jpg",
+      "/Comunidad/Docentes/Cajamarca/Primaria/SEVILLANO GONZÁLES KATTERYNE LIZSETH.optimized.jpg",
     frase:
       "La tarea del educador moderno no es talar selvas, sino regar desiertos.",
     experiencia: "10 años",
@@ -143,7 +143,7 @@ export const docentesCajamarca = [
     nivel: "Primaria",
     correo: "jgarcia@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Primaria/GARCÍA RAMOS JUAN DAVID.webp",
+      "/Comunidad/Docentes/Cajamarca/Primaria/GARCÍA RAMOS JUAN DAVID.optimized.jpg",
     frase: "Dios, la música y el hombre, el acorde perfecto.",
     experiencia: "20 años",
     especialidad: "Música",
@@ -157,7 +157,7 @@ export const docentesCajamarca = [
     nivel: "Primaria",
     correo: "scordova@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Primaria/CORDOVA COBIAN SONIA FANNY.webp",
+      "/Comunidad/Docentes/Cajamarca/Primaria/CORDOVA COBIAN SONIA FANNY.optimized.jpg",
     frase:
       "Como docente de Ciencias Naturales, transformo la química y la biología en herramientas clave para comprender el mundo, reflexionar críticamente y cuidarlo con responsabilidad.",
     experiencia: "5 años",
@@ -172,7 +172,7 @@ export const docentesCajamarca = [
     nivel: "Secundaria",
     correo: "eleon@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Secundaria/ALEJOS MORALES DIANA ZARAI.jpg",
+      "/Comunidad/Docentes/Cajamarca/Secundaria/ALEJOS MORALES DIANA ZARAI.optimized.jpg",
     frase: "Una buena educación es el arma para cambiar el mundo.",
     experiencia: "5 años",
     especialidad: "Matemática",
@@ -186,7 +186,7 @@ export const docentesCajamarca = [
     nivel: "Secundaria",
     correo: "razanero@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Secundaria/AZAÑERO PIZARRO ROBERTO CARLOS.jpg",
+      "/Comunidad/Docentes/Cajamarca/Secundaria/AZAÑERO PIZARRO ROBERTO CARLOS.optimized.jpg",
     frase:
       "La experiencia sin teoría es ciega, pero la teoría sin experiencia es simple juego intelectua.",
     experiencia: "6 años",
@@ -201,7 +201,7 @@ export const docentesCajamarca = [
     nivel: "Secundaria",
     correo: "dbecerra@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Secundaria/BECERRA SALAZAR DIOSOLA.jpg",
+      "/Comunidad/Docentes/Cajamarca/Secundaria/BECERRA SALAZAR DIOSOLA.optimized.jpg",
     frase:
       "El maestro es quien siembra la semilla del conocimiento en cada corazón.",
     experiencia: "10 años",
@@ -216,7 +216,7 @@ export const docentesCajamarca = [
     nivel: "Secundaria",
     correo: "ccachiperalta@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Secundaria/CACHI PERALTA CECILIA ELIZABETH.jpg",
+      "/Comunidad/Docentes/Cajamarca/Secundaria/CACHI PERALTA CECILIA ELIZABETH.optimized.jpg",
     frase:
       "En Computación y EPT transformamos ideas en soluciones, aprendiendo a crear, innovar y emprender con propósito.",
     experiencia: "20 años",
@@ -231,7 +231,7 @@ export const docentesCajamarca = [
     nivel: "Secundaria",
     correo: "dcholan@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Secundaria/CHOLÁN BECERRA DIDIER ALEXIS.jpg",
+      "/Comunidad/Docentes/Cajamarca/Secundaria/CHOLÁN BECERRA DIDIER ALEXIS.optimized.jpg",
     frase:
       "El futuro es tu responsabilidad; tú eres quien debe tomar la última decisión.",
     experiencia: "6 años",
@@ -246,7 +246,7 @@ export const docentesCajamarca = [
     nivel: "Secundaria",
     correo: "rchuquiruna@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Secundaria/CHUQUIRUNA VILLANUEVA ROSA DALILA.jpg",
+      "/Comunidad/Docentes/Cajamarca/Secundaria/CHUQUIRUNA VILLANUEVA ROSA DALILA.optimized.jpg",
     frase:
       "La lectura es para la mente lo que el ejercicio es para el cuerpo (Joseph Addison).",
     experiencia: "26 años",
@@ -261,7 +261,7 @@ export const docentesCajamarca = [
     nivel: "Secundaria",
     correo: "mdelacruztejada@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Secundaria/DE LA CRUZ TEJADA MARÍA LETICIA.jpg",
+      "/Comunidad/Docentes/Cajamarca/Secundaria/DE LA CRUZ TEJADA MARÍA LETICIA.optimized.jpg",
     frase:
       "Aprender inglés no es memorizar palabras, es aprender a comunicarse con el mundo.",
     experiencia: "4 años",
@@ -276,7 +276,7 @@ export const docentesCajamarca = [
     nivel: "Secundaria",
     correo: "shidalgo@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Secundaria/HIDALGO NUÑEZ SHERAT JAMES.jpg",
+      "/Comunidad/Docentes/Cajamarca/Secundaria/HIDALGO NUÑEZ SHERAT JAMES.optimized.jpg",
     frase: "La Ciencia es el génesis de la vida.",
     experiencia: "27 años",
     especialidad: "Ciencia y Tecnologia",
@@ -290,7 +290,7 @@ export const docentesCajamarca = [
     nivel: "Secundaria",
     correo: "rizquierdo@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Secundaria/IZQUIERDO HUAMAN ROBER PERCY.jpg",
+      "/Comunidad/Docentes/Cajamarca/Secundaria/IZQUIERDO HUAMAN ROBER PERCY.optimized.jpg",
     frase: "No tengas miedo de la perfección, nunca la alcanzarás.",
     experiencia: "5 años",
     especialidad: "Arte",
@@ -303,7 +303,7 @@ export const docentesCajamarca = [
     sede: "Cajamarca",
     nivel: "Secundaria",
     correo: "raul.julca@inewton.edu.pe",
-    imagen: "/Comunidad/Docentes/Cajamarca/Secundaria/JULCA NOVOA RAUL.jpg",
+    imagen: "/Comunidad/Docentes/Cajamarca/Secundaria/JULCA NOVOA RAUL.optimized.jpg",
     frase: "La química  comienza en las estrellas.",
     experiencia: "30 años",
     especialidad: "Ciencia y Tecnologia",
@@ -317,7 +317,7 @@ export const docentesCajamarca = [
     nivel: "Secundaria",
     correo: "mjulcamoro@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Secundaria/JULCAMORO HUANCA MANUEL JESÚS.png",
+      "/Comunidad/Docentes/Cajamarca/Secundaria/JULCAMORO HUANCA MANUEL JESÚS.optimized.jpg",
     frase: "La mátemática es la llave que abre las puertas del éxito.",
     experiencia: "32 años",
     especialidad: "Matemática",
@@ -331,7 +331,7 @@ export const docentesCajamarca = [
     nivel: "Secundaria",
     correo: "vlezama@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Secundaria/LEZAMA SALAS VICTOR MITCHELL.jpg",
+      "/Comunidad/Docentes/Cajamarca/Secundaria/LEZAMA SALAS VICTOR MITCHELL.optimized.jpg",
     frase: "La ciencia es el arte en donde el ser humano vuelve a nacer.",
     experiencia: "10 años",
     especialidad: "Ciencias Sociales  ",
@@ -345,7 +345,7 @@ export const docentesCajamarca = [
     nivel: "Secundaria",
     correo: "jocashuaripata@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Secundaria/OCAS HUARIPATA JULIO CESAR.jpg",
+      "/Comunidad/Docentes/Cajamarca/Secundaria/OCAS HUARIPATA JULIO CESAR.optimized.jpg",
     frase: "La única manera de aprender matemáticas es haciendo matemáticas.",
     experiencia: "13 años",
     especialidad: "Matemática",
@@ -358,7 +358,7 @@ export const docentesCajamarca = [
     sede: "Cajamarca",
     nivel: "Secundaria",
     correo: "jrebazacampos@inewton.edu.pe",
-    imagen: "/Comunidad/Docentes/Cajamarca/Secundaria/REBAZA CAMPOS JAMES.jpg",
+    imagen: "/Comunidad/Docentes/Cajamarca/Secundaria/REBAZA CAMPOS JAMES.optimized.jpg",
     frase: "Conoce tu historia y conocerás tú futuro .",
     experiencia: "32 años",
     especialidad: "Ciencias Sociales",
@@ -372,7 +372,7 @@ export const docentesCajamarca = [
     nivel: "Secundaria",
     correo: "salfonsosantacruz@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Secundaria/SANTACRUZ PEREZ SEGUNDO ALFONSO.jpg",
+      "/Comunidad/Docentes/Cajamarca/Secundaria/SANTACRUZ PEREZ SEGUNDO ALFONSO.optimized.jpg",
     frase: "Lo que no puedo crear, no lo entiendo.",
     experiencia: "3 años",
     especialidad: "Matemática y Física",
@@ -386,7 +386,7 @@ export const docentesCajamarca = [
     nivel: "Secundaria",
     correo: "dvilela@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Secundaria/VILELA GUERRA DELESMIRO.jpg",
+      "/Comunidad/Docentes/Cajamarca/Secundaria/VILELA GUERRA DELESMIRO.optimized.jpg",
     frase:
       "¡Cada palabra es un libro en miniatura: puede cortar con sus hojas o abrazar con su tinta; pero las que nacen del corazón escriben en nuestra memoria un aroma que jamás se desvanece!",
     experiencia: "23 años",
@@ -401,7 +401,7 @@ export const docentesCajamarca = [
     nivel: "Secundaria",
     correo: "lzaldivar@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Cajamarca/Secundaria/ZALDIVAR PEREZ LUIS ALBERTO.jpg",
+      "/Comunidad/Docentes/Cajamarca/Secundaria/ZALDIVAR PEREZ LUIS ALBERTO.optimized.jpg",
     frase: "El movimiento es la mejor forma de aprender.",
     experiencia: "20 años",
     especialidad: "Educación Física",

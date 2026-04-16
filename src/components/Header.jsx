@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import {
   Menu,
@@ -27,6 +27,7 @@ const Header = () => {
   const [openSubMenu, setOpenSubMenu] = useState(null);
   const [hoveredMenu, setHoveredMenu] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const closeDropdownTimer = useRef(null);
 
   useEffect(() => {
     let ticking = false;
@@ -68,9 +69,35 @@ const Header = () => {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    return () => {
+      if (closeDropdownTimer.current) {
+        window.clearTimeout(closeDropdownTimer.current);
+      }
+    };
+  }, []);
+
   const closeMobileMenu = () => {
     setIsOpen(false);
     setOpenSubMenu(null);
+  };
+
+  const openDesktopMenu = (index) => {
+    if (closeDropdownTimer.current) {
+      window.clearTimeout(closeDropdownTimer.current);
+    }
+
+    setHoveredMenu(index);
+  };
+
+  const scheduleCloseDesktopMenu = () => {
+    if (closeDropdownTimer.current) {
+      window.clearTimeout(closeDropdownTimer.current);
+    }
+
+    closeDropdownTimer.current = window.setTimeout(() => {
+      setHoveredMenu(null);
+    }, 220);
   };
 
   const subMenuIcons = {
@@ -204,8 +231,8 @@ const Header = () => {
                 <div
                   key={i}
                   className="relative group flex-none"
-                  onMouseEnter={() => setHoveredMenu(i)}
-                  onMouseLeave={() => setHoveredMenu(null)}
+                  onMouseEnter={() => openDesktopMenu(i)}
+                  onMouseLeave={scheduleCloseDesktopMenu}
                 >
                   {!item.sub ? (
                     <NavLink
@@ -238,7 +265,11 @@ const Header = () => {
                       </button>
 
                       {hoveredMenu === i && (
-                          <div className="absolute bg-white shadow-2xl rounded-2xl p-2.5 top-10 left-0 min-w-[300px] z-50 border border-gray-100 flex-none origin-top-left animate-[headerDropdown_180ms_ease-out]">
+                          <div
+                            onMouseEnter={() => openDesktopMenu(i)}
+                            onMouseLeave={scheduleCloseDesktopMenu}
+                            className="absolute bg-white shadow-2xl rounded-2xl p-2.5 top-9 left-0 min-w-[300px] z-50 border border-gray-100 flex-none origin-top-left animate-[headerDropdown_180ms_ease-out]"
+                          >
                             <div className="absolute -top-2 left-6 w-4 h-4 bg-white border-l border-t border-gray-100 rotate-45"></div>
 
                             {item.sub.map((subItem, j) => {
@@ -247,6 +278,7 @@ const Header = () => {
                                 <Link
                                   key={j}
                                   to={subItem.path}
+                                  onClick={() => setHoveredMenu(null)}
                                   className="group/item flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-teal-600/5 hover:to-yellow-400/5 transition-all duration-300 border border-transparent hover:border-teal-600/20 flex-none"
                                 >
                                   <div className="mt-0.5 p-2.5 rounded-xl bg-slate-900/5 group-hover/item:bg-teal-600/15 transition-all duration-300 shadow-sm flex-none">

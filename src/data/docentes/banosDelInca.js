@@ -14,7 +14,7 @@ export const docentesBanosDelInca = [
     nivel: "Primaria",
     correo: "gabanto@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Los Baños del Inca/Primaria/ABANTO ABANTO SANTOS GABINO.jpg",
+      "/Comunidad/Docentes/Los Baños del Inca/Primaria/ABANTO ABANTO SANTOS GABINO.optimized.jpg",
     frase: "Siempre un paso adelante.",
     experiencia: "25 años",
     especialidad: "Personal Social",
@@ -28,7 +28,7 @@ export const docentesBanosDelInca = [
     nivel: "Primaria",
     correo: "mfernandez@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Los Baños del Inca/Primaria/FERNANDEZ SILVA MARIETTA.jpg",
+      "/Comunidad/Docentes/Los Baños del Inca/Primaria/FERNANDEZ SILVA MARIETTA.optimized.jpg",
     frase: "Todo lo puedo en Cristo que me fortalece.",
     experiencia: "19 años",
     especialidad: "Polidocencia",
@@ -42,7 +42,7 @@ export const docentesBanosDelInca = [
     nivel: "Primaria",
     correo: "gpena@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Los Baños del Inca/Primaria/PEÑA SALDAÑA GRACE ANDREINA.jpg",
+      "/Comunidad/Docentes/Los Baños del Inca/Primaria/PEÑA SALDAÑA GRACE ANDREINA.optimized.jpg",
     frase:
       "Education is the most powerful weapon which you can use to change the world..",
     experiencia: "4 años",
@@ -57,7 +57,7 @@ export const docentesBanosDelInca = [
     nivel: "Primaria",
     correo: "csanchez@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Los Baños del Inca/Primaria/SANCHEZ ALIAGA CARLOS.jpg",
+      "/Comunidad/Docentes/Los Baños del Inca/Primaria/SANCHEZ ALIAGA CARLOS.optimized.jpg",
     frase: "Tu puedes, nunca te dejes vender.",
     experiencia: "18 años",
     especialidad: "Matemática",
@@ -71,7 +71,7 @@ export const docentesBanosDelInca = [
     nivel: "Primaria",
     correo: "jtafurmantilla@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Los Baños del Inca/Primaria/TAFUR MANTILLA JULISSA FREDESVINDA.jpg",
+      "/Comunidad/Docentes/Los Baños del Inca/Primaria/TAFUR MANTILLA JULISSA FREDESVINDA.optimized.jpg",
     frase:
       "El objeto de la educación es formar seres aptos para gobernarse a sí mismos, y no para se gobernados por los demás.",
     experiencia: "4 años",
@@ -86,7 +86,7 @@ export const docentesBanosDelInca = [
     nivel: "Primaria",
     correo: "gterrones@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Los Baños del Inca/Primaria/TERRONES JULCAMORO GARY.jpg",
+      "/Comunidad/Docentes/Los Baños del Inca/Primaria/TERRONES JULCAMORO GARY.optimized.jpg",
     frase: "Solo sabrás de lo que eres capaz, si lo intentas.",
     experiencia: "5 años",
     especialidad: "Polidocente",
@@ -100,7 +100,7 @@ export const docentesBanosDelInca = [
     nivel: "Primaria",
     correo: "pterrones@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Los Baños del Inca/Primaria/TERRONES MALCA PATRICIA LIBERTAD.jpg",
+      "/Comunidad/Docentes/Los Baños del Inca/Primaria/TERRONES MALCA PATRICIA LIBERTAD.optimized.jpg",
     frase: "El éxito no es un destino, es un viaje, disfrútalo.",
     experiencia: "8 años",
     especialidad: " Comunicación",
@@ -114,7 +114,7 @@ export const docentesBanosDelInca = [
     nivel: "Primaria",
     correo: "jaurazo@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Los Baños del Inca/Secundaria/AURAZO PAREDES JULISSA YOLANDA.jpg",
+      "/Comunidad/Docentes/Los Baños del Inca/Secundaria/AURAZO PAREDES JULISSA YOLANDA.optimized.jpg",
     frase:
       "Enseñar es sembrar confianza para que cada estudiante descubra su propia voz.",
     experiencia: "3 años",
@@ -129,7 +129,7 @@ export const docentesBanosDelInca = [
     nivel: "Secundaria",
     correo: "lcalderon@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Los Baños del Inca/Secundaria/CALDERÓN QUIROZ LUZ ESTHER.jpg",
+      "/Comunidad/Docentes/Los Baños del Inca/Secundaria/CALDERÓN QUIROZ LUZ ESTHER.optimized.jpg",
     frase: "Be strong.",
     experiencia: "3 años",
     especialidad: "Inglés",
@@ -143,7 +143,7 @@ export const docentesBanosDelInca = [
     nivel: "Secundaria",
     correo: "jchalan@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Los Baños del Inca/Secundaria/CHALÁN BACÓN JOSÉ RONAL.jpg",
+      "/Comunidad/Docentes/Los Baños del Inca/Secundaria/CHALÁN BACÓN JOSÉ RONAL.optimized.jpg",
     frase: "No dejes que el ayer ocupe mucho espacio de tu hoy.",
     experiencia: "20 años",
     especialidad: "Matemática",
@@ -157,7 +157,7 @@ export const docentesBanosDelInca = [
     nivel: "Secundaria",
     correo: "fcotrina@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Los Baños del Inca/Secundaria/COTRINA MALCA FERNANDO VALENTIN.jpg",
+      "/Comunidad/Docentes/Los Baños del Inca/Secundaria/COTRINA MALCA FERNANDO VALENTIN.optimized.jpg",
     frase:
       "Conocer nuestra realidad histórica y social nos permitirá ser parte de un Perú de todas las sangres.",
     experiencia: "2 años",
@@ -172,7 +172,7 @@ export const docentesBanosDelInca = [
     nivel: "Secundaria",
     correo: "cchavez@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Los Baños del Inca/Secundaria/CRISTIAN NEISER CHÁVEZ TARRILLO.jpg",
+      "/Comunidad/Docentes/Los Baños del Inca/Secundaria/CRISTIAN NEISER CHÁVEZ TARRILLO.optimized.jpg",
     frase:
       "La ciencia, muchacho, está hecha de errores, pero de errores útiles de cometer.",
     experiencia: "3 años",
@@ -187,7 +187,7 @@ export const docentesBanosDelInca = [
     nivel: "Secundaria",
     correo: "smedina@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Los Baños del Inca/Secundaria/MEDINA ROJAS SEGUNDO CRISTHIAN.jpg",
+      "/Comunidad/Docentes/Los Baños del Inca/Secundaria/MEDINA ROJAS SEGUNDO CRISTHIAN.optimized.jpg",
     frase: "No cuentes los días, haz que los días cuenten.",
     experiencia: "5 años",
     especialidad: "Matemática",
@@ -201,7 +201,7 @@ export const docentesBanosDelInca = [
     nivel: "Secundaria",
     correo: "rquispe@inewton.edu.pe",
     imagen:
-      "/Comunidad/Docentes/Los Baños del Inca/Secundaria/ROSMERY QUISPE MANTILLA.jpg",
+      "/Comunidad/Docentes/Los Baños del Inca/Secundaria/ROSMERY QUISPE MANTILLA.optimized.jpg",
     frase: "Tu potencial es infinito, atrévete a explorarlo.",
     experiencia: "10 años",
     especialidad: "Comunicación",

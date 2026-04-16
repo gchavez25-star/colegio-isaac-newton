@@ -8,7 +8,6 @@ export default function LogoNewton() {
       className="flex items-center select-none cursor-pointer hover:opacity-90 transition-opacity"
     >
       <div className="flex items-center gap-2 sm:gap-3">
-
         {/* Escudo */}
         <img
           src="/Escudo líneas.png"
@@ -35,7 +34,6 @@ export default function LogoNewton() {
             leading-tight text-white font-montserrat
           "
         >
-
           {/* Superior */}
           <span
             className="
@@ -56,9 +54,7 @@ export default function LogoNewton() {
           >
             ISAAC NEWTON
           </span>
-
         </div>
-
       </div>
     </Link>
   );
