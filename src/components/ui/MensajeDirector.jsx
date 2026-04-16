@@ -61,9 +61,9 @@ const MensajeDirector = () => {
 
               {/* Título */}
               <div>
-                <h2 className="font-anton text-4xl md:text-5xl text-azul-oscuro leading-tight mb-4">
+                <h1 className="font-anton text-4xl md:text-5xl text-azul-oscuro leading-tight mb-4">
                   Mensaje del Director
-                </h2>
+                </h1>
                 <div className="w-24 h-1.5 bg-gradient-to-r from-verde-azulado to-amarillo-dorado rounded-full"></div>
               </div>
 
@@ -113,9 +113,9 @@ const MensajeDirector = () => {
             <h2 className="font-script text-4xl md:text-5xl text-amarillo-dorado">
               Identity
             </h2>
-            <h1 className="font-anton text-5xl md:text-6xl text-azul-oscuro mt-2 leading-none">
+            <h2 className="font-anton text-5xl md:text-6xl text-azul-oscuro mt-2 leading-none">
               NEWTONIANA
-            </h1>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">

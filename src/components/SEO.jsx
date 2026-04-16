@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { LOCATIONS } from "@/constants/locations";
 
 const SITE_NAME = "Colegio Isaac Newton";
+const SITE_URL = import.meta.env.VITE_SITE_URL || "https://inewton.edu.pe";
 const DEFAULT_TITLE = `${SITE_NAME} | Educación de excelencia en Cajamarca`;
 const DEFAULT_DESCRIPTION =
   "Colegio Privado de Ciencias Isaac Newton: educación de excelencia en Cajamarca y Los Baños del Inca, con formación integral en primaria y secundaria.";
@@ -13,7 +14,7 @@ const getSiteOrigin = () => {
     return window.location.origin;
   }
 
-  return import.meta.env.VITE_SITE_URL || "";
+  return SITE_URL;
 };
 
 const buildAbsoluteUrl = (origin, value) => {
@@ -65,7 +66,7 @@ const SEO = ({
 }) => {
   const location = useLocation();
   const origin = getSiteOrigin();
-  const currentPath = canonicalPath || `${location.pathname}${location.search || ""}`;
+  const currentPath = canonicalPath || location.pathname;
   const canonicalUrl = buildAbsoluteUrl(origin, currentPath);
   const imageUrl = buildAbsoluteUrl(origin, image);
 

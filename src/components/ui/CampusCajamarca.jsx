@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { useState, useMemo } from "react";
 import { LOCATIONS } from "@/constants/locations";
+import SEO from "@/components/SEO";
 
 /* =====================================================
    DATA CAMPUS CAJAMARCA
@@ -35,7 +36,7 @@ const campusData = {
       titulo: "Nivel Primaria",
       descripcion:
         "Espacios pedagógicos diseñados para el desarrollo integral del estudiante, fomentando el aprendizaje activo, la creatividad y la formación en valores.",
-      imagen: "/Campus/Cajamarca/Patio 3.jpg",
+      imagen: "/Campus/Cajamarca/Patio 3.optimized.jpg",
       caracteristicas: [
         "Aulas interactivas con pantallas digitales",
         "Laboratorio de cómputo educativo",
@@ -53,7 +54,7 @@ const campusData = {
         },
         {
           titulo: "Patios Recreativos Seguros",
-          imagen: "/Campus/Cajamarca/Patio.png",
+          imagen: "/Campus/Cajamarca/Patio.optimized.jpg",
         },
       ],
     },
@@ -62,7 +63,7 @@ const campusData = {
       titulo: "Nivel Secundaria",
       descripcion:
         "Infraestructura moderna orientada a la formación preuniversitaria, la investigación científica y el desarrollo tecnológico.",
-      imagen: "/Campus/Cajamarca/Secundaria.jpg",
+      imagen: "/Campus/Cajamarca/Secundaria.optimized.jpg",
       caracteristicas: [
         "Laboratorios de Física, Química y Biología",
         "Salas de estudio colaborativo",
@@ -77,7 +78,7 @@ const campusData = {
         },
         {
           titulo: "Espacios Amplios",
-          imagen: "/Campus/Cajamarca/Patio 2.png",
+          imagen: "/Campus/Cajamarca/Patio 2.optimized.jpg",
         },
         {
           titulo: "Auditorio institucional",
@@ -148,13 +149,19 @@ export default function InfraestructuraCajamarca() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title="Campus Cajamarca | Colegio Isaac Newton"
+        description="Conoce el Campus Cajamarca del Colegio Isaac Newton: infraestructura para primaria y secundaria, aulas, laboratorios y espacios educativos modernos."
+        canonicalPath="/campus/cajamarca"
+        image="/Campus/Cajamarca/Pabellon A1.optimized.jpg"
+      />
       {/* HERO */}
       <section
         className="relative min-h-[85vh] md:min-h-[90vh] 
              bg-cover bg-right-top text-white text-center 
              flex items-center"
         style={{
-          backgroundImage: "url('/Campus/Cajamarca/Pabellon A1.png')",
+          backgroundImage: "url('/Contacto/Pabellon A1.optimized.webp')",
         }}
       >
         {/* OVERLAY */}

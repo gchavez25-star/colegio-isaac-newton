@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { vacantesData } from '@/data/vacantesData';
+import SEO from '@/components/SEO';
 
 const categoriasConfig = {
   docente: {
@@ -23,6 +24,12 @@ export default function VacantesCategorias() {
 
   return (
     <>
+      <SEO
+        title="Vacantes Colegio Cajamarca | Trabaja en Colegio Isaac Newton"
+        description="Convocatorias laborales del Colegio Isaac Newton en Cajamarca y Los Baños del Inca. Revisa vacantes para docentes, administrativos y servicios."
+        canonicalPath="/vacantes"
+        image="/Header/Vacantes/Convocatoria.optimized.webp"
+      />
      {/* HERO */}
         <section
         className="relative py-24 text-white bg-center bg-cover"
@@ -65,7 +72,9 @@ export default function VacantesCategorias() {
                 <div className="h-48 overflow-hidden">
                   <img
                     src={categoria.image}
-                    alt={categoria.label}
+                    alt={`Vacantes de ${categoria.label} en el Colegio Isaac Newton`}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -78,6 +87,7 @@ export default function VacantesCategorias() {
 
                   <Link
                     to={`/vacantes/${tipo}`}
+                    aria-label={`Ver vacantes de ${categoria.label}`}
                     className="inline-flex items-center bg-[#007a75] text-white px-6 py-3 rounded-lg font-bold hover:bg-azul-oscuro/90 transition"
                   >
                     Ver Vacantes

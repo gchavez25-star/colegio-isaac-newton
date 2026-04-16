@@ -12,6 +12,7 @@ import {
   BookOpen,
 } from "lucide-react";
 import { docentes } from "@/data/docentes/index.js";
+import SEO from "@/components/SEO";
 
 // CAJAMARCA - SECUNDARIA
 const DOCENTES_PAGE_SIZE = 12;
@@ -60,7 +61,14 @@ export default function Docentes() {
   }, [busqueda, sedeFiltro, nivelFiltro]);
 
   return (
-    <div className="w-full">
+    <>
+      <SEO
+        title="Docentes | Colegio Isaac Newton Cajamarca"
+        description="Conoce al equipo docente del Colegio Isaac Newton en Cajamarca y Los Baños del Inca: profesionales de primaria y secundaria enfocados en formación integral."
+        canonicalPath="/comunidad/docentes"
+        image="/Logo-pagina-web.png"
+      />
+      <div className="w-full">
       {/* HERO */}
       <section className="py-6 bg-gradient-to-br from-azul-oscuro to-verde-azulado text-[#013055] text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -125,6 +133,7 @@ export default function Docentes() {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-6 h-6" />
               <input
                 type="text"
+                aria-label="Buscar docentes por nombre, área o correo"
                 placeholder="Buscar por nombre, área o correo..."
                 value={busqueda}
                 onChange={(e) => setBusqueda(e.target.value)}
@@ -132,7 +141,9 @@ export default function Docentes() {
               />
               {busqueda && (
                 <button
+                  type="button"
                   onClick={() => setBusqueda("")}
+                  aria-label="Limpiar búsqueda de docentes"
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
                   <X className="w-5 h-5" />
@@ -151,6 +162,7 @@ export default function Docentes() {
               {["Todos", "Cajamarca", "Los Baños del Inca"].map((sede) => (
                 <button
                   key={sede}
+                  type="button"
                   onClick={() => {
                     setSedeFiltro(sede);
                     setNivelFiltro("Todos"); // Reset nivel al cambiar sede
@@ -189,6 +201,7 @@ export default function Docentes() {
                   {["Todos", "Primaria", "Secundaria"].map((nivel) => (
                     <button
                       key={nivel}
+                      type="button"
                       onClick={() => setNivelFiltro(nivel)}
                       className={`px-6 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg ${
                         nivelFiltro === nivel
@@ -304,6 +317,7 @@ export default function Docentes() {
 
                     <button
                       onClick={() => setDocenteSeleccionado(docente)}
+                      type="button"
                       className="w-full py-3 bg-gray-50 hover:bg-[#013055] text-[#013055] hover:text-white rounded-2xl font-bold transition-all flex items-center justify-center gap-2 group/btn"
                     >
                       Ver Perfil Completo
@@ -344,6 +358,9 @@ export default function Docentes() {
             />
 
             <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="docente-modal-title"
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -352,6 +369,8 @@ export default function Docentes() {
               {/* Botón Cerrar */}
               <button
                 onClick={() => setDocenteSeleccionado(null)}
+                type="button"
+                aria-label="Cerrar perfil del docente"
                 className="absolute top-6 right-6 z-10 p-3 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white md:text-gray-400 md:hover:text-red-500 rounded-full transition-all"
               >
                 <X className="w-6 h-6" />
@@ -377,7 +396,9 @@ export default function Docentes() {
                       {docenteSeleccionado.area}
                     </span>
                     <h2 className="text-4xl md:text-5xl font-anton text-[#013055] leading-tight">
+                      <span id="docente-modal-title">
                       {docenteSeleccionado.nombre}
+                      </span>
                     </h2>
                     <p className="text-xl text-gray-500 font-medium mt-2">
                       {docenteSeleccionado.cargo}
@@ -463,6 +484,7 @@ export default function Docentes() {
           </div>
         )}
       </AnimatePresence>
-    </div>
+      </div>
+    </>
   );
 }

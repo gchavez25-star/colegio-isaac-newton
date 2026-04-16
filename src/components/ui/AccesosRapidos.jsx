@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Mail, Calendar, ExternalLink, Folder } from "lucide-react"; // Importar el icono Folder
 
 const AccesosRapidos = () => {
@@ -40,23 +39,11 @@ const AccesosRapidos = () => {
         {/* Grid de tarjetas */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {accesos.map((acceso, index) => (
-            <motion.a
+            <a
               key={index}
               href={acceso.link}
               target={acceso.external ? "_blank" : "_self"}
               rel={acceso.external ? "noopener noreferrer" : undefined}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: index * 0.15,
-                duration: 0.5,
-                ease: "easeOut",
-              }}
-              whileHover={{
-                y: -8,
-                transition: { duration: 0.3 },
-              }}
               className="
                 bg-white
                 p-8 md:p-10
@@ -67,21 +54,18 @@ const AccesosRapidos = () => {
                 transition-all duration-300
                 shadow-[0_10px_40px_rgba(0,0,0,0.1)]
                 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]
+                hover:-translate-y-2
                 border border-gray-100
                 group
+                animate-[headerSubmenu_400ms_ease-out]
               "
             >
               {/* Icono */}
-              <motion.div
-                whileHover={{
-                  scale: 1.1,
-                  rotate: 5,
-                  transition: { duration: 0.3 },
-                }}
-                className="mb-6 text-[#013055] group-hover:text-[#ffcd00] transition-colors duration-300"
+              <div
+                className="mb-6 text-[#013055] group-hover:text-[#ffcd00] transition-all duration-300 group-hover:scale-110 group-hover:rotate-[5deg]"
               >
                 {acceso.icono}
-              </motion.div>
+              </div>
 
               {/* Título */}
               <h3 className="font-anton text-2xl md:text-3xl text-[#013055] tracking-wide mb-3 uppercase">
@@ -92,7 +76,7 @@ const AccesosRapidos = () => {
               <p className="text-sm md:text-base text-gray-600 font-montserrat leading-relaxed">
                 {acceso.descripcion}
               </p>
-            </motion.a>
+            </a>
           ))}
         </div>
       </div>

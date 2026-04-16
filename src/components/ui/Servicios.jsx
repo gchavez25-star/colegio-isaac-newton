@@ -153,16 +153,20 @@ export default function Servicios() {
         title="Servicios Educativos | Colegio Isaac Newton"
         description="Conoce los servicios académicos, extracurriculares, de bienestar y complementarios del Colegio Isaac Newton en Cajamarca y Los Baños del Inca."
         canonicalPath="/servicios"
-        image="/Header/Servicios/Services.jpg"
+        image="/Header/Servicios/Laboratorio Especializados.optimized.webp"
       />
 
       {/* HERO SECTION - Estilo CBB */} 
      <section className="relative py-20 text-white">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/Header/Servicios/Services.jpg')" }}
+        style={{
+          backgroundImage:
+            "url('/Header/Servicios/Laboratorio Especializados.optimized.webp')",
+          backgroundPosition: "center 42%",
+        }}
       ></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-azul-oscuro to-verde-azulado opacity-80"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-[#013055]/95 via-[#013055]/78 to-[#007a75]/70"></div>
       
       <div className="relative container mx-auto px-6 text-center max-w-4xl">
         <motion.h1
@@ -170,10 +174,11 @@ export default function Servicios() {
           animate={{ opacity: 1, y: 0 }}
           className="font-anton text-5xl md:text-6xl mb-4"
         >
-          Nuestros Servicios
+          Servicios Educativos
         </motion.h1>
-        <p className="text-xl font-light">
-          Todo lo que necesitas para una experiencia educativa completa y de calidad.
+        <p className="text-xl font-medium leading-relaxed text-white/95">
+          Recursos académicos, acompañamiento integral y espacios pensados para
+          fortalecer la experiencia escolar de nuestros estudiantes.
         </p>
       </div>
     </section>

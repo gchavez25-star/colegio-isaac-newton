@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Facebook, Instagram, Youtube } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { SiTiktok, SiWhatsapp } from "react-icons/si";
 
 const campuses = {
@@ -29,38 +28,32 @@ export default function FloatingSocialButtons() {
   return (
     <>
       {/* ================= WHATSAPP BUTTON ================= */}
-      <motion.button
+      <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-xl hover:bg-green-600 transition-colors"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1, duration: 0.3 }}
+        type="button"
+        className="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-xl hover:bg-green-600 transition-all duration-300 hover:scale-110 active:scale-90 animate-[headerSubmenu_300ms_ease-out]"
         aria-label="Contactar por WhatsApp"
       >
         <SiWhatsapp size={30} />
-      </motion.button>
+      </button>
 
       {/* ================= CAMPUS SELECTOR ================= */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+      {open && (
+          <div
+            className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center animate-[headerFade_180ms_ease-out]"
             onClick={() => setOpen(false)}
           >
-            <motion.div
-              className="bg-white rounded-2xl p-6 w-80 shadow-2xl"
-              initial={{ scale: 0.85, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.85, opacity: 0 }}
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="whatsapp-campus-title"
+              className="bg-white rounded-2xl p-6 w-80 shadow-2xl animate-[headerDropdown_220ms_ease-out]"
               onClick={(e) => e.stopPropagation()}
             >
               <h3 className="text-lg font-semibold text-center mb-4 text-[#013055]">
+                <span id="whatsapp-campus-title">
                 Elige un campus
+                </span>
               </h3>
 
               <div className="space-y-3">
@@ -68,16 +61,16 @@ export default function FloatingSocialButtons() {
                   <button
                     key={campus.phone}
                     onClick={() => openWhatsApp(campus.phone)}
+                    type="button"
                     className="w-full py-3 rounded-xl bg-green-500 text-white hover:bg-green-600 transition font-medium"
                   >
                     {campus.label}
                   </button>
                 ))}
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         )}
-      </AnimatePresence>
 
       {/* ================= SOCIAL NETWORKS ================= */}
       <div className="fixed bottom-6 left-6 z-50 flex flex-col gap-3">

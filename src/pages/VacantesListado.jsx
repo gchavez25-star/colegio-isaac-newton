@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Calendar, ArrowLeft } from 'lucide-react';
 import { vacantesData } from '@/data/vacantesData';
+import SEO from '@/components/SEO';
 
 export default function VacantesListado() {
   const { tipo } = useParams();
@@ -18,6 +19,12 @@ export default function VacantesListado() {
 
   return (
     <>
+      <SEO
+        title={`Vacantes ${tipo || 'disponibles'} | Colegio Isaac Newton Cajamarca`}
+        description="Postula a convocatorias laborales del Colegio Isaac Newton en Cajamarca y Los Baños del Inca. Oportunidades para docentes, administrativos y servicios."
+        canonicalPath={tipo ? `/vacantes/${tipo}` : "/vacantes"}
+        image="/Header/Vacantes/Convocatoria.optimized.webp"
+      />
       {/* ================= HERO ================= */}
       <section className="relative py-24 bg-gradient-to-br from-[#013055] to-[#007a75] text-white">
         <div className="container mx-auto px-6 text-center">
@@ -52,6 +59,7 @@ export default function VacantesListado() {
           >
             <Link
               to="/vacantes"
+              aria-label="Volver a todas las vacantes del Colegio Isaac Newton"
               className="
                 inline-flex items-center gap-3
                 bg-white text-[#013055]
@@ -108,6 +116,7 @@ export default function VacantesListado() {
 
                   <Link
                     to={`/postular/${vacante.id}`}
+                    aria-label={`Postular a ${vacante.titulo}`}
                     className="
                       bg-amarillo-dorado text-[#013055]
                       px-5 py-2 rounded-lg

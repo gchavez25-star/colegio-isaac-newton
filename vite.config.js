@@ -17,10 +17,12 @@ export default defineConfig({
     assetsInlineLimit: 4096,
     rollupOptions: {
       output: {
-        manualChunks: {
-          react: ['react', 'react-dom', 'react-router-dom'],
-          motion: ['framer-motion'],
-          carousel: ['swiper'],
+        manualChunks(id) {
+          if (id.includes('node_modules/react/')) return 'react'
+          if (id.includes('node_modules/react-dom/')) return 'react'
+          if (id.includes('node_modules/react-router-dom/')) return 'react'
+          if (id.includes('node_modules/framer-motion/')) return 'motion'
+          if (id.includes('node_modules/swiper/')) return 'carousel'
         },
       },
     },

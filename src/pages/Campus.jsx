@@ -14,7 +14,7 @@ const campusData = {
       title: "Campus Cajamarca | Colegio Isaac Newton",
       description:
         "Infraestructura moderna del Campus Cajamarca del Colegio Isaac Newton.",
-      image: "/Campus/Cajamarca/Pabellon A1.png",
+      image: "/Campus/Cajamarca/Pabellon A1.optimized.jpg",
     },
     whatsapp: "51953751275",
     direccion: LOCATIONS.cajamarca.address,
@@ -24,7 +24,7 @@ const campusData = {
       titulo: "Infraestructura General",
       descripcion:
         "Campus principal con infraestructura moderna orientada a la excelencia académica.",
-      imagen: "/Campus/Cajamarca/Pabellon A1.png",
+      imagen: "/Campus/Cajamarca/Pabellon A1.optimized.jpg",
       caracteristicas: [
         "Auditorio institucional",
         "Laboratorios especializados",
@@ -37,7 +37,7 @@ const campusData = {
       titulo: "Nivel Primaria",
       descripcion:
         "Espacios pedagógicos diseñados para el desarrollo integral del estudiante.",
-      imagen: "/Campus/Cajamarca/Patio 3.jpg",
+      imagen: "/Campus/Cajamarca/Patio 3.optimized.jpg",
       caracteristicas: [
         "Aulas interactivas",
         "Laboratorio de cómputo",
@@ -49,7 +49,7 @@ const campusData = {
     Secundaria: {
       titulo: "Nivel Secundaria",
       descripcion: "Infraestructura orientada a la formación preuniversitaria.",
-      imagen: "/Campus/Cajamarca/Secundaria.jpg",
+      imagen: "/Campus/Cajamarca/Secundaria.optimized.jpg",
       caracteristicas: [
         "Laboratorios de ciencias",
         "Área de tecnología",
@@ -153,7 +153,7 @@ export default function Campus() {
       <section
         className="relative py-24 text-white text-center bg-cover bg-center"
         style={{
-          backgroundImage: "url('/Campus/Cajamarca/Pabellon A1.png')",
+          backgroundImage: "url('/Campus/Cajamarca/Pabellon A1.optimized.jpg')",
         }}
       >
         {/* OVERLAY */}
@@ -181,6 +181,7 @@ export default function Campus() {
         {sedes.map((sede) => (
           <button
             key={sede}
+            type="button"
             onClick={() => {
               setSedeActiva(sede);
               setNivelActivo("General");
@@ -205,6 +206,7 @@ export default function Campus() {
           {niveles.map((nivel) => (
             <button
               key={nivel}
+              type="button"
               onClick={() => setNivelActivo(nivel)}
               className={`w-full mb-2 px-4 py-3 rounded-lg flex gap-2 items-center ${
                 nivel === nivelActivo
@@ -258,6 +260,7 @@ export default function Campus() {
           </div>
 
           <iframe
+            title={`Mapa del Campus ${sedeActiva} del Colegio Isaac Newton`}
             src={sedeData.mapa}
             className="w-full h-96 rounded-xl"
             loading="lazy"

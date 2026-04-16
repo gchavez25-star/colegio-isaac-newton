@@ -60,7 +60,7 @@ function LazySocialVideo({ src }) {
           video.pause();
         }
       },
-      { rootMargin: "200px 0px", threshold: 0.2 },
+      { rootMargin: "0px 0px", threshold: 0.35 },
     );
 
     observer.observe(container);
@@ -156,6 +156,7 @@ export default function PartnersGaleria() {
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Ver publicación del Colegio Isaac Newton en Instagram"
                   className="relative rounded-2xl overflow-hidden shadow-xl group"
                 >
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">

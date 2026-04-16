@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
 import { Mail, Phone } from 'lucide-react';
 import { LOCATIONS } from "@/constants/locations";
+import SEO from "@/components/SEO";
 
 // Datos del Colegio Isaac Newton
 const COLEGIO_NOMBRE = "Colegio Privado de Ciencias Isaac Newton";
@@ -13,6 +13,11 @@ const COLEGIO_TELEFONO = "(076) 280932";
 const TerminosYCondiciones = () => {
   return (
     <div className="min-h-screen pt-24 bg-gray-50">
+      <SEO
+        title="Términos y condiciones | Colegio Isaac Newton"
+        description="Términos y condiciones de uso del sitio web del Colegio Privado de Ciencias Isaac Newton en Cajamarca."
+        canonicalPath="/terminos"
+      />
       
     
 

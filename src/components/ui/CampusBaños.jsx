@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { useState, useMemo } from "react";
 import { LOCATIONS } from "@/constants/locations";
+import SEO from "@/components/SEO";
 
 /* =====================================================
    DATA CAMPUS BAÑOS DEL INCA
@@ -44,11 +45,11 @@ const campusData = {
       galeria: [
         {
           titulo: "Aulas modernas",
-          imagen: "/Campus/Los Baños del Inca/Aulas Interactivas.jpg",
+          imagen: "/Campus/Los Baños del Inca/Aulas Interactivas.optimized.jpg",
         },
         {
           titulo: "Sala de cómputo",
-          imagen: "/Campus/Los Baños del Inca/Laboratorio 1.jpg",
+          imagen: "/Campus/Los Baños del Inca/Laboratorio 1.optimized.jpg",
         },
       ],
     },
@@ -68,12 +69,12 @@ const campusData = {
       galeria: [
         {
           titulo: "Áreas deportivas",
-          imagen: "/Campus/Los Baños del Inca/Local.jpg",
+          imagen: "/Campus/Los Baños del Inca/Local.optimized.jpg",
         },
         {
           titulo: "Tópico escolar",
           imagen:
-            "/Campus/Los Baños del Inca/Topico.jpg",
+            "/Campus/Los Baños del Inca/Topico.optimized.jpg",
         },
       ],
     },
@@ -139,6 +140,12 @@ export default function InfraestructuraBanosDelInca() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title="Campus Los Baños del Inca | Colegio Isaac Newton"
+        description="Conoce el Campus Los Baños del Inca del Colegio Isaac Newton: ambientes para primaria y secundaria, espacios verdes y formación integral."
+        canonicalPath="/campus/banos"
+        image="/Campus/Los Baños del Inca/Ingreso.jpg"
+      />
       {/* HERO */}
       <section
         className="relative min-h-[85vh] md:min-h-[90vh] 

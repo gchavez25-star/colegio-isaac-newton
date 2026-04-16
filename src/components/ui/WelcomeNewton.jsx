@@ -1,5 +1,3 @@
-import React from "react";
-import { motion } from "framer-motion";
 import StudentImg from "/optimized/Inicio/Welcome/Welcome_3-900.webp"; 
 // Ajusta la ruta según tu proyecto
 
@@ -7,23 +5,16 @@ export default function WelcomeNewton() {
   return (
     <section className="w-full px-4 py-12 flex justify-center">
       {/* Contenedor principal animado */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        viewport={{ once: true }}
+      <div
         className="
           flex flex-col md:flex-row 
           bg-white rounded-2xl shadow-xl overflow-hidden
           max-w-5xl w-full
+          animate-[headerDropdown_500ms_ease-out]
         "
       >
         {/* IMAGEN IZQUIERDA */}
-        <motion.div
-          initial={{ x: -50, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          viewport={{ once: true }}
+        <div
           className="md:w-1/2 w-full"
         >
           <img
@@ -33,14 +24,10 @@ export default function WelcomeNewton() {
             decoding="async"
             className="w-full h-full object-cover md:rounded-l-2xl"
           />
-        </motion.div>
+        </div>
 
         {/* TEXTO DERECHA */}
-        <motion.div
-          initial={{ x: 50, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          viewport={{ once: true }}
+        <div
           className="md:w-1/2 w-full p-8 md:p-10 flex flex-col justify-center"
         >
           {/* TÍTULO */}
@@ -49,7 +36,7 @@ export default function WelcomeNewton() {
              </h2>
 
           {/* PÁRRAFO */}
-          <p className="text-gray-700 text-base md:text-lg text-justify leading-relaxed font-montserrat">
+          <p className="text-left text-gray-700 text-base leading-relaxed font-montserrat md:text-lg md:text-justify">
             Somos el Colegio Privado de Ciencias “Isaac Newton” y formamos
             estudiantes íntegros, críticos y con sólidos valores. Nuestro
             modelo educativo combina la innovación tecnológica, metodologías
@@ -59,10 +46,8 @@ export default function WelcomeNewton() {
           </p>
 
           {/* BOTÓN */}
-          <motion.a
+          <a
             href="/nosotros"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
             className="
                 inline-flex items-center gap-3
                 mt-7 px-8 py-3 
@@ -76,6 +61,7 @@ export default function WelcomeNewton() {
                 hover:text-[#013055]
                 transition-all duration-300
                 shadow-md hover:shadow-xl
+                hover:scale-[1.03] active:scale-[0.98]
             "
             >
             Conoce más de nosotros
@@ -93,10 +79,10 @@ export default function WelcomeNewton() {
                 clipRule='evenodd'
                 />
             </svg>
-            </motion.a>
+            </a>
 
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

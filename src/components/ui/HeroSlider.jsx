@@ -2,7 +2,6 @@ import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
-import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import VideoModal from "./VideoModal";
 
@@ -65,9 +64,6 @@ const slides = [
     ],
   },
 ];
-
-const MotionDiv = motion.div;
-const MotionButton = motion.button;
 
 const HeroSlider = () => {
   const navigate = useNavigate();
@@ -146,11 +142,8 @@ const HeroSlider = () => {
 
               <div className="absolute inset-0 flex items-center">
                 <div className="container mx-auto px-4">
-                  <MotionDiv
-                    initial={{ opacity: 0, y: 60 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.9 }}
-                    className="max-w-2xl"
+                  <div
+                    className="max-w-2xl animate-[headerDropdown_650ms_ease-out]"
                   >
                     <TitleTag className="font-anton text-3xl md:text-5xl text-white mb-6">
                       {slide.title}
@@ -158,22 +151,20 @@ const HeroSlider = () => {
 
                     <div className="flex flex-col sm:flex-row gap-3">
                       {slide.buttons.map((button, index) => (
-                        <MotionButton
+                        <button
                           key={index}
                           type="button"
                           onClick={() => handleButtonClick(button, slide)}
-                          whileHover={{ scale: 1.07 }}
-                          whileTap={{ scale: 0.95 }}
                           aria-label={button.text}
                           className="inline-flex items-center gap-3 bg-[#ffcd00] text-[#013055]
-                          font-semibold px-8 py-3 rounded-xl text-lg"
+                          font-semibold px-8 py-3 rounded-xl text-lg transition-transform duration-300 hover:scale-[1.04] active:scale-[0.96]"
                         >
                           {button.isVideo && <Play size={20} />}
                           {button.text}
-                        </MotionButton>
+                        </button>
                       ))}
                     </div>
-                  </MotionDiv>
+                  </div>
                 </div>
               </div>
             </div>

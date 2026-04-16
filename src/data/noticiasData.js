@@ -9,8 +9,8 @@ export const noticiasData = [
   fecha: "abril 2026",
   tiempoLectura: "3 minutos",
   categorias: ["Logros", "Admisión"],
-  imagenPrincipal: "/Comunidad/Publicaciones/Ingreso/Ingreso 2.jpg",
-  imagenMiniatura: "/Comunidad/Publicaciones/Ingreso/Ingreso 2.jpg",
+  imagenPrincipal: "/Comunidad/Publicaciones/Ingreso/Ingreso 2.optimized.jpg",
+  imagenMiniatura: "/Comunidad/Publicaciones/Ingreso/Ingreso 2.optimized.jpg",
   destacado: "Felicitamos a nuestros estudiantes por su ingreso a la Universidad Nacional de Cajamarca, reflejo de su esfuerzo, disciplina y perseverancia.",
   contenido: [
     {
@@ -27,11 +27,11 @@ export const noticiasData = [
     }
   ],
   galeria: [
-    "/Comunidad/Publicaciones/Ingreso/Ingreso 1.jpg",
-    "/Comunidad/Publicaciones/Ingreso/Ingreso 4.jpg",
-    "/Comunidad/Publicaciones/Ingreso/Ingreso 3.jpg",
-    "/Comunidad/Publicaciones/Ingreso/Ingreso 4.jpg",
-    "/Comunidad/Publicaciones/Ingreso/Ingreso 5.jpg"
+    "/Comunidad/Publicaciones/Ingreso/Ingreso 1.optimized.jpg",
+    "/Comunidad/Publicaciones/Ingreso/Ingreso 4.optimized.jpg",
+    "/Comunidad/Publicaciones/Ingreso/Ingreso 3.optimized.jpg",
+    "/Comunidad/Publicaciones/Ingreso/Ingreso 4.optimized.jpg",
+    "/Comunidad/Publicaciones/Ingreso/Ingreso 5.optimized.jpg"
   ],
   tags: [
     "Admisión2026",
@@ -51,8 +51,8 @@ export const noticiasData = [
     tiempoLectura: "2 minutos",
     categorias: ["Alumnos", "Eventos", "Formación en Valores", "Pastoral"],
 
-    imagenPrincipal: "/Comunidad/Publicaciones/Semana Santa/Semana 1.jpg",
-    imagenMiniatura: "/Comunidad/Publicaciones/Semana Santa/Semana 1.jpg",
+    imagenPrincipal: "/Comunidad/Publicaciones/Semana Santa/Semana 1.optimized.jpg",
+    imagenMiniatura: "/Comunidad/Publicaciones/Semana Santa/Semana 1.optimized.jpg",
 
     destacado:
       "Nuestros estudiantes participaron en un emotivo Vía Crucis, fortaleciendo valores como la fe, el amor y la solidaridad.",
@@ -66,7 +66,7 @@ export const noticiasData = [
 
       {
         tipo: "imagen",
-        src: "/Comunidad/Publicaciones/Semana Santa/Semana 2.jpg",
+        src: "/Comunidad/Publicaciones/Semana Santa/Semana 2.optimized.jpg",
         alt: "Estudiantes participando en el Vía Crucis"
       },
 
@@ -90,16 +90,16 @@ export const noticiasData = [
 
       {
         tipo: "imagen",
-        src: "/Comunidad/Publicaciones/Semana Santa/Semana 3.jpg",
+        src: "/Comunidad/Publicaciones/Semana Santa/Semana 3.optimized.jpg",
         alt: "Representación del Vía Crucis en el colegio Isaac Newton"
       }
     
   
     ],
     galeria: [
-      "/Comunidad/Publicaciones/Semana Santa/Semana 4.jpg",
-      "/Comunidad/Publicaciones/Semana Santa/Semana 5.jpg",
-      "/Comunidad/Publicaciones/Semana Santa/Semana 6.jpg",
+      "/Comunidad/Publicaciones/Semana Santa/Semana 4.optimized.jpg",
+      "/Comunidad/Publicaciones/Semana Santa/Semana 5.optimized.jpg",
+      "/Comunidad/Publicaciones/Semana Santa/Semana 6.optimized.jpg",
    
     ]
   },
@@ -112,8 +112,8 @@ export const noticiasData = [
 
   categorias: ["Institucional", "Eventos", "Estudiantes", "Prensa"],
 
-  imagenPrincipal: "/Comunidad/Publicaciones/Inicio/Inicio 1.jpg",
-  imagenMiniatura: "/Comunidad/Publicaciones/Inicio/Inicio 1.jpg",
+  imagenPrincipal: "/Comunidad/Publicaciones/Inicio/Inicio 1.optimized.jpg",
+  imagenMiniatura: "/Comunidad/Publicaciones/Inicio/Inicio 1.optimized.jpg",
 
   destacado:
     "Dimos la bienvenida al Año Escolar 2026 con entusiasmo y compromiso, iniciando una nueva etapa llena de aprendizajes, retos y oportunidades para nuestros estudiantes.",
@@ -127,7 +127,7 @@ export const noticiasData = [
 
     {
       tipo: "imagen",
-      src: "/Comunidad/Publicaciones/Inicio/Inicio 2.jpg",
+      src: "/Comunidad/Publicaciones/Inicio/Inicio 2.optimized.jpg",
       alt: "Bienvenida a los estudiantes en el inicio del año escolar"
     },
 
@@ -139,7 +139,7 @@ export const noticiasData = [
 
     {
       tipo: "imagen",
-      src: "/Comunidad/Publicaciones/Inicio/Inicio 3.jpg",
+      src: "/Comunidad/Publicaciones/Inicio/Inicio 3.optimized.jpg",
       alt: "Ceremonia de apertura del año escolar 2026"
     },
 
@@ -151,19 +151,19 @@ export const noticiasData = [
 
     {
       tipo: "video",
-      thumbnail: "/Comunidad/Publicaciones/Inicio/Inicio 3.jpg",
+      thumbnail: "/Comunidad/Publicaciones/Inicio/Inicio 3.optimized.jpg",
       youtubeUrl: "/Instagram/Revivamos juntos este gran momento… ✨Ayer nuestros campus de Cajamarca y Los Baños del Inca volv.mp4",
       texto: "Ver resumen del Inicio del Año Escolar 2026"
     }
   ],
 
   galeria: [
-    "/Comunidad/Publicaciones/Inicio/Inicio 4.jpg",
-    "/Comunidad/Publicaciones/Inicio/Inicio 5.jpg",
-    "/Comunidad/Publicaciones/Inicio/Inicio 6.jpg",
-    "/Comunidad/Publicaciones/Inicio/Inicio 7.jpg",
-    "/Comunidad/Publicaciones/Inicio/Inicio 8.jpg",
-    "/Comunidad/Publicaciones/Inicio/Inicio 9.jpg"
+    "/Comunidad/Publicaciones/Inicio/Inicio 4.optimized.jpg",
+    "/Comunidad/Publicaciones/Inicio/Inicio 5.optimized.jpg",
+    "/Comunidad/Publicaciones/Inicio/Inicio 6.optimized.jpg",
+    "/Comunidad/Publicaciones/Inicio/Inicio 7.optimized.jpg",
+    "/Comunidad/Publicaciones/Inicio/Inicio 8.optimized.jpg",
+    "/Comunidad/Publicaciones/Inicio/Inicio 9.optimized.jpg"
   ]
   },
  
@@ -175,8 +175,8 @@ export const noticiasData = [
   fecha: "7 febrero",
   tiempoLectura: "4 minutos",
   categorias: ["Convenios", "Institucional"],
-  imagenPrincipal: "/Comunidad/Publicaciones/Convenio/Convenio1.jpg",
-  imagenMiniatura: "/Comunidad/Publicaciones/Convenio/Convenio1.jpg",
+  imagenPrincipal: "/Comunidad/Publicaciones/Convenio/Convenio1.optimized.jpg",
+  imagenMiniatura: "/Comunidad/Publicaciones/Convenio/Convenio1.optimized.jpg",
   destacado: "El Colegio Isaac Newton firma un importante convenio con PMI Norte Perú, fortaleciendo la innovación, el liderazgo y la educación con enfoque global.",
   contenido: [
     {
@@ -185,7 +185,7 @@ export const noticiasData = [
     },
     {
       tipo: "imagen",
-      src: "/Comunidad/Publicaciones/Convenio/Convenio2.jpg",
+      src: "/Comunidad/Publicaciones/Convenio/Convenio2.optimized.jpg",
       alt: "Firma de convenio con PMI"
     },
     {
@@ -194,7 +194,7 @@ export const noticiasData = [
     },
     {
       tipo: "imagen",
-      src: "/Comunidad/Publicaciones/Convenio/Convenio3.jpg",
+      src: "/Comunidad/Publicaciones/Convenio/Convenio3.optimized.jpg",
       alt: "Representantes del colegio y PMI"
     },
     {
@@ -203,10 +203,10 @@ export const noticiasData = [
     }
   ],
   galeria: [
-    "/Comunidad/Publicaciones/Convenio/Convenio4.jpg",
-    "/Comunidad/Publicaciones/Convenio/Convenio5.jpg",
-    "/Comunidad/Publicaciones/Convenio/Convenio6.jpg",
-    "/Comunidad/Publicaciones/Convenio/Convenio7.jpg"
+    "/Comunidad/Publicaciones/Convenio/Convenio4.optimized.jpg",
+    "/Comunidad/Publicaciones/Convenio/Convenio5.optimized.jpg",
+    "/Comunidad/Publicaciones/Convenio/Convenio6.optimized.jpg",
+    "/Comunidad/Publicaciones/Convenio/Convenio7.optimized.jpg"
   ],
   tags: [
     "ConvenioCorporativo",
@@ -236,8 +236,8 @@ export const noticiasData = [
   fecha: "19 enero",
   tiempoLectura: "3 minutos",
   categorias: ["Logros", "Institucional"],
-  imagenPrincipal: "/Comunidad/Publicaciones/Newton/Newton1.jpg",
-  imagenMiniatura: "/Comunidad/Publicaciones/Newton/Newton1.jpg",
+  imagenPrincipal: "/Comunidad/Publicaciones/Newton/Newton1.optimized.jpg",
+  imagenMiniatura: "/Comunidad/Publicaciones/Newton/Newton1.optimized.jpg",
   destacado: "El Colegio Isaac Newton es reconocido como el Mejor Colegio Privado de Cajamarca, destacando por su excelencia académica y compromiso educativo.",
   contenido: [
     {
@@ -246,7 +246,7 @@ export const noticiasData = [
     },
     {
       tipo: "imagen",
-      src: "/Comunidad/Publicaciones/Newton/Newton2.jpg",
+      src: "/Comunidad/Publicaciones/Newton/Newton2.optimized.jpg",
       alt: "Reconocimiento al mejor colegio"
     },
     {
@@ -263,10 +263,10 @@ export const noticiasData = [
     }
   ],
   galeria: [
-    "/Comunidad/Publicaciones/Newton/Newton3.jpg",
-    "/Comunidad/Publicaciones/Newton/Newton4.jpg",
-    "/Comunidad/Publicaciones/Newton/Newton5.jpg",
-    "/Comunidad/Publicaciones/Newton/Newton6.jpg"
+    "/Comunidad/Publicaciones/Newton/Newton3.optimized.jpg",
+    "/Comunidad/Publicaciones/Newton/Newton4.optimized.jpg",
+    "/Comunidad/Publicaciones/Newton/Newton5.optimized.jpg",
+    "/Comunidad/Publicaciones/Newton/Newton6.optimized.jpg"
   ],
   tags: [
     "MejorColegio",
@@ -283,8 +283,8 @@ export const noticiasData = [
   fecha: "diciembre 2025",
   tiempoLectura: "4 minutos",
   categorias: ["Eventos", "Institucional"],
-  imagenPrincipal: "/Comunidad/Publicaciones/Clausura/Clausura1.jpg",
-  imagenMiniatura: "/Comunidad/Publicaciones/Clausura/Clausura1.jpg",
+  imagenPrincipal: "/Comunidad/Publicaciones/Clausura/Clausura1.optimized.jpg",
+  imagenMiniatura: "/Comunidad/Publicaciones/Clausura/Clausura1.optimized.jpg",
   destacado: "El Colegio Isaac Newton celebró la clausura del Año Escolar 2025 con una emotiva ceremonia que destacó los logros académicos, el liderazgo estudiantil y el espíritu de unidad.",
   contenido: [
     {
@@ -293,7 +293,7 @@ export const noticiasData = [
     },
     {
       tipo: "imagen",
-      src: "/Comunidad/Publicaciones/Clausura/Clausura2.jpg",
+      src: "/Comunidad/Publicaciones/Clausura/Clausura2.optimized.jpg",
       alt: "Ceremonia de clausura escolar"
     },
     {
@@ -315,8 +315,8 @@ export const noticiasData = [
     }
   ],
   galeria: [
-    "/Comunidad/Publicaciones/Clausura/Clausura4.jpg",
-    "/Comunidad/Publicaciones/Clausura/Clausura5.jpg",
+    "/Comunidad/Publicaciones/Clausura/Clausura4.optimized.jpg",
+    "/Comunidad/Publicaciones/Clausura/Clausura5.optimized.jpg",
     "/Comunidad/Publicaciones/Clausura/Clausura6.jpg",
     "/Comunidad/Publicaciones/Clausura/Clausura7.jpg",
     "/Comunidad/Publicaciones/Clausura/Clausura8.jpg"

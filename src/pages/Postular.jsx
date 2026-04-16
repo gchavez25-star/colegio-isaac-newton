@@ -1,6 +1,7 @@
 import { useParams, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { vacantesData } from "@/data/vacantesData";
+import SEO from "@/components/SEO";
 
 export default function Postular() {
   const { id } = useParams();
@@ -84,6 +85,12 @@ export default function Postular() {
 
   return (
     <section className="min-h-screen py-24 bg-gray-50">
+      <SEO
+        title={`Postular a ${vacante.titulo} | Colegio Isaac Newton`}
+        description={`Formulario de postulación para ${vacante.titulo} en el Colegio Isaac Newton.`}
+        canonicalPath={`/postular/${vacante.id}`}
+        noIndex
+      />
       <div className="container mx-auto px-6 max-w-3xl bg-white p-10 rounded-xl shadow-lg">
         <h1 className="font-anton text-4xl mb-4 text-[#013055]">
           {vacante.titulo}
@@ -104,6 +111,7 @@ export default function Postular() {
             <select
               name="campus"
               required
+              aria-label="Seleccione campus"
               className="w-full border p-3 rounded"
             >
               <option value="">Seleccione campus</option>
@@ -114,6 +122,7 @@ export default function Postular() {
             <input
               name="nombre"
               required
+              autoComplete="name"
               placeholder="Nombre completo"
               className="w-full border p-3 rounded"
             />
@@ -121,6 +130,7 @@ export default function Postular() {
             <input
               name="dni"
               required
+              inputMode="numeric"
               placeholder="DNI"
               className="w-full border p-3 rounded"
             />
@@ -129,6 +139,7 @@ export default function Postular() {
               type="email"
               name="email"
               required
+              autoComplete="email"
               placeholder="Correo electrónico"
               className="w-full border p-3 rounded"
             />
@@ -136,6 +147,8 @@ export default function Postular() {
             <input
               name="telefono"
               required
+              autoComplete="tel"
+              inputMode="tel"
               placeholder="Teléfono"
               className="w-full border p-3 rounded"
             />
@@ -168,6 +181,7 @@ export default function Postular() {
             {error && <p className="text-red-600 text-sm">{error}</p>}
 
             <button
+              type="submit"
               disabled={loading}
               className="w-full bg-[#013055] text-white py-3 rounded"
             >

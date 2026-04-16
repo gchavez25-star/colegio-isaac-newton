@@ -17,7 +17,6 @@ import {
   BriefcaseBusiness,
   School2,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import LogoNewton from "./ui/LogoNewton";
 import TopBar from "./ui/TopBar";
 
@@ -163,17 +162,22 @@ const Header = () => {
         style={{ backgroundColor: HEADER_BLUE }}
       >
         <div
-          className={`hidden lg:block overflow-hidden transition-all duration-300 ease-out ${
+          className={`hidden lg:block overflow-hidden border-0 outline-none transition-all duration-300 ease-out ${
             isScrolled
               ? "max-h-0 opacity-0 pointer-events-none"
               : "max-h-20 opacity-100"
           }`}
-          style={{ backgroundColor: HEADER_BLUE }}
+          style={{
+            backgroundColor: HEADER_BLUE,
+            borderTop: "0",
+            borderBottom: "0",
+            boxShadow: "none",
+          }}
         >
           <TopBar />
         </div>
 
-       <nav
+        <nav
           className="flex-none transition-all duration-300 ease-out border-0"
           style={{
             backgroundColor: HEADER_BLUE,
@@ -233,15 +237,8 @@ const Header = () => {
                         <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
                       </button>
 
-                      <AnimatePresence>
-                        {hoveredMenu === i && (
-                          <motion.div
-                            initial={{ opacity: 0, y: -12, scale: 0.95 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: -12, scale: 0.95 }}
-                            transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="absolute bg-white shadow-2xl rounded-2xl p-2.5 top-10 left-0 min-w-[300px] z-50 border border-gray-100 flex-none"
-                          >
+                      {hoveredMenu === i && (
+                          <div className="absolute bg-white shadow-2xl rounded-2xl p-2.5 top-10 left-0 min-w-[300px] z-50 border border-gray-100 flex-none origin-top-left animate-[headerDropdown_180ms_ease-out]">
                             <div className="absolute -top-2 left-6 w-4 h-4 bg-white border-l border-t border-gray-100 rotate-45"></div>
 
                             {item.sub.map((subItem, j) => {
@@ -256,17 +253,17 @@ const Header = () => {
                                     {Icon && (
                                       <Icon
                                         size={18}
-                                        className="text-slate-900 group-hover/item:text-teal-700 transition-colors duration-300"
+                                        className="text-[#013055] transition-colors duration-300"
                                       />
                                     )}
                                   </div>
 
                                   <div className="flex-1">
-                                    <div className="text-[15px] font-bold text-slate-900 group-hover/item:text-teal-700 transition-colors duration-300">
+                                    <div className="text-[15px] font-bold text-[#013055] transition-colors duration-300">
                                       {subItem.name}
                                     </div>
                                     {subItem.desc && (
-                                      <div className="text-[11px] text-gray-500 mt-1 leading-tight">
+                                      <div className="text-[11px] text-[#013055]/70 mt-1 leading-tight">
                                         {subItem.desc}
                                       </div>
                                     )}
@@ -274,14 +271,13 @@ const Header = () => {
 
                                   <ChevronDown
                                     size={16}
-                                    className="mt-1 -rotate-90 text-gray-300 group-hover/item:text-teal-700 group-hover/item:translate-x-1 transition-all duration-300 opacity-0 group-hover/item:opacity-100"
+                                    className="mt-1 -rotate-90 text-[#013055] group-hover/item:translate-x-1 transition-all duration-300 opacity-0 group-hover/item:opacity-100"
                                   />
                                 </Link>
                               );
                             })}
-                          </motion.div>
+                          </div>
                         )}
-                      </AnimatePresence>
                     </>
                   )}
                 </div>
@@ -310,7 +306,9 @@ const Header = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              aria-label={isOpen ? "Cerrar menú principal" : "Abrir menú principal"}
+              aria-label={
+                isOpen ? "Cerrar menú principal" : "Abrir menú principal"
+              }
               aria-expanded={isOpen}
               className="lg:hidden text-white flex-none p-2 hover:bg-white/10 rounded-xl transition-all duration-300 active:scale-95"
             >
@@ -319,24 +317,15 @@ const Header = () => {
           </div>
         </nav>
 
-        <AnimatePresence>
-          {isOpen && (
+        {isOpen && (
             <>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="lg:hidden fixed inset-0 top-[72px] bg-black/45"
+              <div
+                className="lg:hidden fixed inset-0 top-[72px] bg-black/45 animate-[headerFade_180ms_ease-out]"
                 onClick={closeMobileMenu}
               />
 
-              <motion.div
-                initial={{ opacity: 0, y: -12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.25, ease: "easeInOut" }}
-                className="lg:hidden relative border-t shadow-2xl flex-none"
+              <div
+                className="lg:hidden relative border-t shadow-2xl flex-none animate-[headerDropdown_220ms_ease-out]"
                 style={{
                   background: `linear-gradient(to bottom, ${HEADER_BLUE}, ${HEADER_BLUE})`,
                   borderColor: "rgba(250, 204, 21, 0.2)",
@@ -375,14 +364,9 @@ const Header = () => {
                             />
                           </button>
 
-                          <AnimatePresence>
-                            {openSubMenu === i && (
-                              <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.25 }}
-                                className="mt-2 flex flex-col bg-white/5 rounded-xl p-2 border-l-4 ml-2 shadow-inner flex-none"
+                          {openSubMenu === i && (
+                              <div
+                                className="mt-2 flex flex-col bg-white/5 rounded-xl p-2 border-l-4 ml-2 shadow-inner flex-none animate-[headerSubmenu_200ms_ease-out]"
                                 style={{ borderColor: "#fccc00" }}
                               >
                                 {item.sub.map((subItem, j) => {
@@ -401,9 +385,8 @@ const Header = () => {
                                     </Link>
                                   );
                                 })}
-                              </motion.div>
+                              </div>
                             )}
-                          </AnimatePresence>
                         </div>
                       )}
                     </div>
@@ -431,13 +414,15 @@ const Header = () => {
                     </Link>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </>
           )}
-        </AnimatePresence>
       </header>
 
-      <div className={`${isScrolled ? "h-[72px] lg:h-[76px]" : "h-[84px] lg:h-[124px]"}`} />
+      <div
+        aria-hidden="true"
+        className={isScrolled ? "h-[72px] lg:h-[72px]" : "h-[84px] lg:h-[112px]"}
+      />
     </>
   );
 };

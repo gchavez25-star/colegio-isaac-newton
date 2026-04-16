@@ -1,9 +1,6 @@
 import { useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 const VideoModal = ({ isOpen, onClose, videoSrc }) => {
-  const MotionDiv = motion.div;
-
   // Cerrar con ESC
   useEffect(() => {
     const handleEsc = (e) => {
@@ -14,26 +11,24 @@ const VideoModal = ({ isOpen, onClose, videoSrc }) => {
   }, [onClose]);
 
   return (
-    <AnimatePresence>
+    <>
       {isOpen && (
-        <MotionDiv
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm animate-[headerFade_180ms_ease-out]"
           onClick={onClose} // cerrar al hacer click fuera
         >
-          <MotionDiv
-            className="relative w-[90%] md:w-[800px]"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
-            transition={{ duration: 0.3 }}
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Video del Colegio Isaac Newton"
+            className="relative w-[90%] md:w-[800px] animate-[headerDropdown_220ms_ease-out]"
             onClick={(e) => e.stopPropagation()} // evitar cierre al hacer click dentro
           >
             {/* Botón cerrar */}
             <button
               onClick={onClose}
+              type="button"
+              aria-label="Cerrar video"
               className="absolute -top-10 right-0 text-white text-2xl"
             >
               ✕
@@ -50,10 +45,10 @@ const VideoModal = ({ isOpen, onClose, videoSrc }) => {
               allowFullScreen
               className="rounded-xl shadow-2xl"
             ></iframe>
-          </MotionDiv>
-        </MotionDiv>
+          </div>
+        </div>
       )}
-    </AnimatePresence>
+    </>
   );
 };
 

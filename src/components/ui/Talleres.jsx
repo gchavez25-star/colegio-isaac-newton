@@ -39,9 +39,9 @@ export default function Talleres() {
               viewport={{ once: true }}
               className="bg-[#fccc00] px-10 py-4 rounded-xl shadow-xl"
             >
-              <h1 className="font-anton text-5xl md:text-6xl text-azul-oscuro tracking-tight">
+              <h2 className="font-anton text-5xl md:text-6xl text-azul-oscuro tracking-tight">
                 TALLERES
-              </h1>
+              </h2>
             </motion.div>
 
             <motion.p

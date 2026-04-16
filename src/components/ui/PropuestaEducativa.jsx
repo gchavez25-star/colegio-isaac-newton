@@ -34,13 +34,13 @@ export default function PropuestaEducativa() {
             </h2>
           </div>
 
-          <p className="text-gray-700 text-base md:text-lg text-justify leading-relaxed">
+          <p className="text-left text-gray-700 text-base leading-relaxed md:text-lg md:text-justify">
             El enfoque educativo por competencias integra conocimientos, habilidades y actitudes
             para afrontar situaciones reales, promoviendo pensamiento crítico, autonomía y
             formación ética.
           </p>
 
-          <p className="text-gray-700 text-base md:text-lg text-justify leading-relaxed mt-4">
+          <p className="mt-4 text-left text-gray-700 text-base leading-relaxed md:text-lg md:text-justify">
             Nuestro modelo combina tecnología, neurociencia, metodologías activas y dominio
             de idiomas, impulsando competencias globales y una educación con enfoque sostenible.
           </p>

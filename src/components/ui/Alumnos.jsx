@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Award } from "lucide-react";
+import SEO from "@/components/SEO";
 
 // ===============================================
 // DATA
@@ -49,6 +50,12 @@ const estudianteDelMes = {
 const Alumnos = () => {
   return (
     <section className="py-20 bg-white">
+      <SEO
+        title="Alumnos destacados | Colegio Isaac Newton Cajamarca"
+        description="Historias y logros de estudiantes del Colegio Isaac Newton, colegio privado en Cajamarca con formación integral en primaria y secundaria."
+        canonicalPath="/comunidad/alumnos"
+        image="/Logo-pagina-web.png"
+      />
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -74,6 +81,8 @@ const Alumnos = () => {
                 <img
                   src={estudianteDelMes.foto}
                   alt={estudianteDelMes.nombre}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-64 object-cover rounded-2xl shadow-lg border-4 border-white"
                 />
               </div>
@@ -128,6 +137,8 @@ const Alumnos = () => {
                   <img
                     src={alumno.foto}
                     alt={alumno.nombre}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                 </div>
