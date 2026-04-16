@@ -320,7 +320,9 @@ const Header = () => {
         {isOpen && (
             <>
               <div
-                className="lg:hidden fixed inset-0 top-[72px] bg-black/45 animate-[headerFade_180ms_ease-out]"
+                className={`lg:hidden fixed inset-0 ${
+                  isScrolled ? "top-[60px]" : "top-[64px]"
+                } bg-black/45 animate-[headerFade_180ms_ease-out]`}
                 onClick={closeMobileMenu}
               />
 
@@ -331,7 +333,11 @@ const Header = () => {
                   borderColor: "rgba(250, 204, 21, 0.2)",
                 }}
               >
-                <div className="container mx-auto px-4 py-5 flex flex-col gap-2.5 max-h-[calc(100vh-72px)] overflow-y-auto">
+                <div
+                  className={`container mx-auto px-4 py-5 flex flex-col gap-2.5 ${
+                    isScrolled ? "max-h-[calc(100vh-60px)]" : "max-h-[calc(100vh-64px)]"
+                  } overflow-y-auto`}
+                >
                   {menuItems.map((item, i) => (
                     <div
                       key={i}
@@ -421,7 +427,7 @@ const Header = () => {
 
       <div
         aria-hidden="true"
-        className={isScrolled ? "h-[72px] lg:h-[72px]" : "h-[84px] lg:h-[112px]"}
+        className={isScrolled ? "h-[60px] lg:h-[72px]" : "h-[64px] lg:h-[112px]"}
       />
     </>
   );

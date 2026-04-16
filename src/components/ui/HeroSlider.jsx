@@ -145,11 +145,11 @@ const HeroSlider = () => {
                   <div
                     className="max-w-2xl animate-[headerDropdown_650ms_ease-out]"
                   >
-                    <TitleTag className="font-anton text-3xl md:text-5xl text-white mb-6">
+                    <TitleTag className="font-anton text-3xl leading-tight md:text-5xl text-white mb-5 md:mb-6 max-w-[12rem] sm:max-w-none">
                       {slide.title}
                     </TitleTag>
 
-                    <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="flex flex-col items-start sm:flex-row gap-3">
                       {slide.buttons.map((button, index) => (
                         <button
                           key={index}
@@ -157,7 +157,7 @@ const HeroSlider = () => {
                           onClick={() => handleButtonClick(button, slide)}
                           aria-label={button.text}
                           className="inline-flex items-center gap-3 bg-[#ffcd00] text-[#013055]
-                          font-semibold px-8 py-3 rounded-xl text-lg transition-transform duration-300 hover:scale-[1.04] active:scale-[0.96]"
+                          font-semibold px-4 py-2.5 sm:px-8 sm:py-3 rounded-lg sm:rounded-xl text-xs sm:text-lg leading-tight transition-transform duration-300 hover:scale-[1.04] active:scale-[0.96] self-start w-fit max-w-full"
                         >
                           {button.isVideo && <Play size={20} />}
                           {button.text}
