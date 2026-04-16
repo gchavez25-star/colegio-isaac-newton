@@ -118,12 +118,26 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply outline-ring/50;
   }
+
+  html,
+  body,
+  #root {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    overflow-x: hidden;
+  }
+
   body {
     @apply bg-background text-foreground;
+    margin: 0;
+    padding: 0;
     font-family: "Montserrat", sans-serif;
   }
+
   h1,
   h2,
   h3,
@@ -178,6 +192,7 @@
 .border-amarillo-dorado {
   border-color: var(--amarillo-dorado);
 }
+
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -192,6 +207,7 @@
 .animate-slideDown {
   animation: slideDown 0.25s ease-out forwards;
 }
+
 .line-animated path {
   stroke-dasharray: 20000;
   stroke-dashoffset: 20000;
@@ -203,6 +219,7 @@
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -216,8 +233,4 @@
   animation: scroll 25s linear infinite;
   display: flex;
   width: max-content;
-}
-html,
-body {
-  overflow-x: hidden;
 }
