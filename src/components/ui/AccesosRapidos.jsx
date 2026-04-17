@@ -205,6 +205,10 @@ const AccesosRapidos = () => {
                   onMouseLeave={scheduleClosePlatforms}
                   className="
                     z-40
+                    absolute
+                    left-0
+                    right-0
+                    top-full
                     mt-4
                     w-full
                     rounded-3xl
@@ -212,7 +216,7 @@ const AccesosRapidos = () => {
                     bg-white
                     p-3
                     shadow-[0_20px_60px_rgba(0,0,0,0.16)]
-                    xl:absolute xl:left-full xl:top-0 xl:ml-5 xl:mt-0 xl:w-[300px]
+                    xl:left-full xl:right-auto xl:top-0 xl:ml-5 xl:mt-0 xl:w-[300px]
                   "
                 >
                   <div className="space-y-2">
