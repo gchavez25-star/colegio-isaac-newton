@@ -28,7 +28,37 @@ const CARD_CLASSES = `
   animate-[headerSubmenu_400ms_ease-out]
 `;
 
-const CLOSE_DELAY = 320;
+const CLOSE_DELAY = 240;
+
+const platformPanelAnimation = {
+  hidden: { opacity: 0, y: 10, height: 0 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    height: "auto",
+    transition: {
+      duration: 0.24,
+      ease: "easeOut",
+      staggerChildren: 0.045,
+      delayChildren: 0.04,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: 8,
+    height: 0,
+    transition: { duration: 0.16, ease: "easeIn" },
+  },
+};
+
+const platformItemAnimation = {
+  hidden: { opacity: 0, y: 8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.18, ease: "easeOut" },
+  },
+};
 
 const AccesosRapidos = () => {
   const [isPlatformsOpen, setIsPlatformsOpen] = useState(false);
@@ -69,7 +99,7 @@ const AccesosRapidos = () => {
       nombre: "Logística",
       icono: <PackageCheck size={22} />,
       link: "https://isaac-newton.novacore.pe/login",
-    }, 
+    },
     {
       nombre: "Bazar",
       icono: <ShoppingBag size={22} />,
@@ -89,6 +119,11 @@ const AccesosRapidos = () => {
     setIsPlatformsOpen(true);
   }, [clearCloseTimeout]);
 
+  const closePlatforms = useCallback(() => {
+    clearCloseTimeout();
+    setIsPlatformsOpen(false);
+  }, [clearCloseTimeout]);
+
   const scheduleClosePlatforms = useCallback(() => {
     clearCloseTimeout();
     closeTimeoutRef.current = setTimeout(() => {
@@ -100,11 +135,6 @@ const AccesosRapidos = () => {
   const togglePlatforms = useCallback(() => {
     clearCloseTimeout();
     setIsPlatformsOpen((current) => !current);
-  }, [clearCloseTimeout]);
-
-  const closePlatforms = useCallback(() => {
-    clearCloseTimeout();
-    setIsPlatformsOpen(false);
   }, [clearCloseTimeout]);
 
   const handlePlatformsClick = () => {
@@ -139,9 +169,7 @@ const AccesosRapidos = () => {
 
   return (
     <section className="relative -mt-20 z-20 pb-12">
-      {/* Contenedor con padding lateral */}
       <div className="container mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
-        {/* Grid de tarjetas */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {accesos.map((acceso, index) => (
             <a
@@ -151,111 +179,115 @@ const AccesosRapidos = () => {
               rel={acceso.external ? "noopener noreferrer" : undefined}
               className={CARD_CLASSES}
             >
-              {/* Icono */}
               <div className="mb-6 text-[#013055] group-hover:text-[#ffcd00] transition-all duration-300 group-hover:scale-110 group-hover:rotate-[5deg]">
                 {acceso.icono}
               </div>
 
-              {/* Título */}
               <h3 className="font-anton text-2xl md:text-3xl text-[#013055] tracking-wide mb-3 uppercase">
                 {acceso.nombre}
               </h3>
 
-              {/* Descripción */}
               <p className="text-sm md:text-base text-gray-600 font-montserrat leading-relaxed">
                 {acceso.descripcion}
               </p>
             </a>
           ))}
 
-          <div ref={platformsRef} className="relative h-full">
-            <button
-              type="button"
-              aria-expanded={isPlatformsOpen}
-              aria-haspopup="true"
-              onClick={handlePlatformsClick}
+          <div ref={platformsRef} className="h-full">
+            <div
               onMouseEnter={openPlatforms}
               onMouseLeave={scheduleClosePlatforms}
-              className={`${CARD_CLASSES} w-full`}
+              className={`${CARD_CLASSES} w-full h-[240px] overflow-hidden ${
+                isPlatformsOpen ? "justify-start p-5 md:p-5" : ""
+              }`}
             >
-              {/* Icono */}
-              <div className="mb-6 text-[#013055] group-hover:text-[#ffcd00] transition-all duration-300 group-hover:scale-110 group-hover:rotate-[5deg]">
-                <PanelTop size={48} />
-              </div>
-
-              {/* Título */}
-              <h3 className="font-anton text-2xl md:text-3xl text-[#013055] tracking-wide mb-3 uppercase">
-                Plataformas
-              </h3>
-
-              {/* Descripción */}
-              <p className="text-sm md:text-base text-gray-600 font-montserrat leading-relaxed">
-                Accede a servicios institucionales
-              </p>
-            </button>
-
-            <AnimatePresence>
-              {isPlatformsOpen && (
-                <motion.div
-                  initial={{ opacity: 0, x: 12, y: 6, scale: 0.98 }}
-                  animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, x: 10, y: 4, scale: 0.98 }}
-                  transition={{ duration: 0.18, ease: "easeOut" }}
-                  onMouseEnter={openPlatforms}
-                  onMouseLeave={scheduleClosePlatforms}
-                  className="
-                    z-40
-                    absolute
-                    left-0
-                    right-0
-                    top-full
-                    mt-4
-                    w-full
-                    rounded-3xl
-                    border border-gray-100
-                    bg-white
-                    p-3
-                    shadow-[0_20px_60px_rgba(0,0,0,0.16)]
-                    xl:left-full xl:right-auto xl:top-0 xl:ml-5 xl:mt-0 xl:w-[300px]
-                  "
+              <button
+                type="button"
+                aria-expanded={isPlatformsOpen}
+                aria-haspopup="true"
+                aria-label="Abrir accesos a plataformas institucionales"
+                onClick={handlePlatformsClick}
+                className="flex w-full flex-col items-center text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffcd00] focus-visible:ring-offset-2 rounded-2xl"
+              >
+                <div
+                  className={`text-[#013055] group-hover:text-[#ffcd00] transition-all duration-300 group-hover:scale-110 group-hover:rotate-[5deg] ${
+                    isPlatformsOpen ? "mb-2" : "mb-6"
+                  }`}
                 >
-                  <div className="space-y-2">
-                    {plataformas.map((plataforma) => (
-                      <a
-                        key={plataforma.nombre}
-                        href={plataforma.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={closePlatforms}
-                        className="
-                          flex items-center gap-4
-                          rounded-2xl
-                          px-4 py-3
-                          text-[#013055]
-                          transition-all duration-300
-                          hover:bg-[#013055] hover:text-white
-                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffcd00] focus-visible:ring-offset-2
-                          group/item
-                        "
-                      >
-                        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#ffcd00]/20 text-[#013055] transition-colors duration-300 group-hover/item:bg-[#ffcd00]">
-                          {plataforma.icono}
-                        </span>
+                  <PanelTop size={isPlatformsOpen ? 36 : 48} />
+                </div>
 
-                        <span className="flex-1 text-left font-montserrat text-sm font-semibold">
-                          {plataforma.nombre}
-                        </span>
+                <h3
+                  className={`font-anton text-2xl md:text-3xl text-[#013055] tracking-wide uppercase ${
+                    isPlatformsOpen ? "mb-0" : "mb-3"
+                  }`}
+                >
+                  Plataformas
+                </h3>
 
-                        <ChevronRight
-                          size={18}
-                          className="transition-transform duration-300 group-hover/item:translate-x-1"
-                        />
-                      </a>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                <AnimatePresence initial={false}>
+                  {!isPlatformsOpen && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -4 }}
+                      transition={{ duration: 0.14, ease: "easeOut" }}
+                      className="text-sm md:text-base text-gray-600 font-montserrat leading-relaxed"
+                    >
+                      Accede a servicios institucionales
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+              </button>
+
+              <AnimatePresence>
+                {isPlatformsOpen && (
+                  <motion.div
+                    variants={platformPanelAnimation}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    className="w-full overflow-hidden"
+                  >
+                    <div className="mt-3 w-full space-y-1.5 border-t border-gray-100 pt-3">
+                      {plataformas.map((plataforma) => (
+                        <motion.a
+                          key={plataforma.nombre}
+                          variants={platformItemAnimation}
+                          href={plataforma.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={closePlatforms}
+                          className="
+                            flex items-center gap-4
+                            rounded-2xl
+                            px-3 py-2
+                            text-[#013055]
+                            transition-all duration-300
+                            hover:bg-[#013055] hover:text-white
+                            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffcd00] focus-visible:ring-offset-2
+                            group/item
+                          "
+                        >
+                          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#ffcd00]/20 text-[#013055] transition-colors duration-300 group-hover/item:bg-[#ffcd00]">
+                            {plataforma.icono}
+                          </span>
+
+                          <span className="flex-1 text-left font-montserrat text-sm font-semibold">
+                            {plataforma.nombre}
+                          </span>
+
+                          <ChevronRight
+                            size={18}
+                            className="transition-transform duration-300 group-hover/item:translate-x-1"
+                          />
+                        </motion.a>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </div>
