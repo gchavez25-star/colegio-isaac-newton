@@ -1,11 +1,20 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper/modules';
-import { BookOpen, CheckCircle, ChevronRight, User, GraduationCap, Microscope, Palette, Dumbbell } from 'lucide-react';
-import 'swiper/css';
-import 'swiper/css/navigation';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+import {
+  BookOpen,
+  CheckCircle,
+  ChevronRight,
+  User,
+  GraduationCap,
+  Microscope,
+  Palette,
+  Dumbbell,
+} from "lucide-react";
+import "swiper/css";
+import "swiper/css/navigation";
 
 // =====================================================
 // 1. DATOS (Separados del componente)
@@ -19,7 +28,6 @@ const galeria = [
   "/Niveles/Secundaria/Fromacion Secundaria.jpg",
   "/Niveles/Secundaria/Secundaria banos.jpg",
   "/Niveles/Secundaria/Expresion Secundaria.jpg",
-  
 ];
 
 const caracteristicas = [
@@ -27,49 +35,93 @@ const caracteristicas = [
     titulo: "Programa Bilingüe y Certificaciones Internacionales",
     descripcion: [
       "Desde los 6 años, nuestros alumnos inician su inmersión en español e inglés, a través de una metodología activa, vivencial, contextualizada y significativa.",
-      "Contamos con certificaciones de idiomas reconocidas internacionalmente (Richmond) que validan el nivel de nuestros egresados."
+      "Contamos con certificaciones de idiomas reconocidas internacionalmente (Richmond) que validan el nivel de nuestros egresados.",
     ],
-    imagen: "/Niveles/Secundaria/Ingles.jpg"
+    imagen: "/Niveles/Secundaria/Ingles.jpg",
   },
   {
     titulo: "Propuesta Deportiva de Alto Nivel",
     descripcion: [
       "Fomentamos el desarrollo de habilidades básicas, destrezas motrices y la vivencia de valores a través del deporte.",
-      "Contamos con infraestructura de primer nivel: coliseo multidisciplinario, piscina temperada, campo de fútbol y lozas deportivas."
+      "Contamos con infraestructura de primer nivel: Campo de fútbol y lozas deportivas.",
     ],
-    imagen: "/Niveles/Secundaria/Deporte.jpg"
+    imagen: "/Niveles/Secundaria/Deporte.jpg",
   },
   {
     titulo: "Formación Artística y Expresión Cultural",
     descripcion: [
       "El arte permite a nuestros estudiantes un encuentro consigo mismos y como agentes creadores de cultura.",
-      "Nuestros alumnos desarrollan una visión holística de la realidad, enriquecida con el aprendizaje de distintos lenguajes, técnicas y disciplinas artísticas."
+      "Nuestros alumnos desarrollan una visión holística de la realidad, enriquecida con el aprendizaje de distintos lenguajes, técnicas y disciplinas artísticas.",
     ],
-    imagen: "/Niveles/Secundaria/Expresion.jpg"
-  }
+    imagen: "/Niveles/Secundaria/Expresion.jpg",
+  },
 ];
 
 const beneficios = [
-  { icono: "GraduationCap", titulo: "Pre-Universitario", descripcion: "Preparación intensiva para el ingreso a las mejores universidades." },
-  { icono: "Microscope", titulo: "Laboratorios Avanzados", descripcion: "Espacios equipados para experimentación científica y tecnológica." },
-  { icono: "BookOpen", titulo: "Biblioteca Virtual", descripcion: "Centro de gestión del aprendizaje moderno y acceso a recursos digitales." },
-  { icono: "Dumbbell", titulo: "Infraestructura Deportiva", descripcion: "Coliseo, piscina y campos para el desarrollo de diversas disciplinas." },
-  { icono: "User", titulo: "Asesoría Psicológica", descripcion: "Psicólogos especializados a disposición de los alumnos y familias." },
-  { icono: "Palette", titulo: "Talleres de Arte", descripcion: "Formación en música, danza y artes plásticas dentro de la currícula." },
-  { icono: "Zap", titulo: "Metodología Activa", descripcion: "Proyectos de investigación, pensamiento crítico y liderazgo." },
-  { icono: "Shield", titulo: "Entorno Seguro", descripcion: "Ambientes supervisados y protocolos de seguridad." }
+  {
+    icono: "GraduationCap",
+    titulo: "Pre-Universitario",
+    descripcion:
+      "Preparación intensiva para el ingreso a las mejores universidades.",
+  },
+  {
+    icono: "Microscope",
+    titulo: "Laboratorios Avanzados",
+    descripcion:
+      "Espacios equipados para experimentación científica y tecnológica.",
+  },
+  {
+    icono: "BookOpen",
+    titulo: "Biblioteca Virtual",
+    descripcion:
+      "Centro de gestión del aprendizaje moderno y acceso a recursos digitales.",
+  },
+  {
+    icono: "Dumbbell",
+    titulo: "Infraestructura Deportiva",
+    descripcion:
+      "Coliseo, piscina y campos para el desarrollo de diversas disciplinas.",
+  },
+  {
+    icono: "User",
+    titulo: "Asesoría Psicológica",
+    descripcion:
+      "Psicólogos especializados a disposición de los alumnos y familias.",
+  },
+  {
+    icono: "Palette",
+    titulo: "Talleres de Arte",
+    descripcion:
+      "Formación en música, danza y artes plásticas dentro de la currícula.",
+  },
+  {
+    icono: "Zap",
+    titulo: "Metodología Activa",
+    descripcion: "Proyectos de investigación, pensamiento crítico y liderazgo.",
+  },
+  {
+    icono: "Shield",
+    titulo: "Entorno Seguro",
+    descripcion: "Ambientes supervisados y protocolos de seguridad.",
+  },
 ];
 
 const areasCurriculares = [
-  "Matemática", "Comunicación", "Ciencia y Tecnología", "Ciencias Sociales",
-  "Educación para el Trabajo", "Idioma Extranjero (Inglés)", "Arte y Cultura", "Educación Física",
-  "Tutoría y Orientación"
+  "Matemática",
+  "Comunicación",
+  "Ciencia y Tecnología",
+  "Ciencias Sociales",
+  "Educación para el Trabajo",
+  "Idioma Extranjero (Inglés)",
+  "Arte y Cultura",
+  "Educación Física",
+  "Tutoría y Orientación",
 ];
 
 const horarioData = [
   { etiqueta: "INGRESO", hora: "7:00 a.m. – 7:20 a.m." },
   { etiqueta: "CLASE", hora: "7:30 a.m." },
-  { etiqueta: "SALIDA", hora: "1:50 p.m." }, 
+  { etiqueta: "SALIDA", hora: "1:50 p.m." },
 ];
 
 // =====================================================
@@ -104,7 +156,17 @@ const HorarioAcademico = () => (
 
 // Componente para los Beneficios (Cards)
 const BeneficioCard = ({ icono, titulo, descripcion }) => {
-  const Icon = { GraduationCap, Microscope, BookOpen, Dumbbell, User, Palette, Zap: CheckCircle, Shield: CheckCircle }[icono] || CheckCircle;
+  const Icon =
+    {
+      GraduationCap,
+      Microscope,
+      BookOpen,
+      Dumbbell,
+      User,
+      Palette,
+      Zap: CheckCircle,
+      Shield: CheckCircle,
+    }[icono] || CheckCircle;
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -135,7 +197,7 @@ const NivelSecundaria = () => {
         canonicalPath="/nivel/secundaria"
         image="/Niveles/Secundaria/Secundaria Nivel.optimized.webp"
       />
-      
+
       {/* HERO SECTION */}
       <section className="relative h-[60vh] md:h-[70vh] overflow-hidden">
         <div className="absolute inset-0">
@@ -195,7 +257,6 @@ const NivelSecundaria = () => {
             transition={{ duration: 0.8 }}
             className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
           >
-            
             <div className="space-y-6">
               <h2 className="font-anton text-4xl md:text-5xl text-azul-oscuro leading-tight">
                 Formación Integral y Pensamiento Crítico
@@ -203,10 +264,17 @@ const NivelSecundaria = () => {
 
               <div className="space-y-4 text-gray-700 text-lg leading-relaxed border-l-4 border-verde-azulado pl-4">
                 <p>
-                  En la educación secundaria, promovemos el desarrollo del <strong>pensamiento crítico</strong> y la capacidad de análisis, preparando a nuestros estudiantes para enfrentar los desafíos del mundo contemporáneo con una sólida base académica y valores éticos.
+                  En la educación secundaria, promovemos el desarrollo del{" "}
+                  <strong>pensamiento crítico</strong> y la capacidad de
+                  análisis, preparando a nuestros estudiantes para enfrentar los
+                  desafíos del mundo contemporáneo con una sólida base académica
+                  y valores éticos.
                 </p>
                 <p>
-                  Nuestra propuesta educativa integra el <strong>desarrollo de competencias</strong> científicas, humanísticas y tecnológicas, fomentando la investigación, el trabajo colaborativo y el liderazgo responsable.
+                  Nuestra propuesta educativa integra el{" "}
+                  <strong>desarrollo de competencias</strong> científicas,
+                  humanísticas y tecnológicas, fomentando la investigación, el
+                  trabajo colaborativo y el liderazgo responsable.
                 </p>
               </div>
 
@@ -248,7 +316,6 @@ const NivelSecundaria = () => {
                 />
               </motion.div>
             </div>
-
           </motion.div>
         </div>
       </section>
@@ -259,7 +326,7 @@ const NivelSecundaria = () => {
           <h2 className="font-anton text-4xl text-azul-oscuro text-center mb-12">
             Ejes de la Formación Secundaria
           </h2>
-          
+
           <div className="space-y-16">
             {caracteristicas.map((item, index) => (
               <motion.div
@@ -268,10 +335,12 @@ const NivelSecundaria = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.8 }}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 !== 0 ? 'lg:grid-flow-col-dense' : ''}`}
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 !== 0 ? "lg:grid-flow-col-dense" : ""}`}
               >
                 {/* IMAGEN */}
-                <div className={`rounded-3xl overflow-hidden shadow-2xl aspect-video ${index % 2 !== 0 ? 'lg:col-start-2' : ''}`}>
+                <div
+                  className={`rounded-3xl overflow-hidden shadow-2xl aspect-video ${index % 2 !== 0 ? "lg:col-start-2" : ""}`}
+                >
                   <img
                     src={item.imagen}
                     alt={item.titulo}
@@ -280,7 +349,11 @@ const NivelSecundaria = () => {
                 </div>
 
                 {/* CONTENIDO */}
-                <div className={index % 2 !== 0 ? 'lg:col-start-1 lg:row-start-1' : ''}>
+                <div
+                  className={
+                    index % 2 !== 0 ? "lg:col-start-1 lg:row-start-1" : ""
+                  }
+                >
                   <h3 className="font-anton text-3xl text-verde-azulado mb-4">
                     {item.titulo}
                   </h3>
@@ -309,16 +382,17 @@ const NivelSecundaria = () => {
             transition={{ duration: 0.8 }}
             className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start"
           >
-            
             {/* ÁREAS CURRICULARES */}
             <div className="space-y-8">
               <h2 className="font-anton text-4xl md:text-5xl text-azul-oscuro">
                 Áreas Curriculares
               </h2>
               <p className="text-gray-700 text-lg leading-relaxed border-l-4 border-amarillo-dorado pl-4">
-                Nuestra currícula está diseñada para la excelencia académica y la preparación pre-universitaria, fomentando el liderazgo y la autonomía.
+                Nuestra currícula está diseñada para la excelencia académica y
+                la preparación pre-universitaria, fomentando el liderazgo y la
+                autonomía.
               </p>
-              
+
               <ul className="grid grid-cols-2 gap-4 text-gray-700">
                 {areasCurriculares.map((area, index) => (
                   <li
@@ -336,7 +410,6 @@ const NivelSecundaria = () => {
             <div className="pt-10 lg:pt-0">
               <HorarioAcademico />
             </div>
-
           </motion.div>
         </div>
       </section>
@@ -347,7 +420,7 @@ const NivelSecundaria = () => {
           <h2 className="font-anton text-4xl text-azul-oscuro text-center mb-12">
             Beneficios de Estudiar en Secundaria
           </h2>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {beneficios.map((beneficio, index) => (
               <BeneficioCard key={index} {...beneficio} />
@@ -362,7 +435,7 @@ const NivelSecundaria = () => {
           <h2 className="font-anton text-4xl text-azul-oscuro text-center mb-12">
             Nuestras Instalaciones
           </h2>
-          
+
           <Swiper
             modules={[Autoplay, Navigation]}
             spaceBetween={20}
@@ -378,9 +451,9 @@ const NivelSecundaria = () => {
             {galeria.map((img, index) => (
               <SwiperSlide key={index}>
                 <div className="h-96 overflow-hidden">
-                  <img 
-                    src={img} 
-                    alt={`Galería Secundaria ${index + 1}`} 
+                  <img
+                    src={img}
+                    alt={`Galería Secundaria ${index + 1}`}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   />
                 </div>
@@ -389,7 +462,6 @@ const NivelSecundaria = () => {
           </Swiper>
         </div>
       </section>
-
     </div>
   );
 };

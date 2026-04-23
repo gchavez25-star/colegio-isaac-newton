@@ -1,94 +1,95 @@
-import { useState, useEffect } from "react";
+import { memo, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, X } from "lucide-react";
 import SEO from "@/components/SEO";
+
+const DIRECTIVOS = [
+  {
+    id: 1,
+    nombre: "Deysi Aidee Noriega Alfaro",
+    cargo: "Gerente General",
+    profesion: "Mag\u00edster en Administraci\u00f3n y Gerencia Empresarial",
+    imagen:
+      "/Comunidad/Directivos/NORIEGA ALFARO DEYSI AIDE\u00c9.optimized.jpg",
+    email: "dnoriega@inewton.edu.pe",
+    linkedin: "#",
+    trayectoria: [
+      "20 a\u00f1os liderando instituciones educativas",
+      "Especialista en innovaci\u00f3n educativa",
+      "Formaci\u00f3n ejecutiva internacional",
+    ],
+  },
+  {
+    id: 2,
+    nombre: "Ricardo Ra\u00fal Soto Collazos",
+    cargo: "Director",
+    profesion: "Mag\u00edster en Educaci\u00f3n",
+    imagen: "/Comunidad/Directivos/SOTO COLLAZOS RICARDO RAUL.optimized.jpg",
+    email: "rsoto@inewton.edu.pe",
+    linkedin: "#",
+    trayectoria: ["Liderazgo pedag\u00f3gico", "Gesti\u00f3n curricular"],
+  },
+  {
+    id: 3,
+    nombre: "Jorge Ivan Asencio Carrera",
+    cargo: "Subdirector - Campus Cajamarca",
+    profesion: "Licenciado en Educaci\u00f3n",
+    imagen: "/Comunidad/Directivos/ASENCIO-CARRERA-JORGE-IVAN.optimized.jpg",
+    email: "jasencio@inewton.edu.pe",
+    linkedin: "#",
+    trayectoria: [
+      "25 a\u00f1os de experiencia profesional",
+      "Gesti\u00f3n institucional",
+      "Convivencia escolar",
+    ],
+  },
+  {
+    id: 4,
+    nombre: "Alicia Marisol Ascurra Gutierrez",
+    cargo: "Subdirectora - Campus Los Ba\u00f1os del Inca",
+    profesion: "Licenciada en Educaci\u00f3n",
+    imagen:
+      "/Comunidad/Directivos/ALICIA-MARISOL-ASCURRA-GUTIERREZ.optimized.jpg",
+    email: "aascurra@inewton.edu.pe",
+    linkedin: "#",
+    trayectoria: [
+      "25 a\u00f1os de experiencia profesional",
+      "Coordinaci\u00f3n acad\u00e9mica",
+      "Gesti\u00f3n educativa",
+    ],
+  },
+];
 
 const Directivos = () => {
   const [selected, setSelected] = useState(null);
   const [activeCardId, setActiveCardId] = useState(null);
 
-  const directivos = [
-    {
-      id: 1,
-      nombre: "Deysi Aidee Noriega Alfaro",
-      cargo: "Gerente General",
-      profesion: "Magíster en Administración y Gerencia Empresarial",
-      imagen: "/Comunidad/Directivos/NORIEGA ALFARO DEYSI AIDEÉ.optimized.jpg",
-      email: "dnoriega@inewton.edu.pe",
-      linkedin: "#",
-      trayectoria: [
-        "20 años liderando instituciones educativas",
-        "Especialista en innovación educativa",
-        "Formación ejecutiva internacional",
-      ],
-    },
-    {
-      id: 2,
-      nombre: "Ricardo Raúl Soto Collazos",
-      cargo: "Director",
-      profesion: "Magíster en Educación",
-      imagen: "/Comunidad/Directivos/SOTO COLLAZOS RICARDO RAUL.jpg",
-      email: "rsoto@inewton.edu.pe",
-      linkedin: "#",
-      trayectoria: ["Liderazgo pedagógico", "Gestión curricular"],
-    },
-    {
-      id: 3,
-      nombre: "Jorge Ivan Asencio Carrera",
-      cargo: "Subdirector - Campus Cajamarca",
-      profesion: "Licenciado en Educación",
-      imagen: "/Comunidad/Directivos/ASENCIO-CARRERA-JORGE-IVAN.jpg",
-      email: "jasencio@inewton.edu.pe",
-      linkedin: "#",
-      trayectoria: [
-        "25 años de experiencia profesional",
-        "Gestión institucional",
-        "Convivencia escolar",
-      ],
-    },
-    {
-      id: 4,
-      nombre: "Alicia Marisol Ascurra Gutierrez",
-      cargo: "Subdirectora - Campus Los Baños del Inca",
-      profesion: "Licenciada en Educación",
-      imagen: "/Comunidad/Directivos/ALICIA-MARISOL-ASCURRA-GUTIERREZ.jpg",
-      email: "aascurra@inewton.edu.pe",
-      linkedin: "#",
-      trayectoria: [
-        "25 años de experiencia profesional",
-        "Coordinación académica",
-        "Gestión educativa",
-      ],
-    },
-  ];
-
   return (
     <section className="py-28 bg-gradient-to-b from-gray-50 to-white">
       <SEO
         title="Equipo Directivo | Colegio Isaac Newton Cajamarca"
-        description="Conoce al equipo directivo del Colegio Isaac Newton, institución educativa privada en Cajamarca y Los Baños del Inca comprometida con la excelencia académica."
+        description="Conoce al equipo directivo del Colegio Isaac Newton, instituci\u00f3n educativa privada en Cajamarca y Los Ba\u00f1os del Inca comprometida con la excelencia acad\u00e9mica."
         canonicalPath="/comunidad/directivos"
-        image="/Comunidad/Directivos/SOTO COLLAZOS RICARDO RAUL.jpg"
+        image="/Comunidad/Directivos/SOTO COLLAZOS RICARDO RAUL.optimized.jpg"
       />
       <div className="container mx-auto px-6">
-        {/* HEADER */}
         <div className="text-center mb-20">
           <h1 className="text-5xl font-anton text-[#013055] mb-4">
             Equipo Directivo
           </h1>
           <div className="w-20 h-[2px] bg-[#ffcd00] mx-auto mb-4" />
           <p className="text-gray-600 max-w-xl mx-auto">
-            Liderazgo estratégico orientado a la excelencia académica y
+            Liderazgo estrat\u00e9gico orientado a la excelencia academica y
             formación integral.
           </p>
         </div>
 
-        {/* GRID */}
         <div className="grid md:grid-cols-4 gap-10 max-w-7xl mx-auto">
-          {directivos.map((persona) => (
+          {DIRECTIVOS.map((persona, index) => (
             <PremiumCard
               key={persona.id}
               persona={persona}
+              isPriority={index < 2}
               setSelected={setSelected}
               activeCardId={activeCardId}
               setActiveCardId={setActiveCardId}
@@ -97,7 +98,6 @@ const Directivos = () => {
         </div>
       </div>
 
-      {/* MODAL */}
       <AnimatePresence>
         {selected && (
           <ModalDirectivo selected={selected} setSelected={setSelected} />
@@ -107,14 +107,13 @@ const Directivos = () => {
   );
 };
 
-/* ================= CARD ================= */
-
-const PremiumCard = ({
+const PremiumCard = memo(function PremiumCard({
   persona,
+  isPriority,
   setSelected,
   activeCardId,
   setActiveCardId,
-}) => {
+}) {
   const isActive = activeCardId === persona.id;
 
   const handleCardClick = () => {
@@ -136,8 +135,11 @@ const PremiumCard = ({
       <img
         src={persona.imagen}
         alt={`${persona.nombre}, ${persona.cargo} del Colegio Isaac Newton`}
-        loading="lazy"
+        loading={isPriority ? "eager" : "lazy"}
+        fetchPriority={isPriority ? "high" : "auto"}
         decoding="async"
+        width="900"
+        height="1200"
         className="w-full h-[380px] object-cover"
       />
 
@@ -148,7 +150,6 @@ const PremiumCard = ({
         <p className="text-[#ffcd00] text-sm">{persona.cargo}</p>
       </div>
 
-      {/* HOVER */}
       <div
         className={`absolute inset-0 transition duration-300 backdrop-blur-md bg-white/10 flex flex-col justify-center items-center text-white p-6 text-center ${
           isActive ? "opacity-100" : "opacity-0"
@@ -182,11 +183,9 @@ const PremiumCard = ({
       </div>
     </motion.div>
   );
-};
+});
 
-/* ================= MODAL ================= */
-
-const ModalDirectivo = ({ selected, setSelected }) => {
+const ModalDirectivo = memo(function ModalDirectivo({ selected, setSelected }) {
   useEffect(() => {
     const handleKey = (e) => {
       if (e.key === "Escape") setSelected(null);
@@ -199,7 +198,7 @@ const ModalDirectivo = ({ selected, setSelected }) => {
       window.removeEventListener("keydown", handleKey);
       document.body.style.overflow = "auto";
     };
-  });
+  }, [setSelected]);
 
   return (
     <motion.div
@@ -219,7 +218,6 @@ const ModalDirectivo = ({ selected, setSelected }) => {
         exit={{ scale: 0.9, y: 40 }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* BOTÓN CERRAR */}
         <button
           onClick={() => setSelected(null)}
           type="button"
@@ -229,20 +227,20 @@ const ModalDirectivo = ({ selected, setSelected }) => {
           <X size={20} className="text-[#013055]" />
         </button>
 
-        {/* CONTENIDO */}
         <div className="flex flex-col md:flex-row h-full">
-          {/* IMAGEN */}
           <div className="md:w-1/2 bg-gray-100 flex items-center justify-center p-6">
             <img
               src={selected.imagen}
               alt={`${selected.nombre}, ${selected.cargo}`}
-              loading="lazy"
+              loading="eager"
+              fetchPriority="high"
               decoding="async"
+              width="900"
+              height="1200"
               className="max-h-full object-contain rounded-xl"
             />
           </div>
 
-          {/* INFO */}
           <div className="md:w-1/2 p-8 overflow-y-auto">
             <div className="mb-6">
               <h3
@@ -264,8 +262,8 @@ const ModalDirectivo = ({ selected, setSelected }) => {
             </h4>
 
             <ul className="space-y-3 text-gray-700">
-              {selected.trayectoria.map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
+              {selected.trayectoria.map((item) => (
+                <li key={item} className="flex items-start gap-3">
                   <span className="mt-2 w-2 h-2 bg-[#ffcd00] rounded-full" />
                   <span>{item}</span>
                 </li>
@@ -276,6 +274,6 @@ const ModalDirectivo = ({ selected, setSelected }) => {
       </motion.div>
     </motion.div>
   );
-};
+});
 
 export default Directivos;

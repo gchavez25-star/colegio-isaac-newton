@@ -83,8 +83,7 @@ const campusData = {
         {
           titulo: "Auditorio institucional",
           imagen: "/Campus/Cajamarca/Auditorio 1.jpg",
-        }
-        
+        },
       ],
     },
   },
@@ -108,7 +107,7 @@ const mapaExterno = LOCATIONS.cajamarca.mapUrl;
 const CTAButtons = () => (
   <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
     <a
-      href="https://wa.me/51932274369"
+      href="https://wa.me/51953751275"
       target="_blank"
       rel="noopener noreferrer"
       className="px-8 py-4 rounded-xl bg-amarillo-dorado text-azul-oscuro

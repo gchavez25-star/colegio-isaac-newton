@@ -12,6 +12,7 @@ import {
   BadgeInfo,
   ShieldCheck,
   Landmark,
+  BookOpen,
   BookMarked,
   LibraryBig,
   BriefcaseBusiness,
@@ -21,6 +22,7 @@ import LogoNewton from "./ui/LogoNewton";
 import TopBar from "./ui/TopBar";
 
 const HEADER_BLUE = "#013055";
+const RICHMOND_STUDIO_URL = "https://richmondstudio.global/login";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -226,7 +228,7 @@ const Header = () => {
               <LogoNewton />
             </div>
 
-            <div className="hidden lg:flex items-center gap-7 xl:gap-9 flex-none">
+            <div className="hidden lg:flex items-center gap-5 xl:gap-7 flex-none">
               {menuItems.map((item, i) => (
                 <div
                   key={i}
@@ -323,6 +325,18 @@ const Header = () => {
                 style={{ backgroundColor: "#007a75" }}
               >
                 <ExternalLink size={15} /> SIEWEB
+              </a>
+
+              <a
+                href={RICHMOND_STUDIO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir Richmond Studio, plataforma de libros de ingles"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-black transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-md flex-none border border-white/80"
+                style={{ backgroundColor: "#ffffff", color: HEADER_BLUE }}
+              >
+                <BookOpen size={16} />
+                Richmond
               </a>
 
               <Link
@@ -439,6 +453,17 @@ const Header = () => {
                       style={{ backgroundColor: "#007a75" }}
                     >
                       <ExternalLink size={17} /> SIEWEB
+                    </a>
+
+                    <a
+                      href={RICHMOND_STUDIO_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 font-black py-3.5 rounded-xl transition-all duration-300 text-[15px] shadow-lg active:scale-98 flex-none border border-white/80"
+                      style={{ backgroundColor: "#ffffff", color: HEADER_BLUE }}
+                    >
+                      <BookOpen size={18} />
+                      Richmond Studio
                     </a>
 
                     <Link

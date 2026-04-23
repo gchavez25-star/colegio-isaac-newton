@@ -1,12 +1,19 @@
-﻿import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Calendar, CheckCircle, ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
-import SEO from '@/components/SEO';
-import { LOCATIONS } from '@/constants/locations';
+﻿import { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Calendar,
+  CheckCircle,
+  ArrowRight,
+  Phone,
+  Mail,
+  MapPin,
+} from "lucide-react";
+import SEO from "@/components/SEO";
+import { LOCATIONS } from "@/constants/locations";
 
 // Datos de ejemplo para el formulario
-const niveles = ['Primaria', 'Secundaria'];
-const sedes = ['Cajamarca', 'Los Baños del Inca'];
+const niveles = ["Primaria", "Secundaria"];
+const sedes = ["Cajamarca", "Los Baños del Inca"];
 
 const VisitaGuiada = () => {
   const MotionDiv = motion.div;
@@ -15,110 +22,108 @@ const VisitaGuiada = () => {
   const MotionButton = motion.button;
 
   const [formData, setFormData] = useState({
-    nombre: '',
-    correo: '',
-    telefono: '',
-    nivel: '',
-    sede: '',
-    comentarios: '',
+    nombre: "",
+    correo: "",
+    telefono: "",
+    nivel: "",
+    sede: "",
+    comentarios: "",
   });
-  
+
   const [enviado, setEnviado] = useState(false);
   const [cargando, setCargando] = useState(false);
 
+  const contactosPorSede = {
+    Cajamarca: {
+      telefono: "953751275",
+      telefonoTexto: "953 751 275",
+      whatsapp: "51953751275",
+      correo: "secretaria.cajamarca@inewton.edu.pe",
+      direccion: LOCATIONS.cajamarca.address,
+      maps: LOCATIONS.cajamarca.mapUrl,
+    },
+    "Los Baños del Inca": {
+      telefono: "920438721",
+      telefonoTexto: "920 438 721",
+      whatsapp: "51920438721",
+      correo: "secretariabi@inewton.edu.pe",
+      direccion: LOCATIONS.banos.address,
+      maps: LOCATIONS.banos.mapUrl,
+    },
+  };
+  const [errores, setErrores] = useState({});
 
-const contactosPorSede = {
-  Cajamarca: {
-    telefono: '932274369',
-    telefonoTexto: '932 274 369',
-    whatsapp: '51932274369',
-    correo: 'newtoncajamarca@inewton.edu.pe',
-    direccion: LOCATIONS.cajamarca.address,
-    maps: LOCATIONS.cajamarca.mapUrl,
-  },
-  'Los Baños del Inca': {
-    telefono: '920438721',
-    telefonoTexto: '920 438 721',
-    whatsapp: '51920438721',
-    correo: 'secretariabi@inewton.edu.pe',
-    direccion: LOCATIONS.banos.address,
-    maps: LOCATIONS.banos.mapUrl,
-  },
-};
-const [errores, setErrores] = useState({});
+  const validarFormulario = () => {
+    let valido = true;
 
-const validarFormulario = () => {
-  let valido = true;
+    Object.entries(formData).forEach(([name, value]) => {
+      if (name === "comentarios") return;
 
-  Object.entries(formData).forEach(([name, value]) => {
-    if (name === 'comentarios') return;
+      let error = "";
 
-    let error = '';
+      if (!value.trim()) {
+        error = "Este campo es obligatorio";
+      } else {
+        if (name === "correo" && !/^\S+@\S+\.\S+$/.test(value)) {
+          error = "Correo electrónico no válido";
+        }
+        if (name === "telefono" && value.replace(/\D/g, "").length < 9) {
+          error = "Número de celular inválido";
+        }
+      }
+
+      if (error) valido = false;
+
+      setErrores((prev) => ({ ...prev, [name]: error }));
+    });
+
+    return valido;
+  };
+
+  const validarCampo = (name, value) => {
+    let error = "";
 
     if (!value.trim()) {
-      error = 'Este campo es obligatorio';
+      error = "Este campo es obligatorio";
     } else {
-      if (name === 'correo' && !/^\S+@\S+\.\S+$/.test(value)) {
-        error = 'Correo electrónico no válido';
+      if (name === "correo" && !/^\S+@\S+\.\S+$/.test(value)) {
+        error = "Correo electrónico no válido";
       }
-      if (name === 'telefono' && value.replace(/\D/g, '').length < 9) {
-        error = 'Número de celular inválido';
+      if (name === "telefono" && value.replace(/\D/g, "").length < 9) {
+        error = "Número de celular inválido";
       }
     }
 
-    if (error) valido = false;
+    setErrores((prev) => ({ ...prev, [name]: error }));
+  };
 
-    setErrores(prev => ({ ...prev, [name]: error }));
-  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
-  return valido;
-};
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    validarCampo(name, value);
+  };
 
+  const contactoActual = contactosPorSede[formData.sede];
 
-const validarCampo = (name, value) => {
-  let error = '';
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  if (!value.trim()) {
-    error = 'Este campo es obligatorio';
-  } else {
-    if (name === 'correo' && !/^\S+@\S+\.\S+$/.test(value)) {
-      error = 'Correo electrónico no válido';
-    }
-    if (name === 'telefono' && value.replace(/\D/g, '').length < 9) {
-      error = 'Número de celular inválido';
-    }
-  }
+    if (!validarFormulario()) return;
 
-  setErrores(prev => ({ ...prev, [name]: error }));
-};
+    setCargando(true);
+    setEnviado(false);
 
-const handleChange = (e) => {
-  const { name, value } = e.target;
+    console.log("Datos del formulario:", formData);
 
-  setFormData(prev => ({ ...prev, [name]: value }));
-  validarCampo(name, value);
-};
+    setTimeout(() => {
+      setCargando(false);
+      setEnviado(true);
 
-const contactoActual = contactosPorSede[formData.sede];
-
-const handleSubmit = (e) => {
-  e.preventDefault();
-
-  if (!validarFormulario()) return;
-
-  setCargando(true);
-  setEnviado(false);
-
-  console.log('Datos del formulario:', formData);
-
-  setTimeout(() => {
-    setCargando(false);
-    setEnviado(true);
-
-    // WhatsApp automático por sede (opcional activar)
-    const contacto = contactosPorSede[formData.sede];
-    if (contacto?.whatsapp) {
-      const mensaje = `
+      // WhatsApp automático por sede (opcional activar)
+      const contacto = contactosPorSede[formData.sede];
+      if (contacto?.whatsapp) {
+        const mensaje = `
 Hola, deseo información sobre Visita Guiada.
 
 Apoderado: ${formData.nombre}
@@ -126,14 +131,13 @@ Teléfono: ${formData.telefono}
 Nivel: ${formData.nivel}
 Sede: ${formData.sede}
       `;
-      window.open(
-        `https://wa.me/${contacto.whatsapp}?text=${encodeURIComponent(mensaje)}`,
-        '_blank'
-      );
-    }
-
-  }, 1500);
-};
+        window.open(
+          `https://wa.me/${contacto.whatsapp}?text=${encodeURIComponent(mensaje)}`,
+          "_blank",
+        );
+      }
+    }, 1500);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -143,7 +147,7 @@ Sede: ${formData.sede}
         canonicalPath="/agenda-visita"
         image="/Admision/Admision.optimized.webp"
       />
-      
+
       {/* HERO SECTION */}
       <section
         className="relative overflow-hidden bg-cover bg-center"
@@ -189,9 +193,9 @@ Sede: ${formData.sede}
                 transition={{ delay: 0.25, duration: 0.8 }}
                 className="mt-5 max-w-3xl text-lg leading-relaxed text-white/90 md:text-2xl"
               >
-                Recorre nuestros espacios, conoce el ambiente que acompaña a cada
-                estudiante y descubre por qué Isaac Newton ofrece una experiencia
-                educativa cercana, sólida y con visión de futuro.
+                Recorre nuestros espacios, conoce el ambiente que acompaña a
+                cada estudiante y descubre por qué Isaac Newton ofrece una
+                experiencia educativa cercana, sólida y con visión de futuro.
               </MotionP>
 
               <MotionDiv
@@ -259,10 +263,8 @@ Sede: ${formData.sede}
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-3 gap-12">
-            
             {/* COLUMNA DE CONTENIDO (2/3) */}
             <div className="lg:col-span-2 space-y-12">
-              
               {/* PASOS PARA LA VISITA */}
               <MotionDiv
                 initial={{ opacity: 0, x: -20 }}
@@ -276,24 +278,46 @@ Sede: ${formData.sede}
                 </h2>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 bg-verde-azulado text-white rounded-full flex items-center justify-center font-bold text-xl">1</div>
+                    <div className="flex-shrink-0 w-10 h-10 bg-verde-azulado text-white rounded-full flex items-center justify-center font-bold text-xl">
+                      1
+                    </div>
                     <div>
-                      <h3 className="font text-xl text-azul-oscuro">Completa el Formulario</h3>
-                      <p className="text-gray-600">Ingresa tus datos de contacto y el nivel educativo de tu interés en el formulario de la derecha.</p>
+                      <h3 className="font text-xl text-azul-oscuro">
+                        Completa el Formulario
+                      </h3>
+                      <p className="text-gray-600">
+                        Ingresa tus datos de contacto y el nivel educativo de tu
+                        interés en el formulario de la derecha.
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 bg-verde-azulado text-white rounded-full flex items-center justify-center font-bold text-xl">2</div>
+                    <div className="flex-shrink-0 w-10 h-10 bg-verde-azulado text-white rounded-full flex items-center justify-center font-bold text-xl">
+                      2
+                    </div>
                     <div>
-                      <h3 className="font text-xl text-azul-oscuro">Confirmación</h3>
-                      <p className="text-gray-600">Nuestro equipo de admisiones se comunicará contigo en un plazo de 24 horas para confirmar la fecha y hora de tu visita.</p>
+                      <h3 className="font text-xl text-azul-oscuro">
+                        Confirmación
+                      </h3>
+                      <p className="text-gray-600">
+                        Nuestro equipo de admisiones se comunicará contigo en un
+                        plazo de 24 horas para confirmar la fecha y hora de tu
+                        visita.
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 bg-verde-azulado text-white rounded-full flex items-center justify-center font-bold text-xl">3</div>
+                    <div className="flex-shrink-0 w-10 h-10 bg-verde-azulado text-white rounded-full flex items-center justify-center font-bold text-xl">
+                      3
+                    </div>
                     <div>
-                      <h3 className="font text-xl text-azul-oscuro">¡Te Esperamos!</h3>
-                      <p className="text-gray-600">Disfruta de un recorrido personalizado por nuestras instalaciones y resuelve todas tus dudas.</p>
+                      <h3 className="font text-xl text-azul-oscuro">
+                        ¡Te Esperamos!
+                      </h3>
+                      <p className="text-gray-600">
+                        Disfruta de un recorrido personalizado por nuestras
+                        instalaciones y resuelve todas tus dudas.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -314,7 +338,10 @@ Sede: ${formData.sede}
                 <ul className="grid md:grid-cols-2 gap-6 text-gray-700">
                   <li className="flex items-start gap-3">
                     <CheckCircle className="flex-shrink-0 w-6 h-6 text-verde-azulado mt-1" />
-                    <p>Conocerás nuestras Aulas Interactivas y laboratorios especializados.</p>
+                    <p>
+                      Conocerás nuestras Aulas Interactivas y laboratorios
+                      especializados.
+                    </p>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="flex-shrink-0 w-6 h-6 text-verde-azulado mt-1" />
@@ -322,11 +349,17 @@ Sede: ${formData.sede}
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="flex-shrink-0 w-6 h-6 text-verde-azulado mt-1" />
-                    <p>Conversarás con nuestros directivos y docentes sobre nuestro modelo educativo.</p>
+                    <p>
+                      Conversarás con nuestros directivos y docentes sobre
+                      nuestro modelo educativo.
+                    </p>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="flex-shrink-0 w-6 h-6 text-verde-azulado mt-1" />
-                    <p>Obtendrás información detallada sobre el proceso de admisión.</p>
+                    <p>
+                      Obtendrás información detallada sobre el proceso de
+                      admisión.
+                    </p>
                   </li>
                 </ul>
               </MotionDiv>
@@ -351,16 +384,15 @@ Sede: ${formData.sede}
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
-
-                {/* Nombre */}
-                <div>
-                  <input
-                    type="text"
-                    name="nombre"
-                    placeholder="Nombre y Apellido del Apoderado"
-                    value={formData.nombre}
-                    onChange={handleChange}
-                    className={`w-full p-3 rounded-lg border transition  
+                  {/* Nombre */}
+                  <div>
+                    <input
+                      type="text"
+                      name="nombre"
+                      placeholder="Nombre y Apellido del Apoderado"
+                      value={formData.nombre}
+                      onChange={handleChange}
+                      className={`w-full p-3 rounded-lg border transition  
                     bg-white
                     text-[#013055]
                     placeholder:text-[#013055]
@@ -368,23 +400,25 @@ Sede: ${formData.sede}
                     focus:text-[#013055]
                     focus:outline-none
                     focus:ring-0
-                      ${errores.nombre ? 'border-red-500' : 'border-gray-300  bg-white'}
+                      ${errores.nombre ? "border-red-500" : "border-gray-300  bg-white"}
                     `}
-                  />
-                  {errores.nombre && (
-                    <p className="text-red-400 text-xs mt-1">{errores.nombre}</p>
-                  )}
-                </div>
+                    />
+                    {errores.nombre && (
+                      <p className="text-red-400 text-xs mt-1">
+                        {errores.nombre}
+                      </p>
+                    )}
+                  </div>
 
-                {/* Correo */}
-                <div>
-                  <input
-                    type="email"
-                    name="correo"
-                    placeholder="Correo Electrónico"
-                    value={formData.correo}
-                    onChange={handleChange}
-                    className={`w-full p-3 rounded-lg border transition
+                  {/* Correo */}
+                  <div>
+                    <input
+                      type="email"
+                      name="correo"
+                      placeholder="Correo Electrónico"
+                      value={formData.correo}
+                      onChange={handleChange}
+                      className={`w-full p-3 rounded-lg border transition
                        bg-white
                     text-[#013055]
                     placeholder:text-[#013055]
@@ -392,23 +426,25 @@ Sede: ${formData.sede}
                     focus:text-[#013055]
                     focus:outline-none
                     focus:ring-0
-                      ${errores.correo ? 'border-red-500' : 'border-gray-300 bg-white'}
+                      ${errores.correo ? "border-red-500" : "border-gray-300 bg-white"}
                     `}
-                  />
-                  {errores.correo && (
-                    <p className="text-red-400 text-xs mt-1">{errores.correo}</p>
-                  )}
-                </div>
+                    />
+                    {errores.correo && (
+                      <p className="text-red-400 text-xs mt-1">
+                        {errores.correo}
+                      </p>
+                    )}
+                  </div>
 
-                {/* Teléfono */}
-                <div>
-                  <input
-                    type="tel"
-                    name="telefono"
-                    placeholder="Teléfono Celular"
-                    value={formData.telefono}
-                    onChange={handleChange}
-                    className={`w-full p-3 rounded-lg border transition
+                  {/* Teléfono */}
+                  <div>
+                    <input
+                      type="tel"
+                      name="telefono"
+                      placeholder="Teléfono Celular"
+                      value={formData.telefono}
+                      onChange={handleChange}
+                      className={`w-full p-3 rounded-lg border transition
                           bg-white
                     text-[#013055]
                     placeholder:text-[#013055]
@@ -416,21 +452,23 @@ Sede: ${formData.sede}
                     focus:text-[#013055]
                     focus:outline-none
                     focus:ring-0
-                      ${errores.telefono ? 'border-red-500' : 'border-gray-300  bg-white'}
+                      ${errores.telefono ? "border-red-500" : "border-gray-300  bg-white"}
                     `}
-                  />
-                  {errores.telefono && (
-                    <p className="text-red-400 text-xs mt-1">{errores.telefono}</p>
-                  )}
-                </div>
+                    />
+                    {errores.telefono && (
+                      <p className="text-red-400 text-xs mt-1">
+                        {errores.telefono}
+                      </p>
+                    )}
+                  </div>
 
-                {/* Nivel */}
-                <div>
-                  <select
-                    name="nivel"
-                    value={formData.nivel}
-                    onChange={handleChange}
-                    className={`w-full p-3 rounded-lg border
+                  {/* Nivel */}
+                  <div>
+                    <select
+                      name="nivel"
+                      value={formData.nivel}
+                      onChange={handleChange}
+                      className={`w-full p-3 rounded-lg border
                           bg-white
                     text-[#013055]
                     placeholder:text-[#013055]
@@ -438,26 +476,30 @@ Sede: ${formData.sede}
                     focus:text-[#013055]
                     focus:outline-none
                     focus:ring-0
-                      ${errores.nivel ? 'border-red-500' : 'border-gray-300  bg-white'}
+                      ${errores.nivel ? "border-red-500" : "border-gray-300  bg-white"}
                     `}
-                  >
-                    <option value="">Nivel de Interés</option>
-                    {niveles.map(n => (
-                      <option key={n} value={n}>{n}</option>
-                    ))}
-                  </select>
-                  {errores.nivel && (
-                    <p className="text-red-400 text-xs mt-1">{errores.nivel}</p>
-                  )}
-                </div>
+                    >
+                      <option value="">Nivel de Interés</option>
+                      {niveles.map((n) => (
+                        <option key={n} value={n}>
+                          {n}
+                        </option>
+                      ))}
+                    </select>
+                    {errores.nivel && (
+                      <p className="text-red-400 text-xs mt-1">
+                        {errores.nivel}
+                      </p>
+                    )}
+                  </div>
 
-                {/* Sede */}
-                <div>
-                  <select
-                    name="sede"
-                    value={formData.sede}
-                    onChange={handleChange}
-                    className={`w-full p-3 rounded-lg border
+                  {/* Sede */}
+                  <div>
+                    <select
+                      name="sede"
+                      value={formData.sede}
+                      onChange={handleChange}
+                      className={`w-full p-3 rounded-lg border
                           bg-white
                     text-[#013055]
                     placeholder:text-[#013055]
@@ -465,62 +507,72 @@ Sede: ${formData.sede}
                     focus:text-[#013055]
                     focus:outline-none
                     focus:ring-0
-                      ${errores.sede ? 'border-red-500' : 'border-gray-300  bg-white'}
+                      ${errores.sede ? "border-red-500" : "border-gray-300  bg-white"}
                     `}
-                  >
-                    <option value="">Sede de Interés</option>
-                    {sedes.map(s => (
-                      <option key={s} value={s}>{s}</option>
-                    ))}
-                  </select>
-                  {errores.sede && (
-                    <p className="text-red-400 text-xs mt-1">{errores.sede}</p>
-                  )}
-                </div>
+                    >
+                      <option value="">Sede de Interés</option>
+                      {sedes.map((s) => (
+                        <option key={s} value={s}>
+                          {s}
+                        </option>
+                      ))}
+                    </select>
+                    {errores.sede && (
+                      <p className="text-red-400 text-xs mt-1">
+                        {errores.sede}
+                      </p>
+                    )}
+                  </div>
 
-                {/* Comentarios */}
-                <textarea
-                  name="comentarios"
-                  placeholder="Comentarios (Opcional)"
-                  value={formData.comentarios}
-                  onChange={handleChange}
-                  rows={3}
-                  className="w-full p-3 rounded-lg border border-gray-300      bg-white
+                  {/* Comentarios */}
+                  <textarea
+                    name="comentarios"
+                    placeholder="Comentarios (Opcional)"
+                    value={formData.comentarios}
+                    onChange={handleChange}
+                    rows={3}
+                    className="w-full p-3 rounded-lg border border-gray-300      bg-white
                     text-[#013055]
                     placeholder:text-[#013055]
                     focus:bg-white
                     focus:text-[#013055]
                     focus:outline-none
                     focus:ring-0"
-                />
+                  />
 
-                {/* Botón */}
-                <MotionButton
-                  type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.97 }}
-                  disabled={cargando || enviado}
-                  className={`
+                  {/* Botón */}
+                  <MotionButton
+                    type="submit"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.97 }}
+                    disabled={cargando || enviado}
+                    className={`
                     w-full py-3 rounded-lg font-bold text-lg flex items-center justify-center gap-2
-                    ${enviado
-                      ? 'bg-green-500 text-white'
-                      : cargando
-                        ? 'bg-verde-azulado/70 text-white'
-                        : 'bg-verde-azulado text-white hover:bg-verde-azulado/90'}
+                    ${
+                      enviado
+                        ? "bg-green-500 text-white"
+                        : cargando
+                          ? "bg-verde-azulado/70 text-white"
+                          : "bg-verde-azulado text-white hover:bg-verde-azulado/90"
+                    }
                   `}
-                >
-                  {enviado ? '¡Agendado!' : cargando ? 'Enviando...' : ' Enviar mensaje'}
-                  {!cargando && !enviado && <ArrowRight className="w-5 h-5" />}
-                </MotionButton>
+                  >
+                    {enviado
+                      ? "¡Agendado!"
+                      : cargando
+                        ? "Enviando..."
+                        : " Enviar mensaje"}
+                    {!cargando && !enviado && (
+                      <ArrowRight className="w-5 h-5" />
+                    )}
+                  </MotionButton>
+                </form>
 
-              </form>
-
-                
                 {/* Información de contacto alternativa */}
 
                 <div className="mt-6 pt-4 border-t border-white/20">
                   <MotionDiv
-                    key={formData.sede || 'sin-sede'}
+                    key={formData.sede || "sin-sede"}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.35 }}
@@ -556,7 +608,6 @@ Sede: ${formData.sede}
 
                         {/* Botones de acción */}
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3">
-                          
                           {/* Llamar */}
                           <a
                             href={`tel:${contactoActual.telefono}`}
@@ -572,7 +623,7 @@ Sede: ${formData.sede}
                             rel="noopener noreferrer"
                             className="bg-green-600 hover:bg-green-700 transition rounded-lg py-2 text-center font text-white"
                           >
-                           WhatsApp
+                            WhatsApp
                           </a>
 
                           {/* Google Maps */}
@@ -584,7 +635,6 @@ Sede: ${formData.sede}
                           >
                             Google Maps
                           </a>
-
                         </div>
                       </>
                     )}
@@ -614,11 +664,8 @@ Sede: ${formData.sede}
           </a>
         </div>
       </section>
-
     </div>
   );
 };
 
 export default VisitaGuiada;
-
-
