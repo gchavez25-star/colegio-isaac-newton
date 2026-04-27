@@ -39,38 +39,36 @@ export default function FloatingSocialButtons() {
 
       {/* ================= CAMPUS SELECTOR ================= */}
       {open && (
+        <div
+          className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center animate-[headerFade_180ms_ease-out]"
+          onClick={() => setOpen(false)}
+        >
           <div
-            className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center animate-[headerFade_180ms_ease-out]"
-            onClick={() => setOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="whatsapp-campus-title"
+            className="bg-white rounded-2xl p-6 w-80 shadow-2xl animate-[headerDropdown_220ms_ease-out]"
+            onClick={(e) => e.stopPropagation()}
           >
-            <div
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="whatsapp-campus-title"
-              className="bg-white rounded-2xl p-6 w-80 shadow-2xl animate-[headerDropdown_220ms_ease-out]"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <h3 className="text-lg font-semibold text-center mb-4 text-[#013055]">
-                <span id="whatsapp-campus-title">
-                Elige un campus
-                </span>
-              </h3>
+            <h3 className="text-lg font-semibold text-center mb-4 text-[#013055]">
+              <span id="whatsapp-campus-title">Elige un campus</span>
+            </h3>
 
-              <div className="space-y-3">
-                {Object.values(campuses).map((campus) => (
-                  <button
-                    key={campus.phone}
-                    onClick={() => openWhatsApp(campus.phone)}
-                    type="button"
-                    className="w-full py-3 rounded-xl bg-green-500 text-white hover:bg-green-600 transition font-medium"
-                  >
-                    {campus.label}
-                  </button>
-                ))}
-              </div>
+            <div className="space-y-3">
+              {Object.values(campuses).map((campus) => (
+                <button
+                  key={campus.phone}
+                  onClick={() => openWhatsApp(campus.phone)}
+                  type="button"
+                  className="w-full py-3 rounded-xl bg-green-500 text-white hover:bg-green-600 transition font-medium"
+                >
+                  {campus.label}
+                </button>
+              ))}
             </div>
           </div>
-        )}
+        </div>
+      )}
 
       {/* ================= SOCIAL NETWORKS ================= */}
       <div className="fixed bottom-6 left-6 z-50 flex flex-col gap-3">

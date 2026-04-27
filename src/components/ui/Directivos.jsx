@@ -14,7 +14,7 @@ const DIRECTIVOS = [
     email: "dnoriega@inewton.edu.pe",
     linkedin: "#",
     trayectoria: [
-      "20 a\u00f1os liderando instituciones educativas",
+      "5 a\u00f1os liderando instituciones",
       "Especialista en innovaci\u00f3n educativa",
       "Formaci\u00f3n ejecutiva internacional",
     ],
@@ -79,7 +79,7 @@ const Directivos = () => {
           </h1>
           <div className="w-20 h-[2px] bg-[#ffcd00] mx-auto mb-4" />
           <p className="text-gray-600 max-w-xl mx-auto">
-            Liderazgo estrat\u00e9gico orientado a la excelencia academica y
+            Liderazgo estratégico orientado a la excelencia academica y
             formación integral.
           </p>
         </div>
