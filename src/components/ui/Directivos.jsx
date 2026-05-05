@@ -8,15 +8,18 @@ const DIRECTIVOS = [
     id: 1,
     nombre: "Deysi Aidee Noriega Alfaro",
     cargo: "Gerente General",
-    profesion: "Mag\u00edster en Administraci\u00f3n y Gerencia Empresarial",
+    profesion:
+      "Mag\u00edster en Ciencias, con mención en Direccíon de Proyectos",
     imagen:
       "/Comunidad/Directivos/NORIEGA ALFARO DEYSI AIDE\u00c9.optimized.jpg",
     email: "dnoriega@inewton.edu.pe",
     linkedin: "#",
     trayectoria: [
-      "5 a\u00f1os liderando instituciones",
-      "Especialista en innovaci\u00f3n educativa",
-      "Formaci\u00f3n ejecutiva internacional",
+      "+ 13 a\u00f1os de Experiencia Laboral",
+      "Ingeniero de Sistemas, con mención en Negocios y Tecnologías de la Información",
+      "Colegiado CIP 167515",
+      "Diploma en Gestión de Proyectos, Marketing Estratégico, Relaciones Públicas y Comunicacón Corporativa",
+      "Diploma en Recursos Humanos",
     ],
   },
   {

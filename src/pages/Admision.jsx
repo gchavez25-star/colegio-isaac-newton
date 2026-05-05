@@ -184,8 +184,8 @@ const Admision = () => {
   return (
     <div className="min-h-screen ">
       <SEO
-        title="Admisión | Colegio Isaac Newton"
-        description="Inicia tu proceso de admisión en el Colegio Isaac Newton. Revisa etapas, requisitos, becas, fechas importantes y agenda una visita guiada."
+        title="Admisión 2026 | Colegio Isaac Newton Cajamarca"
+        description="Postula al Colegio Isaac Newton en Cajamarca y Los Baños del Inca. Revisa requisitos, fechas, beneficios y agenda una visita guiada."
         canonicalPath="/admision"
         image="/Admision/Admision.optimized.webp"
       />

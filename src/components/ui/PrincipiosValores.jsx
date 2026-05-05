@@ -14,48 +14,64 @@ const PrincipiosValores = () => {
     {
       id: 1,
       titulo: "Responsabilidad",
-      imagen: "/Nosotros/Principios/Responsabilidad.optimized.webp",
-      link: "/nosotros#valores"
+      imagen: "/Nosotros/Principios/Responsabilidad.jpg.jpeg",
+      imagenOptimizada:
+        "/optimized/Nosotros/Principios/Responsabilidad.optimized.jpg",
+      link: "/nosotros#valores",
+      posicion: "object-center",
     },
     {
       id: 2,
       titulo: "Integridad",
-      imagen: "/Nosotros/Principios/Integridad.optimized.webp",
-      link: "/nosotros#valores"
+      imagen: "/Nosotros/Principios/Integridad.jpg.jpeg",
+      imagenOptimizada: "/optimized/Nosotros/Principios/Integridad.optimized.jpg",
+      link: "/nosotros#valores",
+      posicion: "object-center",
     },
     {
       id: 3,
       titulo: "Puntualidad",
-      imagen: "/Nosotros/Principios/Puntualidad.optimized.webp",
-      link: "/nosotros#valores"
-    }
+      imagen: "/Nosotros/Principios/Puntualidad.jpg.jpeg",
+      imagenOptimizada: "/optimized/Nosotros/Principios/Puntualidad.optimized.jpg",
+      link: "/nosotros#valores",
+      posicion: "object-center",
+    },
   ];
 
   const valoresDerecha = [
     {
       id: 4,
       titulo: "Solidaridad",
-      imagen: "/Nosotros/Principios/Solidaridad.optimized.webp",
-      link: "/nosotros#valores"
+      imagen: "/Nosotros/Principios/solidaridad.jpg.jpeg",
+      imagenOptimizada: "/optimized/Nosotros/Principios/solidaridad.optimized.jpg",
+      link: "/nosotros#valores",
+      posicion: "object-center",
     },
     {
       id: 5,
       titulo: "Respeto",
-      imagen: "/Nosotros/Principios/Respeto.optimized.webp",
-      link: "/nosotros#valores"
+      imagen: "/Nosotros/Principios/Respeto.jpg.jpeg",
+      imagenOptimizada: "/optimized/Nosotros/Principios/Respeto.optimized.jpg",
+      link: "/nosotros#valores",
+      posicion: "object-center",
     },
     {
       id: 6,
       titulo: "Perseverancia",
-      imagen: "/Nosotros/Principios/Perseverancia.optimized.webp",
-      link: "/nosotros#valores"
-    }
+      imagen: "/Nosotros/Principios/Perseverancia.png",
+      imagenOptimizada:
+        "/optimized/Nosotros/Principios/Perseverancia.optimized.jpg",
+      link: "/nosotros#valores",
+      posicion: "object-center",
+    },
   ];
 
   return (
-    <section ref={sectionRef} className="py-32 bg-[#013055] relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="py-32 bg-[#013055] relative overflow-hidden"
+    >
       <div className="container mx-auto px-4">
-
         {/* Título */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -69,10 +85,8 @@ const PrincipiosValores = () => {
         </motion.div>
 
         <div className="max-w-7xl mx-auto">
-
           {/* DESKTOP */}
           <div className="hidden lg:grid lg:grid-cols-12 lg:gap-8 items-start">
-
             {/* COLUMNA IZQUIERDA */}
             <div className="col-span-5 space-y-8">
               {valoresIzquierda.map((valor, index) => (
@@ -91,7 +105,6 @@ const PrincipiosValores = () => {
             {/* COLUMNA CENTRAL: ESCUDO PARALLAX + STICKY */}
             <div className="col-span-2 pt-32">
               <div className="sticky top-32">
-
                 {/* Movimiento parallax */}
                 <motion.div style={{ y: yEscudo }}>
                   <div className="text-center">
@@ -104,7 +117,6 @@ const PrincipiosValores = () => {
                     </div>
                   </div>
                 </motion.div>
-
               </div>
             </div>
 
@@ -122,14 +134,15 @@ const PrincipiosValores = () => {
                 </motion.div>
               ))}
             </div>
-
           </div>
 
           {/* MÓVIL / TABLET */}
           <div className="lg:hidden">
-
             {/* Escudo con parallax */}
-            <motion.div style={{ y: yEscudo }} className="flex justify-center mb-12">
+            <motion.div
+              style={{ y: yEscudo }}
+              className="flex justify-center mb-12"
+            >
               <div className="w-32 h-32 opacity-25">
                 <img
                   src="/Escudo líneas.png"
@@ -152,9 +165,7 @@ const PrincipiosValores = () => {
                 </motion.div>
               ))}
             </div>
-
           </div>
-
         </div>
       </div>
     </section>
@@ -165,19 +176,31 @@ const TarjetaValor = ({ valor }) => {
   return (
     <Link to={valor.link} className="group block">
       <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-
         {/* Imagen */}
-        <div className="relative aspect-[4/3] overflow-hidden rounded-4xl bg-gray-200">
+        <div className="relative aspect-[3/2] overflow-hidden bg-white">
           <img
-            src={valor.imagen}
+            src={valor.imagenOptimizada || valor.imagen}
             alt={valor.titulo}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            width="900"
+            height="600"
+            loading="lazy"
+            decoding="async"
+            sizes="(min-width: 1024px) 40vw, (min-width: 768px) 50vw, 100vw"
+            className={`w-full h-full object-contain ${valor.posicion} group-hover:scale-[1.02] transition-transform duration-700`}
+            onError={(event) => {
+              event.currentTarget.onerror = null;
+              event.currentTarget.src = valor.imagen;
+            }}
           />
 
           {/* Botón */}
           <div className="absolute bottom-6 right-6">
             <div className="w-14 h-14 bg-[#F5E6D3] rounded-full flex items-center justify-center shadow-lg group-hover:bg-[#fccc00] transition-all group-hover:scale-110">
-              <ArrowUpRight size={24} className="text-[#013055]" strokeWidth={2.5} />
+              <ArrowUpRight
+                size={24}
+                className="text-[#013055]"
+                strokeWidth={2.5}
+              />
             </div>
           </div>
         </div>
@@ -188,7 +211,6 @@ const TarjetaValor = ({ valor }) => {
             {valor.titulo}
           </h3>
         </div>
-
       </div>
     </Link>
   );

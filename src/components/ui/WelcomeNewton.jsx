@@ -1,4 +1,4 @@
-import StudentImg from "/optimized/Inicio/Welcome/Welcome_3-900.webp"; 
+import StudentImg from "/optimized/Inicio/Welcome/Welcome_3-900.webp";
 // Ajusta la ruta según tu proyecto
 
 export default function WelcomeNewton() {
@@ -14,9 +14,7 @@ export default function WelcomeNewton() {
         "
       >
         {/* IMAGEN IZQUIERDA */}
-        <div
-          className="md:w-1/2 w-full"
-        >
+        <div className="md:w-1/2 w-full">
           <img
             src={StudentImg}
             alt="Estudiante Isaac Newton"
@@ -27,22 +25,20 @@ export default function WelcomeNewton() {
         </div>
 
         {/* TEXTO DERECHA */}
-        <div
-          className="md:w-1/2 w-full p-8 md:p-10 flex flex-col justify-center"
-        >
+        <div className="md:w-1/2 w-full p-8 md:p-10 flex flex-col justify-center">
           {/* TÍTULO */}
-          <h2 className="entry-title text-4xl md:text-5xl font-bold leading-tight text-[#007a75] mb-4">
+          <h2 className="entry-title text-4xl md:text-5xl font-bold leading-tight text-[#013055] mb-4">
             Bienvenidos
-             </h2>
+          </h2>
 
           {/* PÁRRAFO */}
           <p className="text-left text-gray-700 text-base leading-relaxed font-montserrat md:text-lg md:text-justify">
             Somos el Colegio Privado de Ciencias “Isaac Newton” y formamos
-            estudiantes íntegros, críticos y con sólidos valores. Nuestro
-            modelo educativo combina la innovación tecnológica, metodologías
-            activas, neurociencias e idiomas con un enfoque en el desarrollo
-            sostenible para preparar a nuestros estudiantes como líderes
-            conscientes y competentes en un mundo global.
+            estudiantes íntegros, críticos y con sólidos valores. Nuestro modelo
+            educativo combina la innovación tecnológica, metodologías activas,
+            neurociencias e idiomas con un enfoque en el desarrollo sostenible
+            para preparar a nuestros estudiantes como líderes conscientes y
+            competentes en un mundo global.
           </p>
 
           {/* BOTÓN */}
@@ -63,24 +59,22 @@ export default function WelcomeNewton() {
                 shadow-md hover:shadow-xl
                 hover:scale-[1.03] active:scale-[0.98]
             "
-            >
+          >
             Conoce más de nosotros
-
             {/* Ícono flecha */}
             <svg
-                xmlns='http://www.w3.org/2000/svg'
-                viewBox='0 0 24 24'
-                fill='currentColor'
-                className='w-5 h-5'
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="w-5 h-5"
             >
-                <path
-                fillRule='evenodd'
-                d='M13.47 4.47a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1 0 1.06l-6 6a.75.75 0 1 1-1.06-1.06l4.72-4.72H3.75a.75.75 0 0 1 0-1.5h14.44l-4.72-4.72a.75.75 0 0 1 0-1.06Z'
-                clipRule='evenodd'
-                />
+              <path
+                fillRule="evenodd"
+                d="M13.47 4.47a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1 0 1.06l-6 6a.75.75 0 1 1-1.06-1.06l4.72-4.72H3.75a.75.75 0 0 1 0-1.5h14.44l-4.72-4.72a.75.75 0 0 1 0-1.06Z"
+                clipRule="evenodd"
+              />
             </svg>
-            </a>
-
+          </a>
         </div>
       </div>
     </section>

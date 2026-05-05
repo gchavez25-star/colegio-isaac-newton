@@ -4,9 +4,9 @@ import { LOCATIONS } from "@/constants/locations";
 
 const SITE_NAME = "Colegio Isaac Newton";
 const SITE_URL = import.meta.env.VITE_SITE_URL || "https://inewton.edu.pe";
-const DEFAULT_TITLE = `${SITE_NAME} | Educación de excelencia en Cajamarca`;
+const DEFAULT_TITLE = `${SITE_NAME} Cajamarca | Primaria y Secundaria`;
 const DEFAULT_DESCRIPTION =
-  "Colegio Privado de Ciencias Isaac Newton: educación de excelencia en Cajamarca y Los Baños del Inca, con formación integral en primaria y secundaria.";
+  "Colegio privado en Cajamarca y Los Baños del Inca con formación integral, ciencia, valores y acompañamiento para primaria y secundaria.";
 const DEFAULT_IMAGE = "/Logo-pagina-web.png";
 
 const getSiteOrigin = () => {

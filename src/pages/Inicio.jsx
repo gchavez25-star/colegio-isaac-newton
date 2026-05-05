@@ -16,8 +16,8 @@ const Inicio = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Colegio Isaac Newton | Educación de excelencia en Cajamarca"
-        description="Descubre el Colegio Privado de Ciencias Isaac Newton: propuesta educativa integral, campus en Cajamarca y Los Baños del Inca, admisión abierta y formación de líderes."
+        title="Colegio Isaac Newton Cajamarca | Primaria y Secundaria"
+        description="Colegio privado en Cajamarca y Los Baños del Inca con formación integral, ciencia, valores y acompañamiento para primaria y secundaria."
         canonicalPath="/"
         image="/Inicio/Hero/Alumno.jpg"
         structuredData={{
