@@ -85,7 +85,7 @@ const HeroSlider = () => {
   }, [navigate]);
 
   return (
-    <section className="heroSlider relative w-full h-screen overflow-hidden">
+    <section className="heroSlider relative w-full h-[100svh] min-h-[100svh] overflow-hidden bg-[#013055]">
       <Swiper
         modules={[Autoplay, Pagination, EffectFade]}
         effect="fade"
@@ -99,15 +99,15 @@ const HeroSlider = () => {
             "swiper-pagination-bullet-active custom-bullet-active",
         }}
         loop={true}
-        className="w-full h-full"
+        className="w-full h-[100svh]"
       >
         {slides.map((slide, index) => {
           const isPrioritySlide = index === 0;
           const TitleTag = isPrioritySlide ? "h1" : "h2";
 
           return (
-          <SwiperSlide key={slide.id}>
-            <div className="relative w-full h-full">
+            <SwiperSlide key={slide.id} className="h-[100svh]">
+            <div className="relative w-full h-[100svh]">
               <picture className="absolute inset-0">
                 <source
                   srcSet={slide.imageMobileWebp}
@@ -142,9 +142,7 @@ const HeroSlider = () => {
 
               <div className="absolute inset-0 flex items-center">
                 <div className="container mx-auto px-4">
-                  <div
-                    className="max-w-2xl animate-[headerDropdown_650ms_ease-out]"
-                  >
+                  <div className="max-w-2xl animate-[headerDropdown_650ms_ease-out] lg:translate-x-[10%] xl:translate-x-[16%]">
                     <TitleTag className="font-anton text-3xl leading-tight md:text-5xl text-white mb-5 md:mb-6 max-w-[12rem] sm:max-w-none">
                       {slide.title}
                     </TitleTag>

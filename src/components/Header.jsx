@@ -17,6 +17,7 @@ import {
   LibraryBig,
   BriefcaseBusiness,
   School2,
+  Ellipsis,
 } from "lucide-react";
 import LogoNewton from "./ui/LogoNewton";
 import TopBar from "./ui/TopBar";
@@ -54,7 +55,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth >= 1280) {
         setIsOpen(false);
         setOpenSubMenu(null);
       }
@@ -182,6 +183,32 @@ const Header = () => {
     { name: "Contacto", path: "/contacto" },
   ];
 
+  const tabletQuickLinks = [
+    {
+      name: "SIEWEB",
+      href: "https://in.sieweb.com.pe/sistema/login",
+      icon: ExternalLink,
+      backgroundColor: "#007a75",
+      textColor: "#ffffff",
+    },
+    {
+      name: "Richmond",
+      href: RICHMOND_STUDIO_URL,
+      icon: BookOpen,
+      backgroundColor: "#ffffff",
+      textColor: HEADER_BLUE,
+      borderClassName: "border border-white/80",
+      ariaLabel: "Abrir Richmond Studio, plataforma de libros de ingles",
+    },
+    {
+      name: "Admisión",
+      to: "/admision",
+      icon: GraduationCap,
+      backgroundColor: "#fccc00",
+      textColor: "#013055",
+    },
+  ];
+
   return (
     <>
       <header
@@ -191,7 +218,7 @@ const Header = () => {
         style={{ backgroundColor: HEADER_BLUE }}
       >
         <div
-          className={`hidden lg:block overflow-hidden border-0 outline-none transition-all duration-300 ease-out ${
+          className={`hidden xl:block overflow-hidden border-0 outline-none transition-all duration-300 ease-out ${
             isScrolled
               ? "max-h-0 opacity-0 pointer-events-none"
               : "max-h-20 opacity-100"
@@ -216,8 +243,8 @@ const Header = () => {
           }}
         >
           <div
-            className={`container mx-auto px-4 lg:px-6 flex items-center justify-between gap-6 flex-nowrap transition-all duration-300 ease-out ${
-              isScrolled ? "py-2.5 lg:py-3" : "py-3 lg:py-3.5"
+            className={`container mx-auto px-4 xl:px-6 flex items-center justify-between gap-4 xl:gap-6 flex-nowrap transition-all duration-300 ease-out ${
+              isScrolled ? "py-2.5 xl:py-3" : "py-3 xl:py-3.5"
             }`}
           >
             <div
@@ -228,7 +255,172 @@ const Header = () => {
               <LogoNewton />
             </div>
 
-            <div className="hidden lg:flex items-center gap-5 xl:gap-7 flex-none">
+            <div className="hidden lg:flex xl:hidden items-center gap-3 flex-1 min-w-0 justify-end">
+              <div className="flex items-center justify-end gap-4 flex-1 min-w-0">
+                {menuItems.slice(0, 4).map((item, i) =>
+                  item.sub ? (
+                    <div
+                      key={item.name}
+                      className="relative group flex-none"
+                      onMouseEnter={() => openDesktopMenu(i)}
+                      onMouseLeave={scheduleCloseDesktopMenu}
+                    >
+                      <button
+                        type="button"
+                        aria-haspopup="true"
+                        aria-expanded={hoveredMenu === i}
+                        className="text-white text-[13px] font-semibold tracking-[0.03em] flex items-center gap-1 hover:text-yellow-400 transition-colors duration-300 whitespace-nowrap"
+                      >
+                        {item.name}
+                        <ChevronDown
+                          size={14}
+                          className={`transition-transform duration-300 ${
+                            hoveredMenu === i ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+
+                      {hoveredMenu === i && (
+                        <div
+                          onMouseEnter={() => openDesktopMenu(i)}
+                          onMouseLeave={scheduleCloseDesktopMenu}
+                          className="absolute bg-white shadow-2xl rounded-2xl p-2.5 top-9 left-0 min-w-[280px] z-50 border border-gray-100 origin-top-left animate-[headerDropdown_180ms_ease-out]"
+                        >
+                          <div className="absolute -top-2 left-6 w-4 h-4 bg-white border-l border-t border-gray-100 rotate-45"></div>
+
+                          {item.sub.map((subItem, j) => {
+                            const Icon = subMenuIcons[subItem.name];
+                            return (
+                              <Link
+                                key={j}
+                                to={subItem.path}
+                                onClick={() => setHoveredMenu(null)}
+                                className="group/item flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-teal-600/5 hover:to-yellow-400/5 transition-all duration-300 border border-transparent hover:border-teal-600/20"
+                              >
+                                <div className="mt-0.5 p-2 rounded-xl bg-slate-900/5 group-hover/item:bg-teal-600/15 transition-all duration-300 shadow-sm flex-none">
+                                  {Icon && (
+                                    <Icon
+                                      size={17}
+                                      className="text-[#013055] transition-colors duration-300"
+                                    />
+                                  )}
+                                </div>
+
+                                <div className="flex-1">
+                                  <div className="text-[14px] font-bold text-[#013055] transition-colors duration-300">
+                                    {subItem.name}
+                                  </div>
+                                  {subItem.desc && (
+                                    <div className="text-[11px] text-[#013055]/70 mt-1 leading-tight">
+                                      {subItem.desc}
+                                    </div>
+                                  )}
+                                </div>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <NavLink
+                      key={item.name}
+                      to={item.path}
+                      className={({ isActive }) =>
+                        `text-white text-[13px] font-semibold tracking-[0.03em] hover:text-yellow-400 transition-colors duration-300 whitespace-nowrap ${
+                          isActive ? "text-yellow-400" : ""
+                        }`
+                      }
+                    >
+                      {item.name}
+                    </NavLink>
+                  ),
+                )}
+
+                <div
+                  className="relative group flex-none"
+                  onMouseEnter={() => openDesktopMenu(4)}
+                  onMouseLeave={scheduleCloseDesktopMenu}
+                >
+                  <button
+                    type="button"
+                    aria-haspopup="true"
+                    aria-expanded={hoveredMenu === 4}
+                    className="text-white text-[13px] font-semibold tracking-[0.03em] flex items-center gap-1 hover:text-yellow-400 transition-colors duration-300 whitespace-nowrap"
+                  >
+                    Más
+                    <Ellipsis size={14} />
+                  </button>
+
+                  {hoveredMenu === 4 && (
+                    <div
+                      onMouseEnter={() => openDesktopMenu(4)}
+                      onMouseLeave={scheduleCloseDesktopMenu}
+                      className="absolute right-0 bg-white shadow-2xl rounded-2xl p-2.5 top-9 min-w-[240px] z-50 border border-gray-100 origin-top-right animate-[headerDropdown_180ms_ease-out]"
+                    >
+                      <div className="absolute -top-2 right-6 w-4 h-4 bg-white border-l border-t border-gray-100 rotate-45"></div>
+
+                      {menuItems.slice(4).map((item) => (
+                        <Link
+                          key={item.name}
+                          to={item.path}
+                          onClick={() => setHoveredMenu(null)}
+                          className="group/item flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-teal-600/5 hover:to-yellow-400/5 transition-all duration-300 border border-transparent hover:border-teal-600/20"
+                        >
+                          <div className="text-[14px] font-bold text-[#013055] transition-colors duration-300">
+                            {item.name}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 flex-none">
+                {tabletQuickLinks.map((item) => {
+                  const Icon = item.icon;
+
+                  if (item.to) {
+                    return (
+                      <Link
+                        key={item.name}
+                        to={item.to}
+                        aria-label={item.name}
+                        className="flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg shadow-md"
+                        style={{
+                          backgroundColor: item.backgroundColor,
+                          color: item.textColor,
+                        }}
+                      >
+                        <Icon size={17} />
+                      </Link>
+                    );
+                  }
+
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={item.ariaLabel ?? item.name}
+                      className={`flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg shadow-md ${
+                        item.borderClassName ?? ""
+                      }`}
+                      style={{
+                        backgroundColor: item.backgroundColor,
+                        color: item.textColor,
+                      }}
+                    >
+                      <Icon size={17} />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="hidden xl:flex items-center gap-5 2xl:gap-7 flex-none">
               {menuItems.map((item, i) => (
                 <div
                   key={i}
@@ -356,7 +548,7 @@ const Header = () => {
                 isOpen ? "Cerrar menú principal" : "Abrir menú principal"
               }
               aria-expanded={isOpen}
-              className="lg:hidden text-white flex-none p-2 hover:bg-white/10 rounded-xl transition-all duration-300 active:scale-95"
+              className="xl:hidden text-white flex-none p-2 hover:bg-white/10 rounded-xl transition-all duration-300 active:scale-95"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -366,14 +558,14 @@ const Header = () => {
         {isOpen && (
             <>
               <div
-                className={`lg:hidden fixed inset-0 ${
+                className={`xl:hidden fixed inset-0 ${
                   isScrolled ? "top-[60px]" : "top-[64px]"
                 } bg-black/45 animate-[headerFade_180ms_ease-out]`}
                 onClick={closeMobileMenu}
               />
 
               <div
-                className="lg:hidden relative border-t shadow-2xl flex-none animate-[headerDropdown_220ms_ease-out]"
+                className="xl:hidden relative border-t shadow-2xl flex-none animate-[headerDropdown_220ms_ease-out]"
                 style={{
                   background: `linear-gradient(to bottom, ${HEADER_BLUE}, ${HEADER_BLUE})`,
                   borderColor: "rgba(250, 204, 21, 0.2)",
@@ -484,7 +676,7 @@ const Header = () => {
 
       <div
         aria-hidden="true"
-        className={isScrolled ? "h-[60px] lg:h-[72px]" : "h-[64px] lg:h-[112px]"}
+        className={isScrolled ? "h-[60px] xl:h-[72px]" : "h-[64px] xl:h-[112px]"}
       />
     </>
   );
